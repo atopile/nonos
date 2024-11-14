@@ -247,7 +247,7 @@
 		(layer "Edge.Cuts")
 		(uuid "e1f36007-0f9d-4dc5-ae43-6b056652526f")
 	)
-	(gr_text "{{"{{GITHASH}}"}}"
+	(gr_text "{{GITHASH}}"
 		(at 140.240427 116.111573 0)
 		(layer "F.SilkS")
 		(uuid "d894e23f-c5ed-4336-947e-ac38e533f04c")

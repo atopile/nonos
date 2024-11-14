@@ -1,2 +1,4 @@
-module Nonos:
-    signal gnd
+module NONOS:
+    """
+    Open-source smart speaker
+    """

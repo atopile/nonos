@@ -2,5 +2,10 @@ ato-version: ^0.2.0
 builds:
   default:
     entry: elec/src/nonos.ato:Nonos
+  imx8:
+    entry: elec/src/imx8.ato:Imx8
 dependencies:
-- generics
+- name: generics
+  version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'
+  link_broken: true
+  path: elec/src/generics

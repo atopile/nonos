@@ -1,2 +1,228 @@
+from "generics/interfaces.ato" import Power, I2S, RGMII, JTAG
+from "generics/components.ato" import Capacitor
+
 module IMX8:
-    signal gnd
+    """
+    IMX8M Mini module
+    """
+    # External interfaces
+    power_5v = new Power
+    i2s = new I2S
+    rgmii = new RGMII
+    jtag = new JTAG
+
+    # Components
+    processor = new MIMX8MM6DVTLZAA
+    pmic = new PN5321A3HN
+    qspi_flash = new QSPIFlash
+    dram = new DDR4RAM
+    ftdi = new FTDI
+
+    """
+    Power connections
+    """
+    power_5v ~ pmic.power_input
+
+    # Processor power rails
+    pmic.ldo1_power  ~ processor.NVCC_SNVS_1V8
+    pmic.ldo2_power  ~ processor.VDD_SNVS_0V8
+    pmic.buck1_power ~ processor.VDD_SOC_0V8
+    pmic.buck3_power ~ processor.VDD_DRAM_PU_0V9
+    pmic.ldo4_power  ~ processor.VDD_PHY_0V9
+    pmic.buck2_power ~ processor.VDD_ARM_0V9
+    pmic.ldo3_power  ~ processor.VDDA_1V8
+    pmic.buck5_power ~ processor.VDD_1V8
+    pmic.buck6_power ~ processor.NVCC_DRAM_1V1
+    pmic.buck4_power ~ processor.NVCC_3V3
+    pmic.ldo5_power  ~ processor.NVCC_SD2
+
+module MIMX8MM6DVTLZAA:
+    """
+    IMX8M Mini module
+    """
+    ic = new _MIMX8MM6DVTLZAA
+
+    """
+    Power rails
+    """
+    NVCC_SNVS_1V8 = new Power
+    NVCC_SNVS_1V8.voltage &= 1.8V +/- 2%
+    NVCC_SNVS_1V8.current_budget -= 10mA
+    NVCC_SNVS_1V8.sequence = 1
+
+    NVCC_SNVS_1V8_cap_1 = new Capacitor
+    NVCC_SNVS_1V8_cap_1.value = 1uF +/- 20%
+    NVCC_SNVS_1V8_cap_1.package = "0201"
+    # cap.voltage_rating = 10V
+    NVCC_SNVS_1V8 ~ NVCC_SNVS_1V8_cap.power
+
+    VDD_SNVS_0V8 = new Power
+    VDD_SNVS_0V8.voltage &= 0.8V +/- 2%
+    VDD_SNVS_0V8.current_budget -= 10mA
+    VDD_SNVS_0V8.sequence = 2
+
+    VDD_SNVS_0V8_cap_1 = new Capacitor
+    VDD_SNVS_0V8_cap_1.value = 220nF +/- 20%
+    VDD_SNVS_0V8_cap_1.package = "0201"
+    VDD_SNVS_0V8 ~ VDD_SNVS_0V8_cap_1.power
+
+    VDD_SOC_0V8 = new Power
+    VDD_SOC_0V8.voltage &= 0.85V +/- 2%
+    VDD_SOC_0V8.current_budget -= 1A
+    VDD_SOC_0V8.sequence = 3
+
+    VDD_DRAM_PU_0V9 = new Power
+    VDD_DRAM_PU_0V9.voltage &= 0.9V +/- 2%
+    VDD_DRAM_PU_0V9.current_budget -= 2.5A
+    VDD_DRAM_PU_0V9.sequence = 4
+
+    VDD_PHY_0V9 = new Power
+    VDD_PHY_0V9.voltage &= 0.9V +/- 2%
+    VDD_PHY_0V9.current_budget -= 100mA
+    VDD_PHY_0V9.sequence = 5
+
+    VDD_ARM_0V9 = new Power
+    VDD_ARM_0V9.voltage &= 0.9V +/- 2%
+    VDD_ARM_0V9.current_budget -= 2.2A
+    VDD_ARM_0V9.sequence = 6
+
+    VDD_ARM_0V9_cap_1 = new Capacitor
+    VDD_ARM_0V9_cap_1.value = 10uF +/- 20%
+    VDD_ARM_0V9_cap_1.package = "0402"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_1.power
+
+    VDD_ARM_0V9_cap_2 = new Capacitor
+    VDD_ARM_0V9_cap_2.value = 1uF +/- 20%
+    VDD_ARM_0V9_cap_2.package = "0201"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_2.power
+
+    VDD_ARM_0V9_cap_3 = new Capacitor
+    VDD_ARM_0V9_cap_3.value = 1uF +/- 20%
+    VDD_ARM_0V9_cap_3.package = "0201"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_3.power
+
+    VDD_ARM_0V9_cap_4 = new Capacitor
+    VDD_ARM_0V9_cap_4.value = 1uF +/- 20%
+    VDD_ARM_0V9_cap_4.package = "0201"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_4.power
+
+    VDD_ARM_0V9_cap_5 = new Capacitor
+    VDD_ARM_0V9_cap_5.value = 1uF +/- 20%
+    VDD_ARM_0V9_cap_5.package = "0201"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_5.power
+
+    VDD_ARM_0V9_cap_6 = new Capacitor
+    VDD_ARM_0V9_cap_6.value = 1uF +/- 20%
+    VDD_ARM_0V9_cap_6.package = "0201"
+    VDD_ARM_0V9 ~ VDD_ARM_0V9_cap_6.power
+
+    VDDA_1V8 = new Power
+    VDDA_1V8.voltage &= 1.8V +/- 2%
+    VDDA_1V8.current_budget -= 300mA
+    VDDA_1V8.sequence = 7
+
+    VDDA_1V8_cap_1 = new Capacitor
+    VDDA_1V8_cap_1.value = 220nF +/- 20%
+    VDDA_1V8_cap_1.package = "0201"
+    VDDA_1V8 ~ VDDA_1V8_cap_1.power
+
+    VDD_1V8 = new Power
+    VDD_1V8.voltage &= 1.8V +/- 2%
+    VDD_1V8.current_budget -= 500mA
+    VDD_1V8.sequence = 8
+
+    NVCC_DRAM_1V1 = new Power
+    NVCC_DRAM_1V1.voltage &= 1.1V +/- 2%
+    NVCC_DRAM_1V1.current_budget -= 1.5A # NxCxVx(0.5xF)
+    NVCC_DRAM_1V1.sequence = 9
+
+    NVCC_3V3 = new Power
+    NVCC_3V3.voltage &= 3.3V +/- 2%
+    NVCC_3V3.current_budget -= 1.5A # NxCxVx(0.5xF)
+    NVCC_3V3.sequence = 10
+
+    # VDD_PHY_1V2 = new Power
+    # VDD_PHY_1V2.voltage &= 1.2V +/- 2%
+    # VDD_PHY_1V2.current_budget -= 10mA
+    # VDD_PHY_1V2.sequence = 11
+
+    NVCC_SD2 = new Power
+    NVCC_SD2.voltage &= 3.3V +/- 2%
+    NVCC_SD2.current_budget -= 100mA
+    NVCC_SD2.sequence = 12
+
+    # Power sequencing connections
+    signal RTC_RESET_B
+    signal CLK32K_OUT
+    signal POR_B
+
+module PN5321A3HN:
+    """
+    PMIC for IMX8X processors
+    """
+    power_input = new Power
+    power_input.voltage |= 5V +/- 2%
+    power_input.current_budget += 5A
+
+    ldo1_power = new Power
+    ldo1_power.voltage |= 1.8V +/- 2%
+    ldo1_power.current_budget += 10mA
+
+    ldo2_power = new Power
+    ldo2_power.voltage |= 0.8V +/- 2%
+    ldo2_power.current_budget += 10mA
+
+    ldo3_power = new Power
+    ldo3_power.voltage |= 1.8V +/- 2%
+    ldo3_power.current_budget += 300mA
+
+    ldo4_power = new Power
+    ldo4_power.voltage |= 0.9V +/- 2%
+    ldo4_power.current_budget += 200mA
+
+    ldo5_power = new Power
+    ldo5_power.voltage |= 1.8V +/- 2%
+    ldo5_power.current_budget += 150mA
+
+    buck1_power = new Power
+    buck1_power.voltage |= 0.85V +/- 2%
+    buck1_power.current_budget += 3A
+
+    buck2_power = new Power
+    buck2_power.voltage |= 0.9V +/- 2%
+    buck2_power.current_budget += 3A
+
+    buck3_power = new Power
+    buck3_power.voltage |= 0.9V +/- 2%
+    buck3_power.current_budget += 3A
+
+    buck4_power = new Power
+    buck4_power.voltage |= 3.3V +/- 2%
+    buck4_power.current_budget += 3A
+
+    buck5_power = new Power
+    buck5_power.voltage |= 1.8V +/- 2%
+    buck5_power.current_budget += 2A
+
+    buck6_power = new Power
+    buck6_power.voltage |= 1.1V +/- 2%
+    buck6_power.current_budget += 2A
+
+module QSPIFlash:
+    """
+    QSPI Flash
+    """
+    pass
+
+module DDR4RAM:
+    """
+    DDR4 RAM
+    """
+    pass
+
+module FTDI:
+    """
+    FTDI USB-to-UART bridge
+    """
+    pass
+

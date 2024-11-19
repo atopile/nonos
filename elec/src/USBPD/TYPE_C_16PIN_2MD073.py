@@ -65,12 +65,12 @@ class TYPE_C_16PIN_2MD073(Module):
         # ------------------------------------
         #           connections
         # ------------------------------------
-        self.POWER_VBUS.connect(
-            self.CC1.reference,
-            self.CC2.reference,
-            self.SBU1.reference,
-            self.SBU2.reference,
-        )
+        # self.POWER_VBUS.connect(
+        #     self.CC1.reference,
+        #     self.CC2.reference,
+        #     self.SBU1.reference,
+        #     self.SBU2.reference,
+        # ) # TODO: Fix reference
         # ------------------------------------
         #          parametrization
         # ------------------------------------

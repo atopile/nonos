@@ -60,6 +60,105 @@ from TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
 logger = logging.getLogger(__name__)
 
 
+
+class STEMMA_RIGHT_ANGLE(Module):
+    """
+    TODO: Docstring describing your module
+
+    1x4P 4P SH Tin 4 -25℃~+85℃ 1A 1 1mm Copper alloy Horizontal attachment SMD,P=1mm,Surface Mount，Right Angle Wire To Board Connector ROHS
+    """
+
+    # ----------------------------------------
+    #     modules, interfaces, parameters
+    # ----------------------------------------
+    # TODO: Change auto-generated interface types to actual high level types
+    power: F.ElectricPower
+    i2c: F.I2C
+
+    # ----------------------------------------
+    #                 traits
+    # ----------------------------------------
+    lcsc_id = L.f_field(F.has_descriptive_properties_defined)({"LCSC": "C160404"})
+    designator_prefix = L.f_field(F.has_designator_prefix_defined)("CN")
+    descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
+        {
+            DescriptiveProperties.manufacturer: "JST Sales America",
+            DescriptiveProperties.partno: "SM04B-SRSS-TB(LF)(SN)",
+        }
+    )
+    datasheet = L.f_field(F.has_datasheet_defined)(
+        "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_JST-SM04B-SRSS-TB-LF-SN_C160404.pdf"
+    )
+
+    @L.rt_field
+    def pin_association_heuristic(self):
+        return F.has_pin_association_heuristic_lookup_table(
+            mapping={
+                self.power.lv: ["1","5","6"],
+                self.power.hv: ["2"],
+                self.i2c.sda.signal: ["3"],
+                self.i2c.scl.signal: ["4"]
+            },
+            accept_prefix=False,
+            case_sensitive=False,
+        )
+
+    def __preinit__(self):
+        # ------------------------------------
+        #           connections
+        # ------------------------------------
+
+        # ------------------------------------
+        #          parametrization
+        # ------------------------------------
+        pass
+
+class XT30PW(Module):
+    """
+    XT30 Female Right Angle
+    Typically used to provide power (Connected to the battery)
+    """
+
+    # ----------------------------------------
+    #     modules, interfaces, parameters
+    # ----------------------------------------
+    # TODO: Change auto-generated interface types to actual high level types
+    power: F.ElectricPower
+
+    # ----------------------------------------
+    #                 traits
+    # ----------------------------------------
+    lcsc_id = L.f_field(F.has_descriptive_properties_defined)({"LCSC": "C2913282"})
+    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
+        {
+            DescriptiveProperties.manufacturer: "Changzhou Amass Electronics Co.,Ltd",
+            DescriptiveProperties.partno: "XT30PW-F20.G.Y",
+        }
+    )
+    datasheet = L.f_field(F.has_datasheet_defined)(
+        "https://www.lcsc.com/datasheet/lcsc_datasheet_2312181139_Changzhou-Amass-Elec-XT30PW-F20-G-Y_C2913282.pdf"
+    )
+
+    @L.rt_field
+    def pin_association_heuristic(self):
+        return F.has_pin_association_heuristic_lookup_table(
+            mapping={self.power.lv: ["1","3","4"], self.power.hv: ["2"]},
+            accept_prefix=False,
+            case_sensitive=False,
+        )
+
+    def __preinit__(self):
+        # ------------------------------------
+        #           connections
+        # ------------------------------------
+
+        # ------------------------------------
+        #          parametrization
+        # ------------------------------------
+        pass
+
+
 class ESDA25P35_1U1M(F.Diode):
     """
     TODO: Docstring describing your module
@@ -295,6 +394,8 @@ class App(Module):
     USB_CONNECTOR: TYPE_C_16PIN_2MD073
     ESD_CC: ESDA25W
     VSINK_MOSFET: F.MOSFET
+    XT30PW: XT30PW
+    STEMMA: STEMMA_RIGHT_ANGLE
 
     # Passive components
     VBUS_VS_DISCH_R: F.Resistor
@@ -348,6 +449,13 @@ class App(Module):
         self.VBUS_VS_DISCH_R.resistance.merge(F.Range.from_center_rel(1 * P.kohm, 0.01))
         self.VBUS_VS_DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VBUS.hv.connect_via(self.VBUS_VS_DISCH_R, self.PD_CONTROLLER.VBUS_VS_DISCH)
+
+        # Output connector
+        self.XT30PW.power.connect(self.VSINK)
+
+        # I2C
+        self.STEMMA.i2c.connect(self.I2C)
+        self.STEMMA.power.connect(self.VMCU)
 
         # Internal rail decoupling
         self.Vreg_2V7_CAP.unnamed[0].connect(self.PD_CONTROLLER.VREG_2V7.lv)

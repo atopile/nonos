@@ -20,6 +20,11 @@ from faebryk.libs.picker.jlcpcb.pickers import add_jlcpcb_pickers
 from faebryk.libs.picker.picker import pick_part_recursively
 from faebryk.libs.util import ConfigFlag
 
+import yaml
+import importlib
+import sys
+from pathlib import Path
+
 BUILD_DIR = Path("./build")
 GRAPH_OUT = BUILD_DIR / Path("faebryk/graph.png")
 NETLIST_OUT = BUILD_DIR / Path("faebryk/faebryk.net")
@@ -90,16 +95,31 @@ def apply_design_to_pcb(
     return G
 
 
-def main():
-    logger.info("Building app")
-    app = App()
+# TODO: discover modules in elec/src
+# TODO: build each
 
-    logger.info("Export")
-    apply_design_to_pcb(app)
+
+def build_module(name: str):
+    logger.info(f"Building {name}")
+
+    # TODO: validate config
+    project_config = yaml.load(Path("ato.yaml").read_text(), Loader=yaml.Loader)
+
+    if name not in project_config["builds"]:
+        raise ValueError(f"Build config {name} not found")
+
+    app_path, app_class_name = project_config["builds"][name].split(":")
+
+    sys.path.insert(0, str(Path("elec/src").absolute()))
+
+    App = getattr(importlib.import_module(app_path), app_class_name)
+
+    # app = App()
+
+    # logger.info("Export")
+    # apply_design_to_pcb(app)
 
 
 if __name__ == "__main__":
     setup_basic_logging()
-    logger.info("Running example")
-
-    typer.run(main)
+    typer.run(build_module)

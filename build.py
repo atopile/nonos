@@ -9,7 +9,6 @@ from faebryk.libs.app.checks import run_checks
 from faebryk.libs.app.parameters import replace_tbd_with_any
 from faebryk.libs.logging import setup_basic_logging
 from faebryk.libs.picker.api.pickers import add_api_pickers
-from faebryk.libs.picker.jlcpcb.pickers import add_jlcpcb_pickers
 from faebryk.libs.picker.picker import pick_part_recursively
 from faebryk.libs.app.pcb import apply_design
 from faebryk.libs.app.manufacturing import export_pcba_artifacts
@@ -44,7 +43,6 @@ def build_app(
     for n in modules:
         # TODO: get enabled pickers from config
         add_api_pickers(n, base_prio=10)
-        add_jlcpcb_pickers(n, base_prio=10)
     pick_part_recursively(app)
 
     # graph --------------------------------------------------

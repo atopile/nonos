@@ -1,9 +1,13 @@
-ato-version: ^0.2.0
+ato-version: ^0.3.0
 builds:
   default:
     entry: elec/src/nonos.ato:Nonos
   imx8:
     entry: elec/src/imx8.ato:Imx8
+
+  pd-controller:
+    # Python module path, relative to elec/src
+    entry: USBPD.pd_controller:App
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

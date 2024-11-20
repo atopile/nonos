@@ -1,9 +1,22 @@
 # SPDX-License-Identifier: MIT
 
+import logging
+import os
+import shutil
+import sys
+from pathlib import Path
+from typing import Any
+import typer
+
 import faebryk.library._F as F  # noqa: F401
+import faebryk.libs.picker.lcsc as lcsc
 from faebryk.core.module import Module
+from faebryk.libs.app.pcb import apply_design
 from faebryk.libs.brightness import TypicalLuminousIntensity
+from faebryk.libs.library import L  # noqa: F401
+from faebryk.libs.logging import setup_basic_logging
 from faebryk.libs.units import P  # noqa: F401
+from faebryk.libs.util import ConfigFlag
 
 # Components
 from components.TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
@@ -13,6 +26,21 @@ from components.ESDA25P35_1U1M import ESDA25P35_1U1M
 from components.XT30 import XT30PW
 from components.STEMMA import STEMMA_RIGHT_ANGLE
 
+BUILD_DIR = Path("./build")
+GRAPH_OUT = BUILD_DIR / Path("faebryk/graph.png")
+NETLIST_OUT = BUILD_DIR / Path("faebryk/faebryk.net")
+KICAD_SRC = BUILD_DIR / Path("kicad/source")
+PCB_FILE = KICAD_SRC / Path("example.kicad_pcb")
+PROJECT_FILE = KICAD_SRC / Path("example.kicad_pro")
+
+lcsc.BUILD_FOLDER = BUILD_DIR
+lcsc.LIB_FOLDER = BUILD_DIR / Path("kicad/libs")
+lcsc.MODEL_PATH = None
+
+DEV_MODE = ConfigFlag("EXP_DEV_MODE", False)
+
+
+logger = logging.getLogger(__name__)
 
 class App(Module):
     PD_CONTROLLER: STUSB4500QTR
@@ -206,3 +234,19 @@ class App(Module):
         self.VSINK.voltage.merge(F.Range(5 * P.V, 20 * P.V))
         self.VMCU.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
         self.VBUS.voltage.merge(F.Range(5 * P.V, 20 * P.V))
+
+
+
+def main():
+    logger.info("Building app")
+    app = App()
+
+    logger.info("Export")
+    logger.info("Filling unspecified parameters")
+
+
+if __name__ == "__main__":
+    setup_basic_logging()
+    logger.info("Running example")
+
+    typer.run(main)

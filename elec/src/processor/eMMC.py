@@ -286,11 +286,11 @@ class Samsung_KLMBG2JETD_B041(Module):
         # Decoupling capacitors
         VDD_3V3_CAPS = (
             self.VDD_3V3.decoupled.decouple()
-            .specialize(F.MultiCapacitor(3))
+            .specialize(F.MultiCapacitor(5))
             .capacitors
         )
-        VDD_3V3_CAP_FOOTPRINTS = [("0402", 2), ("0201", 2), ("0201", 2)]
-        VDD_3V3_CAP_VALUES = [4.7 * P.uF, 220 * P.nF, 220 * P.nF]
+        VDD_3V3_CAP_FOOTPRINTS = [("0402", 2), ("0201", 2), ("0201", 2), ("0201", 2), ("0201", 2)]
+        VDD_3V3_CAP_VALUES = [4.7 * P.uF, 220 * P.nF, 220 * P.nF, 220 * P.nF, 220 * P.nF]
 
         for cap, footprint, value in zip(VDD_3V3_CAPS, VDD_3V3_CAP_FOOTPRINTS, VDD_3V3_CAP_VALUES):
             cap.add(F.has_footprint_requirement_defined([footprint]))

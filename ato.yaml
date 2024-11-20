@@ -5,8 +5,9 @@ builds:
   imx8:
     entry: elec/src/imx8.ato:Imx8
 
-  # Python module path, relative to elec/src
-  pdcontroller: USBPD.PDController:App
+  pd-controller:
+    # Python module path, relative to elec/src
+    entry: USBPD.PDController:App
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

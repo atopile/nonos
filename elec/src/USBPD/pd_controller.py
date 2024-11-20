@@ -6,12 +6,12 @@ from faebryk.libs.brightness import TypicalLuminousIntensity
 from faebryk.libs.units import P  # noqa: F401
 
 # Components
-from components.TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
-from components.STUSB4500 import STUSB4500QTR
-from components.ESDA25W import ESDA25W
-from components.ESDA25P35_1U1M import ESDA25P35_1U1M
-from components.XT30 import XT30PW
-from components.STEMMA import STEMMA_RIGHT_ANGLE
+from .components.TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
+from .components.STUSB4500 import STUSB4500QTR
+from .components.ESDA25W import ESDA25W
+from .components.ESDA25P35_1U1M import ESDA25P35_1U1M
+from .components.XT30 import XT30PW
+from .components.STEMMA import STEMMA_RIGHT_ANGLE
 
 
 class App(Module):
@@ -21,9 +21,9 @@ class App(Module):
     VSINK_MOSFET: F.MOSFET
     XT30PW: XT30PW
     STEMMA: STEMMA_RIGHT_ANGLE
-    VSYNC_LED: F.PoweredLED
-    PDO2_LED: F.PoweredLED
-    PDO3_LED: F.PoweredLED
+    # VSYNC_LED: F.PoweredLED
+    # PDO2_LED: F.PoweredLED
+    # PDO3_LED: F.PoweredLED
 
     # Passive components
     VBUS_VS_DISCH_R: F.Resistor
@@ -70,16 +70,16 @@ class App(Module):
         self.XT30PW.power.connect(self.VSINK)
 
         # LEDs
-        self.VSYNC_LED.power.connect(self.VSINK)
-        self.PDO2_LED.power.connect(self.VSINK)
-        self.PDO3_LED.power.connect(self.VSINK)
+        # self.VSYNC_LED.power.connect(self.VSINK)
+        # self.PDO2_LED.power.connect(self.VSINK)
+        # self.PDO3_LED.power.connect(self.VSINK)
 
-        for led in [self.VSYNC_LED, self.PDO2_LED, self.PDO3_LED]:
-            led.led.color.merge(F.LED.Color.BLUE)
-            led.add(F.has_footprint_requirement_defined([("0402", 2)]))
-            led.led.brightness.merge(
-                TypicalLuminousIntensity.APPLICATION_LED_INDICATOR_INSIDE.value.value
-            )
+        # for led in [self.VSYNC_LED, self.PDO2_LED, self.PDO3_LED]:
+        #     led.led.color.merge(F.LED.Color.BLUE)
+        #     led.add(F.has_footprint_requirement_defined([("0402", 2)]))
+        #     led.led.brightness.merge(
+        #         TypicalLuminousIntensity.APPLICATION_LED_INDICATOR_INSIDE.value.value
+        #     )
 
         # I2C
         self.STEMMA.i2c.connect(self.I2C)

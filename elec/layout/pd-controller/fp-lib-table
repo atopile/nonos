@@ -1,4 +1,8 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "lcsc")(type "KiCad")(uri "/Users/napowderly/Projects/nonos/build/kicad/libs/footprints/lcsc.pretty")(options "")(descr ""))
-)
+(fp_lib_table 
+    (version 7)
+    (lib
+        (name "lcsc")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../../build/footprints/lcsc.pretty")
+        (options "")
+        (descr "")))

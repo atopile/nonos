@@ -1,125 +1,129 @@
 import logging
 from pathlib import Path
-from typing import Callable
+from typing import Annotated
 
 import faebryk.library._F as F  # noqa: F401
-import faebryk.libs.picker.lcsc as lcsc
 import typer
 from faebryk.core.module import Module
-from faebryk.exporters.pcb.kicad.transformer import PCB_Transformer
 from faebryk.libs.app.checks import run_checks
-from faebryk.libs.app.kicad_netlist import write_netlist
 from faebryk.libs.app.parameters import replace_tbd_with_any
-from faebryk.libs.app.pcb import include_footprints
 from faebryk.libs.logging import setup_basic_logging
-from faebryk.libs.picker.api.api import ApiNotConfiguredError
 from faebryk.libs.picker.api.pickers import add_api_pickers
-from faebryk.libs.picker.common import DB_PICKER_BACKEND, CachePicker, PickerType
-from faebryk.libs.picker.jlcpcb.jlcpcb import JLCPCB_DB
 from faebryk.libs.picker.jlcpcb.pickers import add_jlcpcb_pickers
 from faebryk.libs.picker.picker import pick_part_recursively
-from faebryk.libs.util import ConfigFlag
+from faebryk.libs.app.pcb import apply_design
+from faebryk.libs.app.manufacturing import export_pcba_artifacts
+from atopile.config import BuildContext, get_project_config_from_path
+from faebryk.exporters.pcb.kicad.artifacts import export_svg
+from faebryk.exporters.parameters.parameters_to_file import export_parameters_to_file
 
-import yaml
 import importlib
 import sys
-from pathlib import Path
-
-BUILD_DIR = Path("./build")
-GRAPH_OUT = BUILD_DIR / Path("faebryk/graph.png")
-NETLIST_OUT = BUILD_DIR / Path("faebryk/faebryk.net")
-KICAD_SRC = BUILD_DIR / Path("kicad/source")
-PCB_FILE = KICAD_SRC / Path("example.kicad_pcb")
-PROJECT_FILE = KICAD_SRC / Path("example.kicad_pro")
-
-lcsc.BUILD_FOLDER = BUILD_DIR
-lcsc.LIB_FOLDER = BUILD_DIR / Path("kicad/libs")
-lcsc.MODEL_PATH = None
-
-DEV_MODE = ConfigFlag("EXP_DEV_MODE", False)
 
 logger = logging.getLogger(__name__)
 
 
-def apply_design_to_pcb(
-    m: Module, transform: Callable[[PCB_Transformer], None] | None = None
+def build_app(
+    app: Module,
+    build_context: BuildContext,
+    pcb_path: Path,
+    netlist_path: Path,
+    export_manufacturing_artifacts: bool = False,
+    export_visuals: bool = False,
+    export_parameters: bool = False,
 ):
-    """
-    Picks parts for the module.
-    Runs a simple ERC.
-    Tags the graph with kicad info.
-    Exports the graph to a netlist.
-    Writes it to ./build
-    Opens PCB and applies design (netlist, layout, route, ...)
-    Saves PCB
-    """
-
+    # fill unspecified parameters ----------------------------
     logger.info("Filling unspecified parameters")
+    replace_tbd_with_any(app, recursive=True, loglvl=logging.DEBUG)
 
-    replace_tbd_with_any(
-        m, recursive=True, loglvl=logging.DEBUG if DEV_MODE else logging.INFO
-    )
+    # pick parts ---------------------------------------------
+    logger.info("Picking parts")
+    modules = {
+        n.get_most_special() for n in app.get_children(direct_only=False, types=Module)
+    }
+    for n in modules:
+        # TODO: get enabled pickers from config
+        add_api_pickers(n, base_prio=10)
+        add_jlcpcb_pickers(n, base_prio=10)
+    pick_part_recursively(app)
 
-    G = m.get_graph()
-    run_checks(m, G)
+    # graph --------------------------------------------------
+    logger.info("Make graph")
+    G = app.get_graph()
 
-    # TODO this can be prettier
-    # picking ----------------------------------------------------------------
-    modules = m.get_children_modules(types=Module)
-    CachePicker.add_to_modules(modules, prio=-20)
+    # checks -------------------------------------------------
+    logger.info("Running checks")
+    run_checks(app, G)
 
-    match DB_PICKER_BACKEND:
-        case PickerType.JLCPCB:
-            try:
-                JLCPCB_DB()
-                for n in modules:
-                    add_jlcpcb_pickers(n, base_prio=-10)
-            except FileNotFoundError:
-                logger.warning("JLCPCB database not found. Skipping JLCPCB pickers.")
-        case PickerType.API:
-            try:
-                for n in modules:
-                    add_api_pickers(n)
-            except ApiNotConfiguredError:
-                logger.warning("API not configured. Skipping API pickers.")
+    # pcb ----------------------------------------------------
+    logger.info("Make netlist & pcb")
+    apply_design(pcb_path, netlist_path, G, app, transform=None)
 
-    pick_part_recursively(m)
-    # -------------------------------------------------------------------------
+    # generate pcba manufacturing and other artifacts ---------
+    if export_manufacturing_artifacts:
+        export_pcba_artifacts(build_context.output_base, pcb_path, app)
 
-    # apply_design(PCB_FILE, NETLIST_OUT, G, m, transform)
-    logger.info(f"Writing netlist to {NETLIST_OUT}")
-    changed = write_netlist(G, NETLIST_OUT, use_kicad_designators=True)
-    # apply_design(PCB_FILE, NETLIST_OUT, G, m, transform)
-    include_footprints(PCB_FILE)
+    # generate visuals ---------------------------------------
+    if export_visuals:
+        export_svg(pcb_path, build_context.output_base / f"{build_context.name}.svg")
 
-    return G
-
-
-# TODO: discover modules in elec/src
-# TODO: build each
+    # export parameter report --------------------------------
+    if export_parameters:
+        export_parameters_to_file(
+            app, build_context.output_base / f"{build_context.name}.csv"
+        )
 
 
-def build_module(name: str):
+def build(
+    name: Annotated[str, typer.Argument(help="Build name")],
+    export_manufacturing_artifacts: Annotated[
+        bool, typer.Option(help="Export manufacturing artifacts (gerbers, BOM, etc.)")
+    ] = False,
+    export_visuals: Annotated[
+        bool, typer.Option(help="Export project visuals (e.g. SVG)")
+    ] = False,
+    export_parameters: Annotated[
+        bool, typer.Option(help="Export project parameters to a file")
+    ] = False,
+):
     logger.info(f"Building {name}")
 
-    # TODO: validate config
-    project_config = yaml.load(Path("ato.yaml").read_text(), Loader=yaml.Loader)
+    project_config = get_project_config_from_path(Path("."))
+    build_context = BuildContext.from_config_name(project_config, name)
 
-    if name not in project_config["builds"]:
+    if name not in project_config.builds:
         raise ValueError(f"Build config {name} not found")
 
-    app_path, app_class_name = project_config["builds"][name].split(":")
+    build_entrypoint = project_config.builds[name].entry
+
+    if build_entrypoint is None:
+        raise ValueError(f"Build config {name} has no entry point")
+
+    app_path, app_class_name = build_entrypoint.split(":")
 
     sys.path.insert(0, str(Path("elec/src").absolute()))
 
-    App = getattr(importlib.import_module(app_path), app_class_name)
+    app = getattr(importlib.import_module(app_path), app_class_name)()
 
-    # app = App()
+    layout_path = build_context.layout_path
 
-    # logger.info("Export")
-    # apply_design_to_pcb(app)
+    if layout_path is None:
+        # TODO: BuildContext should enforce this
+        raise ValueError(f"Build config {name} has no layout path")
+
+    build_dir = build_context.output_base
+
+    build_app(
+        app,
+        build_context,
+        pcb_path=layout_path,
+        netlist_path=build_dir.joinpath(f"{name}.net"),
+        export_manufacturing_artifacts=export_manufacturing_artifacts,
+        export_visuals=export_visuals,
+        export_parameters=export_parameters,
+    )
 
 
 if __name__ == "__main__":
     setup_basic_logging()
-    typer.run(build_module)
+    typer.run(build)

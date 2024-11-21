@@ -992,7 +992,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.VDD_PHY_1V2.lv,
             self.VDD_PHY_0V9.lv,
             self.NVCC_SD2.lv,
-            self.NVCC_ENET.lv,
+            self.NVCC_ENET.lv, #Ethernet logic level voltage for RGMII interface
             self.VDD_ARM_0V9.lv,
         )
 
@@ -1024,23 +1024,17 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_SNVS_0V8_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # VDDA_1V8
-        VDDA_1V8_CAP_FOOTPRINTS = [
-            ("0201", 2),
-            ("0201", 2),
-        ]
-        VDDA_1V8_CAP_VALUES = [
-            220 * P.nF,
-            1 * P.uF,
+        VDDA_1V8_CAP_PROPERTIES = [
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
         ]
 
         VDDA_1V8_CAPS = []
 
-        for footprint, value in zip(
-            VDDA_1V8_CAP_FOOTPRINTS, VDDA_1V8_CAP_VALUES
-        ):
+        for props in VDDA_1V8_CAP_PROPERTIES:
             cap = self.VDDA_1V8.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDDA_1V8_CAPS.append(cap)
 
         # VDD_ARM_0V9
@@ -1056,7 +1050,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_ARM_0V9_CAPS = []
         for props in VDD_ARM_0V9_CAP_PROPERTIES:
             cap = self.VDD_ARM_0V9.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_ARM_0V9_CAPS.append(cap)
 
@@ -1076,7 +1070,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in VDD_SOC_0V8_CAP_PROPERTIES:
             cap = self.VDD_SOC_0V8.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_SOC_0V8_CAPS.append(cap)
 
@@ -1096,7 +1090,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in VDD_DRAM_0V9_CAP_PROPERTIES:
             cap = self.VDD_DRAM_0V9.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_DRAM_0V9_CAPS.append(cap)
 
@@ -1116,7 +1110,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in NVCC_DRAM_1V1_CAP_PROPERTIES:
             cap = self.NVCC_DRAM_1V1.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             NVCC_DRAM_1V1_CAPS.append(cap)
 
@@ -1138,7 +1132,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in VDD_1V8_CAP_PROPERTIES:
             cap = self.VDD_1V8.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_1V8_CAPS.append(cap)
 
@@ -1155,7 +1149,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in VDD_3V3_CAP_PROPERTIES:
             cap = self.VDD_3V3.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_3V3_CAPS.append(cap)
 
@@ -1168,6 +1162,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
         NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
+        self.NVCC_SD2.hv.connect(self.imx8.NVCC_SD2)
 
         # VDD_PHY_1V2
         VDD_PHY_1V2_CAP_PROPERTIES = [
@@ -1179,7 +1174,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         for props in VDD_PHY_1V2_CAP_PROPERTIES:
             cap = self.VDD_PHY_1V2.decoupled.decouple()
-            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_PHY_1V2_CAPS.append(cap)
 

@@ -6,6 +6,8 @@ builds:
     entry: processor.imx8:App
   pd-controller:
     entry: USBPD.pd_controller:App
+  test:
+    entry: processor.test:App
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

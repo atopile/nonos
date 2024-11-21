@@ -898,6 +898,11 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
     VDD_3V3: F.ElectricPower
     VDD_PHY_1V2: F.ElectricPower
     NVCC_SD2: F.ElectricPower
+    NVCC_ENET: F.ElectricPower
+    GND: F.Net
+
+    # Passive components
+    MIPI_VREG_CAP: F.Capacitor
 
     def __preinit__(self):
         # ------------------------------------
@@ -945,17 +950,39 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.imx8.NVCC_UART,
             self.imx8.NVCC_SD1,
             self.imx8.NVCC_CLK,
+            self.imx8.PVCC0_1P8,
+            self.imx8.PVCC1_1P8,
+            self.imx8.PVCC2_1P8,
+            self.imx8.VDD_ARM_PLL_1P8,
+            self.imx8.VDD_ANA0_1P8,
+            self.imx8.VDD_ANA1_1P8,
+            self.imx8.VDD_USB_1P8,
+            self.imx8.VDD_PCI_1P8,
+            self.imx8.VDD_MIPI_1P8,
         )
         self.VDD_3V3.hv.connect(
             self.imx8.NVCC_SAI1,
             self.imx8.NVCC_SAI3,
             self.imx8.NVCC_SAI5,
             self.imx8.NVCC_ESCPI,
-            self.imx8.NVCC_ENET
+            self.imx8.VDD_USB_3P3
+        )
+        self.NVCC_ENET.hv.connect(self.imx8.NVCC_ENET)
+        self.NVCC_ENET.connect(self.VDD_1V8) #TODO: Confirm
+        self.VDD_SOC_0V8.hv.connect(
+            self.imx8.VDD_ARM_PLL_0P8,
+            self.imx8.VDD_ANA_0P8,
+            self.imx8.VDD_USB_0P8,
+            self.imx8.VDD_PCI_0P8,
         )
 
+        self.VDD_PHY_1V2.hv.connect(self.imx8.VDD_MIPI_1P2)
+        self.VDD_PHY_0V9.hv.connect(self.imx8.VDD_MIPI_0P9)
+
         # GND
-        F.Net.with_name("GND").part_of.connect(
+        # self.GND.with_name("GND")
+
+        self.imx8.VSS.connect(
             self.imx8.VSS,
             self.VDD_SNVS_0V8.lv,
             self.VDD_SOC_0V8.lv,
@@ -966,25 +993,28 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.NVCC_DRAM_1V1.lv,
             self.VDD_3V3.lv,
             self.VDD_PHY_1V2.lv,
+            self.VDD_PHY_0V9.lv,
             self.NVCC_SD2.lv,
+            self.NVCC_ENET.lv,
+            self.VDD_ARM_0V9.lv,
         )
 
         # Decoupling capacitors
 
         # NVCC_SNVS_1V8
         NVCC_SNVS_1V8_CAP = self.NVCC_SNVS_1V8.decoupled.decouple()
-        NVCC_SNVS_1V8_CAP.add(F.has_footprint_requirement_defined([("0201", 1)]))
+        NVCC_SNVS_1V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         NVCC_SNVS_1V8_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
 
-        # VDD_SNVS_0V8
+        # # VDD_SNVS_0V8
         VDD_SNVS_0V8_CAP = self.VDD_SNVS_0V8.decoupled.decouple()
-        VDD_SNVS_0V8_CAP.add(F.has_footprint_requirement_defined([("0201", 1)]))
+        VDD_SNVS_0V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         VDD_SNVS_0V8_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # VDDA_1V8
         VDDA_1V8_CAP_FOOTPRINTS = [
-            ("0201", 1),
-            ("0201", 1),
+            ("0201", 2),
+            ("0201", 2),
         ]
         VDDA_1V8_CAP_VALUES = [
             220 * P.nF,
@@ -1005,12 +1035,12 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # VDD_ARM_0V9
         VDD_ARM_0V9_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
+            ("0402", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
         ]
         VDD_ARM_0V9_CAP_VALUES = [
             10 * P.uF,
@@ -1035,12 +1065,14 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # VDD_SOC_0V8
         VDD_SOC_0V8_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
+            ("0402", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0402", 2),
+            ("0201", 2),
         ]
         VDD_SOC_0V8_CAP_VALUES = [
             10 * P.uF,
@@ -1049,6 +1081,8 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             1 * P.uF,
             1 * P.uF,
             1 * P.uF,
+            4.7 * P.uF,
+            220 * P.nF,
         ]
 
         VDD_SOC_0V8_CAPS = (
@@ -1065,14 +1099,14 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # VDD_DRAM_0V9
         VDD_DRAM_0V9_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0402", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
+            ("0402", 2),
+            ("0402", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
         ]
         VDD_DRAM_0V9_CAP_VALUES = [
             10 * P.uF,
@@ -1099,14 +1133,14 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # NVCC_DRAM_1V1
         NVCC_DRAM_1V1_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0402", 1), 
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
+            ("0402", 2),
+            ("0402", 2), 
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
         ]
         NVCC_DRAM_1V1_CAP_VALUES = [
             10 * P.uF,
@@ -1133,16 +1167,14 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # VDD_1V8
         VDD_1V8_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0201", 1),
-            ("0201", 1), 
-            ("0201", 1),
+            ("0402", 2),
+            ("0302", 2),
+            *([("0201", 1)] * 9) # Repeat 9 times
         ]
         VDD_1V8_CAP_VALUES = [
             10 * P.uF,
-            220 * P.nF,
-            220 * P.nF,
-            220 * P.nF,
+            10 * P.uF,
+            *([220 * P.nF] * 9)  # Repeat 220 * P.nF nine times
         ]
 
         VDD_1V8_CAPS = (
@@ -1159,11 +1191,11 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # VDD_3V3
         VDD_3V3_CAP_FOOTPRINTS = [
-            ("0402", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
-            ("0201", 1),
+            ("0402", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
+            ("0201", 2),
         ]
         VDD_3V3_CAP_VALUES = [
             4.7 * P.uF,
@@ -1186,12 +1218,47 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
 
         # NVCC_ENET
+        # NVCC_ENET_CAP = self.NVCC_ENET.decoupled.decouple()
+        # NVCC_ENET_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        # NVCC_ENET_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # NVCC_SD2
-        
+        # NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
+        # NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        # NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
-        
+        # VDD_PHY_1V2
+        VDD_PHY_1V2_CAP_FOOTPRINTS = [
+            ("0402", 2),
+            ("0201", 2),
+        ]
+        VDD_PHY_1V2_CAP_VALUES = [
+            2.2 * P.uF,
+            220 * P.nF,
+        ]
+
+        VDD_PHY_1V2_CAPS = (
+            self.VDD_PHY_1V2.decoupled.decouple()
+            .specialize(F.MultiCapacitor(len(VDD_PHY_1V2_CAP_FOOTPRINTS)))
+            .capacitors
+        )
+
+        for cap, footprint, value in zip(
+            VDD_PHY_1V2_CAPS, VDD_PHY_1V2_CAP_FOOTPRINTS, VDD_PHY_1V2_CAP_VALUES
+        ):
+            cap.add(F.has_footprint_requirement_defined([footprint]))
+            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+
+        # VDD_PHY_0V9
+        VDD_PHY_0V9_CAP = self.VDD_PHY_0V9.decoupled.decouple()
+        VDD_PHY_0V9_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        VDD_PHY_0V9_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
+
+        # MIPI VREG CAP
+        self.MIPI_VREG_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.MIPI_VREG_CAP.capacitance.merge(F.Range.from_center_rel(2.2 * P.uF, 0.2))
+        self.imx8.MIPI_VREG_CAP.connect_via(self.MIPI_VREG_CAP, self.VDD_3V3.lv)
 
 
 class App(Module):
-    processor: _NXP_Semicon_MIMX8MM6CVTKZAA
+    processor: NXP_Semicon_MIMX8MM6CVTKZAA

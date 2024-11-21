@@ -3,10 +3,8 @@ builds:
   default:
     entry: elec/src/nonos.ato:Nonos
   imx8:
-    entry: elec/src/imx8.ato:Imx8
-
+    entry: processor.imx8:App
   pd-controller:
-    # Python module path, relative to elec/src
     entry: USBPD.pd_controller:App
 dependencies:
 - name: generics

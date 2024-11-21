@@ -899,7 +899,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
     VDD_PHY_1V2: F.ElectricPower
     NVCC_SD2: F.ElectricPower
     NVCC_ENET: F.ElectricPower
-    GND: F.Net
+    # GND: F.Net
 
     # Passive components
     MIPI_VREG_CAP: F.Capacitor
@@ -927,6 +927,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.VDD_3V3.voltage.merge(3.3 * P.V)
         self.VDD_PHY_1V2.voltage.merge(1.2 * P.V)
         self.NVCC_SD2.voltage.merge(3.3 * P.V)
+        self.NVCC_ENET.voltage.merge(1.8 * P.V)
 
         # Connections
         self.NVCC_SNVS_1V8.hv.connect(self.imx8.NVCC_SNVS_1P8)
@@ -968,7 +969,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.imx8.VDD_USB_3P3
         )
         self.NVCC_ENET.hv.connect(self.imx8.NVCC_ENET)
-        self.NVCC_ENET.connect(self.VDD_1V8) #TODO: Confirm
+        # self.NVCC_ENET.connect(self.VDD_1V8) #TODO: Confirm
         self.VDD_SOC_0V8.hv.connect(
             self.imx8.VDD_ARM_PLL_0P8,
             self.imx8.VDD_ANA_0P8,
@@ -979,11 +980,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.VDD_PHY_1V2.hv.connect(self.imx8.VDD_MIPI_1P2)
         self.VDD_PHY_0V9.hv.connect(self.imx8.VDD_MIPI_0P9)
 
-        # GND
-        # self.GND.with_name("GND")
-
         self.imx8.VSS.connect(
-            self.imx8.VSS,
             self.VDD_SNVS_0V8.lv,
             self.VDD_SOC_0V8.lv,
             self.VDD_DRAM_0V9.lv,
@@ -998,6 +995,21 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.NVCC_ENET.lv,
             self.VDD_ARM_0V9.lv,
         )
+
+        # Netnaming
+        F.Net.with_name("GND").part_of.connect(self.imx8.VSS)
+        F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
+        F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
+        F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
+        F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
+        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
+        F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
+        F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
+        F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
+        F.Net.with_name("NVCC_ENET").part_of.connect(self.NVCC_ENET.hv)
+        F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
 
         # Decoupling capacitors
 
@@ -1021,233 +1033,155 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             1 * P.uF,
         ]
 
-        VDDA_1V8_CAPS = (
-            self.VDDA_1V8.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDDA_1V8_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDDA_1V8_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDDA_1V8_CAPS, VDDA_1V8_CAP_FOOTPRINTS, VDDA_1V8_CAP_VALUES
+        for footprint, value in zip(
+            VDDA_1V8_CAP_FOOTPRINTS, VDDA_1V8_CAP_VALUES
         ):
+            cap = self.VDDA_1V8.decoupled.decouple()
             cap.add(F.has_footprint_requirement_defined([footprint]))
             cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+            VDDA_1V8_CAPS.append(cap)
 
         # VDD_ARM_0V9
-        VDD_ARM_0V9_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-        ]
-        VDD_ARM_0V9_CAP_VALUES = [
-            10 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
+        VDD_ARM_0V9_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
         ]
 
-        VDD_ARM_0V9_CAPS = (
-            self.VDD_ARM_0V9.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_ARM_0V9_CAP_FOOTPRINTS)))
-            .capacitors
-        )
-
-        for cap, footprint, value in zip(
-            VDD_ARM_0V9_CAPS, VDD_ARM_0V9_CAP_FOOTPRINTS, VDD_ARM_0V9_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        VDD_ARM_0V9_CAPS = []
+        for props in VDD_ARM_0V9_CAP_PROPERTIES:
+            cap = self.VDD_ARM_0V9.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_ARM_0V9_CAPS.append(cap)
 
         # VDD_SOC_0V8
-        VDD_SOC_0V8_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0402", 2),
-            ("0201", 2),
-        ]
-        VDD_SOC_0V8_CAP_VALUES = [
-            10 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            4.7 * P.uF,
-            220 * P.nF,
+        VDD_SOC_0V8_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 4.7 * P.uF, "footprint": "0402"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
         ]
 
-        VDD_SOC_0V8_CAPS = (
-            self.VDD_SOC_0V8.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_SOC_0V8_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDD_SOC_0V8_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDD_SOC_0V8_CAPS, VDD_SOC_0V8_CAP_FOOTPRINTS, VDD_SOC_0V8_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_SOC_0V8_CAP_PROPERTIES:
+            cap = self.VDD_SOC_0V8.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_SOC_0V8_CAPS.append(cap)
 
         # VDD_DRAM_0V9
-        VDD_DRAM_0V9_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0402", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-        ]
-        VDD_DRAM_0V9_CAP_VALUES = [
-            10 * P.uF,
-            10 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
+        VDD_DRAM_0V9_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
         ]
 
-        VDD_DRAM_0V9_CAPS = (
-            self.VDD_DRAM_0V9.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_DRAM_0V9_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDD_DRAM_0V9_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDD_DRAM_0V9_CAPS, VDD_DRAM_0V9_CAP_FOOTPRINTS, VDD_DRAM_0V9_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_DRAM_0V9_CAP_PROPERTIES:
+            cap = self.VDD_DRAM_0V9.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_DRAM_0V9_CAPS.append(cap)
 
         # NVCC_DRAM_1V1
-        NVCC_DRAM_1V1_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0402", 2), 
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-        ]
-        NVCC_DRAM_1V1_CAP_VALUES = [
-            10 * P.uF,
-            10 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
-            1 * P.uF,
+        NVCC_DRAM_1V1_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 1 * P.uF, "footprint": "0201"},
         ]
 
-        NVCC_DRAM_1V1_CAPS = (
-            self.NVCC_DRAM_1V1.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(NVCC_DRAM_1V1_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        NVCC_DRAM_1V1_CAPS = []
 
-        for cap, footprint, value in zip(
-            NVCC_DRAM_1V1_CAPS, NVCC_DRAM_1V1_CAP_FOOTPRINTS, NVCC_DRAM_1V1_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in NVCC_DRAM_1V1_CAP_PROPERTIES:
+            cap = self.NVCC_DRAM_1V1.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            NVCC_DRAM_1V1_CAPS.append(cap)
 
         # VDD_1V8
-        VDD_1V8_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0302", 2),
-            *([("0201", 1)] * 9) # Repeat 9 times
-        ]
-        VDD_1V8_CAP_VALUES = [
-            10 * P.uF,
-            10 * P.uF,
-            *([220 * P.nF] * 9)  # Repeat 220 * P.nF nine times
+        VDD_1V8_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
         ]
 
-        VDD_1V8_CAPS = (
-            self.VDD_1V8.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_1V8_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDD_1V8_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDD_1V8_CAPS, VDD_1V8_CAP_FOOTPRINTS, VDD_1V8_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_1V8_CAP_PROPERTIES:
+            cap = self.VDD_1V8.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_1V8_CAPS.append(cap)
 
         # VDD_3V3
-        VDD_3V3_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-            ("0201", 2),
-        ]
-        VDD_3V3_CAP_VALUES = [
-            4.7 * P.uF,
-            220 * P.nF,
-            220 * P.nF,
-            220 * P.nF,
-            220 * P.nF,
+        VDD_3V3_CAP_PROPERTIES = [
+            {"value": 4.7 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
         ]
 
-        VDD_3V3_CAPS = (
-            self.VDD_3V3.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_3V3_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDD_3V3_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDD_3V3_CAPS, VDD_3V3_CAP_FOOTPRINTS, VDD_3V3_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_3V3_CAP_PROPERTIES:
+            cap = self.VDD_3V3.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_3V3_CAPS.append(cap)
 
         # NVCC_ENET
-        # NVCC_ENET_CAP = self.NVCC_ENET.decoupled.decouple()
-        # NVCC_ENET_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
-        # NVCC_ENET_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
+        NVCC_ENET_CAP = self.NVCC_ENET.decoupled.decouple()
+        NVCC_ENET_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        NVCC_ENET_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # NVCC_SD2
-        # NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
-        # NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
-        # NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
+        NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
+        NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # VDD_PHY_1V2
-        VDD_PHY_1V2_CAP_FOOTPRINTS = [
-            ("0402", 2),
-            ("0201", 2),
-        ]
-        VDD_PHY_1V2_CAP_VALUES = [
-            2.2 * P.uF,
-            220 * P.nF,
+        VDD_PHY_1V2_CAP_PROPERTIES = [
+            {"value": 2.2 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
         ]
 
-        VDD_PHY_1V2_CAPS = (
-            self.VDD_PHY_1V2.decoupled.decouple()
-            .specialize(F.MultiCapacitor(len(VDD_PHY_1V2_CAP_FOOTPRINTS)))
-            .capacitors
-        )
+        VDD_PHY_1V2_CAPS = []
 
-        for cap, footprint, value in zip(
-            VDD_PHY_1V2_CAPS, VDD_PHY_1V2_CAP_FOOTPRINTS, VDD_PHY_1V2_CAP_VALUES
-        ):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_PHY_1V2_CAP_PROPERTIES:
+            cap = self.VDD_PHY_1V2.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([props["footprint"], 2]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_PHY_1V2_CAPS.append(cap)
 
         # VDD_PHY_0V9
         VDD_PHY_0V9_CAP = self.VDD_PHY_0V9.decoupled.decouple()

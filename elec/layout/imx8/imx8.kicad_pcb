@@ -395,11 +395,11 @@
     (net 288 "dram_dq13")
     (net 289 "dram_ac23")
     (net 290 "onoff")
-    (net 291 "*3B78.processor-net-1")
+    (net 291 "*38A8.processor-net-0")
     (net 292 "VDD_PHY_1V2")
     (net 293 "VDD_PHY_0V9")
     (net 294 "VDD_SNVS_0V8")
-    (net 295 "*3B78.processor-net-0")
+    (net 295 "*38A8.processor-net-1")
     (net 296 "NVCC_DRAM_1V1")
     (net 297 "VDD_SOC_0V8")
     (net 298 "NVCC_SD2")
@@ -462,11 +462,11 @@
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide no)))
-        (property "faebryk module name" "*3B78.processor.imx8"
+        (property "faebryk module name" "*38A8.processor.imx8"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8d9ea082-b5eb-4c3a-b1f1-cd107f5f3015")
+            (uuid "37a0052d-7a73-4603-9d2b-fbcc3a8cc766")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -476,7 +476,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5a02c5e6-0841-48fd-a971-511579d7db5d")
+            (uuid "28c4f9bf-73d1-41ff-973f-5d8546c5a0ac")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6395,7 +6395,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*3B78.processor-net-0")
+            (net 295 "*38A8.processor-net-1")
             (uuid "b682894b-6436-4e0f-90b1-f53d85a7ad47"))
         (pad "D18" smd circle
             (at 2 -5 270)
@@ -6955,7 +6955,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 291 "*3B78.processor-net-1")
+            (net 291 "*38A8.processor-net-0")
             (uuid "ea3189df-9ac8-42c0-83f8-424ca0283245"))
         (pad "J23" smd circle
             (at 4.5 -2.5 270)
@@ -8409,11 +8409,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e49ed284-8e5c-4960-87ed-87aa18a178b2")
+            (uuid "a6a2c1e0-2380-428a-a0a6-4e200070b9f7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8423,7 +8423,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "293a9437-b131-48f8-894b-193f7ce2c214")
+            (uuid "b411615e-e006-46e2-a1d2-0b4bc564d5be")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8613,11 +8613,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d3c40610-6a28-4dee-804c-d0442558bef8")
+            (uuid "70b26c20-850d-48bf-b2c0-4a52a224a88c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8627,7 +8627,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ffd16bbe-714a-4fcb-baa8-dbe6168dd8bf")
+            (uuid "7ca02351-0220-4b60-8739-d3d8248be461")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8817,11 +8817,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f2498113-08dd-4136-8675-bce6e9dad36f")
+            (uuid "07258a07-c51f-4de2-8eb2-d872880a2320")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8831,7 +8831,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3c4b28d2-0b06-4c42-8646-243da75e263b")
+            (uuid "74160926-e8f4-41f1-a57d-180c43988e51")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9021,11 +9021,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e00873f7-e9c3-4569-a9b7-86705e8db67c")
+            (uuid "d7c633f6-61b3-4f4d-b744-6c88d442c835")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9035,7 +9035,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "44bd5013-697f-41d5-9fd6-8ba52bcbae8e")
+            (uuid "fe71d0a1-fb56-4312-8b53-26b59c21fb01")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9225,11 +9225,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_3V3.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6a4272cb-9d5d-48e3-8f86-5ac389da098e")
+            (uuid "74409ef0-ee27-415f-9381-59030fc0ac15")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9239,7 +9239,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f8ad7fc7-125e-4473-84b6-02f4be78c91a")
+            (uuid "78b65aac-58e2-4379-a3ef-479ac96411fd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9429,11 +9429,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6f8535bd-d5d7-4ef5-87c8-60c811af29ea")
+            (uuid "d181527a-f283-46b5-ac46-1744480dd891")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9443,7 +9443,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "04fddbb0-9187-4b21-83f7-dcfb85f41718")
+            (uuid "3c97a4e7-954f-4a4c-8be1-df834c8a07bf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9633,11 +9633,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[8]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "decd6266-36f9-4eba-9edc-1cb107abd772")
+            (uuid "b3611aef-f4e9-432b-b333-01928f1bc9b2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9647,7 +9647,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "55f42f26-4536-41f6-833e-994430e13565")
+            (uuid "e9c632c7-7c93-43c4-8183-4994bbf94f18")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9837,11 +9837,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[7]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c32c5be1-5ca0-4fc4-98ef-8194f092cb23")
+            (uuid "47757276-ed88-4afb-bc89-c569ad03f527")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9851,7 +9851,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "52d02b6f-c4b3-4c2a-b409-a2d7d8f139a5")
+            (uuid "7fc7801d-8e86-4bd7-8c06-2dc97940a1fe")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10041,11 +10041,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a269d2a1-d514-450b-9523-3c455729885b")
+            (uuid "d3f0f7d0-43e5-4047-a52b-09b30e505693")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10055,7 +10055,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ab6f7739-ae96-4bfa-99fe-fa76b09751e6")
+            (uuid "efffd46a-b5ad-4f92-b607-147e4772481d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10245,11 +10245,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.MIPI_VREG_CAP"
+        (property "faebryk module name" "*38A8.processor.MIPI_VREG_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a002e9d1-94b4-4d26-a29a-ce31803cded5")
+            (uuid "1e7a98a4-7eeb-4c37-ab58-71482430c2f7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10259,7 +10259,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aee3237f-fd7d-4521-9a2f-b9183a2a4cb5")
+            (uuid "2b4dfcc5-8a40-48ab-af4d-35ae8b014d56")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10374,7 +10374,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 295 "*3B78.processor-net-0")
+            (net 295 "*38A8.processor-net-1")
             (uuid "90179b47-a224-4432-a93a-944e4fb15be0"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -10449,11 +10449,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[6]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b5a84e67-7330-4317-ac53-7c6f0b1fe40c")
+            (uuid "3a7a7a1b-c7c1-4f73-86ce-dc3311096d25")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10463,7 +10463,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "76a9304c-34ee-430b-a908-65e6055e9282")
+            (uuid "abe0ff5e-3634-4527-9664-72fba7240718")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10653,11 +10653,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fe7fc4f1-17a0-4524-968b-464e3833cea6")
+            (uuid "85e11fc6-fce8-40b3-857e-03a75cec8e1c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10667,7 +10667,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "59da53c4-4342-44ae-bfe6-309a4514687d")
+            (uuid "9096bdce-66d7-4c64-84cd-d96fe1f0fbbd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10857,11 +10857,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1d3626ed-0fad-44f5-b04b-8551f7412d83")
+            (uuid "e79d03ac-aa4a-490c-be75-0911dc7539d8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10871,7 +10871,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1ea953ba-c2de-43d0-87ef-78270f47d674")
+            (uuid "4f366e65-2259-4e60-b3fa-cc421188ff19")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11061,11 +11061,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_3V3.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a14a59f3-e912-45ab-b0d4-b41dd7f5c4fc")
+            (uuid "8d3ac7b9-21b3-431b-9cab-21956c767f9a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11075,7 +11075,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4debe153-940f-482c-b5bb-220300255c9d")
+            (uuid "ca30af3a-130d-4975-b4bf-2c84d8bdb98a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11265,11 +11265,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0dc60c7d-b674-4799-afd8-a4a01fac621f")
+            (uuid "a87f9a6f-57a8-44e2-83fe-3de52a4c6730")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11279,7 +11279,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cf8c6f10-f9cc-4ff4-a2a4-872e17f5151b")
+            (uuid "c18b5821-c570-4c6e-bae4-8c2aeb8caa45")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11469,11 +11469,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "595ce689-08bd-490b-b025-323f577a5aa1")
+            (uuid "57f39e25-eee2-4bdb-a04b-427dcd9954ee")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11483,7 +11483,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6c016135-32fe-4983-b32c-44cfd8c9fbf7")
+            (uuid "5a049f6c-b266-41f0-807d-e3a45b167183")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11673,11 +11673,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_3V3.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "afe364b1-848d-4cd6-99e7-6c98b9a3e8f1")
+            (uuid "83413146-f094-4e18-a279-391218f6799d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11687,7 +11687,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "208f4158-1050-4660-a236-4257906c3bb9")
+            (uuid "027c0139-5077-4725-9124-8c7908bc1407")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11877,11 +11877,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_3V3.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "962af474-b414-44c6-9020-608854dda8e7")
+            (uuid "11bab694-7082-47c7-9c51-c381e274c3f1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11891,7 +11891,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e6b1ac47-edb0-4c61-952c-7fc632f68a01")
+            (uuid "16ac99e4-d3cf-433a-ab09-034b858a9e5b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12081,11 +12081,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "690b3bdb-4c99-46fb-b5a8-76aa304e6551")
+            (uuid "13bac05e-2234-4054-9593-a483825bace3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12095,7 +12095,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9f109d2b-5b38-423a-b20a-139d01b3c7b8")
+            (uuid "94b02ee2-ef0d-4dc6-a29a-d5827bf161b6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12285,11 +12285,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d806d69f-d3ac-4076-be87-087bde6d845c")
+            (uuid "8a237f5c-08b3-4113-a80d-6f4ae7797a73")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12299,7 +12299,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3cce0c71-2b68-4d0f-b30c-da46eddc1f43")
+            (uuid "fd85cc25-a64a-4637-b209-fa11ac4af541")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12489,11 +12489,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[8]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6a71a923-3cf1-4629-90db-80b029bf335f")
+            (uuid "b8ea9744-549f-417c-860e-26b1dd276a54")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12503,7 +12503,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "75f8e1e4-0d29-403c-ac21-a20b137198f5")
+            (uuid "81f2f159-8095-4c54-89ac-2d20a6f1e476")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12693,11 +12693,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cf65c604-c438-463b-8dc4-e0783e3d0259")
+            (uuid "a54f5752-4b50-4f69-a52b-7d6b33637704")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12707,7 +12707,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "31ff83f1-bd31-4dc9-869b-63e666b5f91f")
+            (uuid "d2cd194b-e6dd-46cd-8399-a51fe19bed7d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12897,11 +12897,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[9]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3235d242-4159-4b71-a7a7-52363cd83b53")
+            (uuid "097883ab-f02a-41a7-9c70-ca8e66565a37")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12911,7 +12911,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bb444240-d918-40a8-b52f-d943f97d45f8")
+            (uuid "411f15b5-1377-4bc7-a72e-7ccbad040a34")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13101,11 +13101,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDDA_1V8.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDDA_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a8747ab5-b869-405c-89f1-197d2b0895ad")
+            (uuid "6605ddc1-4044-4676-986c-8feffb300777")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13115,7 +13115,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "347d2390-dde7-4b8d-b3c4-70885d7e2c66")
+            (uuid "6b0ffbbf-5345-4831-bd0f-73cf43293843")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13305,11 +13305,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9f12f8e6-8b33-456e-a0cd-a6045c3f4ac1")
+            (uuid "b30aaecf-dfb5-46e6-becb-4e726d69af67")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13319,7 +13319,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b4919caf-f302-4ce2-b0f7-cab723a5eade")
+            (uuid "76ac6899-0773-4080-a73c-b9db9248b60f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13509,11 +13509,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDDA_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "23b2e204-1326-42fc-b1fc-3a877dbcf5bb")
+            (uuid "0ba4cdca-544e-4745-9758-1785460080b9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13523,7 +13523,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cceba155-21dc-4edc-be0e-f8b5d0974b7d")
+            (uuid "8917d554-5d7c-4748-9b4b-2109a83dd2ba")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13713,11 +13713,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[7]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8c63dd52-6543-4073-81aa-3e6e40ba1c7a")
+            (uuid "fc8b268f-a8d0-42f6-9f01-8ec88f717194")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13727,7 +13727,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dcc49f2d-8449-4759-becf-befff18fba73")
+            (uuid "625986d1-62da-4833-b972-a184d8dda957")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13917,11 +13917,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[6]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "be4425bb-3f3c-4018-9854-2ed9c62c3a2a")
+            (uuid "cd5ffefc-9d7c-428c-b1c6-d9096ac411f7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13931,7 +13931,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0fe7cc22-cf1d-4dc5-9f03-b4aad1ef51f2")
+            (uuid "393f3ade-cbc5-4d5b-9bd8-0c1be339abbe")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14121,11 +14121,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_PHY_1V2.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bd38e7b2-5139-472c-966d-6c6e095e3e7e")
+            (uuid "e8b1d4b1-8479-42fc-91cc-ef5197f02cb1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14135,7 +14135,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "502f666a-ccbc-4d4f-b1a8-39d72919d4b8")
+            (uuid "4af5d746-3daa-4596-8b2f-2b09ae8e4525")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14325,11 +14325,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[4]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "200f14af-cf14-41a8-bf0c-10087c2ec1a8")
+            (uuid "ea20e7c9-78a3-4549-80a5-10e330f666dd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14339,7 +14339,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "54238894-122f-4e9e-86e5-20f42382c9b9")
+            (uuid "aa1d7a96-82bd-41e1-87c4-3f3496c8b6c4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14529,11 +14529,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "420763be-4593-4fe2-831c-34ef951d9930")
+            (uuid "f42451f7-8b39-4153-a37c-775625e162a5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14543,7 +14543,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c65c4903-082a-433a-b7c4-a6f441fb0a02")
+            (uuid "9d18491f-0271-4159-b7a3-3a8ded9ca7f6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14658,7 +14658,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 291 "*3B78.processor-net-1")
+            (net 291 "*38A8.processor-net-0")
             (uuid "70c5526a-15de-4f6e-9d03-9ab5a1bd20b1"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -14733,11 +14733,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_PHY_1V2.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_PHY_1V2.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "28627565-3a23-4542-8ec7-2f6919769259")
+            (uuid "118d800f-a9d3-4f04-8a6b-e1962a9c6f54")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14747,7 +14747,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e751ae5d-6d98-4930-9d8b-80b74b2dd013")
+            (uuid "08a9f3e4-ada1-44f2-94ed-b4f3f9a29008")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14937,11 +14937,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_ENET.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.NVCC_ENET.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d7c245d8-97f0-4751-9ad4-667616e854a5")
+            (uuid "ea20a8d1-4d65-4f9c-8d0b-9ce94e282679")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14951,7 +14951,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1657a6f9-6701-4fb2-8015-2743c07bd475")
+            (uuid "cce94b51-66d3-4caf-9c29-a510fed88a44")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15141,11 +15141,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SNVS_0V8.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1557a959-c2b6-4607-8b1c-b5e5ca129a3b")
+            (uuid "fdd3f7a3-9677-4777-a39d-767d6ad425bc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15155,7 +15155,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "294307bc-e8fa-4473-8e9f-3da4857e30ef")
+            (uuid "b8b06aea-b41c-4abc-b80c-e32c94e4403b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15345,11 +15345,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[2]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "37232b8e-7238-4c0c-979e-d1288c83f5bc")
+            (uuid "cd6a8868-91ba-4f08-99a5-dc4b04f9ab73")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15359,7 +15359,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eb931f01-3639-442f-a51c-68766b91e911")
+            (uuid "2746d0ae-4b6d-42a0-a7b0-b098a0c169b7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15549,11 +15549,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_3V3.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bbcb22e7-48ef-44e5-9a41-693e7f855a2b")
+            (uuid "77071f6c-19f3-4bf8-9499-67785fa2e782")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15563,7 +15563,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e5164a7c-141f-4fa8-8d7a-5c0f5da7f6c8")
+            (uuid "30f6e02c-477f-43e6-8a06-6909fc097097")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15753,11 +15753,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[6]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3d78cc70-8a62-485a-b08b-e837711efd02")
+            (uuid "f7d0277f-e433-4dbb-80c1-5fdd18cd4a1c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15767,7 +15767,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e1ee3a40-d1bb-4474-94be-b0da5d6c8c04")
+            (uuid "e9064a60-7ddc-41a1-bf5c-ae7eab3aa7ed")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15957,11 +15957,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_PHY_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c3d6edae-5b8d-4a59-864f-d149444b9abb")
+            (uuid "7270fc58-7b6b-446b-81a2-af76cc79f56f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15971,7 +15971,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eee7e1d3-e50b-4af3-bf05-8056afffe1d7")
+            (uuid "c074d4e4-00e6-4c6e-b40d-aaf44d35b978")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16161,11 +16161,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[7]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6767785f-6a1e-4dec-9a58-9ad382c090c5")
+            (uuid "557e11af-8196-4fbb-87b1-0001767dd81b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16175,7 +16175,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "41c114e1-f73f-49cf-81e7-a7e553531495")
+            (uuid "c4579325-11c6-4868-9f41-30660ca7846b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16365,11 +16365,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b5361580-b7ed-4713-bac1-828c172531e8")
+            (uuid "a8574446-8a94-42a9-bda0-bae943895111")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16379,7 +16379,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dc12a849-04c2-47de-b672-526ff2fd3c46")
+            (uuid "6666a6ea-0677-4805-8ee3-0d55a1d06851")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16569,11 +16569,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[6]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2f0efc8e-b0cb-48b1-a2db-be89da7de7d9")
+            (uuid "5899bd55-60ca-4f69-be09-ac4e88f08602")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16583,7 +16583,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9a0708c1-3858-48f8-9151-69db53e4d188")
+            (uuid "e90c1c01-aa23-4ead-abe2-c3d9ecd32b65")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16773,11 +16773,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "06bcb9d6-cab4-4120-a2a0-48bf2323108f")
+            (uuid "e5735e32-42f7-4630-9555-732c5ff290f5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16787,7 +16787,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3a559343-230c-47ad-b41e-bff6b0360bfc")
+            (uuid "8b3f445e-27f9-4e07-ad2b-4092ddc2cf9a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16977,11 +16977,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "630df5f1-be24-4400-b387-ee04d64fc5bc")
+            (uuid "8ce1b59c-f94c-4785-a155-c46601b3a451")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16991,7 +16991,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3f9e272c-0511-4a43-a466-117bc69829d3")
+            (uuid "a3d56ab7-ae1a-4bdc-ab4a-5d4a154880d8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17181,11 +17181,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[7]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0a19d32a-cb1d-4ea4-b12f-853f2529804c")
+            (uuid "3c77a8c4-75da-44c0-b7e0-f0dc2daa219d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17195,7 +17195,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "321e8aab-f6b4-429e-9fce-1265749bc5c1")
+            (uuid "00eaaebc-e7c0-4b10-b679-ae1386d6dbe4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17385,11 +17385,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6e23b87c-967d-46a6-9ae1-3f14224e4446")
+            (uuid "9350fb32-1a7e-48d8-a2cd-dc1ead72c1e5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17399,7 +17399,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "127eb833-3cc3-46fa-b1ba-b40a57e5a1e5")
+            (uuid "fe3a14a7-0a71-47f6-a062-1f97cf75078b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17589,11 +17589,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[8]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0b77e0b1-4214-4aae-bdd6-f29a0f484f91")
+            (uuid "cad485f1-fc84-4044-8950-e35d9f9230cf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17603,7 +17603,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "79e38310-494d-4da4-aeb4-f64ddabfa0d0")
+            (uuid "10368532-4e94-4c83-a9de-d2c8617db42f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17793,11 +17793,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[6]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e3d29329-a3e9-456d-9bc4-b6d2abc75e38")
+            (uuid "ca85d752-3e91-4573-918c-576eb9e224a6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17807,7 +17807,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "91790dd3-a03d-490e-8901-e10da368f653")
+            (uuid "d5b99d54-392f-4892-a847-fafb52fbd4ec")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17997,11 +17997,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_DRAM_1V1.runtime_anon[8]"
+        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aad7f36c-7be5-4fd2-a5cd-e6d90d4910f1")
+            (uuid "4d44f777-fbe3-4e42-a970-12846b19e20c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18011,7 +18011,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bac88798-b4dc-4179-b9b4-e8586a632092")
+            (uuid "62872891-9118-4c6e-83b2-47fd114e3540")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18201,11 +18201,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3034c0d2-57d2-4794-a286-4aac1013ecfd")
+            (uuid "d2f62d78-78d3-4a8a-8339-232991b309cf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18215,7 +18215,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8078e28f-d443-468c-9901-4861eef21240")
+            (uuid "53c42f47-ca33-4896-a5fa-800044326972")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18405,11 +18405,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_1V8.runtime_anon[10]"
+        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fdde2bf1-f43d-4bff-8072-4c08932be431")
+            (uuid "f53e07a0-c8c8-4efd-ac22-a63db4682a63")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18419,7 +18419,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0caf2334-41d3-4ffb-b681-1150b72497be")
+            (uuid "2a08bfb7-47d1-4fff-9a02-8c8e27042e3d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18609,11 +18609,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.NVCC_SD2.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e12a8fd9-51af-4717-a1c3-e98fc4b95541")
+            (uuid "78892630-113a-459f-963a-281f3ef31139")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18623,7 +18623,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ca8de150-2186-4812-8e63-36dec342599a")
+            (uuid "32cf0421-ad5c-4c36-bc45-77f0aeb9008c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18813,11 +18813,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3d9306c7-f7e4-45b3-b02c-14c0fa22629a")
+            (uuid "76a2359a-e908-4826-9e54-fdcaba9bd0a9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18827,7 +18827,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5a16ba55-eefc-43aa-939f-eca300166811")
+            (uuid "13ea705c-7b2e-4f04-8786-59f36ccafd11")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19017,11 +19017,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_SOC_0V8.runtime_anon[5]"
+        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c556b280-714e-4726-be99-3f7d8656eb2c")
+            (uuid "a8861ce0-16be-447a-8e63-42f72c596216")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19031,7 +19031,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b244b451-8ec2-46f4-8f38-a24f56c016a0")
+            (uuid "0b124303-7318-4299-b3bd-009a692df01c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19221,11 +19221,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_DRAM_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "78b82b03-c6b4-4bd2-b88c-46227f4bf164")
+            (uuid "45fb80b6-a0e0-4775-9630-b9be24608b41")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19235,7 +19235,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3d660e00-5978-44bf-a07e-7aa5812649bc")
+            (uuid "54fa2205-6da7-4a9e-87e5-849c1b03529d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19425,11 +19425,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*3B78.processor.VDD_ARM_0V9.runtime_anon[3]"
+        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "41e3d189-ce51-43d8-9f96-8633e9ab12b6")
+            (uuid "eabfaeee-0842-49f6-aab7-5a6f047f95a2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19439,7 +19439,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b46b2701-7d77-491c-bce4-6a5ccef44226")
+            (uuid "1b89556d-cdeb-4f08-93ed-87e0f249ed55")
             (effects
                 (font
                     (size 1.27 1.27)

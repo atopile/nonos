@@ -1,14 +1,11 @@
 ato-version: ^0.2.7
 builds:
-  default:
-    entry: elec/src/nonos.ato:Nonos
+  # default:
+    # entry: elec/src/nonos.ato:Nonos
   imx8:
-    # entry: processor.imx8:App
     entry: elec/src/processor/imx8.py:App
   pd-controller:
-    entry: USBPD.pd_controller:App
-  test:
-    entry: processor.test:App
+    entry: elec/src/USBPD/pd_controller.py:App
   pmic:
     entry: elec/src/processor/pmic.py:App
 dependencies:

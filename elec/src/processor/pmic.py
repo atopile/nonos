@@ -12,10 +12,12 @@ from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
+
 class BuckOutput(Module):
     """
     Buck output stage containing buck and capacitor
     """
+
     input: F.ElectricPower
     output: F.ElectricPower
     inductor: F.Inductor
@@ -23,13 +25,19 @@ class BuckOutput(Module):
     def __preinit__(self):
         # Connect input HV to output HV through inductor
         self.input.hv.connect_via(self.inductor, self.output.hv)
+        self.input.lv.connect(self.output.lv)
 
         # Connect capacitor across output
-        self.capacitor = self.output.decoupled.decouple()
-        self.capacitor.add(F.has_footprint_requirement_defined([("0603", 2)])) #TODO: can different instances have different number of caps?
+        self._capacitor = self.output.decoupled.decouple()
+        # self._capacitor.rated_voltage.merge(F.lower_bound(5 * P.)
+        # self._capacitor.add(F.has_footprint_requirement_defined([("0603", 2)])) #TODO: can different instances have different number of caps?
+
+    @property
+    def capacitor(self) -> F.Capacitor:
+        return self._capacitor
 
 
-class PCA9450AAHNY_IC(Module):
+class _PCA9450AAHNY(Module):
     """
     HVQFN-56 Power Management - Specialized ROHS
     """
@@ -174,11 +182,12 @@ class PCA9450AAHNY(Module):
     """
     HVQFN-56 Power Management - Specialized ROHS
     """
-    pmic: PCA9450AAHNY_IC
+
+    pmic: _PCA9450AAHNY
 
     # Input power
     VSYS_5V: F.ElectricPower
-    
+
     # Output power rails
     NVCC_SNVS_1V8: F.ElectricPower
     VDD_SNVS_0V8: F.ElectricPower
@@ -201,10 +210,20 @@ class PCA9450AAHNY(Module):
     R_SNSP3_CFG: F.ElectricLogic
 
     # Reset signals
+    # Input
     SYS_nRST: F.ElectricLogic
     PMIC_ON_REQ: F.ElectricLogic
     PMIC_STBY_REQ: F.ElectricLogic
     WDOG_B: F.ElectricLogic
+
+    # Output
+    RTC_RESET_B: F.ElectricLogic
+    POR_B: F.ElectricLogic
+    PMIC_nINT: F.ElectricLogic
+    CLK_32K_OUT: F.ElectricLogic
+
+    # Oscillator
+    # oscillator: F.Crystal_Oscillator
 
     # Buck outputs
     BUCK1: BuckOutput
@@ -231,7 +250,9 @@ class PCA9450AAHNY(Module):
         self.NVCC_SD2.voltage.merge(3.3 * P.V)
 
         # VSYS_5V
-        self.VSYS_5V.hv.connect(self.pmic.INB13, self.pmic.INB26, self.pmic.INB45, self.pmic.INL1)
+        self.VSYS_5V.hv.connect(
+            self.pmic.INB13, self.pmic.INB26, self.pmic.INB45, self.pmic.INL1
+        )
         self.VSYS_5V.lv.connect(self.pmic.AGND, self.pmic.BUCK_AGND, self.pmic.EP)
         VSYS_5V_CAPS = (
             self.VSYS_5V.decoupled.decouple()
@@ -239,14 +260,14 @@ class PCA9450AAHNY(Module):
             .capacitors
         )
         capacitance_values = [10] * 7 + [2.2] * 3  # in uF
-    
-        for cap, value in zip(
-            VSYS_5V_CAPS, itertools.cycle(capacitance_values)
-        ):
-            cap.capacitance.merge(F.Range.from_center_rel(value * P.nF, 0.2)) #TODO: update value once API is updated to uF
+
+        for cap, value in zip(VSYS_5V_CAPS, itertools.cycle(capacitance_values)):
+            cap.capacitance.merge(
+                F.Range.from_center_rel(value * P.nF, 0.2)
+            )  # TODO: update value once API is updated to uF
             cap.add(F.has_footprint_requirement_defined([("0603", 2)]))
 
-        # Set buck input voltages to VSYS_5V        
+        # Set buck input voltages to VSYS_5V
         self.BUCK1.input.voltage.merge(self.VSYS_5V.voltage)
         self.BUCK2.input.voltage.merge(self.VSYS_5V.voltage)
         self.BUCK3.input.voltage.merge(self.VSYS_5V.voltage)
@@ -257,8 +278,10 @@ class PCA9450AAHNY(Module):
         # VDD_ARM_09V - Buck 2
         self.BUCK2.inductor.inductance.merge(F.Range.from_center_rel(0.470 * P.uH, 0.3))
         self.BUCK2.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK2.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C97014"}))
-        self.BUCK2.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.2)) #TODO: update value once API is updated 22uF
+        self.BUCK2.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C97014"})
+        )
+        self.BUCK2.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.3))
         self.BUCK2.input.hv.connect(self.pmic.LX2)
         self.BUCK2.input.lv.connect(self.VSYS_5V.lv)
         self.VDD_ARM_0V9.connect(self.BUCK2.output)
@@ -266,8 +289,10 @@ class PCA9450AAHNY(Module):
         # VDD_SOC_08V - Buck 1
         self.BUCK1.inductor.inductance.merge(F.Range.from_center_rel(0.470 * P.uH, 0.3))
         self.BUCK1.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK1.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C97014"}))
-        self.BUCK1.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.3)) #TODO: update value once API is updated 22uF
+        self.BUCK1.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C97014"})
+        )
+        self.BUCK1.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.2))
         self.BUCK1.input.hv.connect(self.pmic.LX1)
         self.BUCK1.input.lv.connect(self.VSYS_5V.lv)
         self.VDD_SOC_0V8.connect(self.BUCK1.output)
@@ -275,8 +300,10 @@ class PCA9450AAHNY(Module):
         # VDD_DRAM_09V - Buck 3
         self.BUCK3.inductor.inductance.merge(F.Range.from_center_rel(0.470 * P.uH, 0.3))
         self.BUCK3.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK3.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C97014"}))
-        self.BUCK3.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.3)) #TODO: update value once API is updated 22uF
+        self.BUCK3.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C97014"})
+        )
+        self.BUCK3.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.2))
         self.BUCK3.input.hv.connect(self.pmic.LX3)
         self.BUCK3.input.lv.connect(self.VSYS_5V.lv)
         self.VDD_DRAM_0V9.connect(self.BUCK3.output)
@@ -284,8 +311,10 @@ class PCA9450AAHNY(Module):
         # VDD_3V3
         self.BUCK4.inductor.inductance.merge(F.Range.from_center_rel(1 * P.uH, 0.3))
         self.BUCK4.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK4.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C88211"}))
-        self.BUCK4.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.3)) #TODO: update value once API is updated 22uF
+        self.BUCK4.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C88211"})
+        )
+        self.BUCK4.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.2))
         self.BUCK4.input.hv.connect(self.pmic.LX4)
         self.BUCK4.input.lv.connect(self.VSYS_5V.lv)
         self.VCC_3V3.connect(self.BUCK4.output)
@@ -294,24 +323,28 @@ class PCA9450AAHNY(Module):
         # VDD_1V8
         self.BUCK5.inductor.inductance.merge(F.Range.from_center_rel(0.470 * P.uH, 0.3))
         self.BUCK5.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK5.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C97014"}))
-        self.BUCK5.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.3)) #TODO: update value once API is updated 22uF
+        self.BUCK5.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C97014"})
+        )
+        self.BUCK5.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.2))
         self.BUCK5.input.hv.connect(self.pmic.LX5)
         self.BUCK5.input.lv.connect(self.VSYS_5V.lv)
         self.VDD_1V8.connect(self.BUCK5.output)
         self.BUCK5.input.voltage.merge(self.VSYS_5V.voltage)
-        self.pmic.BUCK4FB.connect(self.BUCK5.output)
+        self.pmic.BUCK4FB.connect(self.BUCK5.output.hv)
 
         # NVCC_DRAM_1V1
         self.BUCK6.inductor.inductance.merge(F.Range.from_center_rel(0.470 * P.uH, 0.3))
         self.BUCK6.inductor.rated_current.merge(F.Range.lower_bound(3 * P.A))
-        self.BUCK6.inductor.add(F.has_descriptive_properties_defined({"LCSC": "C97014"}))
-        self.BUCK6.capacitor.capacitance.merge(F.Range.from_center_rel(2 * P.nF, 0.3)) #TODO: update value once API is updated 22uF
+        self.BUCK6.inductor.add(
+            F.has_descriptive_properties_defined({"LCSC": "C97014"})
+        )
+        self.BUCK6.capacitor.capacitance.merge(F.Range.from_center_rel(22 * P.uF, 0.2))
         self.BUCK6.input.hv.connect(self.pmic.LX6)
         self.BUCK6.input.lv.connect(self.VSYS_5V.lv)
         self.NVCC_DRAM_1V1.connect(self.BUCK6.output)
         self.BUCK6.input.voltage.merge(self.VSYS_5V.voltage)
-        self.pmic.BUCK6FB.connect(self.BUCK6.output)
+        self.pmic.BUCK6FB.connect(self.BUCK6.output.hv)
 
         # Connect SWIN and SWOUT
         self.VCC_3V3.hv.connect(self.pmic.SWIN)
@@ -321,22 +354,41 @@ class PCA9450AAHNY(Module):
 
         # Decouple PMIC SWIN
         SWIN_CAP = F.Capacitor()
-        SWIN_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.nF, 0.1)) #TODO: update value once API is updated 4.7uF
+        SWIN_CAP.capacitance.merge(F.Range.from_center_rel(4.7 * P.uF, 0.1))
         SWIN_CAP.add(F.has_footprint_requirement_defined([("0402", 1)]))
         self.pmic.SWIN.connect_via(SWIN_CAP, self.VSYS_5V.lv)
 
         # Decouple PMIC SWOUT
         SWOUT_CAP = F.Capacitor()
-        SWOUT_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.nF, 0.1)) #TODO: update value once API is updated 4.7uF
+        SWOUT_CAP.capacitance.merge(F.Range.from_center_rel(4.7 * P.uF, 0.1))
         SWOUT_CAP.add(F.has_footprint_requirement_defined([("0402", 1)]))
         self.pmic.SWOUT.connect_via(SWOUT_CAP, self.SWOUT.lv)
         self.SWOUT.hv.connect(self.pmic.SWOUT)
         self.SWOUT.lv.connect(self.VSYS_5V.lv)
 
-
         # Reset signals
+        RTC_RESET_B_RES = F.Resistor()
+        RTC_RESET_B_RES.resistance.merge(F.Range.from_center_rel(10 * P.kohm, 0.01))
+        self.pmic.RTC_RESET_B.connect_via(RTC_RESET_B_RES, self.RTC_RESET_B.signal)
+
+        # Oscillator
+        # self.pmic.XTAL_IN.connect(self.oscillator.xtal_if.xin)
+        # self.pmic.XTAL_OUT.connect(self.oscillator.xtal_if.xout)
+        # self.oscillator.xtal_if.gnd.connect(self.VSYS_5V.lv)
+
+        # self.oscillator.crystal.frequency.merge(
+        #     F.Range.from_center_rel(32.768 * P.kHz, 0.001)
+        # )
+        # self.oscillator.crystal.frequency_tolerance.merge(
+        #     F.Range.upper_bound(40 * P.ppm)
+        # )
+        # self.oscillator.crystal.load_capacitance.merge(
+        #     F.Range.from_center(8 * P.pF, 10 * P.pF)
+        # )
+        # self.oscillator.current_limiting_resistor.resistance.merge(
+        #     F.Constant(0 * P.ohm)
+        # )
 
 
-
-
-
+class App(Module):
+    pmic: PCA9450AAHNY

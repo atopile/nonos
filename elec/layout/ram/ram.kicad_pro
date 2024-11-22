@@ -3,7 +3,7 @@
         "last_paths": {
             "gencad": "",
             "idf": "",
-            "netlist": "../../../build/imx8/imx8.net",
+            "netlist": "../../../build/ram/ram.net",
             "plot": "",
             "pos_files": "",
             "specctra_dsn": "",
@@ -19,14 +19,14 @@
                 "apply_defaults_to_fp_fields": false,
                 "apply_defaults_to_fp_shapes": false,
                 "apply_defaults_to_fp_text": false,
-                "board_outline_line_width": 0.09999999999999999,
-                "copper_line_width": 0.19999999999999998,
+                "board_outline_line_width": 0.1,
+                "copper_line_width": 0.2,
                 "copper_text_italic": false,
                 "copper_text_size_h": 1.5,
                 "copper_text_size_v": 1.5,
                 "copper_text_thickness": 0.3,
                 "copper_text_upright": false,
-                "courtyard_line_width": 0.049999999999999996,
+                "courtyard_line_width": 0.05,
                 "dimension_precision": 4,
                 "dimension_units": 3,
                 "dimensions": {
@@ -37,7 +37,7 @@
                     "text_position": 0,
                     "units_format": 1
                 },
-                "fab_line_width": 0.09999999999999999,
+                "fab_line_width": 0.1,
                 "fab_text_italic": false,
                 "fab_text_size_h": 1.0,
                 "fab_text_size_v": 1.0,
@@ -128,15 +128,15 @@
                 "min_copper_edge_clearance": 0.0,
                 "min_hole_clearance": 0.25,
                 "min_hole_to_hole": 0.25,
-                "min_microvia_diameter": 0.19999999999999998,
-                "min_microvia_drill": 0.09999999999999999,
+                "min_microvia_diameter": 0.2,
+                "min_microvia_drill": 0.1,
                 "min_resolved_spokes": 2,
                 "min_silk_clearance": 0.0,
-                "min_text_height": 0.7999999999999999,
+                "min_text_height": 0.8,
                 "min_text_thickness": 0.08,
                 "min_through_hole_diameter": 0.3,
                 "min_track_width": 0.0,
-                "min_via_annular_width": 0.09999999999999999,
+                "min_via_annular_width": 0.1,
                 "min_via_diameter": 0.5,
                 "solder_mask_to_copper_clearance": 0.0,
                 "use_height_for_length_calcs": true,
@@ -148,10 +148,7 @@
                     "td_onpadsmd": true,
                     "td_onroundshapesonly": false,
                     "td_ontrackend": false,
-                    "td_onviapad": true,
-                    "td_allow_use_two_tracks": true,
-                    "td_curve_segcount": 5,
-                    "td_on_pad_in_zone": false
+                    "td_onviapad": true
                 }
             ],
             "teardrop_parameters": [
@@ -239,7 +236,7 @@
         "pinned_symbol_libs": []
     },
     "meta": {
-        "filename": "template123.kicad_pro",
+        "filename": "ram.kicad_pro",
         "version": 1
     },
     "net_settings": {

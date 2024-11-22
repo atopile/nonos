@@ -356,8 +356,8 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
     DRAM_CKE_B = times(2, F.ElectricLogic)  # Clock enable
     DRAM_nCS_A = times(2, F.ElectricLogic)  # Chip select
     DRAM_nCS_B = times(2, F.ElectricLogic)  # Chip select
-    DRAM_nRESET = F.ElectricLogic  # Reset
-    DRAM_ZQ0 = F.ElectricLogic  # On-die termination calibration
+    DRAM_nRESET: F.ElectricLogic  # Reset
+    DRAM_ZQ0: F.ElectricLogic  # On-die termination calibration
 
     def __preinit__(self):
         # ------------------------------------
@@ -380,13 +380,20 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
             self.DRAM_ODT_CA_B.lv,
         )
 
+        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        F.Net.with_name("GND").part_of.connect(self.RAM.VSS)
+
         # Decoupling capacitors
-        # VDD_SOC_0V8
         VDD_1V8_CAP_PROPERTIES = [
             {"value": 10 * P.uF, "footprint": "0402"},
             {"value": 10 * P.uF, "footprint": "0402"},
             {"value": 10 * P.uF, "footprint": "0402"},
             {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
@@ -411,6 +418,12 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
             {"value": 10 * P.uF, "footprint": "0402"},
             {"value": 10 * P.uF, "footprint": "0402"},
             {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
             {"value": 220 * P.nF, "footprint": "0201"},
@@ -536,20 +549,65 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
         # self.RAM.ODT1b.connect(self.DRAM_ODT_CA_B.signal) # chip only has one ODT line
 
         # Connect reset line
-        # self.RAM.RESET.connect(self.DRAM_nRESET.signal)
+        self.DRAM_nRESET.signal.connect(self.RAM.RESET)
 
         # Connect ZQ0 line
         zq0_r = F.Resistor()
         zq0_r.add(F.has_footprint_requirement_defined([("0201", 2)]))
         zq0_r.resistance.merge(F.Range.from_center_rel(240 * P.ohm, 0.01))
-        # self.RAM.ZQ0.connect_via(zq0_r, self.DRAM_ZQ0.signal)
+        self.RAM.ZQ0.connect_via(zq0_r, self.DRAM_ZQ0.signal)
 
         # ------------------------------------
         #          parametrization
         # ------------------------------------
+        # TODO: voltage currently not passed around by connections, once parameters are merged alot of this can be removed
         # Set voltage of power rails
         self.VDD_1V8.voltage.merge(F.Range.from_center_rel(1.8 * P.volt, 0.05))
         self.NVCC_DRAM_1V1.voltage.merge(F.Range.from_center_rel(1.1 * P.volt, 0.05))
+        self.DRAM_ODT_CA_A.voltage.merge(F.Range.from_center_rel(1.1 * P.volt, 0.05))
+        self.DRAM_ODT_CA_B.voltage.merge(F.Range.from_center_rel(1.1 * P.volt, 0.05))
+
+        for signal in [
+            self.DRAM_CK_A,
+            self.DRAM_CK_B,
+            *self.DRAM_SDQS_A,
+            *self.DRAM_SDQS_B,
+        ]:
+            signal.p.reference.connect(self.NVCC_DRAM_1V1)
+            signal.p.reference.voltage.merge(
+                F.Range.from_center_rel(1.1 * P.volt, 0.05)
+            )
+            signal.n.reference.connect(self.NVCC_DRAM_1V1)
+            signal.n.reference.voltage.merge(
+                F.Range.from_center_rel(1.1 * P.volt, 0.05)
+            )
+
+        # Set voltage of all data, control and address lines
+        for signal in (
+            self.DRAM_DATA_A
+            + self.DRAM_DATA_B
+            + self.DRAM_DMI_A
+            + self.DRAM_DMI_B
+            + self.DRAM_CA_A
+            + self.DRAM_CA_B
+            + self.DRAM_CKE_A
+            + self.DRAM_CKE_B
+            + self.DRAM_nCS_A
+            + self.DRAM_nCS_B
+        ):
+            signal.reference.connect(self.NVCC_DRAM_1V1)
+            signal.reference.voltage.merge(F.Range.from_center_rel(1.1 * P.volt, 0.05))
+
+        # Set voltage of reset and ZQ lines
+        self.DRAM_nRESET.reference.connect(self.NVCC_DRAM_1V1)
+        self.DRAM_ZQ0.reference.connect(self.NVCC_DRAM_1V1)
+
+        self.DRAM_nRESET.reference.voltage.merge(
+            F.Range.from_center_rel(1.1 * P.volt, 0.05)
+        )
+        self.DRAM_ZQ0.reference.voltage.merge(
+            F.Range.from_center_rel(1.1 * P.volt, 0.05)
+        )
 
 
 class App(Module):

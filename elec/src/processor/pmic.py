@@ -29,7 +29,6 @@ class BuckOutput(Module):
 
         # Connect capacitor across output
         self._capacitor = self.output.decoupled.decouple()
-        # self._capacitor.rated_voltage.merge(F.lower_bound(5 * P.)
         # self._capacitor.add(F.has_footprint_requirement_defined([("0603", 2)])) #TODO: can different instances have different number of caps?
 
     @property
@@ -248,6 +247,29 @@ class PCA9450AAHNY(Module):
         self.VCC_3V3.voltage.merge(3.3 * P.V)
         self.VDD_PHY_1V2.voltage.merge(1.2 * P.V)
         self.NVCC_SD2.voltage.merge(3.3 * P.V)
+
+        self.BUCK1.output.voltage.merge(F.Range.from_center_rel(0.8 * P.V, 0.05))
+        self.BUCK2.output.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.BUCK3.output.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.BUCK4.output.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
+        self.BUCK5.output.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.BUCK6.output.voltage.merge(F.Range.from_center_rel(1.1 * P.V, 0.05))
+
+
+        # Define voltages for things that probably should be defined by parameters
+        self.SWOUT.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
+        self.R_SNSP1.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.R_SNSP2.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.R_SNSP3_CFG.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.SYS_nRST.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.PMIC_ON_REQ.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.PMIC_STBY_REQ.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.WDOG_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.RTC_RESET_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.POR_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.PMIC_nINT.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.CLK_32K_OUT.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+
 
         # VSYS_5V
         self.VSYS_5V.hv.connect(

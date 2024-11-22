@@ -954,7 +954,6 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.imx8.PVCC0_1P8,
             self.imx8.PVCC1_1P8,
             self.imx8.PVCC2_1P8,
-            self.imx8.VDD_ARM_PLL_1P8,
             self.imx8.VDD_ANA0_1P8,
             self.imx8.VDD_ANA1_1P8,
             self.imx8.VDD_USB_1P8,
@@ -1002,7 +1001,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
         F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
         F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
-        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
         F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
         F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
         F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)

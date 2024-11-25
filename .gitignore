@@ -42,3 +42,5 @@ venv/
 # IDEs
 .vscode/
 *.code-workspace
+
+__pycache__/

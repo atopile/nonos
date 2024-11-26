@@ -7,7 +7,7 @@ builds:
   # pd-controller:
   #   entry: elec/src/USBPD/pd_controller.py:App
   ram:
-    entry: elec/src/processor/ram.py:App
+    entry: elec/src/processor/RAM.py:App
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

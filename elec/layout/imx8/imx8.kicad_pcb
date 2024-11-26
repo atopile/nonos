@@ -106,14 +106,14 @@
             (outputdirectory "")))
     (net 0 "")
     (net 1 "dram_ac07")
-    (net 2 "i2c2_sda")
+    (net 2 "*7C08-net-6")
     (net 3 "pcie_rxn_n")
     (net 4 "dram_dq09")
     (net 5 "uart2_rxd")
     (net 6 "dram_ac16")
     (net 7 "mipi_csi_d1_p")
     (net 8 "nand_data00")
-    (net 9 "i2c4_sda")
+    (net 9 "*7C08.I2C4-hv")
     (net 10 "sai1_txd5")
     (net 11 "gpio1_io04")
     (net 12 "dram_ac11")
@@ -141,7 +141,7 @@
     (net 34 "dram_ac30")
     (net 35 "sd1_cmd")
     (net 36 "enet_td3")
-    (net 37 "i2c1_sda")
+    (net 37 "*7C08-net-2")
     (net 38 "dram_dq15")
     (net 39 "dram_dq18")
     (net 40 "dram_ac00")
@@ -260,7 +260,7 @@
     (net 153 "vdd_dram_pll_0p8")
     (net 154 "gpio1_io00")
     (net 155 "enet_mdio")
-    (net 156 "i2c4_scl")
+    (net 156 "*7C08.ONOFF-signal")
     (net 157 "ecspi2_mosi")
     (net 158 "sai2_txc")
     (net 159 "boot_mode1")
@@ -292,7 +292,7 @@
     (net 185 "dram_ac19")
     (net 186 "tsensor_test_out")
     (net 187 "dram_alert_n")
-    (net 188 "i2c1_scl")
+    (net 188 "*7C08-hv")
     (net 189 "mipi_dsi_d1_p")
     (net 190 "GND")
     (net 191 "dram_dq20")
@@ -313,7 +313,7 @@
     (net 206 "nand_ale")
     (net 207 "mipi_csi_clk_n")
     (net 208 "sd1_strobe")
-    (net 209 "i2c3_scl")
+    (net 209 "*7C08-net-4")
     (net 210 "dram_dq07")
     (net 211 "dram_dqs0_p")
     (net 212 "dram_dq17")
@@ -389,17 +389,17 @@
     (net 282 "clkin2")
     (net 283 "enet_txc")
     (net 284 "pcie_txn_n")
-    (net 285 "i2c2_scl")
-    (net 286 "i2c3_sda")
+    (net 285 "*7C08.I2C1-hv")
+    (net 286 "*7C08-net-5")
     (net 287 "gpio1_io13")
     (net 288 "dram_dq13")
     (net 289 "dram_ac23")
     (net 290 "onoff")
-    (net 291 "*38A8.processor-net-0")
+    (net 291 "*7C08-net-7")
     (net 292 "VDD_PHY_1V2")
     (net 293 "VDD_PHY_0V9")
     (net 294 "VDD_SNVS_0V8")
-    (net 295 "*38A8.processor-net-1")
+    (net 295 "*7C08.I2C3-hv")
     (net 296 "NVCC_DRAM_1V1")
     (net 297 "VDD_SOC_0V8")
     (net 298 "NVCC_SD2")
@@ -408,6 +408,13 @@
     (net 301 "VDD_ARM_0V9")
     (net 302 "VDD_3V3")
     (net 303 "VDD_1V8")
+    (net 304 "*7C08.I2C2-hv")
+    (net 305 "*7C08-net-0")
+    (net 306 "*7C08.PMIC_ON_REQ-signal")
+    (net 307 "*7C08-net-8")
+    (net 308 "*7C08.PMIC_STBY_REQ-signal")
+    (net 309 "*7C08-net-3")
+    (net 310 "*7C08-net-1")
     (footprint "lcsc:BGA-486_L14.0-W14.0-P0.50-TL_NXP_MIMX8MMXDVTLZXA"
         (layer "F.Cu")
         (uuid "0b37d29a-114e-4193-b219-5a165daedb01")
@@ -462,11 +469,11 @@
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide no)))
-        (property "faebryk module name" "*38A8.processor.imx8"
+        (property "faebryk module name" "*3788.processor.imx8"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "37a0052d-7a73-4603-9d2b-fbcc3a8cc766")
+            (uuid "9c5518f3-66b1-4b62-a095-4cd9c7d66b09")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -476,7 +483,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "28c4f9bf-73d1-41ff-973f-5d8546c5a0ac")
+            (uuid "17f4f190-4fbc-4912-ab5b-2e60498ba572")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "imx8"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d2007f9b-011a-4c3a-afaa-4a8504674ef0")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.imx8"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ec8c1cea-00c1-4dfb-9d46-3e9d81a68b88")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6374,28 +6401,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "i2c2_sda")
+            (net 2 "*7C08-net-6")
             (uuid "f6b38a86-9fbf-4f49-b214-02549a0a0ccb"))
         (pad "D10" smd circle
             (at -2 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 285 "i2c2_scl")
+            (net 310 "*7C08-net-1")
             (uuid "7f5ff992-e9e6-4e1e-b940-86cb3df84edc"))
         (pad "D13" smd circle
             (at -0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 156 "i2c4_scl")
+            (net 286 "*7C08-net-5")
             (uuid "110351d1-10f5-4cb7-8f5b-d1f2be5b7965"))
         (pad "D15" smd circle
             (at 0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*38A8.processor-net-1")
+            (net 291 "*7C08-net-7")
             (uuid "b682894b-6436-4e0f-90b1-f53d85a7ad47"))
         (pad "D18" smd circle
             (at 2 -5 270)
@@ -6479,21 +6506,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "i2c1_scl")
+            (net 37 "*7C08-net-2")
             (uuid "405c4eb1-57c5-46c9-b226-ad4c42ee8db7"))
         (pad "E10" smd circle
             (at -2 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 209 "i2c3_scl")
+            (net 305 "*7C08-net-0")
             (uuid "11e1348f-8398-47b3-9783-6b00d366873f"))
         (pad "E13" smd circle
             (at -0.5 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "i2c4_sda")
+            (net 309 "*7C08-net-3")
             (uuid "bee7d954-708f-4794-a64e-742951d526c0"))
         (pad "E14" smd circle
             (at 0 -4.5 270)
@@ -6605,14 +6632,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 37 "i2c1_sda")
+            (net 209 "*7C08-net-4")
             (uuid "9e9ef4ea-4c48-4635-af45-1aa70f98605d"))
         (pad "F10" smd circle
             (at -2 -4 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 286 "i2c3_sda")
+            (net 307 "*7C08-net-8")
             (uuid "832e4e1b-73c7-40b1-9aa8-236aa7a4c150"))
         (pad "F13" smd circle
             (at -0.5 -4 270)
@@ -6955,7 +6982,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 291 "*38A8.processor-net-0")
+            (net 188 "*7C08-hv")
             (uuid "ea3189df-9ac8-42c0-83f8-424ca0283245"))
         (pad "J23" smd circle
             (at 4.5 -2.5 270)
@@ -8409,11 +8436,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a6a2c1e0-2380-428a-a0a6-4e200070b9f7")
+            (uuid "0ac6fad0-2097-48d9-9d5c-dfc78df04a1c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8423,7 +8450,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b411615e-e006-46e2-a1d2-0b4bc564d5be")
+            (uuid "28a1f23f-c372-4a02-bcfc-ec61b885b4c7")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1e9e5f26-a188-4fb2-a90b-f40f2b57f0ed")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "7afb1b77-47a1-42a4-93c9-b4b5fd33c81a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8613,11 +8660,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "70b26c20-850d-48bf-b2c0-4a52a224a88c")
+            (uuid "9eb9ea10-2966-4896-a0c1-e9d2409269e9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8627,7 +8674,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7ca02351-0220-4b60-8739-d3d8248be461")
+            (uuid "a23590e9-9fad-4576-83ac-8b9736830c38")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "23d5bab8-702d-409c-9596-48aa0a2c2496")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "936746b7-df5e-4d04-a5e1-ca2fab0ee48b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8817,11 +8884,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "07258a07-c51f-4de2-8eb2-d872880a2320")
+            (uuid "d89505dc-965b-4098-bb65-0dde57c3d369")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8831,7 +8898,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "74160926-e8f4-41f1-a57d-180c43988e51")
+            (uuid "7204f713-ac82-4e69-a460-427093e7a1e0")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "19058b1d-1303-43c3-9db7-e87f812b1f44")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "0aa1d305-3d1d-442b-b086-783d9a8e9420")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9021,11 +9108,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d7c633f6-61b3-4f4d-b744-6c88d442c835")
+            (uuid "2c6376eb-7d79-4684-be2a-4e268ab18b3b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9035,7 +9122,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fe71d0a1-fb56-4312-8b53-26b59c21fb01")
+            (uuid "5a8a0e07-bd3e-4119-a415-67012a223941")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4758d59c-c768-4b09-b0f7-4bdeba42c8dc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b92a3afc-428b-47c6-b6a6-81c522762f12")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9225,11 +9332,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_3V3.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "74409ef0-ee27-415f-9381-59030fc0ac15")
+            (uuid "121f0c64-f469-4112-a591-e4098a05484a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9239,7 +9346,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "78b65aac-58e2-4379-a3ef-479ac96411fd")
+            (uuid "836be83d-9dd8-4938-b7d4-5cdcf6652858")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_3V3.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a83a7e28-a0ca-4eb6-93b3-618fe2d0d40a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "597ac3d9-21a2-456e-87f4-b57ff4d6887f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9429,11 +9556,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d181527a-f283-46b5-ac46-1744480dd891")
+            (uuid "28862751-a280-4d8f-a270-ae461b936e41")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9443,7 +9570,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3c97a4e7-954f-4a4c-8be1-df834c8a07bf")
+            (uuid "aaa7a86f-02fd-4bba-910f-b688496484fd")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "34c198ff-1431-40b6-b50e-f0f93cfd99fc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "8197fec6-5e3f-4621-8ce3-0f589857b178")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9633,11 +9780,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[8]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b3611aef-f4e9-432b-b333-01928f1bc9b2")
+            (uuid "e96e08a6-4d1f-46d2-bc98-0fec0e257670")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9647,7 +9794,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e9c632c7-7c93-43c4-8183-4994bbf94f18")
+            (uuid "f4e0a8e9-2b3b-4b38-baf7-bca7c0442655")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "3647f220-03a8-4cf4-be91-83f7d676522e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a9409767-b0a5-40a4-b23d-462cb9f70e51")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9837,11 +10004,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[7]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "47757276-ed88-4afb-bc89-c569ad03f527")
+            (uuid "2ac32b19-d207-40a5-8378-726e9ef24e42")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9851,7 +10018,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7fc7801d-8e86-4bd7-8c06-2dc97940a1fe")
+            (uuid "da4a9c6b-5894-4578-a629-9d501c767077")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "788c03dd-0d2b-4fef-ace2-1f8f0d95f70b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a5d8f15d-fb1b-42e6-be9d-ff771eb28dd6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10041,11 +10228,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d3f0f7d0-43e5-4047-a52b-09b30e505693")
+            (uuid "4b301b9d-afee-4273-b5ae-1d95f3f62c7e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10055,7 +10242,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "efffd46a-b5ad-4f92-b607-147e4772481d")
+            (uuid "4afd7176-88a7-4961-aa9f-28797cb23a7e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "109c32e8-e9ba-4c73-b1e0-d50e029a4474")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "af6234d4-108e-4813-aba4-c071bbb62ff0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10245,11 +10452,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.MIPI_VREG_CAP"
+        (property "faebryk module name" "*3788.processor.MIPI_VREG_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1e7a98a4-7eeb-4c37-ab58-71482430c2f7")
+            (uuid "841bdece-6360-4d11-bbdb-c0e61ffba9b4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10259,7 +10466,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2b4dfcc5-8a40-48ab-af4d-35ae8b014d56")
+            (uuid "564d92be-ac66-4c26-9ecd-3c2ccede3ab2")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "MIPI_VREG_CAP"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "cb0beac9-538d-46bc-9324-01645303950b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.MIPI_VREG_CAP"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "bb3fe358-6c5b-4d46-85c8-f0ac6b70d46d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10374,7 +10601,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 295 "*38A8.processor-net-1")
+            (net 291 "*7C08-net-7")
             (uuid "90179b47-a224-4432-a93a-944e4fb15be0"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -10449,11 +10676,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[6]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3a7a7a1b-c7c1-4f73-86ce-dc3311096d25")
+            (uuid "15747365-ffe4-4fae-897d-b0c61f2be921")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10463,7 +10690,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "abe0ff5e-3634-4527-9664-72fba7240718")
+            (uuid "230329a9-2210-4215-81f2-e153f4b8d5f5")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "be94379e-03c5-4bc5-858c-f7c5ed08231a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "8042c826-e65b-4ae0-acb9-3b0f7650d04a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10653,11 +10900,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "85e11fc6-fce8-40b3-857e-03a75cec8e1c")
+            (uuid "9a35998e-4064-4daf-871c-89ec18cfb3d6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10667,7 +10914,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9096bdce-66d7-4c64-84cd-d96fe1f0fbbd")
+            (uuid "7d0b8751-ff15-429a-9437-28d4d6a805f2")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "086b959e-1563-42b6-80ab-654f7112825a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "91eff60e-e7d6-4ca2-9d51-c9ace6e9e144")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10857,11 +11124,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e79d03ac-aa4a-490c-be75-0911dc7539d8")
+            (uuid "40283354-1cd2-45d3-95be-75f295a039e8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10871,7 +11138,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4f366e65-2259-4e60-b3fa-cc421188ff19")
+            (uuid "cc6d31ec-067f-45bb-a233-463df9880c4d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "14280713-df7a-4636-8a42-7a958b7306b4")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "fdb2e1e3-8f99-449e-af79-4d72f3d42c90")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11061,11 +11348,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_3V3.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8d3ac7b9-21b3-431b-9cab-21956c767f9a")
+            (uuid "26bf866d-5a7c-4332-ad87-812a815c960e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11075,7 +11362,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ca30af3a-130d-4975-b4bf-2c84d8bdb98a")
+            (uuid "1b038545-19eb-40f7-bfef-a9a443bc2056")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_3V3.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "0f985710-2187-44de-9a0c-70397d465eef")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b0fadc4c-2cba-4551-9f40-28db1a92e7b0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11265,11 +11572,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a87f9a6f-57a8-44e2-83fe-3de52a4c6730")
+            (uuid "82bc964b-44fe-4798-b005-92e255307bc5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11279,7 +11586,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c18b5821-c570-4c6e-bae4-8c2aeb8caa45")
+            (uuid "f54181b1-214f-4e61-a214-7400b89dfd9d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "efa49b54-d491-48eb-9b15-41fbb544854f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ec680926-64ba-4369-8ef1-b6d005730a33")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11469,11 +11796,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "57f39e25-eee2-4bdb-a04b-427dcd9954ee")
+            (uuid "e99d6ff3-b656-4897-bbf4-dcefcb539058")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11483,7 +11810,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5a049f6c-b266-41f0-807d-e3a45b167183")
+            (uuid "c05da9f8-5d60-4d53-ad2e-082bb0da488e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "87399909-b4b3-4e39-ba80-b700d99ab7ab")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "0f8e75ad-9765-4121-9f56-3219e3db8965")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11673,11 +12020,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.VDD_3V3.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "83413146-f094-4e18-a279-391218f6799d")
+            (uuid "c1354a4b-3ddb-4ce5-a3fb-521ac382e63a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11687,7 +12034,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "027c0139-5077-4725-9124-8c7908bc1407")
+            (uuid "9638401f-5608-444d-b503-44f5aa62a00d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_3V3.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "87bba3ec-45db-4a47-b90c-aa838a17f29c")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "8244e6eb-ccec-4976-b507-d63781750df9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11877,11 +12244,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.VDD_3V3.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "11bab694-7082-47c7-9c51-c381e274c3f1")
+            (uuid "af0a16f2-69f4-4fcc-95f8-081d86382361")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11891,7 +12258,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "16ac99e4-d3cf-433a-ab09-034b858a9e5b")
+            (uuid "64136ef7-6393-4518-a69b-b2d2e0a83f3e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_3V3.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "226f2ab2-070d-4c94-859e-1e6dac122dfe")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e2d326c0-6a9d-414a-94b1-974af665ea56")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12081,11 +12468,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "13bac05e-2234-4054-9593-a483825bace3")
+            (uuid "fd0126ed-9480-45db-9e6d-4bdf2fc2a8d6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12095,7 +12482,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "94b02ee2-ef0d-4dc6-a29a-d5827bf161b6")
+            (uuid "c62354c3-4449-4f0e-b654-1b3a843afdcf")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e084ac91-6f0f-4748-b200-272c5c4858c2")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "fb78c300-ce8c-47ce-bf9c-4e4cc8022fe1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12285,11 +12692,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8a237f5c-08b3-4113-a80d-6f4ae7797a73")
+            (uuid "a3cd7150-07cb-4315-bc46-030480490813")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12299,7 +12706,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fd85cc25-a64a-4637-b209-fa11ac4af541")
+            (uuid "3184d105-2c85-4bab-b1dc-515ac84e5ec1")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "75462bbe-a9c0-44e9-9a01-8e4616cc7d93")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "10b58609-52fe-4fc4-b486-13fa51bbedc2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12489,11 +12916,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[8]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b8ea9744-549f-417c-860e-26b1dd276a54")
+            (uuid "962cc3ea-ed47-49b8-985c-39d211f9d701")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12503,7 +12930,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "81f2f159-8095-4c54-89ac-2d20a6f1e476")
+            (uuid "902d91f4-6734-4887-b6c6-7802ff131385")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "19116121-42e6-4b30-a632-2b58f06ebe36")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "fcd94857-530b-47b1-ba09-ad1046533afd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12693,11 +13140,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a54f5752-4b50-4f69-a52b-7d6b33637704")
+            (uuid "1223d031-db4c-467f-9d8c-1651a8c48815")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12707,7 +13154,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d2cd194b-e6dd-46cd-8399-a51fe19bed7d")
+            (uuid "7935c3b8-49b9-4e36-9601-1a09303ce01f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ef63f67c-1022-4749-bcc7-23694deaff97")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1995d3dd-f6cd-4d8d-b88e-d9988c40a1b9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12897,11 +13364,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[9]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "097883ab-f02a-41a7-9c70-ca8e66565a37")
+            (uuid "10165afd-0a73-49c8-adda-808a5ba98b5f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12911,7 +13378,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "411f15b5-1377-4bc7-a72e-7ccbad040a34")
+            (uuid "55232c10-051d-42ab-bb63-dc197e2b90f7")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[9]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "948d17a7-79fa-4022-b0e7-93fffe21b419")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[9]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "77467f8c-6739-43f2-81ec-afce43149f6e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13101,11 +13588,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDDA_1V8.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDDA_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6605ddc1-4044-4676-986c-8feffb300777")
+            (uuid "9d45fde9-852a-4ae9-87d7-c50641b49c22")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13115,7 +13602,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6b0ffbbf-5345-4831-bd0f-73cf43293843")
+            (uuid "6e1fbd61-bce7-4ab5-95dd-50588ba76e0b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDDA_1V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "774e35e5-96dc-4dcf-bbc7-51b336220caa")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDDA_1V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "db6095a6-7112-4c6a-b848-a46b380421a7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13305,11 +13812,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b30aaecf-dfb5-46e6-becb-4e726d69af67")
+            (uuid "086eeb25-4bc2-44cd-a54d-cc1cde8a5e5d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13319,7 +13826,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "76ac6899-0773-4080-a73c-b9db9248b60f")
+            (uuid "70f2198e-ffe1-4908-b686-59abc4521036")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b3b5ffcd-1e89-4efa-be13-5c22700791aa")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f6293bb6-0c88-4e8e-9acc-cca51c03f881")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13509,11 +14036,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDDA_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0ba4cdca-544e-4745-9758-1785460080b9")
+            (uuid "2766d658-662e-4aef-b212-47d69014188e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13523,7 +14050,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8917d554-5d7c-4748-9b4b-2109a83dd2ba")
+            (uuid "0d902a20-9b18-42ed-9727-2c04828e703f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDDA_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "94831442-5adb-4e13-8229-41ec6e82d85d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDDA_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "181ce897-c4ed-40aa-b7fb-2dbaaf0309cd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13713,11 +14260,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[7]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fc8b268f-a8d0-42f6-9f01-8ec88f717194")
+            (uuid "a7a20e3d-7a5a-4df5-8b13-d3be81886026")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13727,7 +14274,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "625986d1-62da-4833-b972-a184d8dda957")
+            (uuid "86e63d20-f22f-4a73-acdd-e7ca09c18a57")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "5b78e1bb-236c-41f7-9588-9024cba1d3ba")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4399f3f3-7ca7-4d64-8b57-c14f93ef3763")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13917,11 +14484,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[6]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cd5ffefc-9d7c-428c-b1c6-d9096ac411f7")
+            (uuid "5fffd57c-36dc-442f-9c81-b5815a687a4a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13931,7 +14498,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "393f3ade-cbc5-4d5b-9bd8-0c1be339abbe")
+            (uuid "3baf4096-e8c5-401a-9195-44a6c12fdcdc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f093237a-25fc-449a-853f-a29505c49ca6")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d9681580-62f0-4331-a787-9127d21c5050")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14121,11 +14708,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_PHY_1V2.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e8b1d4b1-8479-42fc-91cc-ef5197f02cb1")
+            (uuid "9a7ffa9b-0a58-4051-bbe3-bd16e5cf063f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14135,7 +14722,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4af5d746-3daa-4596-8b2f-2b09ae8e4525")
+            (uuid "e48ee0e4-9419-4b4b-b1b9-425250ad96f5")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_PHY_1V2.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1f689eb2-7413-49c1-83c7-7094bbd51461")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_PHY_1V2.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "13dc0d2a-d9c9-454b-b901-a6653247cde3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14325,11 +14932,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[4]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ea20e7c9-78a3-4549-80a5-10e330f666dd")
+            (uuid "f542c1b3-05e6-4134-a24c-0e65335f5d25")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14339,7 +14946,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aa1d7a96-82bd-41e1-87c4-3f3496c8b6c4")
+            (uuid "6a91e0cb-5bec-44bd-8db5-66c12ae8f58a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "98b29e58-9723-4853-b375-bb5565a914b0")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[4]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "32c23bc2-bdd4-4184-9ec7-09c781cebd7c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14529,11 +15156,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f42451f7-8b39-4153-a37c-775625e162a5")
+            (uuid "43b33de0-8184-45aa-b92a-c12e2603726b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14543,7 +15170,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9d18491f-0271-4159-b7a3-3a8ded9ca7f6")
+            (uuid "2d7a838c-98be-47c9-8089-b72088158608")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_SNVS_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f38d2083-faf8-4919-aee3-b9bc8557d318")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_SNVS_1V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f5ecb1f5-cf15-4759-a122-b1b99fef2b0b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14658,7 +15305,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 291 "*38A8.processor-net-0")
+            (net 188 "*7C08-hv")
             (uuid "70c5526a-15de-4f6e-9d03-9ab5a1bd20b1"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -14733,11 +15380,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_PHY_1V2.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_PHY_1V2.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "118d800f-a9d3-4f04-8a6b-e1962a9c6f54")
+            (uuid "7e3ab71e-0867-448e-a44e-66efa2ab1cbb")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14747,7 +15394,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "08a9f3e4-ada1-44f2-94ed-b4f3f9a29008")
+            (uuid "f7f64e8c-2812-4ddf-b2f3-fb25e00859de")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_PHY_1V2.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d23909d1-6f23-450c-814d-4af7ffa32d04")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_PHY_1V2.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "7b913c9e-8b17-44de-8cbb-cf89e71f310d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14937,11 +15604,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_ENET.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.NVCC_ENET.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ea20a8d1-4d65-4f9c-8d0b-9ce94e282679")
+            (uuid "6fb52758-1cf7-44dc-aa99-8661e4a066d2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14951,7 +15618,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cce94b51-66d3-4caf-9c29-a510fed88a44")
+            (uuid "125b84fb-b23e-4473-96fc-04e97feeba5c")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_ENET.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "9264bf13-e869-4b83-915f-f6a6186e8671")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_ENET.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d4bebc62-0c27-4a72-bc42-29af080ec705")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15141,11 +15828,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SNVS_0V8.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fdd3f7a3-9677-4777-a39d-767d6ad425bc")
+            (uuid "a33f9893-0376-4900-9a0b-c79a80992cb9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15155,7 +15842,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b8b06aea-b41c-4abc-b80c-e32c94e4403b")
+            (uuid "2d2cb8e6-a2aa-4465-8053-d01c28c97fa3")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SNVS_0V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "bdbf0afc-a388-4304-93c7-1bf9215ca2e1")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SNVS_0V8.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "6dbf396d-7dca-4cd6-b8bc-868d6c84aa4b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15345,11 +16052,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[2]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cd6a8868-91ba-4f08-99a5-dc4b04f9ab73")
+            (uuid "1be7fb98-c3dd-488b-9f71-1a9358adabc4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15359,7 +16066,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2746d0ae-4b6d-42a0-a7b0-b098a0c169b7")
+            (uuid "c1acbdcc-9869-4ef6-83fc-31ad766a3d0e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b96b6754-a037-4394-85b2-b0c2fcd52708")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[2]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b14a78c1-1609-4572-92ce-c437f700efa1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15549,11 +16276,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_3V3.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.VDD_3V3.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "77071f6c-19f3-4bf8-9499-67785fa2e782")
+            (uuid "faf14829-b6eb-4340-ba29-3a074446aab1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15563,7 +16290,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "30f6e02c-477f-43e6-8a06-6909fc097097")
+            (uuid "a66c7dbb-dc09-4193-9954-f4ef1abe451b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_3V3.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f71d2a75-291a-4db7-8c94-d13b1dfb2492")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "f09fe1cb-7190-4f09-a698-8466200a1e2b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15753,11 +16500,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[6]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f7d0277f-e433-4dbb-80c1-5fdd18cd4a1c")
+            (uuid "5f86c7c6-1cd8-41e2-8534-ea6e517d1d1e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15767,7 +16514,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e9064a60-7ddc-41a1-bf5c-ae7eab3aa7ed")
+            (uuid "94646198-8f63-412a-b615-a9ee076a8e69")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "fe4ca3a6-b5a6-4b37-8eeb-acab06f5897d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "87a87063-08f2-47e2-9c23-0edde219e5bf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15957,11 +16724,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_PHY_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7270fc58-7b6b-446b-81a2-af76cc79f56f")
+            (uuid "c1945ba0-8bd7-42ff-b1fa-98956af99097")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15971,7 +16738,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c074d4e4-00e6-4c6e-b40d-aaf44d35b978")
+            (uuid "1d405216-d76a-460b-97e7-b9d899862279")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_PHY_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d651d210-a0d0-4a86-8b22-094008ccf9a4")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_PHY_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "91e3eb3d-9591-43e8-94d6-c43e40c53754")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16161,11 +16948,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[7]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "557e11af-8196-4fbb-87b1-0001767dd81b")
+            (uuid "d0dc348e-b368-4fef-af87-1ab853a98dd0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16175,7 +16962,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c4579325-11c6-4868-9f41-30660ca7846b")
+            (uuid "c5765e13-3532-4fc7-a2e9-73273a999a59")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "93471a64-da17-4c67-b91c-828e776574ef")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "eecedc26-c0f3-4744-9ff2-36b4c1ed5287")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16365,11 +17172,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a8574446-8a94-42a9-bda0-bae943895111")
+            (uuid "3d937712-44a3-4268-95fc-3b619ad5adca")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16379,7 +17186,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6666a6ea-0677-4805-8ee3-0d55a1d06851")
+            (uuid "a2ff335d-826e-4781-8344-a7e9ac7e3f83")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a180f7ee-2276-4f18-b681-fa05ed570fa1")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "12bec357-7ddb-4ece-8b76-b950a7b07e54")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16569,11 +17396,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[6]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5899bd55-60ca-4f69-be09-ac4e88f08602")
+            (uuid "5ef574b2-35e5-4ebb-b3a9-d665c973ed5e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16583,7 +17410,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e90c1c01-aa23-4ead-abe2-c3d9ecd32b65")
+            (uuid "fac9df8b-433a-4430-bf36-472a76d1664d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4deaee10-aa22-4f27-84c5-4734767e4566")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "dfdfb599-7f1f-48bc-9926-3707d13d9459")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16773,11 +17620,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e5735e32-42f7-4630-9555-732c5ff290f5")
+            (uuid "f3f1e2eb-3ace-4223-8a71-7bef0fb67a65")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16787,7 +17634,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8b3f445e-27f9-4e07-ad2b-4092ddc2cf9a")
+            (uuid "6be57f30-2f2d-4cda-97a4-0b26c6bbcf73")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b630e99c-70b2-43a2-acbe-09954db1f08f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "792ab096-ceb4-4ec6-8c31-bb5b01b51e19")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16977,11 +17844,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8ce1b59c-f94c-4785-a155-c46601b3a451")
+            (uuid "fa38f750-6056-4dd0-bb72-1fba4ad15089")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16991,7 +17858,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a3d56ab7-ae1a-4bdc-ab4a-5d4a154880d8")
+            (uuid "c4f5f7a4-937a-4b36-94b1-fd975ca2f0c9")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "73aeccf9-102b-46da-8cbd-6696a2b745ce")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b74ef09b-67f9-48c2-9ed1-b82e8b067bd1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17181,11 +18068,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[7]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3c77a8c4-75da-44c0-b7e0-f0dc2daa219d")
+            (uuid "5ed31fea-1cb4-45b5-9981-499a688db08d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17195,7 +18082,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "00eaaebc-e7c0-4b10-b679-ae1386d6dbe4")
+            (uuid "ec6bcc83-0305-4c3f-84b5-6c568faee6c6")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "fe2c92dd-2924-4993-b5bd-02ee849d891a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[7]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "843d65e6-633a-468a-a320-11d5142f3e25")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17385,11 +18292,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9350fb32-1a7e-48d8-a2cd-dc1ead72c1e5")
+            (uuid "62a8a94b-b92f-469d-af60-83c16e9afe02")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17399,7 +18306,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fe3a14a7-0a71-47f6-a062-1f97cf75078b")
+            (uuid "3fadba18-83ee-4726-a197-23553524837a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "9e46328b-f9b2-4e21-9efe-3b18c6c46ad5")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "36894f08-469f-4958-b3d2-35a097c3d941")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17589,11 +18516,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[8]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cad485f1-fc84-4044-8950-e35d9f9230cf")
+            (uuid "319292e7-221b-42ef-b843-222800cf6008")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17603,7 +18530,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "10368532-4e94-4c83-a9de-d2c8617db42f")
+            (uuid "89f63189-99a0-4d69-9b54-636b73c22605")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "8e8f1e7f-f346-487a-b073-07b53209f92f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "bf5f4323-4390-4035-a364-160e10196793")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17793,11 +18740,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[6]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ca85d752-3e91-4573-918c-576eb9e224a6")
+            (uuid "0ee5c543-2565-4741-85fb-65c5394810d8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17807,7 +18754,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d5b99d54-392f-4892-a847-fafb52fbd4ec")
+            (uuid "58bc6663-1919-4c6d-b93d-06bda2ae8912")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "c4447e78-9ce2-4f8f-8db6-d47d4d486ead")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[6]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "98512f6c-b302-4ba5-87ef-e04b02bb66eb")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17997,11 +18964,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_DRAM_1V1.runtime_anon[8]"
+        (property "faebryk module name" "*3788.processor.NVCC_DRAM_1V1.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4d44f777-fbe3-4e42-a970-12846b19e20c")
+            (uuid "68b41cfa-75c0-486d-82a3-34c048ee115d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18011,7 +18978,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "62872891-9118-4c6e-83b2-47fd114e3540")
+            (uuid "06c02941-24b9-4089-940d-b68cdfc3c57f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "09c00f6f-a317-42a2-87c8-8650457635d6")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[8]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "3911b106-693d-4efb-a44b-eec0180ea24a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18201,11 +19188,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d2f62d78-78d3-4a8a-8339-232991b309cf")
+            (uuid "c586958c-9780-48b6-bf4b-9bb0123d3915")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18215,7 +19202,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "53c42f47-ca33-4896-a5fa-800044326972")
+            (uuid "c40e17eb-a6e6-4337-8b26-b91db7f31986")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e47ec68b-8b8d-48de-b812-80f9e61d8129")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d4f0f5f7-daee-4a22-8ce4-8d475363c0a2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18405,11 +19412,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_1V8.runtime_anon[10]"
+        (property "faebryk module name" "*3788.processor.VDD_1V8.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f53e07a0-c8c8-4efd-ac22-a63db4682a63")
+            (uuid "17f4cf23-9fb3-4ac8-9466-284854e8ca2a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18419,7 +19426,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2a08bfb7-47d1-4fff-9a02-8c8e27042e3d")
+            (uuid "b021698d-80b8-4e91-9b41-3ade5f17c860")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_1V8.runtime_anon[10]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "0be80bfb-ae52-430b-bdf9-7500640b8c5f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[10]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "356ceee8-c33c-408f-9fab-82b98d82c055")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18609,11 +19636,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.NVCC_SD2.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "78892630-113a-459f-963a-281f3ef31139")
+            (uuid "b41e6e59-ba29-48c1-8db6-b3268230640d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18623,7 +19650,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "32cf0421-ad5c-4c36-bc45-77f0aeb9008c")
+            (uuid "a2edd663-bf5f-4dfe-a537-332e64ed39a7")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "NVCC_SD2.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d9604ab2-4137-4dbc-88c0-35cb4c3456d3")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.NVCC_SD2.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d78f2f78-15d3-41ff-a6e6-c82586cc1434")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18813,11 +19860,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "76a2359a-e908-4826-9e54-fdcaba9bd0a9")
+            (uuid "8f70262e-4c8d-4a84-8abf-4005b68a3fa7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18827,7 +19874,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "13ea705c-7b2e-4f04-8786-59f36ccafd11")
+            (uuid "1d3addd1-440c-42eb-940b-7d2d431499cc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1a0d1753-3b5e-4d60-a50a-a9d66d086afc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a33c119c-a95d-4fe8-8ac8-71a0ebf5a436")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19017,11 +20084,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_SOC_0V8.runtime_anon[5]"
+        (property "faebryk module name" "*3788.processor.VDD_SOC_0V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a8861ce0-16be-447a-8e63-42f72c596216")
+            (uuid "3ce18441-afd1-4a6d-93ce-5e37df3ad6e5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19031,7 +20098,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0b124303-7318-4299-b3bd-009a692df01c")
+            (uuid "ed305d30-3d79-4564-bac6-782fc682c98e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "de0b9364-d187-4d07-adee-408a7af1079d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[5]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "2c60e6e6-496b-449b-b239-cfcafb05429d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19221,11 +20308,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_DRAM_0V9.runtime_anon[0]"
+        (property "faebryk module name" "*3788.processor.VDD_DRAM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "45fb80b6-a0e0-4775-9630-b9be24608b41")
+            (uuid "a8c789c5-e9b1-4bdf-88a8-bcc2836ea0d3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19235,7 +20322,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "54fa2205-6da7-4a9e-87e5-849c1b03529d")
+            (uuid "9bcbdd0c-d1c0-4bed-adb0-44d9591b4a0f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e26a1880-87f6-4c42-a39f-9e2d5086e3f1")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[0]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "bac651e1-577e-4a64-8052-e2cd6e44d203")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19425,11 +20532,11 @@
                     (thickness 0.15))
                 (hide no)
                 (justify mirror)))
-        (property "faebryk module name" "*38A8.processor.VDD_ARM_0V9.runtime_anon[3]"
+        (property "faebryk module name" "*3788.processor.VDD_ARM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eabfaeee-0842-49f6-aab7-5a6f047f95a2")
+            (uuid "c90c5c1d-c765-47ba-a33b-e77d54facea5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19439,7 +20546,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1b89556d-cdeb-4f08-93ed-87e0f249ed55")
+            (uuid "053f5e83-6bc0-44c2-b511-7655be8efafb")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b9b6fa32-77af-4b3e-a644-29e2e3824eb0")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[3]"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "6c6f068d-cabe-4499-9d5d-4f40640a2adc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19566,6 +20693,1667 @@
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/C0201_L0.6-W0.3-H0.3.wrl"
             (offset
                 (xyz 0 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "0cc17d45-2726-4522-8d30-976d02edec2b")
+        (at 0 0 0)
+        (property "Reference" "R1"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "4c3563a4-cdf6-4933-8258-2be8f366d392")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "010a446d-ff7e-46a4-b2f3-b9d1520207d2")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C1.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d4f7a30f-e5f1-44c0-80c2-d576718bb453")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C1.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ac29294b-da9b-4ee4-b33c-7505a1bf69ff")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "8ed8f6c1-dc18-4817-95f9-eb4d67d114f0")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "d5f10fb8-79d4-4d1c-b0f1-2e29d31bfa39"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "b5040a23-ca04-4bcc-8fc9-6f472b2f1bf0"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "51b13bdd-b7f2-4761-b5db-c294873339e3"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "39c6e200-7159-4669-b85a-c9966fdf7bf3"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "ee6dc742-b310-4ae6-bd03-2f73d3967bc6"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "593ce50d-2ee1-4bd0-a508-8694441f69dc"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "a77552b1-08ae-4bff-81d5-50a1ceb8e815"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "37644545-226d-40d3-a3f4-7e4a8a4a5755")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "4c3563a4-cdf6-4933-8258-2be8f366d392")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 285 "*7C08.I2C1-hv")
+            (uuid "324f9978-182e-47dc-8185-0504ca5d41f6"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 37 "*7C08-net-2")
+            (uuid "dc15acc8-9485-4072-a262-37c3341d4cce"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "7996cb45-bc36-4def-9111-8e321e9dee08")
+        (at 0 0 0)
+        (property "Reference" "R10"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "4aa914ad-2134-40ca-aa2e-7087baab961e")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "100kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "df0b181e-3d39-4dca-907e-71d815b5a89f")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "PMIC_ON_REQ.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4a0f5030-9843-4161-965b-1081cc5183df")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.PMIC_ON_REQ.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "86db3b55-89c2-46e6-bf94-e473f139e0fd")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C270364"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e94dd7d0-5766-4b83-b7f1-173ae1a62d86")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "18a4204a-753c-4f6d-9045-7c091cf315a8"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "085e1edd-3c85-46ab-9ba2-c49bee87c9b6"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "c6261cb8-e8fb-45e1-aa28-5d4a78a5dfcb"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "f03dbb27-e12d-4ac4-bac4-957d61a8ea12"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a8338fdf-2d27-48c4-999b-8515b4eff369"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "ce5b2238-e1e5-43da-b364-5262209213e0"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "73e9f212-7d38-4b8c-818b-8f8be99bd39f"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "f73481a1-e049-4eb2-bdf4-c5c81c0b2e27")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "4aa914ad-2134-40ca-aa2e-7087baab961e")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 188 "*7C08-hv")
+            (uuid "24c91076-b96e-49ea-a9e9-8f716249cc7b"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 306 "*7C08.PMIC_ON_REQ-signal")
+            (uuid "fca1dfe5-5735-48bd-9db1-b1af5d43b168"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "240cdfb1-82d6-4225-aa56-f3e04eeffab6")
+        (at 0 0 0)
+        (property "Reference" "R6"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "fb24f00e-2561-4b73-8e28-74f59922350a")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "dd7bf14a-0ef9-4d72-b532-db8ffdaf934e")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C3.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1ed598ec-fd23-4701-af5f-8e8546119f1e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C3.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "6490d530-3560-4eb1-b269-df24f78364ac")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "18f76005-fe6d-4321-bf95-27b382cd5d01")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "122cce47-5b92-4a92-8867-78a098ab3d3f"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "d85f775f-e824-4af4-af6c-c004e0bd1390"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7c00efe6-157c-431d-adae-1ca6b20eb7c1"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "b32a299b-004e-4fd2-97f1-3c8cbe9b9899"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "fe938d35-173a-454d-8fdf-7ad44b35a1d1"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "f3a62d4f-1993-4891-9dd5-c43ea2d82810"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "5329addc-d0e0-4381-928c-930d260ada90"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "5def0775-9b4b-423d-aabc-379db5cac396")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "fb24f00e-2561-4b73-8e28-74f59922350a")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 295 "*7C08.I2C3-hv")
+            (uuid "a4aaa845-7324-4836-86f7-fc90da81e012"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 307 "*7C08-net-8")
+            (uuid "27cd553f-e4d6-4749-aec7-d3eaea5f6028"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "a5789882-673f-4e6f-a6f4-ca6a2f392b55")
+        (at 0 0 0)
+        (property "Reference" "R4"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "3512ee4d-88b9-40a0-9771-312b28f3749e")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "73cb1cb1-c675-49ad-811f-80a50021a081")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C2.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "44da8d42-15f0-477c-890b-5d7f4f66d018")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C2.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "dc672fdd-c511-4b0d-88d2-0780f9104a86")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "a1224b83-9580-4013-b7aa-2218d76c0a6f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "526f34fc-5c76-4394-aa60-906892a3805a"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "00ec8ae8-efa5-4344-a4e9-7d63327a9bb9"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "3a648a78-c24a-4b56-8dc1-d7805a0c00fe"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "03bcb872-5081-41fd-b4b0-e9364e9e1a00"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "307da180-56e6-40b5-a9f8-9a1835863f9f"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "65852d3c-9260-4a38-b229-5b87bec6850a"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "5b235f92-4937-4c71-bee5-15b7927eeb1a"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "9a9968fa-61a5-4776-9036-db90bdec00ff")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "3512ee4d-88b9-40a0-9771-312b28f3749e")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 304 "*7C08.I2C2-hv")
+            (uuid "d42fc7f0-987a-4ee0-a8c1-2f28cc689168"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 2 "*7C08-net-6")
+            (uuid "86de14ab-1780-4fa8-bf31-dba8fd9c5d7c"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "fee378e1-284a-474c-97bf-93f67e6b0006")
+        (at 0 0 0)
+        (property "Reference" "R7"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "988f34ad-5f9b-47dd-8d0a-61d55f856888")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "7306d58b-603b-4323-accd-f9d0be272b8d")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C4.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4c6a2a23-d4e8-4551-b1bc-f80a9945222c")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C4.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "084ae89a-7d7f-48ed-aef5-2515db2b1007")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ac159339-8cec-493a-8502-b2de324d461e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "fa6015c9-c541-41f7-ae09-277dd538ef09"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "40d72c5c-d777-4567-b1bc-f3e5580eaeb1"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "0aefdf6f-04da-44ad-83e9-555688961001"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a44d7f8a-3eeb-4c68-8ec6-731a5672b12e"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "ed893ac1-f16b-4784-86a3-ff8b2365baea"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "6f95cd9b-3f19-4267-8610-ae3362bd63ef"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "a6d8e3ca-a10d-4a62-ae7c-dc2a7b5ad972"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "ffea9e2b-9b9f-481f-8353-2777958ee6a8")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "988f34ad-5f9b-47dd-8d0a-61d55f856888")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 9 "*7C08.I2C4-hv")
+            (uuid "0e7ed14b-7e49-47c7-9842-5362ceda7091"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 286 "*7C08-net-5")
+            (uuid "d7c0b648-cd39-459d-a333-42450cbf4f7e"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "069635af-5738-47bb-89c4-b1f61db4499d")
+        (at 0 0 0)
+        (property "Reference" "R5"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "8008ead4-2df9-4697-b9f5-2954ef38fbaa")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "c44dc2c4-a379-4fdd-acbf-be998564a34d")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C3.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "15244b63-bec7-4ac4-9872-1e65d00bf58b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C3.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "97e93361-7774-4940-aeb9-cd6528ff045b")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "7c199d38-387c-465f-893c-7bc447c62fe6")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "9c528d4d-7804-431d-9dca-c42b6dc9fad1"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a9682e9f-c949-4b5c-8b99-f62438ace0b8"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "977b218d-2aa3-454c-a25f-ddc809b426a4"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "ed68a4a9-b47b-4a6c-be54-99617debbfdb"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "5012f5f1-4eb4-47e6-bfc5-4dac03619191"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "5c6d3c63-4a91-47f2-9dee-6b9ec0b01051"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "a58ccac0-d96b-4170-8211-496ae1faafb4"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "18c24b78-296f-434d-a6c4-6374f5ad12da")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "8008ead4-2df9-4697-b9f5-2954ef38fbaa")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 295 "*7C08.I2C3-hv")
+            (uuid "626430ea-be88-46d6-876f-4e2248fadc95"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 305 "*7C08-net-0")
+            (uuid "b6172243-25ca-4b2e-81b7-72033f559ed8"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "040735e9-7866-4dfe-8af9-e1b6d2ae75cc")
+        (at 0 0 0)
+        (property "Reference" "R9"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "073d6148-a7b2-455f-93b4-c6dc16cc5f8f")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "100kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "b5512f3a-9c76-4b25-b8fe-dd0a647b6e92")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "ONOFF.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "d8cb0bf5-f598-4d43-9457-e877d6d4765a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.ONOFF.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "0b0cdf99-6668-41ae-9be4-7cec2a2aa90f")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C270364"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "1c44451d-ffd3-4659-89c6-18a70ad714ea")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "dc7bd738-7725-4d1a-b4b8-2d6328f06a9e"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "56ca6bf7-cf41-4916-ba16-6bf991566d4f"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "be7d6403-b739-4f05-8bb8-272a2d48b211"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "5c2e4ea6-638a-4c72-af7a-9b2460cd0f62"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "1d2c9e9c-489d-44f5-b075-7d4a7c01471f"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "e609837e-54e9-4f75-bbd2-56c0ef3127ce"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "a21ca2a1-5b00-4a3e-8e8e-10ef151b7467"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "0e6244d4-5af1-4616-a3d3-2bfefdbcc379")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "073d6148-a7b2-455f-93b4-c6dc16cc5f8f")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 188 "*7C08-hv")
+            (uuid "cca90476-029b-4275-b4f3-c3251b57a749"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 156 "*7C08.ONOFF-signal")
+            (uuid "552795a1-49ed-421d-af97-9621188bad85"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "473ea3ba-fbde-4eda-b83c-35803925a42a")
+        (at 0 0 0)
+        (property "Reference" "R2"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "d59fed05-76f8-4ee7-877b-2db06463a641")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "afa354f3-69d1-48d5-af35-1d30b401be6d")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C1.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "46607e4f-7820-4148-a045-0f20b02e1b5a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C1.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "35ffa8f7-946a-4487-b4b8-d32446747565")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "9171a45e-8e65-4bb7-a4f8-2756ab7d079e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "f861407e-cf34-4f2e-b364-cd1f646e68b5"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "446bf189-d507-48c4-9f45-135f59e74814"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "637ab8ed-d0d3-4982-aa39-78d377fc2519"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "8944f7ec-3bd9-4709-b252-09e699a4141c"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "f399bc14-a14a-49c5-bf2c-b1bbb734ed3d"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "c80b6416-239b-4303-9df3-934a5f7cf3a3"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "e94c821f-67b4-4264-bbeb-075cd6ff485b"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "4ea703a0-538e-4fa6-b58c-b0993c27b05b")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "d59fed05-76f8-4ee7-877b-2db06463a641")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 285 "*7C08.I2C1-hv")
+            (uuid "64feb7fe-3822-458d-926e-7c41c4836253"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 209 "*7C08-net-4")
+            (uuid "d58192d6-5625-43f3-ad97-423b557c26aa"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "9f8aa9c5-a5a5-4aff-92bb-21d52ba5f719")
+        (at 0 0 0)
+        (property "Reference" "R8"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "7c94a05d-80bb-47c6-a3a5-2ae527963281")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "d7086caa-4365-44bc-8e56-76bbb385aa81")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C4.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "ed86677d-4884-435f-bf11-24d2d1f4112e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C4.sda.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "166f4e13-5be7-4940-893b-343a99c675cf")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b94c5224-cd8c-4100-a2a1-b3c1415495ee")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "838c9b9b-970a-4ef5-99cd-3cb8df399922"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "c71bd938-a47a-4d6c-a2ca-b1850d802409"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "6fc93e7a-7acc-4746-94cf-bc3a8daaa0ad"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "19871532-c6be-49a9-8563-62a8cbca3c55"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "40dfcd03-2b6f-47da-9975-dc4e917fbc37"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "81d4d6ee-9cc8-4224-961d-f554e08823db"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "8a79039e-217f-4d86-9dc6-646c6d673bb1"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "f392448d-314d-4f2c-8c3c-906d8893512c")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "7c94a05d-80bb-47c6-a3a5-2ae527963281")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 9 "*7C08.I2C4-hv")
+            (uuid "54f45436-5de9-424e-ab07-6e24a9454db8"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 309 "*7C08-net-3")
+            (uuid "e9cac624-9121-4c82-8ed2-64529d0dd8c4"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "1d0867c1-7133-4d49-8a07-4e573c312a64")
+        (at 0 0 0)
+        (property "Reference" "R3"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "fa9e38fa-3c71-4530-8550-702491a08a63")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "4.87kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "8e1049de-f244-49d7-a8fc-7fa8c616d2fe")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "I2C2.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "867c54b1-5461-4553-a164-b8efe5db639c")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.I2C2.scl.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "9ae16518-d6f0-43fe-b5bd-f7a8514ea6e3")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C423501"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "4bb127fe-ac17-405b-8783-f8dbbc83fc4e")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "c96027f5-0297-4b0b-9de0-1c018aeb2120"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "1c5d1dea-cc63-42cd-8387-6421d34c5bbe"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a7eeb41e-63df-41f3-910a-4099a026bf16"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "3bf83373-fc3c-4476-9d6f-46664e965c39"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "9b019455-e62f-4aa8-ab23-483295538ce6"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "e4513dc6-6e04-4510-ace0-c6ace6ec1787"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "29fe102a-f2eb-40b6-aae8-35986bf7c42b"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "601e0abb-b08b-4845-862d-bb9e6ebf8b8a")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "fa9e38fa-3c71-4530-8550-702491a08a63")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 304 "*7C08.I2C2-hv")
+            (uuid "989d18fd-7fce-479c-a962-6f8bf5c50144"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 310 "*7C08-net-1")
+            (uuid "39ec9361-2722-48e9-a752-17353c350d9a"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:R0201"
+        (layer "F.Cu")
+        (uuid "8067e8f6-01e2-4a82-b261-0d3901cdda88")
+        (at 0 0 0)
+        (property "Reference" "R11"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "eb9e6fc2-4bd9-478f-baf6-9f8df124db7a")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "100kΩ ±1% 50mW"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "5d349f25-3fca-4bab-b809-78711038e046")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "PMIC_STBY_REQ.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "43142a76-1ac5-46ce-94cf-b545f142989c")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "atopile_name" "*7C08.PMIC_STBY_REQ.pull_up"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "b8478393-5e06-45c9-bdbc-71ab3be87745")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C270364"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "2edfdb04-6815-4e70-96ea-8b22cd8ada98")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr through_hole)
+        (fp_line
+            (start 0.17 0.39)
+            (end 0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "6347febb-a3ea-4e39-b719-5595d097b375"))
+        (fp_line
+            (start 0.62 0.39)
+            (end 0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a4c20e24-2191-4f91-beb8-b00dc03c02cd"))
+        (fp_line
+            (start 0.62 -0.39)
+            (end 0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7747ec4e-d5bb-4994-9c5c-8f247a99dbe3"))
+        (fp_line
+            (start -0.17 0.39)
+            (end -0.62 0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "c3d10835-02f0-4e56-ac78-cf8c55e06fa8"))
+        (fp_line
+            (start -0.62 0.39)
+            (end -0.62 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "e39b83e4-b629-4fd6-9c91-dfd151399c78"))
+        (fp_line
+            (start -0.62 -0.39)
+            (end -0.17 -0.39)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "adafa9b5-365b-437d-aebe-edddd2a69fc2"))
+        (fp_circle
+            (center -0.3 0.15)
+            (end -0.27 0.15)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "d6d465ff-a1f3-420a-b131-251d9297e2f4"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "65ae4bcb-90f3-422d-adf0-ed97ddc60185")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "eb9e6fc2-4bd9-478f-baf6-9f8df124db7a")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 188 "*7C08-hv")
+            (uuid "b5006645-00a0-48de-a084-2b5f746d9a39"))
+        (pad "1" smd rect
+            (at -0.24 0 0)
+            (size 0.3 0.32)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (net 308 "*7C08.PMIC_STBY_REQ-signal")
+            (uuid "49218492-a6a2-4b99-865d-18db40e31e2b"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
+            (offset
+                (xyz -1.79 0 0))
             (scale
                 (xyz 1 1 1))
             (rotate
@@ -19896,7 +22684,7 @@
         (at 127.07588 96.082346)
         (size 0.3)
         (drill 0.2)
-        (net 295)
+        (net 0)
         (uuid "a69ed815-d6ac-4009-8584-3a91fb9b3f57")
         (layers "F.Cu" "B.Cu"))
     (via

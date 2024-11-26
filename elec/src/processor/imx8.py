@@ -901,6 +901,20 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
     NVCC_ENET: F.ElectricPower
     # GND: F.Net
 
+    # Reset / Boot
+    ONOFF: F.ElectricLogic
+    POR_B: F.ElectricLogic
+    RTC_RESET_B: F.ElectricLogic
+    PMIC_ON_REQ: F.ElectricLogic
+    PMIC_STBY_REQ: F.ElectricLogic
+    XTALI_32K: F.ElectricLogic
+
+    # I2C
+    I2C1: F.I2C
+    I2C2: F.I2C
+    I2C3: F.I2C
+    I2C4: F.I2C
+
     # Passive components
     MIPI_VREG_CAP: F.Capacitor
 
@@ -1186,6 +1200,79 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.MIPI_VREG_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.MIPI_VREG_CAP.capacitance.merge(F.Range.from_center_rel(2.2 * P.uF, 0.2))
         self.imx8.MIPI_VREG_CAP.connect_via(self.MIPI_VREG_CAP, self.VDD_3V3.lv)
+
+        # Reset / Boot
+        self.ONOFF.reference.connect(self.NVCC_SNVS_1V8)
+        self.POR_B.reference.connect(self.NVCC_SNVS_1V8)
+        self.RTC_RESET_B.reference.connect(self.NVCC_SNVS_1V8)
+
+        self.ONOFF.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.POR_B.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.RTC_RESET_B.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.PMIC_ON_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.PMIC_STBY_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+
+        # Add 100k pull-up to ONOFF PMIC_ON_REQ and PMIC_STBY_REQ 
+        self.ONOFF.pulled.pull(up=True)
+        self.PMIC_ON_REQ.pulled.pull(up=True)
+        self.PMIC_STBY_REQ.pulled.pull(up=True) #TODO: DNP
+
+        for line in [self.ONOFF, self.PMIC_ON_REQ, self.PMIC_STBY_REQ]:
+            for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
+                if r is None:
+                    continue
+                r.resistance.merge(F.Range.from_center_rel(100 * P.kohm, 0.03))
+                r.add(F.has_footprint_requirement_defined([("0201", 2)]))
+            
+        self.PMIC_ON_REQ.reference.connect(self.NVCC_SNVS_1V8)
+        self.PMIC_STBY_REQ.reference.connect(self.NVCC_SNVS_1V8)
+
+        # CLOCK
+        # External clock source
+        XTALO_32K_R = F.Resistor()
+        XTALO_32K_R.resistance.merge(0 * P.ohm)
+        XTALO_32K_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.imx8.RTC_XTALO.connect_via(XTALO_32K_R, self.VDD_SNVS_0V8.hv)
+
+        # 32K clock input from PMIC
+        XTALI_32K_R = F.Resistor()
+        XTALI_32K_R.resistance.merge(0 * P.ohm)
+        XTALI_32K_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.imx8.RTC_XTALI.connect_via(XTALI_32K_R, self.XTALI_32K.signal)
+        
+        self.XTALI_32K.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.XTALI_32K.reference.connect(self.NVCC_SNVS_1V8)
+
+        # 24MHz internal oscillator
+
+
+        # I2C
+        self.I2C1.sda.signal.connect(self.imx8.I2C1_SDA)
+        self.I2C1.scl.signal.connect(self.imx8.I2C1_SCL)
+
+        self.I2C2.sda.signal.connect(self.imx8.I2C2_SDA)
+        self.I2C2.scl.signal.connect(self.imx8.I2C2_SCL)   
+
+        self.I2C3.sda.signal.connect(self.imx8.I2C3_SDA)
+        self.I2C3.scl.signal.connect(self.imx8.I2C3_SCL)
+
+        self.I2C4.sda.signal.connect(self.imx8.I2C4_SDA)
+        self.I2C4.scl.signal.connect(self.imx8.I2C4_SCL)
+
+        # Pull-ups
+        self.I2C1.terminate()
+        self.I2C2.terminate()
+        self.I2C3.terminate()
+        self.I2C4.terminate()
+        
+        for i2c in [self.I2C1, self.I2C2, self.I2C3, self.I2C4]:
+            for line in [i2c.sda, i2c.scl]:
+                line.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+                for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
+                    if r is None:
+                        continue
+                    r.resistance.merge(F.Range.from_center_rel(4.7 * P.kohm, 0.05))
+                    r.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
 
 class App(Module):

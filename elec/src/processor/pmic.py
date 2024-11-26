@@ -202,6 +202,7 @@ class PCA9450AAHNY(Module):
     NVCC_SD2: F.ElectricPower
 
     SWOUT: F.ElectricPower
+    I2C: F.I2C
 
     # Passives
     SW_IN_RES: F.Resistor
@@ -228,7 +229,7 @@ class PCA9450AAHNY(Module):
     CLK_32K_OUT: F.ElectricLogic
 
     # Oscillator
-    # oscillator: F.Crystal_Oscillator
+    oscillator: F.Crystal_Oscillator
 
     # Buck outputs
     BUCK1: BuckOutput
@@ -248,46 +249,62 @@ class PCA9450AAHNY(Module):
         #           connections
         # ------------------------------------
         # Net naming
-        F.Net.with_name("GND").part_of.connect(self.VSYS_5V.lv)
-        F.Net.with_name("VSYS_5V").part_of.connect(self.VSYS_5V.hv)
-        F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
-        F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
-        F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
-        F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
-        F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
-        F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
-        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
-        F.Net.with_name("NVCC_SNVS_1V8").part_of.connect(self.NVCC_SNVS_1V8.hv)
-        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
-        F.Net.with_name("VCC_3V3").part_of.connect(self.VCC_3V3.hv)
-        F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
-        F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
+        # F.Net.with_name("GND").part_of.connect(self.VSYS_5V.lv)
+        # F.Net.with_name("VSYS_5V").part_of.connect(self.VSYS_5V.hv)
+        # F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
+        # F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
+        # F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
+        # F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
+        # F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
+        # F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
+        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        # F.Net.with_name("NVCC_SNVS_1V8").part_of.connect(self.NVCC_SNVS_1V8.hv)
+        # F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        # F.Net.with_name("VCC_3V3").part_of.connect(self.VCC_3V3.hv)
+        # F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
+        # F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
 
-        # Buck inputs
-        F.Net.with_name("VDD_SOC_0V8_SW").part_of.connect(self.BUCK1.input.hv)
-        F.Net.with_name("VDD_DRAM_0V9_SW").part_of.connect(self.BUCK3.input.hv)
-        F.Net.with_name("VDD_ARM_0V9_SW").part_of.connect(self.BUCK2.input.hv)
-        F.Net.with_name("VDD_PHY_0V9_SW").part_of.connect(self.BUCK5.input.hv)
-        F.Net.with_name("VDDA_1V8_SW").part_of.connect(self.BUCK6.input.hv)
-        F.Net.with_name("VDD_1V8_SW").part_of.connect(self.BUCK4.input.hv)
+        # # Buck inputs
+        # F.Net.with_name("VDD_SOC_0V8_SW").part_of.connect(self.BUCK1.input.hv)
+        # F.Net.with_name("VDD_DRAM_0V9_SW").part_of.connect(self.BUCK3.input.hv)
+        # F.Net.with_name("VDD_ARM_0V9_SW").part_of.connect(self.BUCK2.input.hv)
+        # F.Net.with_name("VDD_PHY_0V9_SW").part_of.connect(self.BUCK5.input.hv)
+        # F.Net.with_name("VDDA_1V8_SW").part_of.connect(self.BUCK6.input.hv)
+        # F.Net.with_name("VDD_1V8_SW").part_of.connect(self.BUCK4.input.hv)
+
+        # # Reset signals
+        # F.Net.with_name("RTC_RESET_B").part_of.connect(self.RTC_RESET_B.signal)
+        # F.Net.with_name("POR_B").part_of.connect(self.POR_B.signal)
+        # F.Net.with_name("PMIC_nINT").part_of.connect(self.PMIC_nINT.signal)
+        # F.Net.with_name("CLK_32K_OUT").part_of.connect(self.CLK_32K_OUT.signal)
 
         # VSYS_5V
         self.VSYS_5V.hv.connect(
             self.pmic.INB13, self.pmic.INB26, self.pmic.INB45, self.pmic.INL1
         )
-        self.VSYS_5V.lv.connect(self.pmic.AGND, self.pmic.BUCK_AGND, self.pmic.EP)
-        VSYS_5V_CAPS = (
-            self.VSYS_5V.decoupled.decouple()
-            .specialize(F.MultiCapacitor(10))
-            .capacitors
-        )
-        capacitance_values = [10] * 7 + [2.2] * 3  # in uF
 
-        for cap, value in zip(VSYS_5V_CAPS, itertools.cycle(capacitance_values)):
-            cap.capacitance.merge(
-                F.Range.from_center_rel(value * P.nF, 0.2)
-            )  # TODO: update value once API is updated to uF
-            cap.add(F.has_footprint_requirement_defined([("0603", 2)]))
+        # VSYS_5V decoupling
+        VSYS_5V_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 10 * P.uF, "footprint": "0603"},
+            {"value": 2.2 * P.uF, "footprint": "0402"},
+            {"value": 2.2 * P.uF, "footprint": "0402"},
+            {"value": 2.2 * P.uF, "footprint": "0402"},
+        ]
+
+        VSYS_5V_CAPS = []
+
+        for props in VSYS_5V_CAP_PROPERTIES:
+            cap = self.VSYS_5V.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VSYS_5V_CAPS.append(cap)
 
         # Set buck input voltages to VSYS_5V
         self.BUCK1.input.voltage.merge(self.VSYS_5V.voltage)
@@ -373,36 +390,46 @@ class PCA9450AAHNY(Module):
         NVCC_SNVS_1V8_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         NVCC_SNVS_1V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.NVCC_SNVS_1V8.hv.connect(self.pmic.LDO1)
+        self.NVCC_SNVS_1V8.lv.connect(self.VSYS_5V.lv)
 
         VDD_SNVS_0V8_CAP = self.VDD_SNVS_0V8.decoupled.decouple()
         VDD_SNVS_0V8_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         VDD_SNVS_0V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VDD_SNVS_0V8.hv.connect(self.pmic.LDO2)
+        self.VDD_SNVS_0V8.lv.connect(self.VSYS_5V.lv)
 
         VDDA_1V8_CAP = self.VDDA_1V8.decoupled.decouple()
         VDDA_1V8_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         VDDA_1V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VDDA_1V8.hv.connect(self.pmic.LDO3)
+        self.VDDA_1V8.lv.connect(self.VSYS_5V.lv)
 
         VDD_PHY_0V9_CAP = self.VDD_PHY_0V9.decoupled.decouple()
         VDD_PHY_0V9_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         VDD_PHY_0V9_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VDD_PHY_0V9.hv.connect(self.pmic.LDO4)
+        self.VDD_PHY_0V9.lv.connect(self.VSYS_5V.lv)
 
         NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
         NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.NVCC_SD2.hv.connect(self.pmic.LDO5)
+        self.NVCC_SD2.lv.connect(self.VSYS_5V.lv)
 
         VDD_PHY_1V2_CAP = self.VDD_PHY_1V2.decoupled.decouple()
         VDD_PHY_1V2_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
         VDD_PHY_1V2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
-        # self.VDD_PHY_1V2.hv.connect(self.pmic.LDO6) #TODO: add separate LDO for this
 
-        # Connect SWIN and SWOUT
+        # Connect SWIN to VCC_3V3
         self.VCC_3V3.hv.connect(self.pmic.SWIN)
-        self.SW_IN_RES.resistance.merge(F.Range(0.1 * P.ohm, 1 * P.ohm))
-        self.VCC_3V3.hv.connect_via(self.SW_IN_RES, self.pmic.SWOUT)
+
+        # Connect SWOUT to VCC_3v3
+        self.VCC_3V3.hv.connect(self.pmic.SWOUT)
+
+        # Connect SW_EN via resistor to VCC_3V3 #TODO: Gives math domain error, should be 0 ohm
+        self.SW_IN_RES.resistance.merge(F.Range(0.1 * P.ohm, 10 * P.ohm))
+        self.VCC_3V3.hv.connect_via(self.SW_IN_RES, self.pmic.SW_EN)
+        self.SW_IN_RES.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
         # Decouple PMIC SWIN
         self.SWIN_CAP.capacitance.merge(F.Range.from_center_rel(4.7 * P.uF, 0.2))
@@ -418,25 +445,28 @@ class PCA9450AAHNY(Module):
 
         # Reset signals
         self.RTC_RESET_B_RES.resistance.merge(F.Range.from_center_rel(10 * P.kohm, 0.01))
+        self.RTC_RESET_B_RES.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.pmic.RTC_RESET_B.connect_via(self.RTC_RESET_B_RES, self.RTC_RESET_B.signal)
 
-        # Oscillator
-        # self.pmic.XTAL_IN.connect(self.oscillator.xtal_if.xin)
-        # self.pmic.XTAL_OUT.connect(self.oscillator.xtal_if.xout)
-        # self.oscillator.xtal_if.gnd.connect(self.VSYS_5V.lv)
+        # Oscillator #TODO: cleanup standard library
+        self.pmic.XTAL_IN.connect(self.oscillator.xtal_if.xin)
+        self.pmic.XTAL_OUT.connect(self.oscillator.xtal_if.xout)
+        self.oscillator.xtal_if.gnd.connect(self.VSYS_5V.lv)
+        self.oscillator.add(F.has_descriptive_properties_defined({"LCSC": "C97606"}))
+        self.oscillator.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.xtal_if.xin, "2": self.oscillator.xtal_if.xout}))
+        self.oscillator.add(F.has_designator_prefix_defined("XTAL"))
 
-        # self.oscillator.crystal.frequency.merge(
-        #     F.Range.from_center_rel(32.768 * P.kHz, 0.001)
-        # )
-        # self.oscillator.crystal.frequency_tolerance.merge(
-        #     F.Range.upper_bound(40 * P.ppm)
-        # )
-        # self.oscillator.crystal.load_capacitance.merge(
-        #     F.Range.from_center(8 * P.pF, 10 * P.pF)
-        # )
-        # self.oscillator.current_limiting_resistor.resistance.merge(
-        #     F.Constant(0 * P.ohm)
-        # )
+        self.oscillator.current_limiting_resistor.resistance.merge(
+            F.Constant(0 * P.ohm)
+        )
+        for cap in self.oscillator.capacitors:
+            cap.add(F.has_footprint_requirement_defined([("0201", 2)]))
+
+        # I2C
+        self.pmic.SCL.connect(self.I2C.scl.signal)
+        self.pmic.SDA.connect(self.I2C.sda.signal)
+        self.I2C.scl.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.I2C.sda.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
 
         # ------------------------------------
         #          parametrization
@@ -467,17 +497,17 @@ class PCA9450AAHNY(Module):
 
         # Define voltages for things that probably should be defined by parameters
         self.SWOUT.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
-        self.R_SNSP1.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.R_SNSP1.reference.voltage.merge(F.Range.from_center_rel(0.8 * P.V, 0.05))
         self.R_SNSP2.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
         self.R_SNSP3_CFG.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.SYS_nRST.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.PMIC_ON_REQ.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.PMIC_STBY_REQ.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.WDOG_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.RTC_RESET_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.POR_B.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.PMIC_nINT.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
-        self.CLK_32K_OUT.reference.voltage.merge(F.Range.from_center_rel(0.9 * P.V, 0.05))
+        self.SYS_nRST.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05)) # Has internal pull-up
+        self.PMIC_ON_REQ.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.PMIC_STBY_REQ.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.WDOG_B.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.RTC_RESET_B.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.POR_B.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.PMIC_nINT.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.CLK_32K_OUT.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
 
 
 class App(Module):

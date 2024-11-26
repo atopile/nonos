@@ -4,8 +4,8 @@ builds:
     entry: elec/src/nonos.ato:Nonos
   imx8:
     entry: elec/src/imx8.ato:Imx8
-  pd-controller:
-    entry: elec/src/USBPD/pd_controller.py:App
+  # pd-controller:
+  #   entry: elec/src/USBPD/pd_controller.py:App
   ram:
     entry: elec/src/processor/ram.py:App
 dependencies:

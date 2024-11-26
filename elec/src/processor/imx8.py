@@ -8,6 +8,7 @@ from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.util import times
 
 logger = logging.getLogger(__name__)
 
@@ -901,6 +902,37 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
     NVCC_ENET: F.ElectricPower
     # GND: F.Net
 
+    # Reset / Boot
+    ONOFF: F.ElectricLogic
+    POR_B: F.ElectricLogic
+    RTC_RESET_B: F.ElectricLogic
+    PMIC_ON_REQ: F.ElectricLogic
+    PMIC_STBY_REQ: F.ElectricLogic
+    XTALI_32K: F.ElectricLogic
+
+    # I2C
+    I2C1: F.I2C
+    I2C2: F.I2C
+    I2C3: F.I2C
+    I2C4: F.I2C
+
+    # RAM
+    DRAM_DATA_A = times(16, F.ElectricLogic)  # Data
+    DRAM_DATA_B = times(16, F.ElectricLogic)  # Data
+    DRAM_DMI_A = times(2, F.ElectricLogic)  # Data mask (bit inversion)
+    DRAM_DMI_B = times(2, F.ElectricLogic)  # Data mask (bit inversion)
+    DRAM_SDQS_A = times(2, F.DifferentialPair)  # Data strobe (differential)
+    DRAM_SDQS_B = times(2, F.DifferentialPair)  # Data strobe (differential)
+    DRAM_CA_A = times(6, F.ElectricLogic)  # Command address
+    DRAM_CA_B = times(6, F.ElectricLogic)  # Command address
+    DRAM_CK_A: F.DifferentialPair  # Clock
+    DRAM_CK_B: F.DifferentialPair  # Clock
+    DRAM_CKE_A = times(2, F.ElectricLogic)  # Clock enable
+    DRAM_CKE_B = times(2, F.ElectricLogic)  # Clock enable
+    DRAM_nCS_A = times(2, F.ElectricLogic)  # Chip select
+    DRAM_nCS_B = times(2, F.ElectricLogic)  # Chip select
+    DRAM_nRESET: F.ElectricLogic  # Reset
+
     # Passive components
     MIPI_VREG_CAP: F.Capacitor
 
@@ -954,7 +986,6 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.imx8.PVCC0_1P8,
             self.imx8.PVCC1_1P8,
             self.imx8.PVCC2_1P8,
-            self.imx8.VDD_ARM_PLL_1P8,
             self.imx8.VDD_ANA0_1P8,
             self.imx8.VDD_ANA1_1P8,
             self.imx8.VDD_USB_1P8,
@@ -1002,7 +1033,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
         F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
         F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
-        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
         F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
         F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
         F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
@@ -1188,6 +1219,228 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.MIPI_VREG_CAP.capacitance.merge(F.Range.from_center_rel(2.2 * P.uF, 0.2))
         self.imx8.MIPI_VREG_CAP.connect_via(self.MIPI_VREG_CAP, self.VDD_3V3.lv)
 
+        # Reset / Boot
+        self.ONOFF.reference.connect(self.NVCC_SNVS_1V8)
+        self.POR_B.reference.connect(self.NVCC_SNVS_1V8)
+        self.RTC_RESET_B.reference.connect(self.NVCC_SNVS_1V8)
+
+        self.ONOFF.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.POR_B.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.RTC_RESET_B.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.PMIC_ON_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.PMIC_STBY_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+
+        # Add 100k pull-up to ONOFF PMIC_ON_REQ and PMIC_STBY_REQ 
+        self.ONOFF.pulled.pull(up=True)
+        self.PMIC_ON_REQ.pulled.pull(up=True)
+        self.PMIC_STBY_REQ.pulled.pull(up=True) #TODO: DNP
+
+        for line in [self.ONOFF, self.PMIC_ON_REQ, self.PMIC_STBY_REQ]:
+            for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
+                if r is None:
+                    continue
+                r.resistance.merge(F.Range.from_center_rel(100 * P.kohm, 0.03))
+                r.add(F.has_footprint_requirement_defined([("0201", 2)]))
+            
+        self.PMIC_ON_REQ.reference.connect(self.NVCC_SNVS_1V8)
+        self.PMIC_STBY_REQ.reference.connect(self.NVCC_SNVS_1V8)
+
+        # CLOCK
+        # External clock source
+        XTALO_32K_R = F.Resistor()
+        XTALO_32K_R.resistance.merge(0 * P.ohm)
+        XTALO_32K_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.imx8.RTC_XTALO.connect_via(XTALO_32K_R, self.VDD_SNVS_0V8.hv)
+
+        # 32K clock input from PMIC
+        XTALI_32K_R = F.Resistor()
+        XTALI_32K_R.resistance.merge(0 * P.ohm)
+        XTALI_32K_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.imx8.RTC_XTALI.connect_via(XTALI_32K_R, self.XTALI_32K.signal)
+        
+        self.XTALI_32K.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+        self.XTALI_32K.reference.connect(self.NVCC_SNVS_1V8)
+
+        # 24MHz internal oscillator
+
+
+        # I2C
+        self.I2C1.sda.signal.connect(self.imx8.I2C1_SDA)
+        self.I2C1.scl.signal.connect(self.imx8.I2C1_SCL)
+
+        self.I2C2.sda.signal.connect(self.imx8.I2C2_SDA)
+        self.I2C2.scl.signal.connect(self.imx8.I2C2_SCL)   
+
+        self.I2C3.sda.signal.connect(self.imx8.I2C3_SDA)
+        self.I2C3.scl.signal.connect(self.imx8.I2C3_SCL)
+
+        self.I2C4.sda.signal.connect(self.imx8.I2C4_SDA)
+        self.I2C4.scl.signal.connect(self.imx8.I2C4_SCL)
+
+        # Pull-ups
+        self.I2C1.terminate()
+        self.I2C2.terminate()
+        self.I2C3.terminate()
+        self.I2C4.terminate()
+        
+        for i2c in [self.I2C1, self.I2C2, self.I2C3, self.I2C4]:
+            for line in [i2c.sda, i2c.scl]:
+                line.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+                for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
+                    if r is None:
+                        continue
+                    r.resistance.merge(F.Range.from_center_rel(4.7 * P.kohm, 0.05))
+                    r.add(F.has_footprint_requirement_defined([("0201", 2)]))
+
+        # ------------------------------------
+        #
+        #  ____      _    __  __ 
+        # |  _ \    / \  |  \/  |
+        # | |_) |  / _ \ | |\/| |
+        # |  _ <  / ___ \| |  | |
+        # |_| \_\/_/   \_\_|  |_|
+        #
+        # ------------------------------------
+        # DATA A
+        self.DRAM_DATA_A[0].signal.connect(self.imx8.DRAM_DQ00)
+        self.DRAM_DATA_A[1].signal.connect(self.imx8.DRAM_DQ01)
+        self.DRAM_DATA_A[2].signal.connect(self.imx8.DRAM_DQ02)
+        self.DRAM_DATA_A[3].signal.connect(self.imx8.DRAM_DQ03)
+        self.DRAM_DATA_A[4].signal.connect(self.imx8.DRAM_DQ04)
+        self.DRAM_DATA_A[5].signal.connect(self.imx8.DRAM_DQ05)
+        self.DRAM_DATA_A[6].signal.connect(self.imx8.DRAM_DQ06)
+        self.DRAM_DATA_A[7].signal.connect(self.imx8.DRAM_DQ07)
+        self.DRAM_DATA_A[8].signal.connect(self.imx8.DRAM_DQ08)
+        self.DRAM_DATA_A[9].signal.connect(self.imx8.DRAM_DQ09)
+        self.DRAM_DATA_A[10].signal.connect(self.imx8.DRAM_DQ10)
+        self.DRAM_DATA_A[11].signal.connect(self.imx8.DRAM_DQ11)
+        self.DRAM_DATA_A[12].signal.connect(self.imx8.DRAM_DQ12)
+        self.DRAM_DATA_A[13].signal.connect(self.imx8.DRAM_DQ13)
+        self.DRAM_DATA_A[14].signal.connect(self.imx8.DRAM_DQ14)
+        self.DRAM_DATA_A[15].signal.connect(self.imx8.DRAM_DQ15)
+
+        # DATA B
+        self.DRAM_DATA_B[0].signal.connect(self.imx8.DRAM_DQ16)
+        self.DRAM_DATA_B[1].signal.connect(self.imx8.DRAM_DQ17)
+        self.DRAM_DATA_B[2].signal.connect(self.imx8.DRAM_DQ18)
+        self.DRAM_DATA_B[3].signal.connect(self.imx8.DRAM_DQ19)
+        self.DRAM_DATA_B[4].signal.connect(self.imx8.DRAM_DQ20)
+        self.DRAM_DATA_B[5].signal.connect(self.imx8.DRAM_DQ21)
+        self.DRAM_DATA_B[6].signal.connect(self.imx8.DRAM_DQ22)
+        self.DRAM_DATA_B[7].signal.connect(self.imx8.DRAM_DQ23)
+        self.DRAM_DATA_B[8].signal.connect(self.imx8.DRAM_DQ24)
+        self.DRAM_DATA_B[9].signal.connect(self.imx8.DRAM_DQ25)
+        self.DRAM_DATA_B[10].signal.connect(self.imx8.DRAM_DQ26)
+        self.DRAM_DATA_B[11].signal.connect(self.imx8.DRAM_DQ27)
+        self.DRAM_DATA_B[12].signal.connect(self.imx8.DRAM_DQ28)
+        self.DRAM_DATA_B[13].signal.connect(self.imx8.DRAM_DQ29)
+        self.DRAM_DATA_B[14].signal.connect(self.imx8.DRAM_DQ30)
+        self.DRAM_DATA_B[15].signal.connect(self.imx8.DRAM_DQ31)
+
+        # DMI A
+        self.DRAM_DMI_A[0].signal.connect(self.imx8.DRAM_DM0)
+        self.DRAM_DMI_A[1].signal.connect(self.imx8.DRAM_DM1)
+
+        # DMI B
+        self.DRAM_DMI_B[0].signal.connect(self.imx8.DRAM_DM2)
+        self.DRAM_DMI_B[1].signal.connect(self.imx8.DRAM_DM3)
+
+        # SDQS A
+        self.DRAM_SDQS_A[0].p.signal.connect(self.imx8.DRAM_DQS0_P)
+        self.DRAM_SDQS_A[0].n.signal.connect(self.imx8.DRAM_DQS0_N)
+        self.DRAM_SDQS_A[1].p.signal.connect(self.imx8.DRAM_DQS1_P)
+        self.DRAM_SDQS_A[1].n.signal.connect(self.imx8.DRAM_DQS1_N)
+
+        # SDQS B
+        self.DRAM_SDQS_B[0].p.signal.connect(self.imx8.DRAM_DQS2_P)
+        self.DRAM_SDQS_B[0].n.signal.connect(self.imx8.DRAM_DQS2_N)
+        self.DRAM_SDQS_B[1].p.signal.connect(self.imx8.DRAM_DQS3_P)
+        self.DRAM_SDQS_B[1].n.signal.connect(self.imx8.DRAM_DQS3_N)
+
+        # DRAM CA A
+        self.DRAM_CA_A[0].signal.connect(self.imx8.DRAM_AC08)
+        self.DRAM_CA_A[1].signal.connect(self.imx8.DRAM_AC09)
+        self.DRAM_CA_A[2].signal.connect(self.imx8.DRAM_AC10)
+        self.DRAM_CA_A[3].signal.connect(self.imx8.DRAM_AC11)
+        self.DRAM_CA_A[4].signal.connect(self.imx8.DRAM_AC12)
+        self.DRAM_CA_A[5].signal.connect(self.imx8.DRAM_AC13)
+
+        # DRAM CA B
+        self.DRAM_CA_B[0].signal.connect(self.imx8.DRAM_AC28)
+        self.DRAM_CA_B[1].signal.connect(self.imx8.DRAM_AC29)
+        self.DRAM_CA_B[2].signal.connect(self.imx8.DRAM_AC30)
+        self.DRAM_CA_B[3].signal.connect(self.imx8.DRAM_AC31)
+        self.DRAM_CA_B[4].signal.connect(self.imx8.DRAM_AC32)
+        self.DRAM_CA_B[5].signal.connect(self.imx8.DRAM_AC33)
+
+        # DRAM nCS A
+        self.DRAM_nCS_A[0].signal.connect(self.imx8.DRAM_AC02)
+        self.DRAM_nCS_A[1].signal.connect(self.imx8.DRAM_AC03)
+
+        # DRAM nCS B
+        self.DRAM_nCS_B[0].signal.connect(self.imx8.DRAM_AC23)
+        self.DRAM_nCS_B[1].signal.connect(self.imx8.DRAM_AC22)
+
+        # DRAM Clock A enable
+        self.DRAM_CK_A.p.signal.connect(self.imx8.DRAM_AC00)
+        self.DRAM_CK_A.n.signal.connect(self.imx8.DRAM_AC01)
+
+        # DRAM Clock B enable
+        self.DRAM_CK_B.p.signal.connect(self.imx8.DRAM_AC20)
+        self.DRAM_CK_B.n.signal.connect(self.imx8.DRAM_AC21)
+
+        # DRAM Clock A enable
+        self.DRAM_CKE_A[0].signal.connect(self.imx8.DRAM_AC04)
+        self.DRAM_CKE_A[1].signal.connect(self.imx8.DRAM_AC05)
+
+        # DRAM Clock B enable
+        self.DRAM_CKE_B[0].signal.connect(self.imx8.DRAM_AC24)
+        self.DRAM_CKE_B[1].signal.connect(self.imx8.DRAM_AC25)
+
+        # DRAM RESET
+        self.DRAM_nRESET.signal.connect(self.imx8.DRAM_RESET_N)
+        self.DRAM_nRESET.pulled.pull(up=False)
+        dram_pulldown = self.DRAM_nRESET.get_trait(F.ElectricLogic.has_pulls).get_pulls()[1]
+        dram_pulldown.resistance.merge(F.Range.from_center_rel(10 * P.kohm, 0.01))
+        dram_pulldown.add(F.has_footprint_requirement_defined([("0201", 2)]))
+
+        for signal in [
+            self.DRAM_CK_A,
+            self.DRAM_CK_B,
+            *self.DRAM_SDQS_A,
+            *self.DRAM_SDQS_B,
+        ]:
+            signal.p.reference.connect(self.NVCC_DRAM_1V1)
+            signal.p.reference.voltage.merge(
+                F.Range.from_center_rel(1.1 * P.volt, 0.05)
+            )
+            signal.n.reference.connect(self.NVCC_DRAM_1V1)
+            signal.n.reference.voltage.merge(
+                F.Range.from_center_rel(1.1 * P.volt, 0.05)
+            )
+
+        # Set voltage of all data, control and address lines
+        for signal in (
+            self.DRAM_DATA_A
+            + self.DRAM_DATA_B
+            + self.DRAM_DMI_A
+            + self.DRAM_DMI_B
+            + self.DRAM_CA_A
+            + self.DRAM_CA_B
+            + self.DRAM_CKE_A
+            + self.DRAM_CKE_B
+            + self.DRAM_nCS_A
+            + self.DRAM_nCS_B
+        ):
+            signal.reference.connect(self.NVCC_DRAM_1V1)
+            signal.reference.voltage.merge(F.Range.from_center_rel(1.1 * P.volt, 0.05))
+
+        # Set voltage of reset
+        self.DRAM_nRESET.reference.connect(self.NVCC_DRAM_1V1)
+
+        self.DRAM_nRESET.reference.voltage.merge(
+            F.Range.from_center_rel(1.1 * P.volt, 0.05)
+        )
 
 class App(Module):
     processor: NXP_Semicon_MIMX8MM6CVTKZAA

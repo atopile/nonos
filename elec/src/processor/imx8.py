@@ -884,7 +884,6 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
     imx8: _NXP_Semicon_MIMX8MM6CVTKZAA
 
-
     # External interfaces
 
     # Power rails

@@ -933,6 +933,12 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
     DRAM_nCS_B = times(2, F.ElectricLogic)  # Chip select
     DRAM_nRESET: F.ElectricLogic  # Reset
 
+    # eMMC
+    SD3_DAT = times(8, F.ElectricLogic)
+    SD3_STROBE: F.ElectricLogic
+    SD3_CMD: F.ElectricLogic
+    SD3_CLK: F.ElectricLogic
+
     # Passive components
     MIPI_VREG_CAP: F.Capacitor
 
@@ -1441,6 +1447,36 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.DRAM_nRESET.reference.voltage.merge(
             F.Range.from_center_rel(1.1 * P.volt, 0.05)
         )
+
+        # ------------------------------------
+        #
+        #  _____ __  __ __  __ ____ 
+        # | ____|  \/  |  \/  / ___|
+        # |  _| | |\/| | |\/| | |    
+        # | |___| |  | | |  | | |___ 
+        # |_____|_|  |_|_|  |_|\____|
+        #
+        # ------------------------------------
+        self.SD3_DAT[0].signal.connect(self.imx8.NAND_DATA04)
+        self.SD3_DAT[1].signal.connect(self.imx8.NAND_DATA05)
+        self.SD3_DAT[2].signal.connect(self.imx8.NAND_DATA06)
+        self.SD3_DAT[3].signal.connect(self.imx8.NAND_DATA07)
+        self.SD3_DAT[4].signal.connect(self.imx8.NAND_READY_B)
+        self.SD3_DAT[5].signal.connect(self.imx8.NAND_CE2_B)
+        self.SD3_DAT[6].signal.connect(self.imx8.NAND_CE3_B)
+        self.SD3_DAT[7].signal.connect(self.imx8.NAND_CLE)
+
+        self.SD3_STROBE.signal.connect(self.imx8.NAND_CE1_B)
+        self.SD3_CMD.signal.connect(self.imx8.NAND_READY_B)
+        self.SD3_CLK.signal.connect(self.imx8.NAND_WP_B)
+
+        for signal in self.SD3_DAT:
+            signal.reference.connect(self.VDD_1V8)
+            signal.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+
+        for signal in [self.SD3_STROBE, self.SD3_CMD, self.SD3_CLK]:
+            signal.reference.connect(self.VDD_1V8)
+            signal.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
 
 class App(Module):
     processor: NXP_Semicon_MIMX8MM6CVTKZAA

@@ -61,159 +61,159 @@ class _Samsung_KLMBG2JETD_B041(Module):
     def attach_via_pinmap(self):
         return F.can_attach_to_footprint_via_pinmap(
             {
-                "A1": self.NC,
-                "A10": self.NC,
-                "A11": self.NC,
-                "A12": self.NC,
-                "A13": self.NC,
-                "A14": self.NC,
-                "A2": self.NC,
+                "A1": None,
+                "A10": None,
+                "A11": None,
+                "A12": None,
+                "A13": None,
+                "A14": None,
+                "A2": None,
                 "A3": self.DAT[0].signal,
                 "A4": self.DAT[1].signal,
                 "A5": self.DAT[2].signal,
                 "A6": self.VSS,
-                "A7": self.NC,
-                "A8": self.NC,
-                "A9": self.NC,
-                "B1": self.NC,
-                "B10": self.NC,
-                "B11": self.NC,
-                "B12": self.NC,
-                "B13": self.NC,
-                "B14": self.NC,
+                "A7": None,
+                "A8": None,
+                "A9": None,
+                "B1": None,
+                "B10": None,
+                "B11": None,
+                "B12": None,
+                "B13": None,
+                "B14": None,
                 "B2": self.DAT[3].signal,
                 "B3": self.DAT[4].signal,
                 "B4": self.DAT[5].signal,
                 "B5": self.DAT[6].signal,
                 "B6": self.DAT[7].signal,
-                "B7": self.NC,
-                "B8": self.NC,
-                "B9": self.NC,
-                "C1": self.NC,
-                "C10": self.NC,
-                "C11": self.NC,
-                "C12": self.NC,
-                "C13": self.NC,
-                "C14": self.NC,
+                "B7": None,
+                "B8": None,
+                "B9": None,
+                "C1": None,
+                "C10": None,
+                "C11": None,
+                "C12": None,
+                "C13": None,
+                "C14": None,
                 "C2": self.VDDI,
-                "C3": self.NC,
+                "C3": None,
                 "C4": self.VSS,
-                "C5": self.NC,
+                "C5": None,
                 "C6": self.VDD,
-                "C7": self.NC,
-                "C8": self.NC,
-                "C9": self.NC,
-                "D1": self.NC,
-                "D12": self.NC,
-                "D13": self.NC,
-                "D14": self.NC,
-                "D2": self.NC,
-                "D3": self.NC,
-                "D4": self.NC,
-                "E1": self.NC,
-                "E10": self.NC,
-                "E12": self.NC,
-                "E13": self.NC,
-                "E14": self.NC,
-                "E2": self.NC,
-                "E3": self.NC,
-                "E5": self.NC,
+                "C7": None,
+                "C8": None,
+                "C9": None,
+                "D1": None,
+                "D12": None,
+                "D13": None,
+                "D14": None,
+                "D2": None,
+                "D3": None,
+                "D4": None,
+                "E1": None,
+                "E10": None,
+                "E12": None,
+                "E13": None,
+                "E14": None,
+                "E2": None,
+                "E3": None,
+                "E5": None,
                 "E6": self.VDDF,
                 "E7": self.VSS,
-                "E8": self.NC,
-                "E9": self.NC,
-                "F1": self.NC,
-                "F10": self.NC,
-                "F12": self.NC,
-                "F13": self.NC,
-                "F14": self.NC,
-                "F2": self.NC,
-                "F3": self.NC,
+                "E8": None,
+                "E9": None,
+                "F1": None,
+                "F10": None,
+                "F12": None,
+                "F13": None,
+                "F14": None,
+                "F2": None,
+                "F3": None,
                 "F5": self.VDDF,
-                "G1": self.NC,
-                "G10": self.NC,
-                "G12": self.NC,
-                "G13": self.NC,
-                "G14": self.NC,
-                "G2": self.NC,
-                "G3": self.NC,
+                "G1": None,
+                "G10": None,
+                "G12": None,
+                "G13": None,
+                "G14": None,
+                "G2": None,
+                "G3": None,
                 "G5": self.VSS,
-                "H1": self.NC,
+                "H1": None,
                 "H10": self.VSS,
-                "H12": self.NC,
-                "H13": self.NC,
-                "H14": self.NC,
-                "H2": self.NC,
-                "H3": self.NC,
+                "H12": None,
+                "H13": None,
+                "H14": None,
+                "H2": None,
+                "H3": None,
                 "H5": self.DATA_STROBE.signal,
-                "J1": self.NC,
+                "J1": None,
                 "J10": self.VDDF,
-                "J12": self.NC,
-                "J13": self.NC,
-                "J14": self.NC,
-                "J2": self.NC,
-                "J3": self.NC,
+                "J12": None,
+                "J13": None,
+                "J14": None,
+                "J2": None,
+                "J3": None,
                 "J5": self.VSS,
-                "K1": self.NC,
-                "K10": self.NC,
-                "K12": self.NC,
-                "K13": self.NC,
-                "K14": self.NC,
-                "K2": self.NC,
-                "K3": self.NC,
+                "K1": None,
+                "K10": None,
+                "K12": None,
+                "K13": None,
+                "K14": None,
+                "K2": None,
+                "K3": None,
                 "K5": self.RSTN.signal,
-                "K6": self.NC,
-                "K7": self.NC,
+                "K6": None,
+                "K7": None,
                 "K8": self.VSS,
                 "K9": self.VDDF,
-                "L1": self.NC,
-                "L12": self.NC,
-                "L13": self.NC,
-                "L14": self.NC,
-                "L2": self.NC,
-                "L3": self.NC,
-                "M1": self.NC,
-                "M10": self.NC,
-                "M11": self.NC,
-                "M12": self.NC,
-                "M13": self.NC,
-                "M14": self.NC,
-                "M2": self.NC,
-                "M3": self.NC,
+                "L1": None,
+                "L12": None,
+                "L13": None,
+                "L14": None,
+                "L2": None,
+                "L3": None,
+                "M1": None,
+                "M10": None,
+                "M11": None,
+                "M12": None,
+                "M13": None,
+                "M14": None,
+                "M2": None,
+                "M3": None,
                 "M4": self.VDD,
                 "M5": self.CMD.signal,
                 "M6": self.CLK.signal,
-                "M7": self.NC,
-                "M8": self.NC,
-                "M9": self.NC,
-                "N1": self.NC,
-                "N10": self.NC,
-                "N11": self.NC,
-                "N12": self.NC,
-                "N13": self.NC,
-                "N14": self.NC,
+                "M7": None,
+                "M8": None,
+                "M9": None,
+                "N1": None,
+                "N10": None,
+                "N11": None,
+                "N12": None,
+                "N13": None,
+                "N14": None,
                 "N2": self.VSS,
-                "N3": self.NC,
+                "N3": None,
                 "N4": self.VDD,
                 "N5": self.VSS,
-                "N6": self.NC,
-                "N7": self.NC,
-                "N8": self.NC,
-                "N9": self.NC,
-                "P1": self.NC,
-                "P10": self.NC,
-                "P11": self.NC,
-                "P12": self.NC,
-                "P13": self.NC,
-                "P14": self.NC,
-                "P2": self.NC,
+                "N6": None,
+                "N7": None,
+                "N8": None,
+                "N9": None,
+                "P1": None,
+                "P10": None,
+                "P11": None,
+                "P12": None,
+                "P13": None,
+                "P14": None,
+                "P2": None,
                 "P3": self.VDD,
                 "P4": self.VSS,
                 "P5": self.VDD,
                 "P6": self.VSS,
-                "P7": self.NC,
-                "P8": self.NC,
-                "P9": self.NC,
+                "P7": None,
+                "P8": None,
+                "P9": None,
             }
         )
 
@@ -225,11 +225,26 @@ class _Samsung_KLMBG2JETD_B041(Module):
         self.VDD_1V8.hv.connect(self.VDD)
         self.VDD_INTERNAL.hv.connect(self.VDDI)
         self.VDD_3V3.lv.connect(self.VSS)
-        F.ElectricLogic.connect_all_module_references(self, gnd_only=True)
+
+        # Connect references
+        for dat in self.DAT:
+            dat.reference.connect(self.VDD_1V8)
+            dat.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.DATA_STROBE.reference.connect(self.VDD_1V8)
+        self.DATA_STROBE.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.CMD.reference.connect(self.VDD_1V8)
+        self.CMD.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.CLK.reference.connect(self.VDD_1V8)
+        self.CLK.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.RSTN.reference.connect(self.VDD_1V8)
+        self.RSTN.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+
+
 
         # ------------------------------------
         #          parametrization
         # ------------------------------------
+        self.VDD_INTERNAL.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
         self.VDD_3V3.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
         self.VDD_1V8.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
 
@@ -258,6 +273,7 @@ class Samsung_KLMBG2JETD_B041(Module):
 
         self.VDD_3V3.hv.connect(self.eMMC.VDD_3V3.hv)
         self.VDD_1V8.hv.connect(self.eMMC.VDD_1V8.hv)
+        self.VDD_3V3.lv.connect(self.eMMC.VDD_3V3.lv, self.eMMC.VDD_1V8.lv)
 
         # Net naming
         for net in self.eMMC.DAT:
@@ -269,10 +285,10 @@ class Samsung_KLMBG2JETD_B041(Module):
         F.Net.with_name("eMMC_CMD").part_of.connect(self.CMD.signal)
         F.Net.with_name("eMMC_CLK").part_of.connect(self.CLK.signal)
         F.Net.with_name("eMMC_RSTN").part_of.connect(self.RSTN.signal)
-        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
-        F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
+        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        # F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
         F.Net.with_name("VDD_INTERNAL").part_of.connect(self.eMMC.VDD_INTERNAL.hv)
-        F.Net.with_name("GND").part_of.connect(self.VDD_1V8.lv)
+        # F.Net.with_name("GND").part_of.connect(self.VDD_1V8.lv)
 
 
         # Pass through
@@ -283,42 +299,68 @@ class Samsung_KLMBG2JETD_B041(Module):
         self.CLK.connect(self.eMMC.CLK)
         self.RSTN.connect(self.eMMC.RSTN)
 
-        # Decoupling capacitors
-        VDD_3V3_CAPS = (
-            self.VDD_3V3.decoupled.decouple()
-            .specialize(F.MultiCapacitor(5))
-            .capacitors
-        )
-        VDD_3V3_CAP_FOOTPRINTS = [("0402", 2), ("0201", 2), ("0201", 2), ("0201", 2), ("0201", 2)]
-        VDD_3V3_CAP_VALUES = [4.7 * P.uF, 220 * P.nF, 220 * P.nF, 220 * P.nF, 220 * P.nF]
+        # VDD_3V3
+        VDD_3V3_CAP_PROPERTIES = [
+            {"value": 4.7 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+        ]
 
-        for cap, footprint, value in zip(VDD_3V3_CAPS, VDD_3V3_CAP_FOOTPRINTS, VDD_3V3_CAP_VALUES):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        VDD_3V3_CAPS = []
 
-        VDD_1V8_CAPS = (
-            self.VDD_1V8.decoupled.decouple()
-            .specialize(F.MultiCapacitor(4))
-            .capacitors
-        )
-        VDD_1V8_CAP_FOOTPRINTS = [("0402", 2), ("0201", 2), ("0201", 2), ("0201", 2)]
-        VDD_1V8_CAP_VALUES = [10 * P.uF, 220 * P.nF, 220 * P.nF, 220 * P.nF]
+        for props in VDD_3V3_CAP_PROPERTIES:
+            cap = self.VDD_3V3.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_3V3_CAPS.append(cap)
 
-        for cap, footprint, value in zip(VDD_1V8_CAPS, VDD_1V8_CAP_FOOTPRINTS, VDD_1V8_CAP_VALUES):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        # VDD_1V8
+        VDD_1V8_CAP_PROPERTIES = [
+            {"value": 10 * P.uF, "footprint": "0402"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+        ]
 
-        VDD_INTERNAL_CAPS = (
-            self.eMMC.VDD_INTERNAL.decoupled.decouple()
-            .specialize(F.MultiCapacitor(2))
-            .capacitors 
-        )
-        VDD_INTERNAL_CAP_FOOTPRINTS = [("0201", 2), ("0201", 2)]
-        VDD_INTERNAL_CAP_VALUES = [1 * P.uF, 220 * P.nF]
+        VDD_1V8_CAPS = []
 
-        for cap, footprint, value in zip(VDD_INTERNAL_CAPS, VDD_INTERNAL_CAP_FOOTPRINTS, VDD_INTERNAL_CAP_VALUES):
-            cap.add(F.has_footprint_requirement_defined([footprint]))
-            cap.capacitance.merge(F.Range.from_center_rel(value, 0.2))
+        for props in VDD_1V8_CAP_PROPERTIES:
+            cap = self.VDD_1V8.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_1V8_CAPS.append(cap)
 
-class App(Module):
-    eMMC: Samsung_KLMBG2JETD_B041
+        # VDD_INTERNAL
+        VDD_INTERNAL_CAP_PROPERTIES = [
+            {"value": 1 * P.uF, "footprint": "0201"},
+            {"value": 220 * P.nF, "footprint": "0201"},
+        ]
+
+        VDD_INTERNAL_CAPS = []
+
+        for props in VDD_INTERNAL_CAP_PROPERTIES:
+            cap = self.eMMC.VDD_INTERNAL.decoupled.decouple()
+            cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
+            cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
+            VDD_INTERNAL_CAPS.append(cap)
+
+        # Connect references
+        for dat in self.DAT:
+            dat.reference.connect(self.VDD_1V8)
+            dat.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        
+        self.DATA_STROBE.reference.connect(self.VDD_1V8)
+        self.DATA_STROBE.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.CMD.reference.connect(self.VDD_1V8)
+        self.CMD.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.CLK.reference.connect(self.VDD_1V8)
+        self.CLK.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.RSTN.reference.connect(self.VDD_1V8)
+        self.RSTN.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+
+        # Set voltages
+        self.eMMC.VDD_INTERNAL.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.VDD_3V3.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
+        self.VDD_1V8.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))

@@ -31,6 +31,7 @@ STUSB4500 usb;
 void setup() 
 {
   Serial.begin(115200);  
+
   Wire.begin();
 
   usb.begin();

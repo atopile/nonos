@@ -10,6 +10,7 @@ from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
 from faebryk.libs.util import times
 
+
 logger = logging.getLogger(__name__)
 
 # TODO: What is NVCC_ENET? note on schematic says 'Supply from base board'

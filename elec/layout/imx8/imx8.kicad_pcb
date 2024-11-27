@@ -106,14 +106,14 @@
             (outputdirectory "")))
     (net 0 "")
     (net 1 "dram_ac07")
-    (net 2 "*7C08-net-6")
+    (net 2 "*3E48.processor-net-2")
     (net 3 "pcie_rxn_n")
     (net 4 "dram_dq09")
     (net 5 "uart2_rxd")
     (net 6 "dram_ac16")
     (net 7 "mipi_csi_d1_p")
     (net 8 "nand_data00")
-    (net 9 "*7C08.I2C4-hv")
+    (net 9 "*3E48.processor.I2C4-hv")
     (net 10 "sai1_txd5")
     (net 11 "gpio1_io04")
     (net 12 "dram_ac11")
@@ -141,7 +141,7 @@
     (net 34 "dram_ac30")
     (net 35 "sd1_cmd")
     (net 36 "enet_td3")
-    (net 37 "*7C08-net-2")
+    (net 37 "*3E48.processor-net-4")
     (net 38 "dram_dq15")
     (net 39 "dram_dq18")
     (net 40 "dram_ac00")
@@ -260,7 +260,7 @@
     (net 153 "vdd_dram_pll_0p8")
     (net 154 "gpio1_io00")
     (net 155 "enet_mdio")
-    (net 156 "*7C08.ONOFF-signal")
+    (net 156 "*3E48.processor.ONOFF-signal")
     (net 157 "ecspi2_mosi")
     (net 158 "sai2_txc")
     (net 159 "boot_mode1")
@@ -292,7 +292,7 @@
     (net 185 "dram_ac19")
     (net 186 "tsensor_test_out")
     (net 187 "dram_alert_n")
-    (net 188 "*7C08-hv")
+    (net 188 "*3E48.processor-hv")
     (net 189 "mipi_dsi_d1_p")
     (net 190 "GND")
     (net 191 "dram_dq20")
@@ -313,7 +313,7 @@
     (net 206 "nand_ale")
     (net 207 "mipi_csi_clk_n")
     (net 208 "sd1_strobe")
-    (net 209 "*7C08-net-4")
+    (net 209 "*3E48.processor-net-3")
     (net 210 "dram_dq07")
     (net 211 "dram_dqs0_p")
     (net 212 "dram_dq17")
@@ -389,17 +389,17 @@
     (net 282 "clkin2")
     (net 283 "enet_txc")
     (net 284 "pcie_txn_n")
-    (net 285 "*7C08.I2C1-hv")
-    (net 286 "*7C08-net-5")
+    (net 285 "*3E48.processor.I2C1-hv")
+    (net 286 "*3E48.processor-net-6")
     (net 287 "gpio1_io13")
     (net 288 "dram_dq13")
     (net 289 "dram_ac23")
     (net 290 "onoff")
-    (net 291 "*7C08-net-7")
+    (net 291 "*3E48.processor-net-0")
     (net 292 "VDD_PHY_1V2")
     (net 293 "VDD_PHY_0V9")
     (net 294 "VDD_SNVS_0V8")
-    (net 295 "*7C08.I2C3-hv")
+    (net 295 "*3E48.processor.I2C3-hv")
     (net 296 "NVCC_DRAM_1V1")
     (net 297 "VDD_SOC_0V8")
     (net 298 "NVCC_SD2")
@@ -408,13 +408,13 @@
     (net 301 "VDD_ARM_0V9")
     (net 302 "VDD_3V3")
     (net 303 "VDD_1V8")
-    (net 304 "*7C08.I2C2-hv")
-    (net 305 "*7C08-net-0")
-    (net 306 "*7C08.PMIC_ON_REQ-signal")
-    (net 307 "*7C08-net-8")
-    (net 308 "*7C08.PMIC_STBY_REQ-signal")
-    (net 309 "*7C08-net-3")
-    (net 310 "*7C08-net-1")
+    (net 304 "*3E48.processor.I2C2-hv")
+    (net 305 "*3E48.processor-net-8")
+    (net 306 "*3E48.processor.PMIC_ON_REQ-signal")
+    (net 307 "*3E48.processor-net-5")
+    (net 308 "*3E48.processor.PMIC_STBY_REQ-signal")
+    (net 309 "*3E48.processor-net-7")
+    (net 310 "*3E48.processor-net-1")
     (footprint "lcsc:BGA-486_L14.0-W14.0-P0.50-TL_NXP_MIMX8MMXDVTLZXA"
         (layer "F.Cu")
         (uuid "0b37d29a-114e-4193-b219-5a165daedb01")
@@ -483,27 +483,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "17f4f190-4fbc-4912-ab5b-2e60498ba572")
+            (uuid "7c96873d-27f5-496d-8910-d9f1b16f6f71")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "imx8"
+        (property "atopile_address" "processor.imx8"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d2007f9b-011a-4c3a-afaa-4a8504674ef0")
+            (uuid "d43daae7-07bb-4750-a486-530b54b1ef28")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.imx8"
+        (property "atopile_name" "*3E48.processor.imx8"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ec8c1cea-00c1-4dfb-9d46-3e9d81a68b88")
+            (uuid "199d7dcd-4ccc-4b56-a385-94d541e1b84f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6401,28 +6401,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "*7C08-net-6")
+            (net 2 "*3E48.processor-net-2")
             (uuid "f6b38a86-9fbf-4f49-b214-02549a0a0ccb"))
         (pad "D10" smd circle
             (at -2 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 310 "*7C08-net-1")
+            (net 305 "*3E48.processor-net-8")
             (uuid "7f5ff992-e9e6-4e1e-b940-86cb3df84edc"))
         (pad "D13" smd circle
             (at -0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 286 "*7C08-net-5")
+            (net 310 "*3E48.processor-net-1")
             (uuid "110351d1-10f5-4cb7-8f5b-d1f2be5b7965"))
         (pad "D15" smd circle
             (at 0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 291 "*7C08-net-7")
+            (net 307 "*3E48.processor-net-5")
             (uuid "b682894b-6436-4e0f-90b1-f53d85a7ad47"))
         (pad "D18" smd circle
             (at 2 -5 270)
@@ -6506,21 +6506,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 37 "*7C08-net-2")
+            (net 209 "*3E48.processor-net-3")
             (uuid "405c4eb1-57c5-46c9-b226-ad4c42ee8db7"))
         (pad "E10" smd circle
             (at -2 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 305 "*7C08-net-0")
+            (net 309 "*3E48.processor-net-7")
             (uuid "11e1348f-8398-47b3-9783-6b00d366873f"))
         (pad "E13" smd circle
             (at -0.5 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 309 "*7C08-net-3")
+            (net 37 "*3E48.processor-net-4")
             (uuid "bee7d954-708f-4794-a64e-742951d526c0"))
         (pad "E14" smd circle
             (at 0 -4.5 270)
@@ -6632,14 +6632,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 209 "*7C08-net-4")
+            (net 291 "*3E48.processor-net-0")
             (uuid "9e9ef4ea-4c48-4635-af45-1aa70f98605d"))
         (pad "F10" smd circle
             (at -2 -4 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 307 "*7C08-net-8")
+            (net 286 "*3E48.processor-net-6")
             (uuid "832e4e1b-73c7-40b1-9aa8-236aa7a4c150"))
         (pad "F13" smd circle
             (at -0.5 -4 270)
@@ -6982,7 +6982,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7C08-hv")
+            (net 188 "*3E48.processor-hv")
             (uuid "ea3189df-9ac8-42c0-83f8-424ca0283245"))
         (pad "J23" smd circle
             (at 4.5 -2.5 270)
@@ -8450,27 +8450,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "28a1f23f-c372-4a02-bcfc-ec61b885b4c7")
+            (uuid "38210d02-ef42-4166-8232-63e04c5721ce")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[3]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1e9e5f26-a188-4fb2-a90b-f40f2b57f0ed")
+            (uuid "45358f2e-88ea-4be5-86f9-448c933ec132")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7afb1b77-47a1-42a4-93c9-b4b5fd33c81a")
+            (uuid "6108ad2e-94ea-4ae5-a66c-1b23087443d9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8674,27 +8674,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a23590e9-9fad-4576-83ac-8b9736830c38")
+            (uuid "ef2488e4-170b-460b-9941-88420813f84c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "23d5bab8-702d-409c-9596-48aa0a2c2496")
+            (uuid "9a5d5ab6-0e7d-496f-94ea-7ab620e34fa8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "936746b7-df5e-4d04-a5e1-ca2fab0ee48b")
+            (uuid "af0893e7-99d9-4b76-ba29-845ac8cbf37a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8898,27 +8898,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7204f713-ac82-4e69-a460-427093e7a1e0")
+            (uuid "9c65915d-c506-403c-8e4b-f000300fe78e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[3]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "19058b1d-1303-43c3-9db7-e87f812b1f44")
+            (uuid "afc41fef-8063-4a2b-bf5f-0708145440a6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0aa1d305-3d1d-442b-b086-783d9a8e9420")
+            (uuid "63214095-2549-4d9d-92d7-f8a0f1227613")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9122,27 +9122,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5a8a0e07-bd3e-4119-a415-67012a223941")
+            (uuid "32b8c323-e065-4e7d-b3ff-2b4cd793b07d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[4]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4758d59c-c768-4b09-b0f7-4bdeba42c8dc")
+            (uuid "4f2ae327-eea9-4ea5-bd0d-c8c771f554b4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b92a3afc-428b-47c6-b6a6-81c522762f12")
+            (uuid "5ed585a1-5a47-4b61-90f3-1d57549a7f9c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9346,27 +9346,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "836be83d-9dd8-4938-b7d4-5cdcf6652858")
+            (uuid "3dfb43e2-548d-4a31-b5dc-0b79df4cb95a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_3V3.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_3V3.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a83a7e28-a0ca-4eb6-93b3-618fe2d0d40a")
+            (uuid "e16e62e1-a4c9-46e6-b548-331a79ab8a26")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_3V3.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "597ac3d9-21a2-456e-87f4-b57ff4d6887f")
+            (uuid "98886cb0-84d7-40bd-b4d9-0e4737303f7e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9570,27 +9570,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aaa7a86f-02fd-4bba-910f-b688496484fd")
+            (uuid "041f99c8-7bd7-4e29-acb6-b70242c74d87")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "34c198ff-1431-40b6-b50e-f0f93cfd99fc")
+            (uuid "adc50778-c7b7-4f62-a633-386e79f3c42f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8197fec6-5e3f-4621-8ce3-0f589857b178")
+            (uuid "f6f7fc41-c7a7-4227-8fa5-e3bdb68a8d56")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9794,27 +9794,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f4e0a8e9-2b3b-4b38-baf7-bca7c0442655")
+            (uuid "a21daea0-321c-4263-b2c2-9e6debf03af3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[8]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3647f220-03a8-4cf4-be91-83f7d676522e")
+            (uuid "7e58b6fe-079b-4272-9c5e-f3ff19b12e86")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[8]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a9409767-b0a5-40a4-b23d-462cb9f70e51")
+            (uuid "ca5b8d2f-f6ee-4155-ac7a-30080445cc27")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10018,27 +10018,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "da4a9c6b-5894-4578-a629-9d501c767077")
+            (uuid "0eb7cfde-1250-4cb4-80cc-2f655e1e512a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[7]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "788c03dd-0d2b-4fef-ace2-1f8f0d95f70b")
+            (uuid "7f251cf1-322c-4956-81c7-7f36b88166bc")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[7]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a5d8f15d-fb1b-42e6-be9d-ff771eb28dd6")
+            (uuid "143ab157-34e7-4f45-b4d2-a380f09d9861")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10242,27 +10242,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4afd7176-88a7-4961-aa9f-28797cb23a7e")
+            (uuid "749ac900-7ef9-4975-9da9-a16eb2cc44bc")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[4]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "109c32e8-e9ba-4c73-b1e0-d50e029a4474")
+            (uuid "4a1a9c47-73ff-464a-83f8-c5791aeda417")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "af6234d4-108e-4813-aba4-c071bbb62ff0")
+            (uuid "829d0b7f-9481-4f7f-ab60-14c3fb99a434")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10466,27 +10466,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "564d92be-ac66-4c26-9ecd-3c2ccede3ab2")
+            (uuid "7fdf7b08-ce1c-4063-9c40-4995df9b876b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "MIPI_VREG_CAP"
+        (property "atopile_address" "processor.MIPI_VREG_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cb0beac9-538d-46bc-9324-01645303950b")
+            (uuid "47ad1d12-cd23-4943-9c0d-5bd4d2f4f14c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.MIPI_VREG_CAP"
+        (property "atopile_name" "*3E48.processor.MIPI_VREG_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bb3fe358-6c5b-4d46-85c8-f0ac6b70d46d")
+            (uuid "8c951251-c24a-4285-95c0-2bba247ac71d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10601,7 +10601,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 291 "*7C08-net-7")
+            (net 307 "*3E48.processor-net-5")
             (uuid "90179b47-a224-4432-a93a-944e4fb15be0"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -10690,27 +10690,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "230329a9-2210-4215-81f2-e153f4b8d5f5")
+            (uuid "99df29f5-926c-4252-9fbe-7fd14ae9bee8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[6]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "be94379e-03c5-4bc5-858c-f7c5ed08231a")
+            (uuid "6a729226-6281-46b2-b8c2-ab6c197338a5")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[6]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8042c826-e65b-4ae0-acb9-3b0f7650d04a")
+            (uuid "f7b09f1a-ba1c-4418-9b55-0d6e1b20a697")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10914,27 +10914,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7d0b8751-ff15-429a-9437-28d4d6a805f2")
+            (uuid "77e2f869-7ac2-49c8-b298-a820638c9ccc")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[4]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "086b959e-1563-42b6-80ab-654f7112825a")
+            (uuid "d0051445-94a0-42eb-80db-a947c53eebb3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "91eff60e-e7d6-4ca2-9d51-c9ace6e9e144")
+            (uuid "ab82f94a-9f04-474d-aa25-07ee1de3c82d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11138,27 +11138,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cc6d31ec-067f-45bb-a233-463df9880c4d")
+            (uuid "9dac3a5b-af26-429f-b04c-c113f00c8357")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[4]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "14280713-df7a-4636-8a42-7a958b7306b4")
+            (uuid "af036576-5723-4532-bb40-921579a7d156")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fdb2e1e3-8f99-449e-af79-4d72f3d42c90")
+            (uuid "cb2b36b5-69af-48d7-a058-4f167ee14eed")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11362,27 +11362,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1b038545-19eb-40f7-bfef-a9a443bc2056")
+            (uuid "8028c72c-9824-49f8-aff4-8be4aa8dcac5")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_3V3.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_3V3.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0f985710-2187-44de-9a0c-70397d465eef")
+            (uuid "13a35b0f-fd3f-45ac-bfd5-75e2ca981ba1")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_3V3.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b0fadc4c-2cba-4551-9f40-28db1a92e7b0")
+            (uuid "8733d4c4-4e20-425d-bbf8-003b1c091667")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11586,27 +11586,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f54181b1-214f-4e61-a214-7400b89dfd9d")
+            (uuid "fc47a3b9-05ff-49a5-baff-3d3bf2699adb")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "efa49b54-d491-48eb-9b15-41fbb544854f")
+            (uuid "5f064ffe-e7a5-4949-8fba-2f0c8b2b4d92")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ec680926-64ba-4369-8ef1-b6d005730a33")
+            (uuid "8f4a2895-10a7-4a3d-b53c-6a2813a24539")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11810,27 +11810,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c05da9f8-5d60-4d53-ad2e-082bb0da488e")
+            (uuid "35a1cfec-14ab-49aa-a1be-704dfef24ca4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[5]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "87399909-b4b3-4e39-ba80-b700d99ab7ab")
+            (uuid "1abc77fe-f5ae-4a87-a3d6-7ca9b94e3c79")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0f8e75ad-9765-4121-9f56-3219e3db8965")
+            (uuid "9ae1d1b7-64b6-4176-9c85-a7218037a444")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12034,27 +12034,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9638401f-5608-444d-b503-44f5aa62a00d")
+            (uuid "5dfe40f9-9ed5-48bd-940e-ab6995f3ae92")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_3V3.runtime_anon[4]"
+        (property "atopile_address" "processor.VDD_3V3.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "87bba3ec-45db-4a47-b90c-aa838a17f29c")
+            (uuid "8aacd673-12f0-406f-8e9f-783c41c4162e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.VDD_3V3.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8244e6eb-ccec-4976-b507-d63781750df9")
+            (uuid "2843717b-43a7-433b-b48e-6b2d04bf7a0b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12258,27 +12258,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "64136ef7-6393-4518-a69b-b2d2e0a83f3e")
+            (uuid "b47dea16-2fd9-47ba-8e16-2c21f342aecf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_3V3.runtime_anon[5]"
+        (property "atopile_address" "processor.VDD_3V3.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "226f2ab2-070d-4c94-859e-1e6dac122dfe")
+            (uuid "3ef4fe29-7d73-4435-9e92-913f6e4c6eeb")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.VDD_3V3.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e2d326c0-6a9d-414a-94b1-974af665ea56")
+            (uuid "a83f0350-cf16-4952-89c5-af23e58819a5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12482,27 +12482,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c62354c3-4449-4f0e-b654-1b3a843afdcf")
+            (uuid "d4370d96-4db5-43d5-8ffd-f95e850dc4c6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[0]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e084ac91-6f0f-4748-b200-272c5c4858c2")
+            (uuid "19012ec4-76a7-4b38-af02-6ea478215dce")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fb78c300-ce8c-47ce-bf9c-4e4cc8022fe1")
+            (uuid "c92f0427-9ae8-4904-9adf-f65b6f254097")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12706,27 +12706,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3184d105-2c85-4bab-b1dc-515ac84e5ec1")
+            (uuid "7af8180f-8518-468e-9601-f3ba1e62c19b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "75462bbe-a9c0-44e9-9a01-8e4616cc7d93")
+            (uuid "54812cde-960d-4565-b893-cdc6b53cda1e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "10b58609-52fe-4fc4-b486-13fa51bbedc2")
+            (uuid "850dfd49-5850-4791-9113-c7a54effed0e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12930,27 +12930,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "902d91f4-6734-4887-b6c6-7802ff131385")
+            (uuid "499e70ca-171d-4e74-822a-4f0314c0f1e4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[8]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "19116121-42e6-4b30-a632-2b58f06ebe36")
+            (uuid "e89b314c-7f88-458d-8669-6b78e31090c9")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[8]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fcd94857-530b-47b1-ba09-ad1046533afd")
+            (uuid "0f52220b-ad97-4ff6-b9dd-55c1763edd46")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13154,27 +13154,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7935c3b8-49b9-4e36-9601-1a09303ce01f")
+            (uuid "3db78de4-a4db-44e1-a93b-b78ab845dc91")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ef63f67c-1022-4749-bcc7-23694deaff97")
+            (uuid "40918c37-b99f-426e-a5ed-9bf801f5327a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1995d3dd-f6cd-4d8d-b88e-d9988c40a1b9")
+            (uuid "6d49deda-00cc-49cf-8162-0e1ffd09cf75")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13378,27 +13378,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "55232c10-051d-42ab-bb63-dc197e2b90f7")
+            (uuid "fec6a785-010a-440e-8dc1-8cdba9e4fa53")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[9]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "948d17a7-79fa-4022-b0e7-93fffe21b419")
+            (uuid "39b63c8e-a586-4fec-85bc-679c148f37da")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[9]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "77467f8c-6739-43f2-81ec-afce43149f6e")
+            (uuid "b1334bb0-e3a9-4f74-a584-0b913dea0bfe")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13602,27 +13602,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6e1fbd61-bce7-4ab5-95dd-50588ba76e0b")
+            (uuid "743704a2-e758-4d07-9f82-09b21e878232")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDDA_1V8.runtime_anon[2]"
+        (property "atopile_address" "processor.VDDA_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "774e35e5-96dc-4dcf-bbc7-51b336220caa")
+            (uuid "3f1d58b4-c835-4989-ac3b-43893342954b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDDA_1V8.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDDA_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "db6095a6-7112-4c6a-b848-a46b380421a7")
+            (uuid "fbe85497-28b2-4f02-9f5c-157b2f31509b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13826,27 +13826,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "70f2198e-ffe1-4908-b686-59abc4521036")
+            (uuid "ae68e468-da62-458c-8987-2c817f164131")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[2]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b3b5ffcd-1e89-4efa-be13-5c22700791aa")
+            (uuid "1237b23a-02f3-4c10-a210-04e5074f0cd3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f6293bb6-0c88-4e8e-9acc-cca51c03f881")
+            (uuid "87eb92df-eee5-438b-8a21-fc13aea6267e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14050,27 +14050,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0d902a20-9b18-42ed-9727-2c04828e703f")
+            (uuid "2386534a-9719-40be-a888-65b2c7ef7e6c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDDA_1V8.runtime_anon[0]"
+        (property "atopile_address" "processor.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "94831442-5adb-4e13-8229-41ec6e82d85d")
+            (uuid "796df860-aaad-4bb0-96b3-4384d7ec3621")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDDA_1V8.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "181ce897-c4ed-40aa-b7fb-2dbaaf0309cd")
+            (uuid "ad98deea-d132-44b7-aec9-cd400caac5d7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14274,27 +14274,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "86e63d20-f22f-4a73-acdd-e7ca09c18a57")
+            (uuid "e1d4913b-6acd-4455-a9ab-519fd4608e67")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[7]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5b78e1bb-236c-41f7-9588-9024cba1d3ba")
+            (uuid "5bd23d9d-8e1f-48ae-89dd-752d4ea47db8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[7]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4399f3f3-7ca7-4d64-8b57-c14f93ef3763")
+            (uuid "40177f39-d32f-47cd-a396-819fcf765ed8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14498,27 +14498,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3baf4096-e8c5-401a-9195-44a6c12fdcdc")
+            (uuid "8c7a89aa-1f5c-46f8-9d68-670b9b78e087")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[6]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f093237a-25fc-449a-853f-a29505c49ca6")
+            (uuid "fad1d7be-9f67-47e0-9126-5f0ad8a95b39")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[6]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d9681580-62f0-4331-a787-9127d21c5050")
+            (uuid "d50c44d3-0881-445c-ac66-007132fc8237")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14722,27 +14722,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e48ee0e4-9419-4b4b-b1b9-425250ad96f5")
+            (uuid "200af56b-0c7a-4d5c-b81e-5d48dbfb27c8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_PHY_1V2.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1f689eb2-7413-49c1-83c7-7094bbd51461")
+            (uuid "3be29a8a-87f2-4d32-9f05-3fc09600f744")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_PHY_1V2.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "13dc0d2a-d9c9-454b-b901-a6653247cde3")
+            (uuid "72cb2ced-2eea-46f0-85ac-781db5bdbb01")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14946,27 +14946,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6a91e0cb-5bec-44bd-8db5-66c12ae8f58a")
+            (uuid "8a92fa85-dda9-404a-84a4-2e6471c8fe14")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[4]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "98b29e58-9723-4853-b375-bb5565a914b0")
+            (uuid "1d0a5981-933b-40ad-b203-4b2f7b73b3bf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[4]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "32c23bc2-bdd4-4184-9ec7-09c781cebd7c")
+            (uuid "b474b10f-3156-4aaf-856c-ea462a2a236e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15170,27 +15170,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2d7a838c-98be-47c9-8089-b72088158608")
+            (uuid "10948ba3-6623-4568-b5d7-7261c39e7ad7")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "atopile_address" "processor.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f38d2083-faf8-4919-aee3-b9bc8557d318")
+            (uuid "499551db-8ae9-4f59-8192-de91f868ecd1")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f5ecb1f5-cf15-4759-a122-b1b99fef2b0b")
+            (uuid "9ccd2404-2964-400b-9f7b-916225af8a95")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15305,7 +15305,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 188 "*7C08-hv")
+            (net 188 "*3E48.processor-hv")
             (uuid "70c5526a-15de-4f6e-9d03-9ab5a1bd20b1"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -15394,27 +15394,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f7f64e8c-2812-4ddf-b2f3-fb25e00859de")
+            (uuid "1c8bcd04-6773-4c52-91fb-c66aa69314c6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_PHY_1V2.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_PHY_1V2.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d23909d1-6f23-450c-814d-4af7ffa32d04")
+            (uuid "d4cade5e-21d5-4ee5-a285-1a0f2a3733bb")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_PHY_1V2.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_PHY_1V2.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7b913c9e-8b17-44de-8cbb-cf89e71f310d")
+            (uuid "73d4f4cc-bd8b-4cf6-9270-7852a37adfeb")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15618,27 +15618,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "125b84fb-b23e-4473-96fc-04e97feeba5c")
+            (uuid "4234d90a-c176-41f1-aee2-2a5bc4eae103")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_ENET.runtime_anon[0]"
+        (property "atopile_address" "processor.NVCC_ENET.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9264bf13-e869-4b83-915f-f6a6186e8671")
+            (uuid "b6c99740-6e40-470e-83c9-5f8180f8f321")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_ENET.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.NVCC_ENET.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d4bebc62-0c27-4a72-bc42-29af080ec705")
+            (uuid "28ab9cf3-b5e0-476b-9aad-6fe6027659f6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15842,27 +15842,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2d2cb8e6-a2aa-4465-8053-d01c28c97fa3")
+            (uuid "605cf7c8-4237-4cb4-94db-8608ca418252")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SNVS_0V8.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bdbf0afc-a388-4304-93c7-1bf9215ca2e1")
+            (uuid "c16f8da5-79a1-4103-b3e6-66dac534f980")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SNVS_0V8.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6dbf396d-7dca-4cd6-b8bc-868d6c84aa4b")
+            (uuid "8cd893aa-48b4-4c3b-a415-e790da97472c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16066,27 +16066,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c1acbdcc-9869-4ef6-83fc-31ad766a3d0e")
+            (uuid "208cfe47-1955-46c7-b55e-26288e8a79f0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[2]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b96b6754-a037-4394-85b2-b0c2fcd52708")
+            (uuid "257d57f7-38f3-4c82-b2ff-78fbf251882f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[2]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b14a78c1-1609-4572-92ce-c437f700efa1")
+            (uuid "0e1d7ee6-ebdd-41b8-a128-49d2f31da764")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16290,27 +16290,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a66c7dbb-dc09-4193-9954-f4ef1abe451b")
+            (uuid "1888b87f-8f77-43da-b498-1473cd5c7a45")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_3V3.runtime_anon[3]"
+        (property "atopile_address" "processor.VDD_3V3.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f71d2a75-291a-4db7-8c94-d13b1dfb2492")
+            (uuid "10d0be83-8fc0-407b-b5da-712a14d68159")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_3V3.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.VDD_3V3.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f09fe1cb-7190-4f09-a698-8466200a1e2b")
+            (uuid "f0e896a4-abd2-480c-bff6-d18ccaff4d53")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16514,27 +16514,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "94646198-8f63-412a-b615-a9ee076a8e69")
+            (uuid "d1afbc2d-545e-429a-8741-84e046847e6d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[6]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fe4ca3a6-b5a6-4b37-8eeb-acab06f5897d")
+            (uuid "56ba0c63-7d93-4c56-a25b-307112bab241")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[6]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "87a87063-08f2-47e2-9c23-0edde219e5bf")
+            (uuid "9ca24fc4-324e-431e-8fb8-d68cfd57fe64")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16738,27 +16738,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1d405216-d76a-460b-97e7-b9d899862279")
+            (uuid "b951f4d5-5269-43b0-b01f-682ffe0de47a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_PHY_0V9.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d651d210-a0d0-4a86-8b22-094008ccf9a4")
+            (uuid "c1877ac3-b01a-4625-aedd-715e10c556b0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_PHY_0V9.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "91e3eb3d-9591-43e8-94d6-c43e40c53754")
+            (uuid "8f531ff7-4a51-4157-a9c9-4ab017afb6ab")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16962,27 +16962,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c5765e13-3532-4fc7-a2e9-73273a999a59")
+            (uuid "6198cdcd-e6bc-45c0-9e15-2ef6c7d23025")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[7]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "93471a64-da17-4c67-b91c-828e776574ef")
+            (uuid "c0df133e-27a2-4a04-8c6a-df746e862cac")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[7]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eecedc26-c0f3-4744-9ff2-36b4c1ed5287")
+            (uuid "5f004e11-55e1-4799-88c8-7bca1e0ee063")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17186,27 +17186,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a2ff335d-826e-4781-8344-a7e9ac7e3f83")
+            (uuid "716a66af-ab27-4084-843b-343dbd8af6bf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[5]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a180f7ee-2276-4f18-b681-fa05ed570fa1")
+            (uuid "c5fe81f8-894b-4ab0-8d2c-83b05af172d8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "12bec357-7ddb-4ece-8b76-b950a7b07e54")
+            (uuid "ba2467df-4295-48a5-9fc7-d9c82e6b01ae")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17410,27 +17410,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fac9df8b-433a-4430-bf36-472a76d1664d")
+            (uuid "5c436dd0-e8a2-4d0d-bef5-10e776152c55")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[6]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4deaee10-aa22-4f27-84c5-4734767e4566")
+            (uuid "0f6e4692-4f64-4b43-9465-2d8ec94562c0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[6]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dfdfb599-7f1f-48bc-9926-3707d13d9459")
+            (uuid "6deeee9b-d011-433f-9bd9-02fdcc19aefc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17634,27 +17634,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6be57f30-2f2d-4cda-97a4-0b26c6bbcf73")
+            (uuid "a91e2e83-9799-4db3-bd34-ec7524b865ac")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b630e99c-70b2-43a2-acbe-09954db1f08f")
+            (uuid "86190353-746b-4ac4-a831-b3e304d04c39")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "792ab096-ceb4-4ec6-8c31-bb5b01b51e19")
+            (uuid "878ec455-8f61-41c9-942f-59ed93681422")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17858,27 +17858,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c4f5f7a4-937a-4b36-94b1-fd975ca2f0c9")
+            (uuid "d2dff522-7d98-4647-94af-afb939c4513a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[5]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "73aeccf9-102b-46da-8cbd-6696a2b745ce")
+            (uuid "feba4746-4eb4-467c-8e0c-c84deae574c1")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b74ef09b-67f9-48c2-9ed1-b82e8b067bd1")
+            (uuid "aafedef7-ce93-4364-8f4e-241bfefd37dc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18082,27 +18082,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ec6bcc83-0305-4c3f-84b5-6c568faee6c6")
+            (uuid "c17c9561-0787-4f7a-84bb-c1485b3a02f0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[7]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fe2c92dd-2924-4993-b5bd-02ee849d891a")
+            (uuid "1f14aa17-1b52-48ac-a566-98d6e69e5bef")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[7]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "843d65e6-633a-468a-a320-11d5142f3e25")
+            (uuid "c72cd658-2c2f-43eb-bc1c-5f411ea0b0f1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18306,27 +18306,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3fadba18-83ee-4726-a197-23553524837a")
+            (uuid "b7a95bae-8b54-4b72-a250-3d39808247cd")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[5]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9e46328b-f9b2-4e21-9efe-3b18c6c46ad5")
+            (uuid "093e87b2-f168-464e-b0fa-7213029891f7")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "36894f08-469f-4958-b3d2-35a097c3d941")
+            (uuid "14e12c38-88bc-4944-b00d-a25d40791481")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18530,27 +18530,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "89f63189-99a0-4d69-9b54-636b73c22605")
+            (uuid "c390faeb-b96c-4071-a758-bec2dfb6c202")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[8]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8e8f1e7f-f346-487a-b073-07b53209f92f")
+            (uuid "b5cfebc7-5b0a-4aa4-8982-d2d4975148cf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[8]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bf5f4323-4390-4035-a364-160e10196793")
+            (uuid "e32affa3-df60-495a-a2ad-a02989b4fe18")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18754,27 +18754,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "58bc6663-1919-4c6d-b93d-06bda2ae8912")
+            (uuid "db89a6cc-68a7-4526-bfa2-58ac18185700")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[6]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c4447e78-9ce2-4f8f-8db6-d47d4d486ead")
+            (uuid "f8384dfb-f2db-47de-a3eb-922ed19b8d45")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[6]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "98512f6c-b302-4ba5-87ef-e04b02bb66eb")
+            (uuid "96f8a79b-b083-47e9-80ae-87ea26c904f1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18978,27 +18978,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "06c02941-24b9-4089-940d-b68cdfc3c57f")
+            (uuid "82d912d4-9d66-4c05-a216-afa0340a18d6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_DRAM_1V1.runtime_anon[8]"
+        (property "atopile_address" "processor.NVCC_DRAM_1V1.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "09c00f6f-a317-42a2-87c8-8650457635d6")
+            (uuid "934f4c40-cea1-46a5-991c-c6f2111b4d7d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_DRAM_1V1.runtime_anon[8]"
+        (property "atopile_name" "*3E48.processor.NVCC_DRAM_1V1.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3911b106-693d-4efb-a44b-eec0180ea24a")
+            (uuid "bfa806a9-b4ef-465f-a972-80b873bdae68")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19202,27 +19202,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c40e17eb-a6e6-4337-8b26-b91db7f31986")
+            (uuid "915e82d5-5757-45dd-8e38-06a61c8e8140")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[3]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e47ec68b-8b8d-48de-b812-80f9e61d8129")
+            (uuid "c9ffbb00-b684-4187-94f8-6ab527779b20")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d4f0f5f7-daee-4a22-8ce4-8d475363c0a2")
+            (uuid "74e06948-37b0-4ce6-8439-57c5ea4b42e7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19426,27 +19426,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b021698d-80b8-4e91-9b41-3ade5f17c860")
+            (uuid "4c93e178-3df5-4433-b9a6-dad3cb73d5fa")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_1V8.runtime_anon[10]"
+        (property "atopile_address" "processor.VDD_1V8.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0be80bfb-ae52-430b-bdf9-7500640b8c5f")
+            (uuid "36fb3c48-79e6-43d1-bc27-aaab7fc1d49b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_1V8.runtime_anon[10]"
+        (property "atopile_name" "*3E48.processor.VDD_1V8.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "356ceee8-c33c-408f-9fab-82b98d82c055")
+            (uuid "60e32a5b-f20f-4edc-930b-e6170cd5a335")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19650,27 +19650,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a2edd663-bf5f-4dfe-a537-332e64ed39a7")
+            (uuid "a9f92361-3735-4d93-bf91-7db217550bb9")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "NVCC_SD2.runtime_anon[0]"
+        (property "atopile_address" "processor.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d9604ab2-4137-4dbc-88c0-35cb4c3456d3")
+            (uuid "0eeb41d2-5ceb-454c-9e68-e0c4149a2e50")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.NVCC_SD2.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d78f2f78-15d3-41ff-a6e6-c82586cc1434")
+            (uuid "0e4908da-25bd-42ba-808b-ac80637d236f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19874,27 +19874,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1d3addd1-440c-42eb-940b-7d2d431499cc")
+            (uuid "cfbc6993-95cb-44ab-8d7c-a73d916ee12c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[3]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1a0d1753-3b5e-4d60-a50a-a9d66d086afc")
+            (uuid "f6f63ac5-5510-4c80-bf33-3d1d049a586d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a33c119c-a95d-4fe8-8ac8-71a0ebf5a436")
+            (uuid "ade4c764-2a5d-4d13-bc08-51cffa7bf0d7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20098,27 +20098,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ed305d30-3d79-4564-bac6-782fc682c98e")
+            (uuid "3ba0b354-4c0c-415f-9a07-7440a5b5e797")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_SOC_0V8.runtime_anon[5]"
+        (property "atopile_address" "processor.VDD_SOC_0V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "de0b9364-d187-4d07-adee-408a7af1079d")
+            (uuid "e97500ec-11c6-4366-8808-c8fc3625f070")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_SOC_0V8.runtime_anon[5]"
+        (property "atopile_name" "*3E48.processor.VDD_SOC_0V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2c60e6e6-496b-449b-b239-cfcafb05429d")
+            (uuid "c6b01c9f-0ab4-42c1-94da-33c5be80b99b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20322,27 +20322,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9bcbdd0c-d1c0-4bed-adb0-44d9591b4a0f")
+            (uuid "02d3082a-170e-476e-935e-da46f7b29c40")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_DRAM_0V9.runtime_anon[0]"
+        (property "atopile_address" "processor.VDD_DRAM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e26a1880-87f6-4c42-a39f-9e2d5086e3f1")
+            (uuid "a5c25e68-fe54-4efe-a047-9539be0ff532")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_DRAM_0V9.runtime_anon[0]"
+        (property "atopile_name" "*3E48.processor.VDD_DRAM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bac651e1-577e-4a64-8052-e2cd6e44d203")
+            (uuid "927f4499-56ed-48e5-842b-c2152e195d73")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20546,27 +20546,27 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "053f5e83-6bc0-44c2-b511-7655be8efafb")
+            (uuid "a7c03824-e49c-4c8c-8b02-51e5c5e84343")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_address" "VDD_ARM_0V9.runtime_anon[3]"
+        (property "atopile_address" "processor.VDD_ARM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b9b6fa32-77af-4b3e-a644-29e2e3824eb0")
+            (uuid "fea6a1db-2321-4034-8a89-50625694cfb4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.VDD_ARM_0V9.runtime_anon[3]"
+        (property "atopile_name" "*3E48.processor.VDD_ARM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6c6f068d-cabe-4499-9d5d-4f40640a2adc")
+            (uuid "f32f7424-58d6-40cc-b75f-e4689b31b360")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20721,21 +20721,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C1.scl.pull_up"
+        (property "atopile_address" "processor.I2C1.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d4f7a30f-e5f1-44c0-80c2-d576718bb453")
+            (uuid "d1294fd9-6a93-4b0c-8808-56331d04ae76")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C1.scl.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C1.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ac29294b-da9b-4ee4-b33c-7505a1bf69ff")
+            (uuid "18230e4d-f70f-422a-a4e0-a93054b70623")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20745,7 +20745,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8ed8f6c1-dc18-4817-95f9-eb4d67d114f0")
+            (uuid "a5752c44-0587-4dbe-b564-127aff0d9c72")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20832,14 +20832,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 285 "*7C08.I2C1-hv")
+            (net 285 "*3E48.processor.I2C1-hv")
             (uuid "324f9978-182e-47dc-8185-0504ca5d41f6"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 37 "*7C08-net-2")
+            (net 209 "*3E48.processor-net-3")
             (uuid "dc15acc8-9485-4072-a262-37c3341d4cce"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -20872,21 +20872,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "PMIC_ON_REQ.pull_up"
+        (property "atopile_address" "processor.PMIC_ON_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4a0f5030-9843-4161-965b-1081cc5183df")
+            (uuid "534f969c-a372-4ed6-b138-5cb405709378")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.PMIC_ON_REQ.pull_up"
+        (property "atopile_name" "*3E48.processor.PMIC_ON_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "86db3b55-89c2-46e6-bf94-e473f139e0fd")
+            (uuid "1b816e94-d137-4a2c-a916-b93b2b3d43a0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20896,7 +20896,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e94dd7d0-5766-4b83-b7f1-173ae1a62d86")
+            (uuid "789c0931-1d24-49d2-8227-154d5b643078")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20983,14 +20983,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7C08-hv")
+            (net 188 "*3E48.processor-hv")
             (uuid "24c91076-b96e-49ea-a9e9-8f716249cc7b"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 306 "*7C08.PMIC_ON_REQ-signal")
+            (net 306 "*3E48.processor.PMIC_ON_REQ-signal")
             (uuid "fca1dfe5-5735-48bd-9db1-b1af5d43b168"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21023,21 +21023,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C3.sda.pull_up"
+        (property "atopile_address" "processor.I2C3.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1ed598ec-fd23-4701-af5f-8e8546119f1e")
+            (uuid "7bffc909-9599-4911-9982-ccc58cb9ea58")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C3.sda.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C3.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6490d530-3560-4eb1-b269-df24f78364ac")
+            (uuid "d22d91bf-4b21-4809-81cc-c0e1c1b56c00")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21047,7 +21047,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "18f76005-fe6d-4321-bf95-27b382cd5d01")
+            (uuid "b1cb5984-e668-4eae-a5c7-44981dfae727")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21134,14 +21134,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*7C08.I2C3-hv")
+            (net 295 "*3E48.processor.I2C3-hv")
             (uuid "a4aaa845-7324-4836-86f7-fc90da81e012"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 307 "*7C08-net-8")
+            (net 286 "*3E48.processor-net-6")
             (uuid "27cd553f-e4d6-4749-aec7-d3eaea5f6028"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21174,21 +21174,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C2.sda.pull_up"
+        (property "atopile_address" "processor.I2C2.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "44da8d42-15f0-477c-890b-5d7f4f66d018")
+            (uuid "1a63bd8e-d5cb-47ea-9676-9607328fe856")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C2.sda.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C2.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dc672fdd-c511-4b0d-88d2-0780f9104a86")
+            (uuid "b88980ed-3dc2-44a9-ab16-165a9a4e23fe")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21198,7 +21198,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a1224b83-9580-4013-b7aa-2218d76c0a6f")
+            (uuid "ebbc8f1e-b967-441a-b370-70575af9d8ad")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21285,14 +21285,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7C08.I2C2-hv")
+            (net 304 "*3E48.processor.I2C2-hv")
             (uuid "d42fc7f0-987a-4ee0-a8c1-2f28cc689168"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "*7C08-net-6")
+            (net 2 "*3E48.processor-net-2")
             (uuid "86de14ab-1780-4fa8-bf31-dba8fd9c5d7c"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21325,21 +21325,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C4.scl.pull_up"
+        (property "atopile_address" "processor.I2C4.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4c6a2a23-d4e8-4551-b1bc-f80a9945222c")
+            (uuid "238f2d40-c4bf-4219-812a-0c41d496013c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C4.scl.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C4.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "084ae89a-7d7f-48ed-aef5-2515db2b1007")
+            (uuid "df9fd480-faa4-4dc0-b79b-80369bca629e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21349,7 +21349,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ac159339-8cec-493a-8502-b2de324d461e")
+            (uuid "a2c24baa-f759-4b3e-babc-2883131e99f6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21436,14 +21436,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "*7C08.I2C4-hv")
+            (net 9 "*3E48.processor.I2C4-hv")
             (uuid "0e7ed14b-7e49-47c7-9842-5362ceda7091"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 286 "*7C08-net-5")
+            (net 310 "*3E48.processor-net-1")
             (uuid "d7c0b648-cd39-459d-a333-42450cbf4f7e"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21476,21 +21476,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C3.scl.pull_up"
+        (property "atopile_address" "processor.I2C3.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "15244b63-bec7-4ac4-9872-1e65d00bf58b")
+            (uuid "6215f5e7-7303-4960-a88d-aa6013ecfb94")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C3.scl.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C3.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "97e93361-7774-4940-aeb9-cd6528ff045b")
+            (uuid "a262ea8e-01b2-490e-9f11-dda89ff64fa9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21500,7 +21500,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7c199d38-387c-465f-893c-7bc447c62fe6")
+            (uuid "e3c429fa-a532-4897-9353-33af51e32a94")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21587,14 +21587,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*7C08.I2C3-hv")
+            (net 295 "*3E48.processor.I2C3-hv")
             (uuid "626430ea-be88-46d6-876f-4e2248fadc95"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 305 "*7C08-net-0")
+            (net 309 "*3E48.processor-net-7")
             (uuid "b6172243-25ca-4b2e-81b7-72033f559ed8"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21627,21 +21627,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "ONOFF.pull_up"
+        (property "atopile_address" "processor.ONOFF.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d8cb0bf5-f598-4d43-9457-e877d6d4765a")
+            (uuid "efc7c840-990e-4284-a062-4bfd9220e10a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.ONOFF.pull_up"
+        (property "atopile_name" "*3E48.processor.ONOFF.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0b0cdf99-6668-41ae-9be4-7cec2a2aa90f")
+            (uuid "2874068a-45cd-4944-b236-bfa77d812b5e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21651,7 +21651,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1c44451d-ffd3-4659-89c6-18a70ad714ea")
+            (uuid "6ff6a07b-4cd6-46f1-bb3b-f66514fcb1e0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21738,14 +21738,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7C08-hv")
+            (net 188 "*3E48.processor-hv")
             (uuid "cca90476-029b-4275-b4f3-c3251b57a749"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 156 "*7C08.ONOFF-signal")
+            (net 156 "*3E48.processor.ONOFF-signal")
             (uuid "552795a1-49ed-421d-af97-9621188bad85"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21778,21 +21778,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C1.sda.pull_up"
+        (property "atopile_address" "processor.I2C1.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "46607e4f-7820-4148-a045-0f20b02e1b5a")
+            (uuid "fa96a4be-76e5-4f47-b8f1-2ca35b07dca6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C1.sda.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C1.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "35ffa8f7-946a-4487-b4b8-d32446747565")
+            (uuid "039d3032-712a-444f-bd1d-587f57181165")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21802,7 +21802,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9171a45e-8e65-4bb7-a4f8-2756ab7d079e")
+            (uuid "bba8118d-8c11-4f03-a61c-2b7015ef60ff")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21889,14 +21889,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 285 "*7C08.I2C1-hv")
+            (net 285 "*3E48.processor.I2C1-hv")
             (uuid "64feb7fe-3822-458d-926e-7c41c4836253"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 209 "*7C08-net-4")
+            (net 291 "*3E48.processor-net-0")
             (uuid "d58192d6-5625-43f3-ad97-423b557c26aa"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21929,21 +21929,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C4.sda.pull_up"
+        (property "atopile_address" "processor.I2C4.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ed86677d-4884-435f-bf11-24d2d1f4112e")
+            (uuid "ef11ecd7-5879-4e50-af83-f5d323652ffa")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C4.sda.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C4.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "166f4e13-5be7-4940-893b-343a99c675cf")
+            (uuid "994899d1-2015-4dbe-9355-daf6af8f4ac7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21953,7 +21953,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b94c5224-cd8c-4100-a2a1-b3c1415495ee")
+            (uuid "0395d1f2-1b11-4d0a-b83a-7439aebb6357")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22040,14 +22040,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "*7C08.I2C4-hv")
+            (net 9 "*3E48.processor.I2C4-hv")
             (uuid "54f45436-5de9-424e-ab07-6e24a9454db8"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 309 "*7C08-net-3")
+            (net 37 "*3E48.processor-net-4")
             (uuid "e9cac624-9121-4c82-8ed2-64529d0dd8c4"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -22080,21 +22080,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "I2C2.scl.pull_up"
+        (property "atopile_address" "processor.I2C2.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "867c54b1-5461-4553-a164-b8efe5db639c")
+            (uuid "5cdb84a2-e9e0-4ce4-8551-a247cb033fed")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.I2C2.scl.pull_up"
+        (property "atopile_name" "*3E48.processor.I2C2.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9ae16518-d6f0-43fe-b5bd-f7a8514ea6e3")
+            (uuid "d61f26f6-e57e-496c-884d-fdf31bf9daec")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22104,7 +22104,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4bb127fe-ac17-405b-8783-f8dbbc83fc4e")
+            (uuid "e3ae95d6-6c30-4257-a56d-66ca1fb60e7c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22191,14 +22191,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7C08.I2C2-hv")
+            (net 304 "*3E48.processor.I2C2-hv")
             (uuid "989d18fd-7fce-479c-a962-6f8bf5c50144"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 310 "*7C08-net-1")
+            (net 305 "*3E48.processor-net-8")
             (uuid "39ec9361-2722-48e9-a752-17353c350d9a"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -22231,21 +22231,21 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "atopile_address" "PMIC_STBY_REQ.pull_up"
+        (property "atopile_address" "processor.PMIC_STBY_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "43142a76-1ac5-46ce-94cf-b545f142989c")
+            (uuid "58bd5128-2efd-42b5-bc78-fa9fa2d36b43")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7C08.PMIC_STBY_REQ.pull_up"
+        (property "atopile_name" "*3E48.processor.PMIC_STBY_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b8478393-5e06-45c9-bdbc-71ab3be87745")
+            (uuid "e3080d95-d3bf-4a8a-8dfb-70677c54e79f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22255,7 +22255,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2edfdb04-6815-4e70-96ea-8b22cd8ada98")
+            (uuid "b41ca2d5-ed7e-4e1d-bdae-258368f06e3f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22342,14 +22342,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7C08-hv")
+            (net 188 "*3E48.processor-hv")
             (uuid "b5006645-00a0-48de-a084-2b5f746d9a39"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 308 "*7C08.PMIC_STBY_REQ-signal")
+            (net 308 "*3E48.processor.PMIC_STBY_REQ-signal")
             (uuid "49218492-a6a2-4b99-865d-18db40e31e2b"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset

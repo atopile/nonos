@@ -10,6 +10,8 @@ from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
 from faebryk.libs.units import P  # noqa: F401
 
+from faebryk.library.LDO import LDO
+
 logger = logging.getLogger(__name__)
 
 
@@ -230,6 +232,9 @@ class PCA9450AAHNY(Module):
 
     # Oscillator
     oscillator: F.Crystal_Oscillator
+
+    # LDO for 1v2 rail
+    LDO_1V2: LDO
 
     # Buck outputs
     BUCK1: BuckOutput
@@ -471,6 +476,20 @@ class PCA9450AAHNY(Module):
         self.pmic.SDA.connect(self.I2C.sda.signal)
         self.I2C.scl.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
         self.I2C.sda.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
+
+        # LDO
+        # self.LDO_1V2.max_input_voltage.merge(F.Range(3.3 * P.V, 20 * P.V))
+        self.LDO_1V2.power_in.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
+        self.LDO_1V2.power_out.voltage.merge(F.Range.from_center_rel(1.2 * P.V, 0.05))
+        self.LDO_1V2.add(F.has_descriptive_properties_defined({"LCSC": "C7470756"}))
+        self.LDO_1V2.add(F.can_attach_to_footprint_via_pinmap({
+            "3": self.LDO_1V2.power_in.hv,
+            "1": self.LDO_1V2.power_in.lv,
+            "2": self.LDO_1V2.power_out.hv
+        }))
+        self.LDO_1V2.power_in.connect(self.VCC_3V3)
+        self.VDD_PHY_1V2.connect(self.LDO_1V2.power_out)
+        self.LDO_1V2.enable.reference.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
 
         # ------------------------------------
         #          parametrization

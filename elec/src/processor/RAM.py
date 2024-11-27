@@ -380,9 +380,9 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
             self.DRAM_ODT_CA_B.lv,
         )
 
-        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
-        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
-        F.Net.with_name("GND").part_of.connect(self.RAM.VSS)
+        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        # F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        # F.Net.with_name("GND").part_of.connect(self.RAM.VSS)
 
         # Decoupling capacitors
         VDD_1V8_CAP_PROPERTIES = [

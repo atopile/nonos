@@ -14,7 +14,8 @@ from faebryk.libs.picker.picker import DescriptiveProperties
 # Components
 from .processor.imx8 import NXP_Semicon_MIMX8MM6CVTKZAA
 from .processor.pmic import PCA9450AAHNY
-from .processor.ram import SK_HYNIX_H9HCNNNBKUMLXR_NEE
+from .processor.RAM import SK_HYNIX_H9HCNNNBKUMLXR_NEE
+from .processor.eMMC import Samsung_KLMBG2JETD_B041
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +25,8 @@ class App(Module):
     """
     IMX8: NXP_Semicon_MIMX8MM6CVTKZAA
     PMIC: PCA9450AAHNY
+    RAM: SK_HYNIX_H9HCNNNBKUMLXR_NEE
+    eMMC: Samsung_KLMBG2JETD_B041
 
 
     def __preinit__(self):
@@ -62,6 +65,37 @@ class App(Module):
 
         # I2C
         self.PMIC.I2C.connect(self.IMX8.I2C1)
+
+        # ------------------------------------
+        #
+        #  ____      _    __  __ 
+        # |  _ \    / \  |  \/  |
+        # | |_) |  / _ \ | |\/| |
+        # |  _ <  / ___ \| |  | |
+        # |_| \_\/_/   \_\_|  |_|
+        #
+        # ------------------------------------
+        # Power rails
+        self.RAM.VDD_1V8.connect(self.IMX8.VDD_1V8)
+        self.RAM.NVCC_DRAM_1V1.connect(self.IMX8.NVCC_DRAM_1V1)
+        self.RAM.DRAM_ODT_CA_A.connect(self.IMX8.NVCC_DRAM_1V1)
+        self.RAM.DRAM_ODT_CA_B.connect(self.IMX8.NVCC_DRAM_1V1)
+
+    # DRAM_DATA_A = times(16, F.ElectricLogic)  # Data
+    # DRAM_DATA_B = times(16, F.ElectricLogic)  # Data
+    # DRAM_DMI_A = times(2, F.ElectricLogic)  # Data mask (bit inversion)
+    # DRAM_DMI_B = times(2, F.ElectricLogic)  # Data mask (bit inversion)
+    # DRAM_SDQS_A = times(2, F.DifferentialPair)  # Data strobe (differential)
+    # DRAM_SDQS_B = times(2, F.DifferentialPair)  # Data strobe (differential)
+    # DRAM_CA_A = times(6, F.ElectricLogic)  # Command address
+    # DRAM_CA_B = times(6, F.ElectricLogic)  # Command address
+    # DRAM_CK_A: F.DifferentialPair  # Clock
+    # DRAM_CK_B: F.DifferentialPair  # Clock
+    # DRAM_CKE_A = times(2, F.ElectricLogic)  # Clock enable
+    # DRAM_CKE_B = times(2, F.ElectricLogic)  # Clock enable
+    # DRAM_nCS_A = times(2, F.ElectricLogic)  # Chip select
+    # DRAM_nCS_B = times(2, F.ElectricLogic)  # Chip select
+    # DRAM_nRESET: F.ElectricLogic  # Reset
 
         # ------------------------------------
         #          parametrization

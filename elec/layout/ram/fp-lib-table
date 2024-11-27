@@ -9,6 +9,6 @@
     (lib
         (name "lcsc")
         (type "KiCad")
-        (uri "${KIPRJMOD}/../../../src/kicad/libs/footprints/lcsc.pretty")
+        (uri "${KIPRJMOD}/lib/footprints/lcsc.pretty")
         (options "")
-        (descr "FBRK: LCSC footprints auto-downloaded")))
+        (descr "atopile: project LCSC footprints")))

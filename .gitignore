@@ -44,6 +44,8 @@ venv/
 *.code-workspace
 
 __pycache__/
-
+*.py[cod]
 # Platformio
 .pio/
+
+*.pyc

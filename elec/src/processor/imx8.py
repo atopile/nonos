@@ -1034,20 +1034,20 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.VDD_ARM_0V9.lv,
         )
 
-        # Netnaming
-        F.Net.with_name("GND").part_of.connect(self.imx8.VSS)
-        F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
-        F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
-        F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
-        F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
-        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
-        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
-        F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
-        F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
-        F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
-        F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
-        F.Net.with_name("NVCC_ENET").part_of.connect(self.NVCC_ENET.hv)
-        F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
+        # Netnaming #TODO: Fix net naming
+        # F.Net.with_name("GND").part_of.connect(self.imx8.VSS)
+        # F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
+        # F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
+        # F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
+        # F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
+        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        # F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        # F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
+        # F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
+        # F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
+        # F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
+        # F.Net.with_name("NVCC_ENET").part_of.connect(self.NVCC_ENET.hv)
+        # F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
 
         # Decoupling capacitors
 

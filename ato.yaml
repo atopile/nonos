@@ -1,15 +1,15 @@
 ato-version: ^0.2.0
 builds:
   default:
-    entry: elec/src/nonos.ato:Nonos
+    entry: elec/src/nonos.py:App
   imx8:
-    entry: elec/src/processor/imx8.py:App
+    entry: elec/src/processor/imx8.py:NXP_Semicon_MIMX8MM6CVTKZAA
   # pd-controller:
   #   entry: elec/src/USBPD/pd_controller.py:App
   pmic:
-    entry: elec/src/processor/pmic.py:App
+    entry: elec/src/processor/pmic.py:PCA9450AAHNY
   ram:
-    entry: elec/src/processor/RAM.py:App
+    entry: elec/src/processor/RAM.py:SK_HYNIX_H9HCNNNBKUMLXR_NEE
   emmc:
     entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
 dependencies:

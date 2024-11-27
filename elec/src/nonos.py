@@ -76,6 +76,12 @@ class App(Module):
         #
         # ------------------------------------
         # Power rails
+        # Differential traces should be 100ohm impedance
+        # Single-ended traces should be 50ohm impedance
+        # Match all trace lengths to <0.6mm
+        # Skew +/- 10ps
+        # Match data group lengths to <0.1mm
+        # Match clock pair lengths to <0.05mm
         self.RAM.VDD_1V8.connect(self.IMX8.VDD_1V8)
         self.RAM.NVCC_DRAM_1V1.connect(self.IMX8.NVCC_DRAM_1V1)
         self.RAM.DRAM_ODT_CA_A.connect(self.IMX8.NVCC_DRAM_1V1)
@@ -145,7 +151,30 @@ class App(Module):
 
 
 
-        # Net naming
+        # ------------------------------------
+        #
+        #  _____ __  __ __  __ ____
+        # | ____|  \/  |  \/  / ___|
+        # |  _| | |\/| | |\/| | |
+        # | |___| |  | | |  | | |___
+        # |_____|_|  |_|_|  |_|\____|
+        #
+        # ------------------------------------
+        # Differential traces should be 100ohm impedance
+        # Single-ended traces should be 50ohm impedance
+        self.eMMC.VDD_3V3.connect(self.PMIC.VCC_3V3)
+        self.eMMC.VDD_1V8.connect(self.PMIC.VDD_1V8)
+
+        for i, (emmc, imx) in enumerate(zip(self.eMMC.DAT, self.IMX8.SD3_DAT)):
+            emmc.connect(imx)
+            F.Net.with_name(f"eMMC_DAT_{i}").part_of.connect(imx.signal)
+
+        self.eMMC.DATA_STROBE.connect(self.IMX8.SD3_STROBE)
+        F.Net.with_name("eMMC_DATA_STROBE").part_of.connect(self.IMX8.SD3_STROBE.signal)
+
+        self.eMMC.CMD.connect(self.IMX8.SD3_CMD)
+        F.Net.with_name("eMMC_CMD").part_of.connect(self.IMX8.SD3_CLK.signal)
+
 
         # ------------------------------------
         #          parametrization

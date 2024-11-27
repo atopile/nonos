@@ -1,0 +1,6 @@
+(version 1)
+(rule "target length and skew RAM A"
+(condition "A.NetClass == 'RAM_A'")
+(condition "A.NetClass == 'RAM_B'")
+(constraint length (min 16.9mm) (opt 17mm) (max 17.1mm))
+(constraint skew (max 0.1mm)))

@@ -276,18 +276,18 @@ class Samsung_KLMBG2JETD_B041(Module):
         self.VDD_3V3.lv.connect(self.eMMC.VDD_3V3.lv, self.eMMC.VDD_1V8.lv)
 
         # Net naming
-        for net in self.eMMC.DAT:
-            F.Net.with_name(f"eMMC_DAT_{self.eMMC.DAT.index(net)}").part_of.connect(
-                self.DAT[self.eMMC.DAT.index(net)].signal
-            )
+        # for net in self.eMMC.DAT:
+        #     F.Net.with_name(f"eMMC_DAT_{self.eMMC.DAT.index(net)}").part_of.connect(
+        #         # self.DAT[self.eMMC.DAT.index(net)].signal
+        #     # )
 
-        F.Net.with_name("eMMC_DATA_STROBE").part_of.connect(self.DATA_STROBE.signal)
-        F.Net.with_name("eMMC_CMD").part_of.connect(self.CMD.signal)
-        F.Net.with_name("eMMC_CLK").part_of.connect(self.CLK.signal)
-        F.Net.with_name("eMMC_RSTN").part_of.connect(self.RSTN.signal)
+        # F.Net.with_name("eMMC_DATA_STROBE").part_of.connect(self.DATA_STROBE.signal)
+        # F.Net.with_name("eMMC_CMD").part_of.connect(self.CMD.signal)
+        # F.Net.with_name("eMMC_CLK").part_of.connect(self.CLK.signal)
+        # F.Net.with_name("eMMC_RSTN").part_of.connect(self.RSTN.signal)
         # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
         # F.Net.with_name("VDD_3V3").part_of.connect(self.VDD_3V3.hv)
-        F.Net.with_name("VDD_INTERNAL").part_of.connect(self.eMMC.VDD_INTERNAL.hv)
+        # F.Net.with_name("VDD_INTERNAL").part_of.connect(self.eMMC.VDD_INTERNAL.hv)
         # F.Net.with_name("GND").part_of.connect(self.VDD_1V8.lv)
 
 

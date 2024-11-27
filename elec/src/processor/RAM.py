@@ -445,6 +445,7 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
             NVCC_DRAM_1V1_CAPS.append(cap)
 
         # Connect data lines A
+
         self.RAM.DQ0a.connect(self.DRAM_DATA_A[0].signal)
         self.RAM.DQ1a.connect(self.DRAM_DATA_A[1].signal)
         self.RAM.DQ2a.connect(self.DRAM_DATA_A[2].signal)

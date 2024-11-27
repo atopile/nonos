@@ -3,8 +3,8 @@
         "last_paths": {
             "gencad": "",
             "idf": "",
-            "netlist": "../../../build/pd-controller/pd-controller.net",
-            "plot": "/Users/napowderly/Projects/nonos/elec/layout/pd-controller/build/",
+            "netlist": "../../../build/test/test.net",
+            "plot": "",
             "pos_files": "",
             "specctra_dsn": "",
             "step": "",
@@ -61,16 +61,10 @@
                 "silk_text_thickness": 0.15,
                 "silk_text_upright": false,
                 "zones": {
-                    "min_clearance": 0.2
+                    "min_clearance": 0.5
                 }
             },
-            "diff_pair_dimensions": [
-                {
-                    "gap": 0.0,
-                    "via_gap": 0.0,
-                    "width": 0.0
-                }
-            ],
+            "diff_pair_dimensions": [],
             "drc_exclusions": [],
             "meta": {
                 "version": 2
@@ -131,7 +125,7 @@
                 "max_error": 0.005,
                 "min_clearance": 0.0,
                 "min_connection": 0.0,
-                "min_copper_edge_clearance": 0.5,
+                "min_copper_edge_clearance": 0.0,
                 "min_hole_clearance": 0.25,
                 "min_hole_to_hole": 0.25,
                 "min_microvia_diameter": 0.2,
@@ -192,10 +186,7 @@
                     "td_width_to_size_filter_ratio": 0.9
                 }
             ],
-            "track_widths": [
-                0.0,
-                0.15
-            ],
+            "track_widths": [],
             "tuning_pattern_settings": {
                 "diff_pair_defaults": {
                     "corner_radius_percentage": 80,
@@ -222,16 +213,7 @@
                     "spacing": 0.6
                 }
             },
-            "via_dimensions": [
-                {
-                    "diameter": 0.0,
-                    "drill": 0.0
-                },
-                {
-                    "diameter": 0.6,
-                    "drill": 0.3
-                }
-            ],
+            "via_dimensions": [],
             "zones_allow_external_fillets": false
         },
         "ipc2581": {
@@ -254,14 +236,14 @@
         "pinned_symbol_libs": []
     },
     "meta": {
-        "filename": "pd-controller.kicad_pro",
+        "filename": "imx8.kicad_pro",
         "version": 1
     },
     "net_settings": {
         "classes": [
             {
                 "bus_width": 12,
-                "clearance": 0.15,
+                "clearance": 0.2,
                 "diff_pair_gap": 0.25,
                 "diff_pair_via_gap": 0.25,
                 "diff_pair_width": 0.2,

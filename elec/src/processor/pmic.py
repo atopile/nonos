@@ -249,34 +249,34 @@ class PCA9450AAHNY(Module):
         #           connections
         # ------------------------------------
         # Net naming
-        # F.Net.with_name("GND").part_of.connect(self.VSYS_5V.lv)
-        # F.Net.with_name("VSYS_5V").part_of.connect(self.VSYS_5V.hv)
-        # F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
-        # F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
-        # F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
-        # F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
-        # F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
-        # F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
-        # F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
-        # F.Net.with_name("NVCC_SNVS_1V8").part_of.connect(self.NVCC_SNVS_1V8.hv)
-        # F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
-        # F.Net.with_name("VCC_3V3").part_of.connect(self.VCC_3V3.hv)
-        # F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
-        # F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
+        F.Net.with_name("GND").part_of.connect(self.VSYS_5V.lv)
+        F.Net.with_name("VSYS_5V").part_of.connect(self.VSYS_5V.hv)
+        F.Net.with_name("VDD_SNVS_0V8").part_of.connect(self.VDD_SNVS_0V8.hv)
+        F.Net.with_name("VDD_SOC_0V8").part_of.connect(self.VDD_SOC_0V8.hv)
+        F.Net.with_name("VDD_DRAM_0V9").part_of.connect(self.VDD_DRAM_0V9.hv)
+        F.Net.with_name("VDD_PHY_0V9").part_of.connect(self.VDD_PHY_0V9.hv)
+        F.Net.with_name("VDD_ARM_0V9").part_of.connect(self.VDD_ARM_0V9.hv)
+        F.Net.with_name("VDDA_1V8").part_of.connect(self.VDDA_1V8.hv)
+        F.Net.with_name("VDD_1V8").part_of.connect(self.VDD_1V8.hv)
+        F.Net.with_name("NVCC_SNVS_1V8").part_of.connect(self.NVCC_SNVS_1V8.hv)
+        F.Net.with_name("NVCC_DRAM_1V1").part_of.connect(self.NVCC_DRAM_1V1.hv)
+        F.Net.with_name("VCC_3V3").part_of.connect(self.VCC_3V3.hv)
+        F.Net.with_name("VDD_PHY_1V2").part_of.connect(self.VDD_PHY_1V2.hv)
+        F.Net.with_name("NVCC_SD2").part_of.connect(self.NVCC_SD2.hv)
 
-        # # Buck inputs
-        # F.Net.with_name("VDD_SOC_0V8_SW").part_of.connect(self.BUCK1.input.hv)
-        # F.Net.with_name("VDD_DRAM_0V9_SW").part_of.connect(self.BUCK3.input.hv)
-        # F.Net.with_name("VDD_ARM_0V9_SW").part_of.connect(self.BUCK2.input.hv)
-        # F.Net.with_name("VDD_PHY_0V9_SW").part_of.connect(self.BUCK5.input.hv)
-        # F.Net.with_name("VDDA_1V8_SW").part_of.connect(self.BUCK6.input.hv)
-        # F.Net.with_name("VDD_1V8_SW").part_of.connect(self.BUCK4.input.hv)
+        # Buck inputs
+        F.Net.with_name("VDD_SOC_0V8_SW").part_of.connect(self.BUCK1.input.hv)
+        F.Net.with_name("VDD_DRAM_0V9_SW").part_of.connect(self.BUCK3.input.hv)
+        F.Net.with_name("VDD_ARM_0V9_SW").part_of.connect(self.BUCK2.input.hv)
+        F.Net.with_name("VDD_PHY_0V9_SW").part_of.connect(self.BUCK5.input.hv)
+        F.Net.with_name("VDDA_1V8_SW").part_of.connect(self.BUCK6.input.hv)
+        F.Net.with_name("VDD_3V3_SW").part_of.connect(self.BUCK4.input.hv)
 
-        # # Reset signals
-        # F.Net.with_name("RTC_RESET_B").part_of.connect(self.RTC_RESET_B.signal)
-        # F.Net.with_name("POR_B").part_of.connect(self.POR_B.signal)
-        # F.Net.with_name("PMIC_nINT").part_of.connect(self.PMIC_nINT.signal)
-        # F.Net.with_name("CLK_32K_OUT").part_of.connect(self.CLK_32K_OUT.signal)
+        # Reset signals
+        F.Net.with_name("RTC_RESET_B").part_of.connect(self.RTC_RESET_B.signal)
+        F.Net.with_name("POR_B").part_of.connect(self.POR_B.signal)
+        F.Net.with_name("PMIC_nINT").part_of.connect(self.PMIC_nINT.signal)
+        F.Net.with_name("CLK_32K_OUT").part_of.connect(self.CLK_32K_OUT.signal)
 
         # VSYS_5V
         self.VSYS_5V.hv.connect(
@@ -425,6 +425,7 @@ class PCA9450AAHNY(Module):
 
         # Connect SWOUT to VCC_3v3
         self.VCC_3V3.hv.connect(self.pmic.SWOUT)
+        self.SWOUT.lv.connect(self.VSYS_5V.lv)
 
         # Connect SW_EN via resistor to VCC_3V3 #TODO: Gives math domain error, should be 0 ohm
         self.SW_IN_RES.resistance.merge(F.Range(0.1 * P.ohm, 10 * P.ohm))
@@ -452,13 +453,16 @@ class PCA9450AAHNY(Module):
         self.pmic.XTAL_IN.connect(self.oscillator.xtal_if.xin)
         self.pmic.XTAL_OUT.connect(self.oscillator.xtal_if.xout)
         self.oscillator.xtal_if.gnd.connect(self.VSYS_5V.lv)
-        self.oscillator.add(F.has_descriptive_properties_defined({"LCSC": "C97606"}))
-        self.oscillator.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.xtal_if.xin, "2": self.oscillator.xtal_if.xout}))
-        self.oscillator.add(F.has_designator_prefix_defined("XTAL"))
+        self.oscillator.crystal.add(F.has_descriptive_properties_defined({"LCSC": "C97606"}))
+        self.oscillator.crystal.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.crystal.unnamed[0], "2": self.oscillator.crystal.unnamed[1]}))
+        self.oscillator.crystal.add(F.has_designator_prefix_defined("XTAL"))
 
         self.oscillator.current_limiting_resistor.resistance.merge(
             F.Constant(0 * P.ohm)
         )
+
+        self.oscillator.crystal.load_capacitance.merge(F.Range.from_center_rel(12 * P.pF, 0.2))
+
         for cap in self.oscillator.capacitors:
             cap.add(F.has_footprint_requirement_defined([("0201", 2)]))
 

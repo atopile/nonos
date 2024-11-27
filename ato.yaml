@@ -1,11 +1,15 @@
-ato-version: ^0.2.7
+ato-version: ^0.2.0
 builds:
-  # default:
-    # entry: elec/src/nonos.ato:Nonos
+  default:
+    entry: elec/src/nonos.ato:Nonos
   imx8:
     entry: elec/src/processor/imx8.py:App
-  pd-controller:
-    entry: elec/src/USBPD/pd_controller.py:App
+  # pd-controller:
+  #   entry: elec/src/USBPD/pd_controller.py:App
+  # ram:
+  #   entry: elec/src/processor/RAM.py:App
+  # emmc:
+  #   entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
   pmic:
     entry: elec/src/processor/pmic.py:App
 dependencies:

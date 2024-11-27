@@ -126,14 +126,14 @@
     (net 19 "VCC_3V3")
     (net 20 "pmic_stby_req")
     (net 21 "VDD_SOC_0V8")
-    (net 22 "*E8E8-net-0")
+    (net 22 "*F6F8-net-1")
     (net 23 "sclh")
     (net 24 "NVCC_DRAM_1V1")
-    (net 25 "*E8E8-net-3")
+    (net 25 "*F6F8-net-0")
     (net 26 "VDD_PHY_0V9_SW")
     (net 27 "sdah")
     (net 28 "VDD_DRAM_0V9_SW")
-    (net 29 "*E8E8.pmic-net")
+    (net 29 "*F6F8.pmic-net")
     (net 30 "VSYS_5V")
     (net 31 "buck_agnd")
     (net 32 "r_snsp1")
@@ -143,7 +143,7 @@
     (net 36 "GND")
     (net 37 "VDD_PHY_0V9")
     (net 38 "clk_32k_out")
-    (net 39 "*E8E8-net-1")
+    (net 39 "*F6F8-net-2")
     (net 40 "NVCC_SD2")
     (net 41 "NVCC_SNVS_1V8")
     (net 42 "VDDA_1V8")
@@ -151,7 +151,7 @@
     (net 44 "VDD_SNVS_0V8")
     (net 45 "VDD_PHY_1V2")
     (net 46 "buck5fb")
-    (net 47 "*E8E8-net-2")
+    (net 47 "*F6F8-net-3")
     (net 48 "ep")
     (net 49 "vint")
     (footprint "lcsc:OSC-SMD_L3.2-W1.5"
@@ -212,17 +212,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f6a6e2e8-a34e-4427-916a-6bb4dc314766")
+            (uuid "b5954506-f019-4c2c-961e-c84f510bfec3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.oscillator.crystal"
+        (property "atopile_name" "*F6F8.oscillator.crystal"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8659da62-eee5-437f-b941-667aab951aae")
+            (uuid "8076842d-ba41-4d08-8dad-4cfa7a70590e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -232,7 +232,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ea06158c-6f56-48e4-a1e5-8769f6a89c59")
+            (uuid "4099f9c9-154b-4e9b-9be0-aca50edba9ad")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -303,14 +303,14 @@
             (size 1.05 1.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 22 "*E8E8-net-0")
+            (net 22 "*F6F8-net-1")
             (uuid "f55641ad-51a8-4010-a1cb-a459c353e917"))
         (pad "2" smd rect
             (at 1.28 0 180)
             (size 1.05 1.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 39 "*E8E8-net-1")
+            (net 39 "*F6F8-net-2")
             (uuid "feab84dc-c23e-4b44-a184-44261c499471"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/OSC-SMD_L3.2-W1.5-H0.8.wrl"
             (offset
@@ -387,7 +387,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "33c2de5c-61bb-40fa-985a-98d5804179b3")
+            (uuid "1bc06be9-c719-47aa-89b6-ad2f9333aef9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -397,17 +397,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8ad32b3c-30aa-41c9-8459-a6a90e5602fa")
+            (uuid "b7f08565-6fe7-4f15-a62a-95c65ecd436b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK1.inductor"
+        (property "atopile_name" "*F6F8.BUCK1.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "79f7c40e-a159-4e34-954a-22821ec978c4")
+            (uuid "c20dd63d-a037-429d-a559-a37697d8452f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -527,17 +527,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "81a07f87-5975-461d-a2bd-43ec96a4b8d0")
+            (uuid "02f0f14f-3595-4fdc-b043-f6fe28d6f12e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.RTC_RESET_B_RES"
+        (property "atopile_name" "*F6F8.RTC_RESET_B_RES"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4db9c107-1a95-4d43-8abf-647cfc0ec33e")
+            (uuid "295c605a-55e3-4348-9337-ecdb735ea05b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -547,7 +547,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "12f63380-88b5-4aa1-bcf0-da01566de6b2")
+            (uuid "cc1c7379-41e9-4066-a915-7d072f370b9b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -634,7 +634,7 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 47 "*E8E8-net-2")
+            (net 47 "*F6F8-net-3")
             (uuid "d095c05e-046c-49b3-b387-02fe22dc8c06"))
         (pad "2" smd rect
             (at 0.24 0 270)
@@ -708,17 +708,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eeb1645a-7e19-4aea-98fa-990b09279aa7")
+            (uuid "961f48ba-e862-47ab-a7ef-8ba80207d4b3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.pmic"
+        (property "atopile_name" "*F6F8.pmic"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d413724e-f636-458b-9114-f9b7900acb2d")
+            (uuid "6159c610-75de-493c-9f6d-a2dc08c510af")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -728,7 +728,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "72a9cf6f-1b1c-4a56-97e5-4bd1f36fc442")
+            (uuid "32fa6fc2-743f-4dce-9673-7ee7632a132d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -892,7 +892,7 @@
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 47 "*E8E8-net-2")
+            (net 47 "*F6F8-net-3")
             (uuid "599c67ea-8f8d-4f22-a33e-c7508f6ec65b"))
         (pad "7" smd rect
             (at -0.2 3.5 270)
@@ -920,21 +920,21 @@
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 39 "*E8E8-net-1")
+            (net 39 "*F6F8-net-2")
             (uuid "f4931607-53ed-40a2-8b6b-1561287ea15e"))
         (pad "11" smd rect
             (at 1.4 3.5 270)
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 22 "*E8E8-net-0")
+            (net 22 "*F6F8-net-1")
             (uuid "7196b3b4-5f50-4a9e-b424-2cf5780e195c"))
         (pad "12" smd rect
             (at 1.8 3.5 270)
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 25 "*E8E8-net-3")
+            (net 25 "*F6F8-net-0")
             (uuid "9bf1e879-3ab0-479b-a207-6a19857df3b4"))
         (pad "13" smd rect
             (at 2.2 3.5 270)
@@ -1186,14 +1186,14 @@
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 29 "*E8E8.pmic-net")
+            (net 29 "*F6F8.pmic-net")
             (uuid "07da5ca2-7f08-46fb-858b-a569c577f9e4"))
         (pad "49" smd rect
             (at -3.5 -0.2 0)
             (size 0.85 0.2)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 29 "*E8E8.pmic-net")
+            (net 29 "*F6F8.pmic-net")
             (uuid "a03d75b5-4066-4083-95c1-f40ec6db4c7c"))
         (pad "50" smd rect
             (at -3.5 0.2 0)
@@ -1316,17 +1316,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c41f3fb8-b6d5-4d5c-9cf8-64a00328bbd9")
+            (uuid "a6ed5bf3-007a-465d-81b7-3ffb5d186cc0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[9]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ea8834fd-453e-4aae-bbcf-f3b86a132212")
+            (uuid "c2b1406b-bdca-46ae-8795-d32acd5464bc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1336,7 +1336,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "da771fa2-7f03-4de6-876c-00dcd48e1a2c")
+            (uuid "0fdfee0f-7160-4b49-9cd9-1785bed400c3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1533,17 +1533,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e9c37370-cbff-4dc8-88a3-a45f2e6e7860")
+            (uuid "11aa5aa9-1eac-45c8-9b65-a864b24c0b50")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.LDO_1V2"
+        (property "atopile_name" "*F6F8.LDO_1V2"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aa283e19-b956-4fa2-b7e8-894f0a2336ca")
+            (uuid "f18acc14-fa00-41a5-bb2b-46eb7835ec16")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1553,7 +1553,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3ff79fde-8926-47b6-ab86-e0a3d220d04a")
+            (uuid "0832e6e5-e721-431f-8d2e-5d9c912bb7ca")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1732,7 +1732,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4f32a264-dc8f-450d-9d43-eb8855618613")
+            (uuid "a51d5bc6-0b92-4842-b239-287b553d12c9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1742,17 +1742,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c807448a-d922-40c2-993a-b52c2a8f2fef")
+            (uuid "b18eff2f-44c8-4dcf-ab18-ba2af7f1cb14")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK6.inductor"
+        (property "atopile_name" "*F6F8.BUCK6.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "65e23175-fd39-4d1c-a69f-14f3a1b7379f")
+            (uuid "287cf359-4103-430d-a75d-bc2acb6aec8a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1882,7 +1882,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d4b158b1-afff-4f7b-b2a7-f0cbeba86e69")
+            (uuid "b8fe6bdc-8056-480f-bfe3-145a47ddfcf4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -1892,17 +1892,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "faffe481-b85e-4c9d-bafb-9e0da9887155")
+            (uuid "a4f87745-8f26-4365-85cf-682385bd042b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK2.inductor"
+        (property "atopile_name" "*F6F8.BUCK2.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7fab73f5-302c-418c-8a2b-2f2791c14026")
+            (uuid "8dc10b43-b765-42bc-88b0-1d1cc103e10c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2032,7 +2032,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c91c2f3f-6af0-4b14-8d7d-99efbbbc496c")
+            (uuid "eb63d601-3063-4403-a124-8c2d4793c134")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2042,17 +2042,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e164cf2e-3a78-4405-8d98-b848ce02b201")
+            (uuid "b8cc84fc-4b7a-4f55-a738-4d287fd15667")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.SWOUT_CAP"
+        (property "atopile_name" "*F6F8.SWOUT_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a24e85a0-d250-4ce9-9243-64c6db07db35")
+            (uuid "01711f6e-f9dd-4ad6-b657-ddbb96068112")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2259,7 +2259,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8427b35b-7da3-44f9-8e7b-343615297684")
+            (uuid "eea5003c-5752-4f0c-883f-953739c9c866")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2269,17 +2269,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "98220d87-8fea-4493-a49d-af5cd1108f65")
+            (uuid "fd892d07-5bde-4349-95b2-60dac7268da0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK3.inductor"
+        (property "atopile_name" "*F6F8.BUCK3.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0ea1eb11-45e8-437c-b68c-c8dd1256eaa7")
+            (uuid "0ae7c753-dd0c-4c8f-8c48-b1fd0a2039b1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2399,17 +2399,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2781e6e9-2bd1-438c-966d-7ce9da765269")
+            (uuid "e8e0c0c7-d4e3-454e-85a7-0068d00f642a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[2]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "db6d9fd8-36a1-4699-8548-6018c167e238")
+            (uuid "61b695a9-a8fc-495f-adac-be054834465d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2419,7 +2419,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bc8a873c-27f2-4ef1-b00c-210d54bff010")
+            (uuid "d5a5bfc9-36cb-4e15-a359-06126aa427f5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2616,17 +2616,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d6b259ed-9404-4fd4-ab60-f632827575ab")
+            (uuid "ff1045ee-cc16-4931-9133-12338fce57dd")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[10]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d79cecae-2c6f-416d-af6a-f4ed8d82a0b9")
+            (uuid "f03c70c1-9c4e-4a9a-9c4d-aab5fe90295a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2636,7 +2636,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "03d51d95-bd4e-4ce8-b0d8-f9b0213abc64")
+            (uuid "42ebfd3d-2e33-4fd5-819f-83dc7c56e24e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2833,17 +2833,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f6f3193a-60df-4e17-933c-53421417f2ea")
+            (uuid "a6b7894e-e68e-44b8-b67e-46c36e423674")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.oscillator.capacitors[0]"
+        (property "atopile_name" "*F6F8.oscillator.capacitors[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "944d4be5-c5f0-44c3-bbdd-c7c634b324df")
+            (uuid "09add809-418c-4e70-9c23-f7b52a0d65e8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2853,7 +2853,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0ac45c4d-344e-484f-9ae6-d3325f96a4f3")
+            (uuid "4e90e0c4-1563-49ad-abc7-6f22f8223e4e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -2976,7 +2976,7 @@
             (size 0.37 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 22 "*E8E8-net-0")
+            (net 22 "*F6F8-net-1")
             (uuid "915c1c32-02f2-4a55-b35f-f329904b003a"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -3050,17 +3050,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "eda275b9-5801-4c67-9366-b1b715606ac7")
+            (uuid "aa2cf222-a350-4ea1-a90e-f2980928072e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "27e6ad69-ef73-44f5-8191-f37739f595f8")
+            (uuid "8ca033ae-e0ac-479a-9f89-29f4a449afc8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3070,7 +3070,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1b7e25fd-fc1a-49cc-bce3-78cf3014e646")
+            (uuid "22dd1252-d2d4-4c53-a458-538e0dc1278b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3277,7 +3277,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "54f1d50d-af71-4808-9537-3c4870f05fe6")
+            (uuid "32f57b08-516b-489b-8b50-5e4291f04f1f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3287,17 +3287,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "027d173a-9a12-411e-af4b-5d7b0910e1cc")
+            (uuid "6f29e837-fc7a-47a7-be37-a988463f2207")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK5.inductor"
+        (property "atopile_name" "*F6F8.BUCK5.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a1d3c2cb-c2a9-4d45-80a2-8d8645f1f5ea")
+            (uuid "0c8870aa-83b2-4a85-a156-7ce7fc403174")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3417,17 +3417,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "00e89ede-01f9-42a8-a61c-57c480c0e770")
+            (uuid "68f729a6-fc5b-4ab2-ae3a-778d0139d90b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.oscillator.capacitors[1]"
+        (property "atopile_name" "*F6F8.oscillator.capacitors[1]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "47d24dfd-a98c-4c47-af79-e633ac9fbc1d")
+            (uuid "7a44c3ce-fd85-4d1a-894a-1b8d1ea19ced")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3437,7 +3437,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "950074c8-d839-41b4-933d-a58a2c721f59")
+            (uuid "7b966b2e-71c4-48d6-a53d-09e9e5a60088")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3560,7 +3560,7 @@
             (size 0.37 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 39 "*E8E8-net-1")
+            (net 39 "*F6F8-net-2")
             (uuid "33bb0153-9d19-4c6f-826b-0f62aecc7eb2"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -3644,7 +3644,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "94bebc1d-54a5-404b-99b0-658bb0ad50ef")
+            (uuid "ae3415e6-f0e8-496e-a29e-00b316c2cd8f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3654,17 +3654,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "55d651f5-a586-4212-bbba-7c597997216c")
+            (uuid "0f0fcdea-07b1-4d17-8c81-a87e0c39f8c8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK4.inductor"
+        (property "atopile_name" "*F6F8.BUCK4.inductor"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b938e36c-4053-42c7-8eb8-e1588db8c929")
+            (uuid "1c911d9b-1616-43db-a4b5-ae4c49640ecf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3799,7 +3799,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "574933a3-1fb0-46db-9910-559e535e4e21")
+            (uuid "34518ae7-da31-4a52-8804-7fb1a6d738b9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -3809,17 +3809,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9856eb94-95cf-48d5-b31a-cd6881458bb1")
+            (uuid "a513afeb-42db-4b06-b95c-92fd7f438cc4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK4.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK4.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7c279fde-c26f-4854-8b59-c97dd7f7a166")
+            (uuid "36cdef38-36f4-457f-a402-94db882f56b2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4013,17 +4013,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b555c7fb-9026-42f7-b240-1dd5930e6fbe")
+            (uuid "da32d1f6-4deb-4ac9-aa07-38dff0277a30")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[11]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[11]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "119d6b98-88c6-4346-93fe-0adde81a594a")
+            (uuid "34079a2d-3ac9-4c41-97b1-fd2237fadcf2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4033,7 +4033,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dca1b309-ee76-410f-a1f0-eaabb4a0b5f5")
+            (uuid "8ca100a5-91af-4523-8be5-e83b39a9930f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4247,7 +4247,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f7731006-181f-4c7c-aafd-230c43e9a420")
+            (uuid "49ed0b21-5a5d-46e9-b37e-dee30489453a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4257,17 +4257,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "557eb716-f032-4f42-bbdc-327f841607af")
+            (uuid "ac024c81-820b-4445-9100-17d8fc46f770")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK6.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK6.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b7e2e911-8d78-462f-a24a-67c8542a9699")
+            (uuid "d94e3506-3cfb-4d4e-84dc-a4f6c899110f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4471,7 +4471,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b3c27d8d-c99f-4cc1-a595-9399e54f0da8")
+            (uuid "9b54e060-1bba-47b1-b71e-5255421245a6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4481,17 +4481,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f3015e3a-f550-49d0-905d-1299809c3b97")
+            (uuid "a587bf7e-2009-44be-a1e4-8bfd9f8d3206")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK1.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK1.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b59f4614-632e-4586-937e-b7ab617ca73c")
+            (uuid "ca108ecf-5fa0-4c0f-af4b-fb10ce1dcac8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4685,17 +4685,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "47e3d9bc-5c00-4580-9fc1-332e43fd5ff6")
+            (uuid "55f64e70-0e4d-42df-88f7-dcabea3e407b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[8]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b52ba941-7738-40fb-b075-16a88f229486")
+            (uuid "51505a49-5ce2-429b-8bb2-fd873aaae990")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4705,7 +4705,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c8d16442-029b-42cc-adf2-ce8754c24917")
+            (uuid "a3c984f5-b368-4e8c-b933-647503606fbf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4919,7 +4919,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f4b268cc-f069-41ca-b9c6-664dd414f17b")
+            (uuid "b7a73b32-4362-419a-a478-64326ee9e684")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4929,17 +4929,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7080cc0c-4b23-4481-90f4-c62cb85c7b65")
+            (uuid "894ffa7c-150d-4ade-bbef-7daf9b87fb7b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VDD_SNVS_0V8.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "da86de20-a50c-4be7-b524-5df19edae2ca")
+            (uuid "2acae31e-a33d-45b2-8667-550b6d35ca9e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5153,7 +5153,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e018646f-f038-4eb5-a84a-d2dd720c237b")
+            (uuid "6d093814-ac17-4d1f-8a0d-59b2a9d2a329")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5163,17 +5163,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "75aa76d4-0d94-4bf3-a824-371b203d6575")
+            (uuid "75ab39aa-2d20-4c12-a517-8aace845e280")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VDD_PHY_1V2.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ceab090b-83fd-476e-928a-dc4a557b16d4")
+            (uuid "c4a451cf-c80e-401e-8dfc-0b9faef64ae8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5377,17 +5377,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f85fe8f5-b4b6-409b-89da-26c12d449910")
+            (uuid "3157522d-4b10-413e-91b5-e42be0a8583e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[5]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3da248fc-7e2c-46cf-b855-9893b14b5037")
+            (uuid "22bf31fc-fd05-4ffa-8fb9-3601bf73cdeb")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5397,7 +5397,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0a7d281b-b137-46d2-95e5-8b1ed6b47f28")
+            (uuid "17df535e-e254-45f8-91c1-790e443e602b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5601,17 +5601,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7176dabf-1ade-45b2-b697-3b158969c7a6")
+            (uuid "7d074130-5344-4fd4-989f-a31ba309a87b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.SW_IN_RES"
+        (property "atopile_name" "*F6F8.SW_IN_RES"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b891c671-f038-430a-8230-19cc5d439436")
+            (uuid "facc3c00-f164-4087-8300-7f5921bab8b2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5621,7 +5621,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "665cfb0a-f516-4d9c-9870-6e4ede0d1a1d")
+            (uuid "5b1644a1-0d7c-4de3-b39f-96c37856e796")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5717,7 +5717,7 @@
             (size 0.3 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 25 "*E8E8-net-3")
+            (net 25 "*F6F8-net-0")
             (uuid "4fbbabbf-7a9d-4233-baf5-a11c57230466"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -5799,7 +5799,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b1524320-64f1-481c-8abb-9d27a49c3858")
+            (uuid "34e76532-7c8f-4e68-b528-2222ce1def09")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -5809,17 +5809,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9a519db2-c67b-4d5f-b29c-57570c699d1d")
+            (uuid "45976970-6105-4204-9dd4-146ab4f935b2")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK2.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK2.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "77b8a145-2df8-4433-bc42-745630fbd053")
+            (uuid "165d950e-14dd-41d2-8eb1-d285362632e1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6023,7 +6023,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6f6d2bad-b02b-4fcc-b2a9-553c235ac828")
+            (uuid "f5707b9e-35cf-4984-8cc1-8bf548ae1f3e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6033,17 +6033,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d2a2ce41-44c7-4404-9953-3311874a9626")
+            (uuid "8b7f3993-695a-4c8e-bc58-44515a5f804a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e4b9f97a-bbf7-4f33-93eb-49e9d4cf7c2c")
+            (uuid "a5c9ff04-fa4a-444d-940c-1bf1bec43766")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6257,7 +6257,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "75656c90-daab-4b19-b838-b7d7cefb5f91")
+            (uuid "27ae554c-7c60-43b7-9f4c-7a0d0b7ceca7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6267,17 +6267,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "86938df7-b888-470e-9d73-67798a7f303c")
+            (uuid "117378d8-4767-44f4-8460-6b593f5b4552")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK5.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK5.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e1c10c60-6d1c-42da-a66f-0b7a5c33dbb5")
+            (uuid "d2334e3a-b567-4998-b7c2-c3c8f659c8ff")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6481,7 +6481,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ae052aac-2d3d-4d6f-8ae1-b0981586aaba")
+            (uuid "09f4074a-cb55-49b2-85c8-102354f1bd60")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6491,17 +6491,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d53c0279-2eeb-4ad5-aafa-d3bf32e6dc78")
+            (uuid "060e5710-7100-468f-9d72-d8e049f2a8f1")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VDDA_1V8.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "aa8e0716-b921-4724-a9bc-6b05b8bfa457")
+            (uuid "ec998216-cf6d-41ec-bf9c-960b203e4413")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6715,7 +6715,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9e8bede8-59c7-454a-8592-5b76ca903df6")
+            (uuid "c0002b26-b507-4a12-acf0-8a1a576a5086")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6725,17 +6725,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cf8bdb76-3366-437d-bf71-dec1f7fa5b02")
+            (uuid "47dd1a46-dacd-46f2-ba62-36a06e90231d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VDD_PHY_0V9.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "752d4e1d-8e54-4074-9dcc-0c584eb584ae")
+            (uuid "06c89021-0a61-4b5b-9ca3-cdfdbb8202a7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6949,7 +6949,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "13d2bd31-5617-40d2-a89f-ed8e1f64f641")
+            (uuid "24c68919-65f1-43fd-875c-84479e5a03da")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -6959,17 +6959,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7dac6e42-4e01-4035-83b2-c9d71238b7c0")
+            (uuid "660b7407-7113-4ce4-8713-307e20fc67e9")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.NVCC_SD2.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "01ac96ae-ffce-4c35-969b-67e110965e8e")
+            (uuid "fd71e628-fa96-4431-8aa9-58da28c455e0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7183,7 +7183,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bd3f05df-ad1c-4969-8e58-6d1bca9d9469")
+            (uuid "97dc9bbe-bd07-4a48-b707-39e1c3429e41")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7193,17 +7193,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "28681553-f297-49bd-a446-b0e440df6b43")
+            (uuid "fecd0b70-e2fd-4414-873c-2615ec3f6808")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.BUCK3.output.runtime_anon[0]"
+        (property "atopile_name" "*F6F8.BUCK3.output.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9a749e6d-dfa0-45d5-ae9d-799deef0c2e5")
+            (uuid "9ecba1fe-4c8d-4b1c-a7d3-45b4760f49d6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7397,17 +7397,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c22b4473-d26c-4455-be70-86bc1d4ba13f")
+            (uuid "c17d3420-475a-4212-a8fe-676d54c433bf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[7]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "07cb1afc-c382-40bc-bdf7-6ae3400d069f")
+            (uuid "064e057f-4ff1-4ae2-8538-089b212bbb37")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7417,7 +7417,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "048a1ad2-5448-4c51-8ee2-f4a31499ce59")
+            (uuid "c9572851-168c-4ad7-8feb-857f27dd458d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7621,17 +7621,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f03aa424-8d2f-47e5-9652-d14d5694b675")
+            (uuid "c6fa1546-78ad-467e-a87e-bf41eb6c1d63")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[4]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ec825fe4-dffe-40e5-879f-5db9a3c5954a")
+            (uuid "45c3c418-8543-4903-94ad-bceda6e0b8e2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7641,7 +7641,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d9dd9aef-1cbf-454d-a78d-2266694fc33d")
+            (uuid "0ec59cc3-2931-406f-ad42-cb0a9671614d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7845,17 +7845,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0021c806-41b1-4548-8d03-b86eff2ebdb4")
+            (uuid "58cd5041-3076-4780-bcaf-1d04762af90b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[3]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "07dabcc1-983a-4bfa-b610-a51f52fd844a")
+            (uuid "4a9c1d00-0e96-4aff-8f0d-7fee2b38c16b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -7865,7 +7865,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2490a1ad-fb97-4bc0-9e71-c1bebc36e122")
+            (uuid "34a5a223-f11f-4fec-a744-29530baee097")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8079,7 +8079,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0c2508ac-7c2b-479b-b55c-d84d8a0f3b31")
+            (uuid "be645919-4940-44cc-9f05-ea8434e9f969")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8089,17 +8089,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9452529c-9c58-4e0b-8aea-537669a229ee")
+            (uuid "5ed7bd96-47d1-48c4-801f-87e760a5d865")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.SWIN_CAP"
+        (property "atopile_name" "*F6F8.SWIN_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "88ac13b4-f07d-4339-b18a-b8bf7513b650")
+            (uuid "0026323a-ddb0-4273-9a71-54a3bff3898f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8303,17 +8303,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ba65ec6c-543c-4a2e-962f-febe7349b951")
+            (uuid "bef0140e-bb85-4e6c-9e13-051de64746a1")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*E8E8.VSYS_5V.runtime_anon[6]"
+        (property "atopile_name" "*F6F8.VSYS_5V.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b4afc525-ee1b-4071-a0ab-31a4016ba902")
+            (uuid "012fef47-4ac5-4cc5-8eb8-4e113bce4cae")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8323,7 +8323,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "31639241-c33b-4fa0-84bf-de88d4a48f7d")
+            (uuid "200a384e-9eb2-4795-b348-139fdf1187a8")
             (effects
                 (font
                     (size 1.27 1.27)

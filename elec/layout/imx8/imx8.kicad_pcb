@@ -106,14 +106,14 @@
             (outputdirectory "")))
     (net 0 "")
     (net 1 "dram_ac07")
-    (net 2 "*7668.PMIC_STBY_REQ-signal")
+    (net 2 "*A7C8.PMIC_STBY_REQ-signal")
     (net 3 "pcie_rxn_n")
     (net 4 "signal-33")
     (net 5 "uart2_rxd")
     (net 6 "dram_ac16")
     (net 7 "mipi_csi_d1_p")
     (net 8 "nand_data00")
-    (net 9 "*7668-net-11")
+    (net 9 "*A7C8-net-14")
     (net 10 "sai1_txd5")
     (net 11 "gpio1_io04")
     (net 12 "signal-52")
@@ -122,7 +122,7 @@
     (net 15 "spdif_tx")
     (net 16 "signal-26")
     (net 17 "gpio1_io08")
-    (net 18 "*7668-net-2")
+    (net 18 "*A7C8-net-1")
     (net 19 "mipi_csi_d1_n")
     (net 20 "nand_data01")
     (net 21 "sd1_data0")
@@ -141,7 +141,7 @@
     (net 34 "signal-19")
     (net 35 "sd1_cmd")
     (net 36 "enet_td3")
-    (net 37 "*7668-net-14")
+    (net 37 "*A7C8-net-15")
     (net 38 "signal-34")
     (net 39 "signal-58")
     (net 40 "dram_ac00")
@@ -162,7 +162,7 @@
     (net 55 "uart3_txd")
     (net 56 "dram_ac27")
     (net 57 "signal-60")
-    (net 58 "dram_dqs1_n")
+    (net 58 "dram_dqs0_p")
     (net 59 "sd1_data5")
     (net 60 "enet_rd0")
     (net 61 "sai5_rxd3")
@@ -220,12 +220,12 @@
     (net 113 "sai3_rxfs")
     (net 114 "signal-36")
     (net 115 "enet_rxc")
-    (net 116 "*7668-net-12")
+    (net 116 "*A7C8-net-18")
     (net 117 "usb2_id")
     (net 118 "dram_ac35")
     (net 119 "sai3_txfs")
     (net 120 "por_b")
-    (net 121 "*7668-signal")
+    (net 121 "nand_ce1_b")
     (net 122 "sd2_data2")
     (net 123 "jtag_mod")
     (net 124 "mipi_dsi_d0_n")
@@ -260,7 +260,7 @@
     (net 153 "vdd_dram_pll_0p8")
     (net 154 "gpio1_io00")
     (net 155 "enet_mdio")
-    (net 156 "*7668.I2C2-hv")
+    (net 156 "*A7C8.I2C2-hv")
     (net 157 "ecspi2_mosi")
     (net 158 "sai2_txc")
     (net 159 "boot_mode1")
@@ -292,7 +292,7 @@
     (net 185 "dram_ac19")
     (net 186 "tsensor_test_out")
     (net 187 "dram_alert_n")
-    (net 188 "*7668-net-9")
+    (net 188 "*A7C8-net-2")
     (net 189 "mipi_dsi_d1_p")
     (net 190 "lv")
     (net 191 "signal-11")
@@ -313,7 +313,7 @@
     (net 206 "nand_ale")
     (net 207 "mipi_csi_clk_n")
     (net 208 "sd1_strobe")
-    (net 209 "*7668-net-16")
+    (net 209 "*A7C8-net-4")
     (net 210 "signal-50")
     (net 211 "signal-24")
     (net 212 "signal-43")
@@ -381,7 +381,7 @@
     (net 274 "sai1_txd2")
     (net 275 "clkout2")
     (net 276 "signal-12")
-    (net 277 "dram_dqs2_n")
+    (net 277 "dram_dqs1_p")
     (net 278 "dram_dqs3_p")
     (net 279 "signal-35")
     (net 280 "signal-9")
@@ -389,32 +389,32 @@
     (net 282 "clkin2")
     (net 283 "enet_txc")
     (net 284 "pcie_txn_n")
-    (net 285 "*7668-net-6")
-    (net 286 "*7668.I2C1-hv")
+    (net 285 "*A7C8-net-11")
+    (net 286 "*A7C8.I2C1-hv")
     (net 287 "gpio1_io13")
     (net 288 "signal-64")
     (net 289 "signal-0")
     (net 290 "onoff")
-    (net 291 "*7668.I2C3-hv")
-    (net 292 "*7668-net-7")
-    (net 293 "*7668-net-4")
+    (net 291 "*A7C8.I2C3-hv")
+    (net 292 "*A7C8-net-8")
+    (net 293 "*A7C8-net-6")
     (net 294 "net-1")
-    (net 295 "*7668-net-13")
+    (net 295 "*A7C8-net-9")
     (net 296 "hv")
-    (net 297 "*7668-net-0")
-    (net 298 "*7668-net-15")
-    (net 299 "*7668-net-1")
-    (net 300 "*7668-net-10")
-    (net 301 "*7668-net-5")
-    (net 302 "*7668-net-3")
+    (net 297 "*A7C8-net-0")
+    (net 298 "*A7C8-net-17")
+    (net 299 "*A7C8-net-7")
+    (net 300 "*A7C8-net-10")
+    (net 301 "*A7C8-net-3")
+    (net 302 "*A7C8-net-5")
     (net 303 "net-0")
-    (net 304 "*7668-hv")
-    (net 305 "*7668.I2C4-hv")
-    (net 306 "*7668.ONOFF-signal")
-    (net 307 "*7668-net-18")
-    (net 308 "*7668.PMIC_ON_REQ-signal")
-    (net 309 "*7668-net-17")
-    (net 310 "*7668-net-8")
+    (net 304 "*A7C8-hv")
+    (net 305 "*A7C8.I2C4-hv")
+    (net 306 "*A7C8.ONOFF-signal")
+    (net 307 "*A7C8-net-13")
+    (net 308 "*A7C8.PMIC_ON_REQ-signal")
+    (net 309 "*A7C8-net-12")
+    (net 310 "*A7C8-net-16")
     (footprint "lcsc:BGA-486_L14.0-W14.0-P0.50-TL_NXP_MIMX8MMXDVTLZXA"
         (layer "F.Cu")
         (uuid "0b37d29a-114e-4193-b219-5a165daedb01")
@@ -483,7 +483,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "36eb19cb-05a4-45fd-9d28-558ec6ca810d")
+            (uuid "d0513a06-7d14-4ecc-8279-b2ed33fb6c04")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -493,17 +493,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0829876c-8c54-4d90-80e1-b3d3d4d842e3")
+            (uuid "dfdf6f4e-46e7-470a-9629-3162c59879ba")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.imx8"
+        (property "atopile_name" "*A7C8.imx8"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2d761e2e-8dfc-4906-870a-0049d78974c1")
+            (uuid "74e38d4c-4975-45ba-a092-72fdc43955af")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -4980,28 +4980,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 263 "signal-63")
+            (net 58 "dram_dqs0_p")
             (uuid "9e31496a-199d-43bd-a542-11ccb043f702"))
         (pad "A3" smd circle
             (at -5.5 -6.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 102 "signal-55")
+            (net 212 "signal-43")
             (uuid "175cba90-e661-4ed0-897b-e49630f911dc"))
         (pad "A4" smd circle
             (at -5 -6.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 51 "signal-4")
+            (net 100 "signal-5")
             (uuid "430852ca-f5b1-4d68-9488-03e53182cf9b"))
         (pad "A5" smd circle
             (at -4.5 -6.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 145 "signal-16")
+            (net 44 "signal-8")
             (uuid "8081b69c-354e-482b-9e92-24a06d132f1a"))
         (pad "A6" smd circle
             (at -4 -6.5 270)
@@ -5169,7 +5169,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 172 "signal-46")
+            (net 51 "signal-4")
             (uuid "c2523bdc-cecb-463f-884d-8741ce775a2d"))
         (pad "AA7" smd circle
             (at -3.5 3.5 270)
@@ -5253,14 +5253,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 24 "signal-22")
+            (net 150 "signal-21")
             (uuid "8819d813-06b2-4a8b-9af2-dc19e3e98381"))
         (pad "AB2" smd circle
             (at -6 4 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 70 "signal-7")
+            (net 95 "signal-17")
             (uuid "e8e3ee43-5d92-43c0-a38f-6037038ae698"))
         (pad "AB3" smd circle
             (at -5.5 4 270)
@@ -5379,14 +5379,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 4 "signal-33")
+            (net 45 "signal-48")
             (uuid "cedf543f-a290-4d84-a893-820eb1b568aa"))
         (pad "AC2" smd circle
             (at -6 4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 240 "signal-29")
+            (net 23 "signal-45")
             (uuid "9257b612-b745-424e-ae7a-7f1b1b045fad"))
         (pad "AC3" smd circle
             (at -5.5 4.5 270)
@@ -5400,7 +5400,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 87 "signal-32")
+            (net 183 "signal-40")
             (uuid "aef33397-2094-4d62-ab04-2cc339415ed6"))
         (pad "AC6" smd circle
             (at -4 4.5 270)
@@ -5498,21 +5498,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 34 "signal-19")
+            (net 205 "signal-30")
             (uuid "0f42fb04-5e10-41ae-949c-5e9453db21cb"))
         (pad "AD2" smd circle
             (at -6 5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 266 "signal-1")
+            (net 215 "signal-14")
             (uuid "8cc2b152-f6f8-45ee-98c7-f673964e9a47"))
         (pad "AD5" smd circle
             (at -4.5 5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 16 "signal-26")
+            (net 261 "signal-38")
             (uuid "469af202-4536-4c38-9ea8-723cdb45dfd9"))
         (pad "AD6" smd circle
             (at -4 5 270)
@@ -5596,7 +5596,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 168 "signal-15")
+            (net 240 "signal-29")
             (uuid "46277305-4171-46ee-8677-aa9c56be40b1"))
         (pad "AE2" smd circle
             (at -6 5.5 270)
@@ -5701,14 +5701,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 114 "signal-36")
+            (net 82 "signal-47")
             (uuid "67664366-bc26-4146-a114-0317f2979cef"))
         (pad "AF2" smd circle
             (at -6 6 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 98 "signal-42")
+            (net 102 "signal-55")
             (uuid "7bc6a9ee-4495-4017-9b4b-861518566987"))
         (pad "AF3" smd circle
             (at -5.5 6 270)
@@ -5722,14 +5722,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 230 "signal-27")
+            (net 98 "signal-42")
             (uuid "ab032c08-7bec-45ff-b744-6d6754f588ca"))
         (pad "AF5" smd circle
             (at -4.5 6 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 210 "signal-50")
+            (net 263 "signal-63")
             (uuid "1e6da41a-b3ee-46d0-83c5-dfc302117a35"))
         (pad "AF6" smd circle
             (at -4 6 270)
@@ -5904,21 +5904,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 57 "signal-60")
+            (net 214 "signal-3")
             (uuid "14822e96-d1e8-4446-8d0c-77f2674f0208"))
         (pad "AG4" smd circle
             (at -5 6.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 62 "signal-6")
+            (net 34 "signal-19")
             (uuid "9f6f00cb-49ea-4d73-b966-d8f9f2e74f00"))
         (pad "AG5" smd circle
             (at -4.5 6.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 150 "signal-21")
+            (net 279 "signal-35")
             (uuid "d4343655-d189-4fd2-8f7e-3a9c0b95c962"))
         (pad "AG6" smd circle
             (at -4 6.5 270)
@@ -6079,14 +6079,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 133 "signal-61")
+            (net 289 "signal-0")
             (uuid "352aab06-5823-4909-b38c-b6a18163b189"))
         (pad "B2" smd circle
             (at -6 -6 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 176 "signal-67")
+            (net 276 "signal-12")
             (uuid "62bf27ff-6e6d-4e59-976a-d1eb1d4be381"))
         (pad "B3" smd circle
             (at -5.5 -6 270)
@@ -6100,14 +6100,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 33 "signal-54")
+            (net 176 "signal-67")
             (uuid "cbe649b8-c45e-40e8-8f5d-f9c915349c2f"))
         (pad "B5" smd circle
             (at -4.5 -6 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 142 "signal-2")
+            (net 168 "signal-15")
             (uuid "3f5f364f-6a5a-4544-8aef-dbe9b7902ab5"))
         (pad "B6" smd circle
             (at -4 -6 270)
@@ -6268,7 +6268,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 99 "signal-31")
+            (net 134 "signal-39")
             (uuid "843d31b5-d9fe-4a51-9ff0-69fa0e6549de"))
         (pad "C2" smd circle
             (at -6 -5.5 270)
@@ -6373,21 +6373,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 184 "signal-49")
+            (net 133 "signal-61")
             (uuid "a46db903-130c-4256-922e-29712d6337b9"))
         (pad "D2" smd circle
             (at -6 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 222 "signal-23")
+            (net 101 "signal-37")
             (uuid "3ecfbc62-4dc1-446c-be23-55c98ad6165c"))
         (pad "D5" smd circle
             (at -4.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 174 "signal-59")
+            (net 142 "signal-2")
             (uuid "98c8f3f0-5a81-47aa-bbfa-d229a1b25a6d"))
         (pad "D6" smd circle
             (at -4 -5 270)
@@ -6401,28 +6401,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 116 "*7668-net-12")
+            (net 116 "*A7C8-net-18")
             (uuid "f6b38a86-9fbf-4f49-b214-02549a0a0ccb"))
         (pad "D10" smd circle
             (at -2 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*7668-net-13")
+            (net 295 "*A7C8-net-9")
             (uuid "7f5ff992-e9e6-4e1e-b940-86cb3df84edc"))
         (pad "D13" smd circle
             (at -0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 309 "*7668-net-17")
+            (net 309 "*A7C8-net-12")
             (uuid "110351d1-10f5-4cb7-8f5b-d1f2be5b7965"))
         (pad "D15" smd circle
             (at 0.5 -5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 307 "*7668-net-18")
+            (net 307 "*A7C8-net-13")
             (uuid "b682894b-6436-4e0f-90b1-f53d85a7ad47"))
         (pad "D18" smd circle
             (at 2 -5 270)
@@ -6471,14 +6471,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 82 "signal-47")
+            (net 258 "signal-57")
             (uuid "e9a4e294-71e9-469c-bbe5-608f8f958dad"))
         (pad "E2" smd circle
             (at -6 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 234 "signal-44")
+            (net 174 "signal-59")
             (uuid "e862d5e8-cae0-4478-aa9a-9d1acf199755"))
         (pad "E3" smd circle
             (at -5.5 -4.5 270)
@@ -6492,7 +6492,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 212 "signal-43")
+            (net 235 "signal-56")
             (uuid "ddc5fb6f-2130-4ea7-923e-da7018bcc03e"))
         (pad "E6" smd circle
             (at -4 -4.5 270)
@@ -6506,21 +6506,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "*7668-net-11")
+            (net 9 "*A7C8-net-14")
             (uuid "405c4eb1-57c5-46c9-b226-ad4c42ee8db7"))
         (pad "E10" smd circle
             (at -2 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7668-net-9")
+            (net 188 "*A7C8-net-2")
             (uuid "11e1348f-8398-47b3-9783-6b00d366873f"))
         (pad "E13" smd circle
             (at -0.5 -4.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 209 "*7668-net-16")
+            (net 209 "*A7C8-net-4")
             (uuid "bee7d954-708f-4794-a64e-742951d526c0"))
         (pad "E14" smd circle
             (at 0 -4.5 270)
@@ -6590,14 +6590,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 205 "signal-30")
+            (net 172 "signal-46")
             (uuid "efee150e-5fb7-435d-843d-83ac24444df8"))
         (pad "F2" smd circle
             (at -6 -4 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 84 "signal-10")
+            (net 222 "signal-23")
             (uuid "a772ce21-da48-479b-982e-1fe16c5079ea"))
         (pad "F3" smd circle
             (at -5.5 -4 270)
@@ -6632,14 +6632,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 310 "*7668-net-8")
+            (net 310 "*A7C8-net-16")
             (uuid "9e9ef4ea-4c48-4635-af45-1aa70f98605d"))
         (pad "F10" smd circle
             (at -2 -4 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 37 "*7668-net-14")
+            (net 37 "*A7C8-net-15")
             (uuid "832e4e1b-73c7-40b1-9aa8-236aa7a4c150"))
         (pad "F13" smd circle
             (at -0.5 -4 270)
@@ -6716,14 +6716,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 243 "signal-41")
+            (net 277 "dram_dqs1_p")
             (uuid "5223549c-7307-4e39-9d58-203cd5cff583"))
         (pad "G2" smd circle
             (at -6 -3.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 134 "signal-39")
+            (net 12 "signal-52")
             (uuid "651acb1f-ec71-4cb9-9375-67a7106f24e4"))
         (pad "G7" smd circle
             (at -3.5 -3.5 270)
@@ -6807,7 +6807,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 58 "dram_dqs1_n")
+            (net 230 "signal-27")
             (uuid "f4b83fa6-6c0b-4506-b5fa-9c8ac5df836d"))
         (pad "H2" smd circle
             (at -6 -3 270)
@@ -6821,7 +6821,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "46eb24e2-cae2-4f4e-a3f5-a18e6ebc4826"))
         (pad "H13" smd circle
             (at -0.5 -3 270)
@@ -6863,14 +6863,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 261 "signal-38")
+            (net 184 "signal-49")
             (uuid "7f24e3f4-d625-427b-afc5-32de4717b63c"))
         (pad "J2" smd circle
             (at -6 -2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 94 "signal-20")
+            (net 38 "signal-34")
             (uuid "fde81672-87a8-4491-8623-294c2c243c51"))
         (pad "J3" smd circle
             (at -5.5 -2.5 270)
@@ -6884,7 +6884,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 288 "signal-64")
+            (net 280 "signal-9")
             (uuid "80173ff1-a01b-4f09-935b-289a4d198143"))
         (pad "J5" smd circle
             (at -4.5 -2.5 270)
@@ -6898,7 +6898,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 128 "signal-28")
+            (net 234 "signal-44")
             (uuid "e74def47-6e1f-41b1-af0a-823094bfe878"))
         (pad "J7" smd circle
             (at -3.5 -2.5 270)
@@ -6912,7 +6912,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "a06b658a-0e67-45cb-b4e9-459023b99dc6"))
         (pad "J11" smd circle
             (at -1.5 -2.5 270)
@@ -6940,28 +6940,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 293 "*7668-net-4")
+            (net 293 "*A7C8-net-6")
             (uuid "687c4277-5893-41db-bdd6-69c2dd71be09"))
         (pad "J15" smd circle
             (at 0.5 -2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 292 "*7668-net-7")
+            (net 292 "*A7C8-net-8")
             (uuid "b17b99d7-2c17-4bad-aad8-f621f02d85af"))
         (pad "J16" smd circle
             (at 1 -2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "1169622c-2087-4ad2-a80e-e09dc8e5c5dd"))
         (pad "J17" smd circle
             (at 1.5 -2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "daf4f2a2-9f5c-4541-9a0f-e2e385466178"))
         (pad "J18" smd circle
             (at 2 -2.5 270)
@@ -6982,7 +6982,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7668-hv")
+            (net 304 "*A7C8-hv")
             (uuid "ea3189df-9ac8-42c0-83f8-424ca0283245"))
         (pad "J23" smd circle
             (at 4.5 -2.5 270)
@@ -7024,14 +7024,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 214 "signal-3")
+            (net 145 "signal-16")
             (uuid "e093b542-57f1-40bb-83d8-f1558e102c17"))
         (pad "K2" smd circle
             (at -6 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 235 "signal-56")
+            (net 53 "signal-62")
             (uuid "ae1932c3-6b2d-4cc9-b44b-543d975ed487"))
         (pad "K3" smd circle
             (at -5.5 -2 270)
@@ -7045,7 +7045,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 183 "signal-40")
+            (net 265 "signal-53")
             (uuid "415d9123-969a-4c2e-9f99-f203dacae285"))
         (pad "K5" smd circle
             (at -4.5 -2 270)
@@ -7059,7 +7059,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 280 "signal-9")
+            (net 24 "signal-22")
             (uuid "be9a364e-80db-43b1-90cc-a8413c1bd98c"))
         (pad "K7" smd circle
             (at -3.5 -2 270)
@@ -7087,35 +7087,35 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "f3853cc5-97f3-464b-93a3-57af331f2b71"))
         (pad "K13" smd circle
             (at -0.5 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "2cded295-3ef2-4b35-a77f-93a60dc7237a"))
         (pad "K15" smd circle
             (at 0.5 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "438136ec-a157-479f-83c6-df552e8ff351"))
         (pad "K16" smd circle
             (at 1 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "6b85da63-7d19-4457-82f1-36d77a885602"))
         (pad "K19" smd circle
             (at 2.5 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "2c1017e9-b4c2-40ce-83f9-2eda2f4e8410"))
         (pad "K20" smd circle
             (at 3 -2 270)
@@ -7164,28 +7164,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 12 "signal-52")
+            (net 77 "signal-65")
             (uuid "fd88ac41-6765-4a81-9e3d-003179bd15af"))
         (pad "K27" smd circle
             (at 6.5 -2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 289 "signal-0")
+            (net 50 "signal-13")
             (uuid "d2b4472d-e565-494a-840e-2eac1b23c4f1"))
         (pad "L1" smd circle
             (at -6.5 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 215 "signal-14")
+            (net 128 "signal-28")
             (uuid "3b6a641e-eb1c-4440-979d-5a875d88d248"))
         (pad "L2" smd circle
             (at -6 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 44 "signal-8")
+            (net 232 "signal-18")
             (uuid "f18d9a5f-7bcf-42b5-8dd2-417b43491b86"))
         (pad "L9" smd circle
             (at -2.5 -1.5 270)
@@ -7199,14 +7199,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "75899f21-28a4-4c52-8442-d835151de744"))
         (pad "L11" smd circle
             (at -1.5 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "1e623aef-0504-4fc6-8955-8800aff695d9"))
         (pad "L12" smd circle
             (at -1 -1.5 270)
@@ -7220,14 +7220,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "67e51fff-66fe-4634-953d-bfc179350f3f"))
         (pad "L15" smd circle
             (at 0.5 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "105c89ea-5d05-4925-9431-a15ef61fac7c"))
         (pad "L16" smd circle
             (at 1 -1.5 270)
@@ -7241,14 +7241,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "886c6bab-bf10-41e9-8b4b-a8d6ae975171"))
         (pad "L18" smd circle
             (at 2 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "fc851252-77ec-4f51-b9fe-0680a35093b0"))
         (pad "L19" smd circle
             (at 2.5 -1.5 270)
@@ -7262,14 +7262,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 211 "signal-24")
+            (net 87 "signal-32")
             (uuid "0b519cc8-972a-4524-9f80-77ca0bef6d31"))
         (pad "L27" smd circle
             (at 6.5 -1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 45 "signal-48")
+            (net 39 "signal-58")
             (uuid "fdb1d425-2bfb-4eb9-a553-ce86b4b31c0e"))
         (pad "M1" smd circle
             (at -6.5 -1 270)
@@ -7304,21 +7304,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "3e0ed363-8cbd-44c0-8451-7a2cf2bfa90b"))
         (pad "M14" smd circle
             (at 0 -1 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "be9354ff-2a7b-437d-8526-523d70ca6d34"))
         (pad "M15" smd circle
             (at 0.5 -1 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "f15d5efd-bd2b-4ec1-b169-8012a079fcb1"))
         (pad "M16" smd circle
             (at 1 -1 270)
@@ -7339,14 +7339,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 38 "signal-34")
+            (net 33 "signal-54")
             (uuid "7946344d-0c06-49ae-9e12-d5ed453a4bf8"))
         (pad "M27" smd circle
             (at 6.5 -1 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 258 "signal-57")
+            (net 62 "signal-6")
             (uuid "47dbaa38-9a80-475c-abd4-f8e4ed98c746"))
         (pad "N1" smd circle
             (at -6.5 -0.5 270)
@@ -7374,14 +7374,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 100 "signal-5")
+            (net 94 "signal-20")
             (uuid "efedb287-cb90-43e6-a106-523b2a159fac"))
         (pad "N5" smd circle
             (at -4.5 -0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 95 "signal-17")
+            (net 114 "signal-36")
             (uuid "0950db5d-959f-4f2b-9ee7-1afcc88f8c50"))
         (pad "N6" smd circle
             (at -4 -0.5 270)
@@ -7416,14 +7416,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "7c7e4504-3505-4a2c-adf5-19ddc4319563"))
         (pad "N11" smd circle
             (at -1.5 -0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "130bee91-ee0e-4873-99e6-ab0a7325b904"))
         (pad "N12" smd circle
             (at -1 -0.5 270)
@@ -7437,14 +7437,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "a465ade6-29d9-4b8e-8031-29df1f801de7"))
         (pad "N15" smd circle
             (at 0.5 -0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "96197ad0-e5f6-42c9-a136-1492de29858c"))
         (pad "N16" smd circle
             (at 1 -0.5 270)
@@ -7458,21 +7458,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "7d8f2a61-1ca4-4f80-8f1f-0d89a2fe4a37"))
         (pad "N18" smd circle
             (at 2 -0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "1a29b83c-e68d-4daf-be0f-e9a12e68abb5"))
         (pad "N19" smd circle
             (at 2.5 -0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 300 "*7668-net-10")
+            (net 300 "*A7C8-net-10")
             (uuid "452f9d78-ef0d-46a1-a712-e9fb26fe4d42"))
         (pad "N20" smd circle
             (at 3 -0.5 270)
@@ -7521,7 +7521,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 276 "signal-12")
+            (net 219 "signal-25")
             (uuid "9b5edcd4-6444-4c67-a002-ce65cf9b4977"))
         (pad "N27" smd circle
             (at 6.5 -0.5 270)
@@ -7556,7 +7556,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "dd39b73b-8982-4cde-bb07-2454845ece1f"))
         (pad "P7" smd circle
             (at -3.5 0 270)
@@ -7577,7 +7577,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "9fd47700-6206-4b2e-820e-ad45cb9c1251"))
         (pad "P13" smd circle
             (at -0.5 0 270)
@@ -7598,7 +7598,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "3e8d430a-74b8-4ae5-b29a-39fefbdf321c"))
         (pad "P19" smd circle
             (at 2.5 0 270)
@@ -7633,21 +7633,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 279 "signal-35")
+            (net 210 "signal-50")
             (uuid "2193f3c4-5c17-494e-bcb3-f52a1095a219"))
         (pad "P27" smd circle
             (at 6.5 0 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 121 "*7668-signal")
+            (net 121 "nand_ce1_b")
             (uuid "8efbc0fa-9517-463c-8124-c046d3b0bda3"))
         (pad "R1" smd circle
             (at -6.5 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 285 "*7668-net-6")
+            (net 285 "*A7C8-net-11")
             (uuid "c65a8840-7c8c-4e7b-80e7-0ad6916b9c16"))
         (pad "R2" smd circle
             (at -6 0.5 270)
@@ -7668,14 +7668,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 77 "signal-65")
+            (net 84 "signal-10")
             (uuid "a51e68af-0d5b-472d-be5c-ff7f549e7c01"))
         (pad "R5" smd circle
             (at -4.5 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 191 "signal-11")
+            (net 211 "signal-24")
             (uuid "1ee2c4ae-458f-4744-af64-7be4ef5a7580"))
         (pad "R6" smd circle
             (at -4 0.5 270)
@@ -7710,14 +7710,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "a7b288d4-ab8a-48f8-a4ea-f8b334ce8426"))
         (pad "R11" smd circle
             (at -1.5 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "9b021cdd-d5b1-4af6-9cfe-ba7819163e0e"))
         (pad "R12" smd circle
             (at -1 0.5 270)
@@ -7731,14 +7731,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "8e13b58a-54f6-4cc0-b147-842ec8005f48"))
         (pad "R15" smd circle
             (at 0.5 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "a51036d9-6fac-402f-a169-0a4f9f648960"))
         (pad "R16" smd circle
             (at 1 0.5 270)
@@ -7752,21 +7752,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "64817222-ad3b-4430-a35c-3f5c10c6b0c8"))
         (pad "R18" smd circle
             (at 2 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "0e8b861a-0f9d-4bda-911a-6a418c226314"))
         (pad "R19" smd circle
             (at 2.5 0.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 300 "*7668-net-10")
+            (net 300 "*A7C8-net-10")
             (uuid "8348054c-cca9-474c-bb7c-2a672cfa52d6"))
         (pad "R20" smd circle
             (at 3 0.5 270)
@@ -7857,21 +7857,21 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "b07d6e64-b1ad-442d-a341-58a898d4634a"))
         (pad "T14" smd circle
             (at 0 1 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "db93f186-1a10-4032-8f69-79efddb103da"))
         (pad "T15" smd circle
             (at 0.5 1 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "a8346c70-5725-4094-9750-fe814a38541e"))
         (pad "T16" smd circle
             (at 1 1 270)
@@ -7906,14 +7906,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 265 "signal-53")
+            (net 169 "signal-66")
             (uuid "4dc0f32d-63d2-4dcb-821b-323b245a7645"))
         (pad "U2" smd circle
             (at -6 1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 101 "signal-37")
+            (net 163 "signal-51")
             (uuid "ea8250cf-704e-43b5-864c-fb07fcbc9460"))
         (pad "U9" smd circle
             (at -2.5 1.5 270)
@@ -7927,14 +7927,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "39d79792-3059-4b3f-8118-7da3d48a955f"))
         (pad "U11" smd circle
             (at -1.5 1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "62fff1bc-e83e-4fca-8adc-10962ba5dd11"))
         (pad "U12" smd circle
             (at -1 1.5 270)
@@ -7948,14 +7948,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "7ec18d31-09e3-428d-bb8c-57de382f8ac0"))
         (pad "U15" smd circle
             (at 0.5 1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "90f6f65e-d87f-4d73-bb94-c0324da5d780"))
         (pad "U16" smd circle
             (at 1 1.5 270)
@@ -7969,14 +7969,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "48d3a7a5-3a0c-4e5f-bbcf-dc8d8bf99cf1"))
         (pad "U18" smd circle
             (at 2 1.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "4bcd3346-0a84-4890-89be-66b816f69bf2"))
         (pad "U19" smd circle
             (at 2.5 1.5 270)
@@ -8004,14 +8004,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 23 "signal-45")
+            (net 57 "signal-60")
             (uuid "1533ffb4-834c-4e3a-b014-7faaeb0404e0"))
         (pad "V2" smd circle
             (at -6 2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 219 "signal-25")
+            (net 4 "signal-33")
             (uuid "a6528f8a-cfcd-4496-8ac3-28a513a903d4"))
         (pad "V3" smd circle
             (at -5.5 2 270)
@@ -8025,7 +8025,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 50 "signal-13")
+            (net 16 "signal-26")
             (uuid "b4bf8896-b766-4532-9294-cf2b7ecefec2"))
         (pad "V5" smd circle
             (at -4.5 2 270)
@@ -8039,7 +8039,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 39 "signal-58")
+            (net 266 "signal-1")
             (uuid "329d4d3c-4fb0-41b5-80f9-f44d6c6c31df"))
         (pad "V7" smd circle
             (at -3.5 2 270)
@@ -8067,28 +8067,28 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "223bbe2a-fc7a-416e-bd8e-3c1f296b0886"))
         (pad "V13" smd circle
             (at -0.5 2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "d617ab00-5972-4479-933b-5f92f974fbda"))
         (pad "V15" smd circle
             (at 0.5 2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "ba4d6eb4-8716-49da-893f-07aac9ed1a66"))
         (pad "V16" smd circle
             (at 1 2 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "5d15c220-e133-4017-ae20-17d63b6b04f3"))
         (pad "V19" smd circle
             (at 2.5 2 270)
@@ -8116,7 +8116,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 298 "*7668-net-15")
+            (net 298 "*A7C8-net-17")
             (uuid "454fd2f1-2a9f-4ac4-b4be-2616100b9aa5"))
         (pad "V23" smd circle
             (at 4.5 2 270)
@@ -8158,14 +8158,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 169 "signal-66")
+            (net 191 "signal-11")
             (uuid "e59ebad7-03c7-4be6-b485-7be7fc3745f5"))
         (pad "W2" smd circle
             (at -6 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 163 "signal-51")
+            (net 288 "signal-64")
             (uuid "53b0659f-d6e3-428c-9bcc-9e50f7eea282"))
         (pad "W3" smd circle
             (at -5.5 2.5 270)
@@ -8179,7 +8179,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 232 "signal-18")
+            (net 99 "signal-31")
             (uuid "c26505ee-763a-4bd7-b14e-9cb688a2f53c"))
         (pad "W5" smd circle
             (at -4.5 2.5 270)
@@ -8193,7 +8193,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 53 "signal-62")
+            (net 70 "signal-7")
             (uuid "0fa5c41f-4524-4916-86c2-50348a6af6f3"))
         (pad "W7" smd circle
             (at -3.5 2.5 270)
@@ -8207,14 +8207,14 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "e4ef1cb2-da50-4e17-9a57-c94b6dcf5874"))
         (pad "W11" smd circle
             (at -1.5 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "79fbcef9-8189-4bd7-89fb-5cba83c9b56d"))
         (pad "W12" smd circle
             (at -1 2.5 270)
@@ -8228,42 +8228,42 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "1638291e-d9a2-4b86-a7fb-681f88fba9b2"))
         (pad "W14" smd circle
             (at 0 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "1784820d-17bb-4fe9-929e-cc36bf907eec"))
         (pad "W15" smd circle
             (at 0.5 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "b73e6750-06af-41ef-abb3-0ebdae42198b"))
         (pad "W16" smd circle
             (at 1 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "72ebc3cb-7756-4a25-8c5e-a3bfd929e792"))
         (pad "W17" smd circle
             (at 1.5 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "8e21b767-1f30-4519-8fe9-6371c20290be"))
         (pad "W18" smd circle
             (at 2 2.5 270)
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "d6246399-b510-4f47-80d7-a31f419dabfb"))
         (pad "W21" smd circle
             (at 3.5 2.5 270)
@@ -8277,7 +8277,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 299 "*7668-net-1")
+            (net 299 "*A7C8-net-7")
             (uuid "db3a229c-51ab-4cda-8a62-f5aa55f152c1"))
         (pad "W23" smd circle
             (at 4.5 2.5 270)
@@ -8319,7 +8319,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 277 "dram_dqs2_n")
+            (net 243 "signal-41")
             (uuid "8069e62f-3422-4dda-b5a1-eefaafee7d64"))
         (pad "Y2" smd circle
             (at -6 3 270)
@@ -8333,7 +8333,7 @@
             (size 0.24 0.24)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "2fb755fb-2dd4-4eaa-87e2-bcbf5a3fd36d"))
         (pad "Y13" smd circle
             (at -0.5 3 270)
@@ -8450,7 +8450,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5f4e17a5-7aac-4471-aa37-a058ecd05ad4")
+            (uuid "185a09ac-6ddb-476f-a726-457aadd06b27")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8460,17 +8460,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fb888dde-656b-47de-bbbf-afbda258ba4c")
+            (uuid "4c0646cd-88b8-4ff5-a937-26b0f21532f4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "067a6c78-be53-402b-a6df-691c305f1d85")
+            (uuid "442b501f-583c-44aa-a64c-b900f366695a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8674,7 +8674,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "847234dc-ad3e-4122-8135-3fb901d1edcb")
+            (uuid "bf7138b9-cfbc-45f8-b0cf-203f42d32818")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8684,17 +8684,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a63a8d0b-91ae-4da2-b934-5dfe9e6864da")
+            (uuid "a983ac76-cfb6-41b1-abc1-e1351c5e2092")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a4120314-017b-4e3d-a101-99d778839454")
+            (uuid "3f6f29f7-f1dd-43c6-8f2b-c64687fa1313")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8809,7 +8809,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "a854864c-b105-4540-9a38-8ea28e5da1c0"))
         (pad "2" smd rect
             (at 0.55 0 90)
@@ -8898,7 +8898,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a360ae1d-3a42-4091-8c3d-22fa69a82461")
+            (uuid "36b948d5-a3ca-4932-9d76-d641e241b9e8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -8908,17 +8908,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a9af1910-a97d-4a1a-b9bf-b534e8bc1f74")
+            (uuid "423bddc0-17d2-47de-965d-19d00306597e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cd7e25bf-f237-4637-90c6-74929031606e")
+            (uuid "103e0f6b-05dc-4a4b-9baf-1df5cabbc7d2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9033,7 +9033,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "97537632-8254-4f9c-8027-5d89257f9152"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -9122,7 +9122,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "35ed8e7f-5693-4e48-bead-6ef80b07cf11")
+            (uuid "190dd82d-bc39-40f3-8e3f-ba85c831cffc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9132,17 +9132,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f2354f0a-191c-4cca-a4bb-0b8f66d5f00b")
+            (uuid "05680d17-32c6-494e-976c-67feb0a746db")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "24acc540-af0a-48e7-bfb2-1ca91fda85c8")
+            (uuid "a56af4ba-0e68-49a9-ab68-ef4eea94efa9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9257,7 +9257,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "996af4a7-4bad-4fdb-a7e7-94a8191f0607"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -9346,7 +9346,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7c83ad42-7f0d-4d3f-8e9b-1c9b38e308ba")
+            (uuid "b0b68a03-a7c7-445c-afae-050baf768b26")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9356,17 +9356,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e01636b0-fa52-47c0-b7ed-e9fc0760bcb3")
+            (uuid "af0ec0ed-c892-414e-a022-fa5c2c94d4f6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_3V3.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_3V3.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c38364a2-e074-4a20-992f-b6892f8afc83")
+            (uuid "a0622aaf-6025-41ea-a8ad-f68b268985c7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9481,7 +9481,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "ac452e8c-52fd-4d3d-8a2c-347ececdb173"))
         (pad "2" smd rect
             (at 0.55 0 270)
@@ -9570,7 +9570,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "67b8fc21-0cca-405b-b0ee-f1539c9f5595")
+            (uuid "35aed03c-0235-4aa1-9fcb-6ee6570e8e06")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9580,17 +9580,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ff9dc8a0-1cbc-47cc-ab5e-b236d121ff66")
+            (uuid "6ec28be6-e74b-4b5c-b99b-c10d25a5fa58")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "22d73603-a6c0-4cad-bb34-ce41f65247d1")
+            (uuid "a798805b-ddf7-43b3-893a-825f0e0f224f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9794,7 +9794,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a45b1e8d-90f2-4cc7-ba8e-e18c988292dd")
+            (uuid "67a7f7c6-53f3-46cf-b0d9-1a423983a9de")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9804,17 +9804,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a951c240-d20f-4785-b9fb-7748c2d6533b")
+            (uuid "85797f24-0ef8-4353-9a50-5deea7d7008f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[8]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "dd50a242-d91d-46b4-85c8-63987ecc74db")
+            (uuid "3d9d70f9-1a62-4483-b410-212b9e31bdd2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -9929,7 +9929,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "fdb56cf2-583a-488c-99cc-a92d3d92a2fc"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -10018,7 +10018,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8f243116-15bc-4da0-b446-3a917233a905")
+            (uuid "1039ac77-ab51-4331-8bd8-f7085b912e06")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10028,17 +10028,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "00a2471e-13b6-4b15-89c9-eaca61206946")
+            (uuid "d04697d9-11cc-4872-af55-477c5f390e5c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[7]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "072535ca-0627-4de9-981b-2527f5dddcd6")
+            (uuid "ec46cca8-7eed-4c0b-b309-0294fc0a128d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10242,7 +10242,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "15371a18-db69-4156-9671-e1718ec9c7e4")
+            (uuid "83fc507b-f382-49f3-bb15-0681f52ecad0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10252,17 +10252,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "486e6db5-7172-4793-b27e-377d5be2d7b9")
+            (uuid "e1e8d418-9d65-4322-90d6-d84fc83a82f4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f5fe926d-f1fc-4c36-9eb7-85450358c690")
+            (uuid "aea87068-5ac0-4172-b79b-acac281b769f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10466,7 +10466,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0360a88d-f505-4c26-923e-d7e01f9daee0")
+            (uuid "e76fe6f4-1569-418d-b689-3d02abf34c82")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10476,17 +10476,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b48da6f5-9ca2-44b9-9e2e-0fa51e70e5c7")
+            (uuid "fa7c44b2-3ed1-4af7-b514-b5e1e70359b6")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.MIPI_VREG_CAP"
+        (property "atopile_name" "*A7C8.MIPI_VREG_CAP"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c3fd936e-62fe-43f6-8bef-4c5f7588dd27")
+            (uuid "4675ce3c-83f6-4342-96b7-b0c042a15116")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10601,7 +10601,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 307 "*7668-net-18")
+            (net 307 "*A7C8-net-13")
             (uuid "90179b47-a224-4432-a93a-944e4fb15be0"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -10690,7 +10690,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9d3a66f9-a61c-4657-9837-328c2ac672f5")
+            (uuid "23667030-6c79-48e5-9554-0779aee6b651")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10700,17 +10700,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4c6c7311-efb1-4053-93d4-cad17b216162")
+            (uuid "2fc04710-8e08-4736-bc2d-ab9a41044961")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[6]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9ef3ca63-9dcd-4324-93fa-85410404d5d2")
+            (uuid "b7652f31-91e3-4c69-9abb-0e6b263ca4c9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10825,7 +10825,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "9f2cec11-27c6-467c-af10-7e01c57ee4f5"))
         (pad "2" smd rect
             (at 0.27 0 270)
@@ -10914,7 +10914,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "039c2580-9889-417e-8043-46ec1ad32339")
+            (uuid "7d67a65f-ed04-4846-b17f-87bb88edf18c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -10924,17 +10924,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f50e2f98-8b14-4262-b52a-c6262f608f90")
+            (uuid "1865c6c5-246c-42f5-9d53-991e5580103a")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3c576c38-4c1b-4ae1-af7e-cf3a83f19e76")
+            (uuid "14fd693a-79b7-49d8-8e0c-92eda7dad890")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11138,7 +11138,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8ad70231-e021-49e4-a841-81ceb732f7a7")
+            (uuid "4104171e-ca4c-4833-b41f-b82828ef0746")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11148,17 +11148,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5dd48547-5ebd-4eda-996f-637423e6e84f")
+            (uuid "8c42c2d5-b406-4764-9fea-39ccb116f9eb")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ed454733-ee6a-4476-8bdd-48af982af65c")
+            (uuid "6714b10d-c6ce-483b-a7e3-e858c2043776")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11273,7 +11273,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "2d05f1fd-666c-4617-a651-d7b4a38af3ea"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -11362,7 +11362,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "66401bd1-b444-4827-954c-93778f3ecf7b")
+            (uuid "7b538a1a-6a3f-402b-80de-a4330ca7e74e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11372,17 +11372,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "51d316be-f5ae-47d4-87cd-440ebbfee80c")
+            (uuid "cb994560-6c13-451e-b3fa-bd398c41fbd3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_3V3.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_3V3.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1ab437fa-aed1-460c-89dc-f5a07b0c5faf")
+            (uuid "f0a84f27-c23d-4a00-b6f1-71d42f9b7c69")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11497,7 +11497,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "288a599c-a9b5-47ae-ac39-91b1a03fecdf"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -11586,7 +11586,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "50d6a42b-4636-4c3f-ba64-3d72d8bdcd3e")
+            (uuid "9be430b3-02fa-46b0-9891-c9efe440707d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11596,17 +11596,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "12537d23-7122-4fd7-9676-9959b5ca8736")
+            (uuid "c102442e-cfe3-4531-b391-f7ba1246502c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c5bbccd3-7d6f-4925-9d8e-b47375585bd5")
+            (uuid "0113720a-3f29-459e-859c-71594a95bf35")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11721,7 +11721,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "cb26fd5e-b870-4160-8735-f0dae8f243e3"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -11810,7 +11810,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "871abd91-af3f-497e-b0aa-6c4cd43d92c8")
+            (uuid "c548c26f-07f6-4b9c-8a45-e8041cacb1d2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11820,17 +11820,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "92e81300-46e4-468d-ba90-9cc5ba4917ae")
+            (uuid "4150df36-eb68-4939-ad43-60710437ae3b")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "34573beb-479d-436b-8cce-02f0c981149f")
+            (uuid "a4bca6fe-29a7-453c-96de-30cc340073f2")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -11945,7 +11945,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "02c64b35-f5e9-47db-8e0c-313f8756196e"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -12034,7 +12034,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5e3f0ce9-d1b8-469b-a31b-dd82b31fa319")
+            (uuid "d526dea1-d2e9-4b84-bf4c-dc83fc2077ac")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12044,17 +12044,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "62418c67-be89-4129-913e-2794139b99c0")
+            (uuid "dfea90ee-df30-434f-bd50-b8bb9d820038")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_3V3.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.VDD_3V3.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2eb0d48e-1b43-4cac-bc49-01fca3613cec")
+            (uuid "94e387c2-86a4-44ef-8618-ffc9981f494d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12169,7 +12169,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "560444d4-2156-4310-92e9-a1b09ef9622b"))
         (pad "2" smd rect
             (at 0.27 0 270)
@@ -12258,7 +12258,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c460634a-0ade-471e-b376-21714778ab97")
+            (uuid "a76df5d8-7c89-49b4-bc5f-ce9e5c0d8ab3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12268,17 +12268,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f407183e-466f-4361-ab82-567e9de08411")
+            (uuid "c035c0b7-c888-4ac5-80fe-698a5409225d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_3V3.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.VDD_3V3.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d0b683ff-d04f-4729-8d07-5898ca203967")
+            (uuid "92cdf4a3-a161-4092-8d76-0a45e21a16c3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12393,7 +12393,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "51d9a464-5d35-4d1c-8837-d91c2d601cb1"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -12482,7 +12482,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "455c32c9-f78c-4665-855c-f7ac2ebd0361")
+            (uuid "ac79c63c-d9bf-4425-915e-08b9e80faae1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12492,17 +12492,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4f4300d0-ddc8-4f9a-94c6-2dcd029474ef")
+            (uuid "3357bee7-f1b6-45dc-beb6-1345b7dc3a67")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4073537f-30f8-4d5b-b6cb-531ec1a87b78")
+            (uuid "c13fcd8c-e6a7-4ee1-b30d-ac6a8a5c650e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12706,7 +12706,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "55c44da1-f879-4c17-89f3-b2516bcf1ed4")
+            (uuid "fe07d40f-134f-4b91-aa8f-b9ae17089b11")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12716,17 +12716,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4d3b589e-5ba1-44d2-a1bb-ea0c5958d739")
+            (uuid "f908bc92-de1e-4970-9ddc-83093da087bc")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "53757945-c24d-4f15-b24b-52896c616b3b")
+            (uuid "82252741-7994-4d33-af7c-e6bc513cb669")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12841,7 +12841,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "ed40ffa2-eba4-427d-925d-f6299b07a7ee"))
         (pad "2" smd rect
             (at 0.55 0 90)
@@ -12930,7 +12930,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c3d25243-b817-405e-a6f8-085565a530cf")
+            (uuid "ba2348c2-f646-4746-9d56-1224f81f4f44")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12940,17 +12940,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e23c3fda-ae21-44b2-9c10-b33b35b8348c")
+            (uuid "635d61ae-04b5-4ef2-85c6-0e5f323c121c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[8]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "44ab021f-6a20-4d31-a5fa-411ea53cec78")
+            (uuid "978e3c2b-8710-4f9b-8325-7d5c63dbdd88")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13065,7 +13065,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "f47f8905-30cc-4273-864a-dbd36e1ee5b0"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -13154,7 +13154,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ab0c9c2b-b62e-42bd-b2e4-fc564a9bee1b")
+            (uuid "8f92d22c-fcc2-4985-a6b6-cc02e04567e4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13164,17 +13164,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "584ec764-27dc-48da-9588-b494e825d8c5")
+            (uuid "3a1bf31a-63b9-4bbf-89c2-3dbeaba0fbe2")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "570672a7-2caa-400f-ac85-1201eb913dc1")
+            (uuid "7bede369-42ac-4dcc-b3bf-103ecd878fa1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13289,7 +13289,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "70f83719-799f-416e-a83d-76c66b571f3c"))
         (pad "2" smd rect
             (at 0.55 0 270)
@@ -13378,7 +13378,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ad81ec10-c224-4ccc-8258-cdde3089d9e5")
+            (uuid "f257c5d7-1c7c-471e-aeec-7e41f1530703")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13388,17 +13388,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "cc68300c-caa3-4c62-bf98-d53ce93d83d9")
+            (uuid "136d3bea-228e-4a83-95cc-21232d27139f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[9]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[9]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "69dc4593-ee66-48f3-847a-1b2ae5ed06c4")
+            (uuid "223b785e-fddd-48fe-a31e-8d67c433cb2a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13602,7 +13602,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a4aba01f-0076-40a5-b842-f2a12a5f9ed6")
+            (uuid "7289ea9b-b840-4a9d-9c8b-5198dc383537")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13612,17 +13612,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0e660065-c0c2-44b9-afb8-8e618d617f5f")
+            (uuid "d93c9d1a-712d-4fe2-a1ac-366bcb1b7745")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDDA_1V8.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDDA_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9d3152fe-a643-47fc-bed5-13ab29c334fd")
+            (uuid "5d37da8e-5f8e-4f0c-a3e1-050d015419a4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13737,7 +13737,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 300 "*7668-net-10")
+            (net 300 "*A7C8-net-10")
             (uuid "0f8a86bc-9488-4561-9080-0b29c7c8bd7d"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -13826,7 +13826,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fb313ad9-f25d-4347-8393-dca19248d52a")
+            (uuid "de49726f-1bc0-4841-9761-d8f9991f4dfa")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -13836,17 +13836,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5b3074bb-5d67-4985-ab2a-961fe4aad606")
+            (uuid "dd95856f-6053-4d67-a399-f1e0e1556b2f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c971a514-3a3e-4598-838e-78e008f6cf6d")
+            (uuid "3d3f5379-eba4-41f9-86a7-7da438e39ec0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14050,7 +14050,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b6baf8b5-d8cf-4755-a808-58df5885bebd")
+            (uuid "cd8be573-76d8-46cc-b5b2-f1af35df9218")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14060,17 +14060,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ce1b3616-9420-4952-8b33-b3c99143068b")
+            (uuid "05844412-32b0-4183-971e-66c45694248f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDDA_1V8.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDDA_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "59349c9f-b6f5-41bf-875d-116fbaeb6f60")
+            (uuid "5746a3cc-b860-46b8-9195-9759b527c323")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14185,7 +14185,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 300 "*7668-net-10")
+            (net 300 "*A7C8-net-10")
             (uuid "6a5cd9ac-b401-4850-9994-ff056abe3376"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -14274,7 +14274,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "96f55cc0-368d-4ef8-b549-ed14a7ab2324")
+            (uuid "9b8444a9-4531-4623-8c74-ed5683e858e4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14284,17 +14284,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ba83019e-1e74-4ab2-81af-784fe9ff7c57")
+            (uuid "1572cbf4-71c9-46a4-bbed-ecda3756f804")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[7]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8f2f10f9-b283-4402-95b6-076f12f6d827")
+            (uuid "69bf429c-03a9-43a0-b13c-ff03bbf0f9ac")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14409,7 +14409,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "5e0f3a25-af2f-4a2b-b5f5-123f88be299b"))
         (pad "2" smd rect
             (at 0.27 0 270)
@@ -14498,7 +14498,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c2304c8a-7951-4f23-babc-3d7d8f69e50a")
+            (uuid "5be1e083-142b-402f-adc2-f62f3cca6a49")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14508,17 +14508,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a65ed13a-200d-43a7-8aa2-e6eb19340cf0")
+            (uuid "50b9fc3d-196a-4c4f-b52b-8dd6eaafa31f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[6]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b3978dc2-effb-402e-8220-21084f315d1b")
+            (uuid "ca8304cf-1859-49cf-b8ec-c5148091984f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14633,7 +14633,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "3867c0ce-6619-494c-b8db-c095aa848ad4"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -14722,7 +14722,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "68fb4a15-ac37-43fc-a167-1f3058e6322e")
+            (uuid "43ab3a44-6424-4e8a-88f4-69102306b46d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14732,17 +14732,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "109c9c09-fea6-4cff-b05f-8ed9f4ba882c")
+            (uuid "df797f3d-8f60-479c-81d8-39566f881b9c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_PHY_1V2.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_PHY_1V2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7768cf51-37fb-45e2-bfe6-644fd83aa555")
+            (uuid "f79f6c75-578a-4c18-88bc-39a1917ad52e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14857,7 +14857,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 292 "*7668-net-7")
+            (net 292 "*A7C8-net-8")
             (uuid "14315477-722c-403d-807d-19089ec3f5e0"))
         (pad "2" smd rect
             (at 0.55 0 90)
@@ -14946,7 +14946,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bd2945bc-0ee1-4915-9089-94dd24352727")
+            (uuid "0bbb1711-cf1a-47df-8461-6be56d0be4e0")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -14956,17 +14956,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ca3fc1c0-1702-4817-a888-6e2c01836381")
+            (uuid "10d6dd6e-a332-4d42-8975-9eae8d93efde")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[4]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[4]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1b0f4852-1502-45ac-915f-1da70391b32c")
+            (uuid "0a851e1e-6735-4dee-accb-cf85f1db6b1c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15081,7 +15081,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "4d7c8e8d-b621-442c-b548-0b77dba7c3ee"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -15170,7 +15170,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4882c5e2-1ade-45cc-9ace-d86c36f8f9bd")
+            (uuid "dcb00533-1c60-456a-a93a-5d7063cef19d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15180,17 +15180,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "541ebc96-47dc-465d-bac7-45f41795ae04")
+            (uuid "5196a04b-6f09-4a47-9d88-727e2872aac0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_SNVS_1V8.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.NVCC_SNVS_1V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ff3e4f14-0a8b-48ff-8658-d31b277d491f")
+            (uuid "25752439-d6cc-47ac-870a-14f62c9167c1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15305,7 +15305,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 304 "*7668-hv")
+            (net 304 "*A7C8-hv")
             (uuid "70c5526a-15de-4f6e-9d03-9ab5a1bd20b1"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -15394,7 +15394,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2a8b2a33-61c2-4610-93a5-7e762ad66bec")
+            (uuid "21d99f82-0775-43af-9553-e04f0aa4dd80")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15404,17 +15404,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8003b815-d4e0-4c10-960b-fd3147d9f751")
+            (uuid "37391394-17d9-4705-a539-8fb806a9bfd7")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_PHY_1V2.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_PHY_1V2.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "f1169c83-751f-41cc-97fa-c93d3d203012")
+            (uuid "524d74dd-80f3-43e1-9d38-29d3921d82ae")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15529,7 +15529,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 292 "*7668-net-7")
+            (net 292 "*A7C8-net-8")
             (uuid "654d7e84-e984-4247-bf55-55e5cd398529"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -15618,7 +15618,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "49a8a018-0cbd-4c9f-80ab-eb22148877f9")
+            (uuid "8367961a-8daa-4eed-8e1a-a075aea288dc")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15628,17 +15628,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "737c2357-926c-4656-82da-45ff1be340e4")
+            (uuid "be91ea7d-ef2f-4763-bfc7-46f941066dec")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_ENET.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.NVCC_ENET.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d9653e15-fa4c-458a-a4c6-d9edd6416a0c")
+            (uuid "ca48b853-5466-4a25-b8c9-52c029263758")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15753,7 +15753,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 299 "*7668-net-1")
+            (net 299 "*A7C8-net-7")
             (uuid "6de75f63-a7d2-47ad-bcf5-cfc43854a2cd"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -15842,7 +15842,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c431fa17-a40d-48b0-9c16-3bd97c3527fd")
+            (uuid "17e1884b-2f48-453f-a6c8-d3adecc289f9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -15852,17 +15852,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "52d56749-069a-4dae-9297-48c05e10d18c")
+            (uuid "56d6cf29-02f1-4678-ac2d-cb3c5601a02f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SNVS_0V8.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_SNVS_0V8.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "47812a33-f2e4-400c-9b4f-68615404a5fa")
+            (uuid "131c7d2a-a25d-477c-8866-48e84025c039")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16066,7 +16066,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "49db6694-2e09-4396-b23b-8368776a58d5")
+            (uuid "76a0933f-9e22-461e-9947-1c4cb23501f3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16076,17 +16076,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "66fea9bc-ad9e-4a92-8475-70abbea52fb2")
+            (uuid "86ad9d03-0929-449b-9542-ec95d44813d3")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[2]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[2]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "86d1af19-8bce-48f6-8fe9-f9693737453b")
+            (uuid "b69367cc-653d-4edd-8d6f-48086543376e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16290,7 +16290,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "43fe0c90-d0bf-4644-b755-94d7efd10aeb")
+            (uuid "972b79ea-ba8e-4f30-88c9-323865bbb1f3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16300,17 +16300,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "834016d8-10a0-4e8c-b289-db6957394385")
+            (uuid "686e2efc-f1db-48f7-8efe-e4da726d3692")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_3V3.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.VDD_3V3.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "88bf4c0d-4257-479a-a34e-ffcde99c8f90")
+            (uuid "6045ee64-1f16-4a7b-ae56-6da8b7f27d61")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16425,7 +16425,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 302 "*7668-net-3")
+            (net 302 "*A7C8-net-5")
             (uuid "ae47f82f-3fe7-4de1-a890-39eff7d26d73"))
         (pad "2" smd rect
             (at 0.27 0 270)
@@ -16514,7 +16514,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d5bc8d2f-f4e8-4901-996a-344636a5e5f3")
+            (uuid "f2b11880-ad98-4fad-8d58-25609d2a4164")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16524,17 +16524,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1afa1391-0c6d-4621-b6ba-e7b401ee926a")
+            (uuid "3da8c91e-c84f-471f-96d6-f461d9cee13d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[6]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8eda0900-3fa7-4d42-bedb-2502d7af9b84")
+            (uuid "d0b83bc0-757b-4c67-9fa8-51f54900cac1")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16738,7 +16738,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7a637388-6383-4f29-9f28-77ad1640f4ac")
+            (uuid "12eb10bd-2ab3-4afd-b616-88cc890723e4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16748,17 +16748,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a5ac22aa-f928-48b1-8985-b53a68fce7a6")
+            (uuid "f2acc5a2-0571-4ba7-8f3b-99f1e239c1f8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_PHY_0V9.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_PHY_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4de9a41f-6c8f-4d1b-b571-207626f85861")
+            (uuid "ff4d4e73-a71b-410f-819e-b7d66ebec6c4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16873,7 +16873,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 293 "*7668-net-4")
+            (net 293 "*A7C8-net-6")
             (uuid "8337f453-9e63-42c9-9b1a-8e15f8b4cecf"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -16962,7 +16962,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c08fb0b7-cf96-45cb-b171-4136ad665fd9")
+            (uuid "542f39b7-59e2-4ee5-87f0-1c729d3fef9a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -16972,17 +16972,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1bdbf208-a15f-4a6c-b51e-63260ff71f38")
+            (uuid "ad7fe102-b29e-49b0-a0a9-7d8b83dff923")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[7]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9e6db0cb-af02-42a9-a6ea-57aa6f6d06c1")
+            (uuid "43e49bf3-e1e7-4d2e-824d-bef99ddd81a7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17186,7 +17186,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1205bfad-ac02-4684-b6fc-7a25934b3da4")
+            (uuid "6fc6f23f-137e-4e7f-aeb1-8b8ab0f051f3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17196,17 +17196,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6e6bce6e-27e6-42ec-ba6a-1ec20c3ed7f8")
+            (uuid "a77469d6-3b9c-4e34-a524-3c17b704ef2d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "af0c5c2e-ec54-481e-9f5b-61135378d452")
+            (uuid "390e8dfb-9d54-4161-9457-bbbe845c4df3")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17410,7 +17410,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "99806fb9-44bf-425f-8430-ec593f524323")
+            (uuid "f0208649-7735-42f0-82d0-74a89f4e7b48")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17420,17 +17420,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ff05924e-cc22-4244-a44e-1b48d25a8ae4")
+            (uuid "e594c1a3-a462-4150-8cce-6739e34a41fe")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[6]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "557bd014-bd0e-4b7c-8cae-4b470a41eb95")
+            (uuid "c583e9c7-5fe0-4cab-bc09-278c6e3b2a64")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17545,7 +17545,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "9bf15f87-ebca-4328-b5ed-e997e716c6ba"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -17634,7 +17634,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "11ff50d1-26f9-4184-a5d3-7b7d109d27b5")
+            (uuid "b9b45ddb-4eda-4161-9e9a-19bcde3ab9e6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17644,17 +17644,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "be413331-c254-4d97-b713-ee4d3b6b276e")
+            (uuid "e9e14b21-6daf-4c1f-a5d1-e847bcacb5bc")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "06145500-486c-4668-abdd-c64284528f68")
+            (uuid "7708d153-56bc-4c17-a969-6e17aadf1a24")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17769,7 +17769,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "f777c8f1-fc7c-4bf7-8611-cd6cd7b36d29"))
         (pad "2" smd rect
             (at 0.55 0 270)
@@ -17858,7 +17858,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "08f0578f-7f58-4e7f-abdc-e807fbd6244e")
+            (uuid "ffea2bb7-84d8-4af2-8104-06223655f41e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17868,17 +17868,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "1ab63b86-2a40-4759-b656-132e346e7c97")
+            (uuid "5fbf60c3-7449-49f8-935d-1676d3591896")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "15242d3c-93df-4eec-9934-9680a1400c85")
+            (uuid "348f414a-75e6-4ca1-843d-2c7db8269101")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -17993,7 +17993,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "ae2ba4fe-a7f2-4592-8498-e8b90334432e"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -18082,7 +18082,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2b4b9bb9-6a52-4bdc-9110-789687d7023e")
+            (uuid "fa686e4c-53cf-4722-ac78-fb27eee7faf9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18092,17 +18092,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fa85fc1a-48d9-4619-aaee-e45377359a1c")
+            (uuid "f03112ae-90f6-4cd7-a744-8710469e5576")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[7]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[7]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4b092034-6d0b-4c3a-9eab-220d6b316d3b")
+            (uuid "c44be40b-ef99-4269-bc21-ded303a50f8c")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18217,7 +18217,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "46ef1908-0183-475d-a214-34377a68bd3b"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -18306,7 +18306,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9f0bab0d-317b-459f-a686-54e34a2136d8")
+            (uuid "ae686f94-112a-479c-ac98-4f50f2183cf5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18316,17 +18316,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4e706cdd-6517-4fa7-9242-848f6b371684")
+            (uuid "154b3b43-db7c-432f-8cde-cfac903fb89c")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d09be083-5e4b-42a7-b6a4-1c472948ee6a")
+            (uuid "c7ed9ea4-93aa-4c6d-ac40-43d1f0ce56dd")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18530,7 +18530,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5294417d-0592-44f5-a220-f0d1a1f873a0")
+            (uuid "0352345f-91b3-49aa-954d-fa7724636b58")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18540,17 +18540,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "04dd2996-cb07-43cf-ab7f-0c73751b4586")
+            (uuid "cfe076ed-45f3-4785-9b13-a0f9aa09f6e0")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[8]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9a63289a-e469-4783-bfff-a5cccc0e172e")
+            (uuid "37f7c2c0-14f6-43a9-b9b0-503a0c9a5d5e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18754,7 +18754,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "0d8dcfa4-48f6-4ab5-9587-0ac4cd7b036b")
+            (uuid "dc0e4d72-b3fd-4064-927d-cc5fe2eb3a30")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18764,17 +18764,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "562e6412-c32c-4245-baf1-31979d0d45c6")
+            (uuid "187187b2-d435-4eab-ba15-94f008388e5e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[6]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[6]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "5751b6b5-9484-476d-9e91-5ddc9ca2d6ad")
+            (uuid "f3b6e11c-2c92-4e48-9ae8-e302cb1b81e8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18978,7 +18978,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "079f0b10-b960-4ea1-a926-b5ef8721e002")
+            (uuid "a3e5350e-3613-4c74-aee8-ee2ce3e1acaf")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -18988,17 +18988,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "acdc4b7c-e8f3-45b9-9cd9-db4b4816f040")
+            (uuid "c427c0a9-27f0-4b31-ba74-85d06b8c4720")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_DRAM_1V1.runtime_anon[8]"
+        (property "atopile_name" "*A7C8.NVCC_DRAM_1V1.runtime_anon[8]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "374a9422-7836-4d71-88db-45c6f4a98c29")
+            (uuid "0df2f2e2-9397-45af-8935-6d0b2f82709a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19202,7 +19202,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9bbd418d-6c1b-4692-be12-b9e9d1faff36")
+            (uuid "3e891eae-9173-40e0-9946-a9a9ad22e349")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19212,17 +19212,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "8c61987f-3037-4ffe-991c-371abaa01cba")
+            (uuid "48e6b36a-8ab9-4795-87bd-f1e3b3829e48")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "61900e8f-c513-438c-8916-1452f249470c")
+            (uuid "d753e4e8-de8b-49e6-9ae7-2181538c4ce7")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19426,7 +19426,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3b010d72-7422-4f07-a073-fd724c666542")
+            (uuid "3f7d990f-613a-4c45-b398-e66707fc1973")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19436,17 +19436,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b00916b8-02c7-4a94-b3ef-5e5cce64f827")
+            (uuid "c0427fc9-ceb8-4782-9d92-8596a2492fcf")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_1V8.runtime_anon[10]"
+        (property "atopile_name" "*A7C8.VDD_1V8.runtime_anon[10]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "572cb4c0-4753-4163-9c1e-a61aa8eab564")
+            (uuid "8a3b84e9-4474-4a5c-8df3-807183ac1e08")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19650,7 +19650,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e7f5ed91-a803-4bd7-8f4f-02b8a496ee71")
+            (uuid "bb0a1a21-4142-4c3b-b07e-16c9371f9837")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19660,17 +19660,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a8dc6f59-6575-48ba-98cd-7f1e658b71cf")
+            (uuid "0fa0bb93-e78d-484a-8ea1-e0ad2c2129d8")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.NVCC_SD2.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.NVCC_SD2.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "20e9926d-ade1-41e6-9a93-ede5dd15960a")
+            (uuid "0cdf17c5-220f-4a24-9483-60825482d3cb")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19785,7 +19785,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 298 "*7668-net-15")
+            (net 298 "*A7C8-net-17")
             (uuid "722189a6-3ca9-4064-97cb-d135a75557ec"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -19874,7 +19874,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e4b2e835-96f0-4819-9992-f2958dcb0a00")
+            (uuid "0c7b862f-b172-461f-ad1f-ccb6eaf97183")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -19884,17 +19884,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "42e6993a-fcea-47de-8f77-3635f6608092")
+            (uuid "13ef3b3b-31f7-449d-b70e-521b39258fef")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9ae5e6e3-2659-47df-9819-f0dfbe55a39a")
+            (uuid "0e1b6057-93ce-49e7-89fb-c903a4df8a61")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20009,7 +20009,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "fbaaed02-b796-4a92-ba7c-b6fe2e9c2132"))
         (pad "2" smd rect
             (at 0.27 0 0)
@@ -20098,7 +20098,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "6a39317c-2c48-464b-ab74-346f8f13737d")
+            (uuid "028a84ef-13ad-4977-a4d3-b741a9115e8b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20108,17 +20108,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e421f23b-21aa-4223-b75e-001f7a0bfdab")
+            (uuid "26ae6707-4f3e-497d-b7d3-85a578b9d42e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_SOC_0V8.runtime_anon[5]"
+        (property "atopile_name" "*A7C8.VDD_SOC_0V8.runtime_anon[5]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "645535c6-4ae3-4d26-a0bc-7863aa1d0295")
+            (uuid "e9a0a0b4-05c8-4689-9568-5af46265fd85")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20233,7 +20233,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 297 "*7668-net-0")
+            (net 297 "*A7C8-net-0")
             (uuid "6dc01fda-9ed4-474b-8fd0-382a448509c1"))
         (pad "2" smd rect
             (at 0.27 0 180)
@@ -20322,7 +20322,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bb2099c6-585c-43fe-b63f-a9c951c45e2a")
+            (uuid "728a1b09-40e6-44b1-ab75-b4ccaf306fe9")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20332,17 +20332,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3966507c-2550-495f-b728-4cc39511e601")
+            (uuid "c34e15ca-81fd-4f2a-8ebd-9ce847303c3d")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_DRAM_0V9.runtime_anon[0]"
+        (property "atopile_name" "*A7C8.VDD_DRAM_0V9.runtime_anon[0]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "496dd76f-e075-4804-a9f1-fae782516382")
+            (uuid "4dac025b-a781-4875-a8f8-73874ffbd343")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20457,7 +20457,7 @@
             (size 0.79 0.54)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 18 "*7668-net-2")
+            (net 18 "*A7C8-net-1")
             (uuid "9fb6553a-f9b5-4be1-bddf-5817ac943dba"))
         (pad "2" smd rect
             (at 0.55 0 180)
@@ -20546,7 +20546,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c2f3ec78-cada-42bb-bb67-47eb23d2eaf4")
+            (uuid "cd147f24-795c-4e26-a34d-c89f3be5921b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20556,17 +20556,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "3e0d1bf5-68a5-457b-93d9-2d0beeb25ab0")
+            (uuid "e33abbe6-c65d-4af6-b190-f07783377b55")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.VDD_ARM_0V9.runtime_anon[3]"
+        (property "atopile_name" "*A7C8.VDD_ARM_0V9.runtime_anon[3]"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "9a403efe-e3a0-4d17-a4c2-a276c467b637")
+            (uuid "58534b6b-7dc6-494a-8821-bede309bbd8a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20681,7 +20681,7 @@
             (size 0.37 0.32)
             (layers "B.Cu" "B.Paste" "B.Mask")
             (remove_unused_layers no)
-            (net 301 "*7668-net-5")
+            (net 301 "*A7C8-net-3")
             (uuid "9ba59f2d-302a-453f-9f4f-711298c70550"))
         (pad "2" smd rect
             (at 0.27 0 270)
@@ -20725,17 +20725,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "e5b1d904-ba0e-4596-a707-d02934ce1cfa")
+            (uuid "b7140631-9f12-4b14-9ad1-45b40f7da366")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.DRAM_nRESET.pull_down"
+        (property "atopile_name" "*A7C8.DRAM_nRESET.pull_down"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "4453bfac-019d-420b-b040-f838c6c0f735")
+            (uuid "1bc995fb-4a1d-4489-9d9b-3e7152fe00c4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20745,7 +20745,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7571cd10-85bc-4c00-9db3-1b4675e93f9f")
+            (uuid "6eb98e3d-32fa-4243-93e7-a71a6ab4375d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20839,7 +20839,7 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 285 "*7668-net-6")
+            (net 285 "*A7C8-net-11")
             (uuid "dc15acc8-9485-4072-a262-37c3341d4cce"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -20876,17 +20876,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "fd3bf96c-31d4-4163-9b49-4d1e52f94ead")
+            (uuid "3ef34fa1-bc66-48ac-9c0e-b866f3c4668f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.ONOFF.pull_up"
+        (property "atopile_name" "*A7C8.ONOFF.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "829b2a9e-33c5-4a10-b81a-4965b05ea223")
+            (uuid "b5f333d8-768a-4921-83d5-136eb2e491c6")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20896,7 +20896,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "d45e06cb-0aa7-4152-bcda-8486d20407ea")
+            (uuid "ce173796-ae9c-49c1-bc28-ad02f5b497d5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -20983,14 +20983,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7668-hv")
+            (net 304 "*A7C8-hv")
             (uuid "24c91076-b96e-49ea-a9e9-8f716249cc7b"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 306 "*7668.ONOFF-signal")
+            (net 306 "*A7C8.ONOFF-signal")
             (uuid "fca1dfe5-5735-48bd-9db1-b1af5d43b168"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21027,17 +21027,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "bb2bf6ff-0c0d-4e81-9dda-c62ee1679428")
+            (uuid "ed6e0f12-e2eb-4628-bca6-a473678278dd")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C3.scl.pull_up"
+        (property "atopile_name" "*A7C8.I2C3.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "04572691-7842-4c7d-abdf-d26e15fc10e3")
+            (uuid "5414d909-6906-4855-b19b-45e21500d1b5")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21047,7 +21047,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a849dc6b-6dc3-4030-9f4f-a27b68f94d29")
+            (uuid "16e5b9c7-88f3-46c1-8fcb-6e8295bac920")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21134,14 +21134,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 291 "*7668.I2C3-hv")
+            (net 291 "*A7C8.I2C3-hv")
             (uuid "a4aaa845-7324-4836-86f7-fc90da81e012"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 188 "*7668-net-9")
+            (net 188 "*A7C8-net-2")
             (uuid "27cd553f-e4d6-4749-aec7-d3eaea5f6028"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21178,17 +21178,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "c7ef1416-7d21-43cd-bbfa-7429659b0798")
+            (uuid "fe363ed4-a67f-42f3-b82c-d08a7f334450")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C2.scl.pull_up"
+        (property "atopile_name" "*A7C8.I2C2.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "57891d27-3f75-4968-8082-fc6916b7771d")
+            (uuid "c34e64d9-e5f6-4859-a505-d25d72a1eb0d")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21198,7 +21198,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "26a4463a-c915-4700-8545-f8ed76822ed8")
+            (uuid "8e1843fd-189a-42a7-bd35-38a44d961730")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21285,14 +21285,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 156 "*7668.I2C2-hv")
+            (net 156 "*A7C8.I2C2-hv")
             (uuid "d42fc7f0-987a-4ee0-a8c1-2f28cc689168"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 295 "*7668-net-13")
+            (net 295 "*A7C8-net-9")
             (uuid "86de14ab-1780-4fa8-bf31-dba8fd9c5d7c"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21329,17 +21329,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "01caaad4-5d90-44c6-ae25-060384ecc4e0")
+            (uuid "b487a9c5-4892-468f-97ce-7cdb0717f797")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C3.sda.pull_up"
+        (property "atopile_name" "*A7C8.I2C3.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a9156d89-8219-42fd-b2e5-cc4fdf6d7971")
+            (uuid "b6d5e312-f1cf-4594-85dd-e207d33af11f")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21349,7 +21349,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b0df18c0-b3d9-4b81-b884-a9c75a1afe9a")
+            (uuid "d4c37856-81d1-465f-8398-e38e26002f4b")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21436,14 +21436,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 291 "*7668.I2C3-hv")
+            (net 291 "*A7C8.I2C3-hv")
             (uuid "0e7ed14b-7e49-47c7-9842-5362ceda7091"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 37 "*7668-net-14")
+            (net 37 "*A7C8-net-15")
             (uuid "d7c0b648-cd39-459d-a333-42450cbf4f7e"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21480,17 +21480,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "afd9d567-d978-4c25-8386-ddb9720da67e")
+            (uuid "179a852d-421e-4841-ab11-1c814289e371")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C2.sda.pull_up"
+        (property "atopile_name" "*A7C8.I2C2.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7cb5cab6-963d-4517-ad7b-3f2fb7ac699e")
+            (uuid "6e7c1815-bbad-408e-bb84-58415b835810")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21500,7 +21500,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "99c82f34-8a35-4b12-b42a-5e49230b247c")
+            (uuid "0c3de0af-2303-4cfe-afc9-1cb2cf2ae693")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21587,14 +21587,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 156 "*7668.I2C2-hv")
+            (net 156 "*A7C8.I2C2-hv")
             (uuid "626430ea-be88-46d6-876f-4e2248fadc95"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 116 "*7668-net-12")
+            (net 116 "*A7C8-net-18")
             (uuid "b6172243-25ca-4b2e-81b7-72033f559ed8"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21631,17 +21631,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "11b30223-6a97-4a66-9a49-fd0853e55dcd")
+            (uuid "20dec0e5-08f3-4a25-be22-0ef1b9c45b9f")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C4.sda.pull_up"
+        (property "atopile_name" "*A7C8.I2C4.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a9163afd-1a2c-4b11-9bf1-8a614a8e39ce")
+            (uuid "8d1300bb-bb7e-4815-8cff-423490f9af01")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21651,7 +21651,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ffbb678b-1f6a-4f37-a8fe-07e21540c2d6")
+            (uuid "03198023-ef7a-4f97-8354-a495b0ee0e57")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21738,14 +21738,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 305 "*7668.I2C4-hv")
+            (net 305 "*A7C8.I2C4-hv")
             (uuid "cca90476-029b-4275-b4f3-c3251b57a749"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 209 "*7668-net-16")
+            (net 209 "*A7C8-net-4")
             (uuid "552795a1-49ed-421d-af97-9621188bad85"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21782,17 +21782,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "15c479a2-063b-40c2-9f69-2596e648a4ff")
+            (uuid "d2ff2856-211a-4724-86f8-ea4aac539037")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C1.scl.pull_up"
+        (property "atopile_name" "*A7C8.I2C1.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "2d4c3120-8a8d-4b60-89b8-4b15d184a914")
+            (uuid "48af0c49-948e-49c2-9fbe-94bea9561fa4")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21802,7 +21802,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "ce665ab4-a4ae-4fcd-b16a-44433832027c")
+            (uuid "c4ba3082-8b26-4a16-b618-e59ab5b52986")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21889,14 +21889,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 286 "*7668.I2C1-hv")
+            (net 286 "*A7C8.I2C1-hv")
             (uuid "64feb7fe-3822-458d-926e-7c41c4836253"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "*7668-net-11")
+            (net 9 "*A7C8-net-14")
             (uuid "d58192d6-5625-43f3-ad97-423b557c26aa"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -21933,17 +21933,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "b42978f7-fc22-4cf8-be0c-f3bb788a2984")
+            (uuid "9e1f04c0-c6d4-49a4-a692-15db676e3465")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C4.scl.pull_up"
+        (property "atopile_name" "*A7C8.I2C4.scl.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "15ca8199-1d29-4988-ad2d-28538846d980")
+            (uuid "6f21d34f-7c9a-4ab8-a3c1-4e86a05a3c26")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -21953,7 +21953,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "7288005a-6e6c-46f3-b23e-21d1cc0eff7f")
+            (uuid "594ca6d1-2cf4-4db4-8178-35803db918ab")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22040,14 +22040,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 305 "*7668.I2C4-hv")
+            (net 305 "*A7C8.I2C4-hv")
             (uuid "54f45436-5de9-424e-ab07-6e24a9454db8"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 309 "*7668-net-17")
+            (net 309 "*A7C8-net-12")
             (uuid "e9cac624-9121-4c82-8ed2-64529d0dd8c4"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -22084,17 +22084,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "534838cb-86ea-4358-aa43-73878442de92")
+            (uuid "3366d6ff-2a79-4ca6-b3c3-4216e2a25b0e")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.I2C1.sda.pull_up"
+        (property "atopile_name" "*A7C8.I2C1.sda.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "68668f85-ce51-48bc-a3e7-62b74e089cf7")
+            (uuid "aeb81bf9-f10d-4384-8060-01509e586eb8")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22104,7 +22104,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "a708536a-4573-4d16-bdb8-4324d1cc0b74")
+            (uuid "97a7682d-5af4-42f8-b8c3-29f325939108")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22191,14 +22191,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 286 "*7668.I2C1-hv")
+            (net 286 "*A7C8.I2C1-hv")
             (uuid "989d18fd-7fce-479c-a962-6f8bf5c50144"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 310 "*7668-net-8")
+            (net 310 "*A7C8-net-16")
             (uuid "39ec9361-2722-48e9-a752-17353c350d9a"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -22235,17 +22235,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "792125b8-ac65-46d8-8955-966784f971d9")
+            (uuid "246b7c8f-4738-4db2-9e1e-6c6397593bd4")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.PMIC_ON_REQ.pull_up"
+        (property "atopile_name" "*A7C8.PMIC_ON_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "576b6249-8c4f-4dd1-8047-051cdfdab03f")
+            (uuid "c3191b88-751d-44fa-aafe-a4847a59611a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22255,7 +22255,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "18b3c7f1-7f1f-4ee2-a7b1-466bb30180de")
+            (uuid "22c4cb7c-3828-49a1-8148-945c30193889")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22342,14 +22342,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7668-hv")
+            (net 304 "*A7C8-hv")
             (uuid "b5006645-00a0-48de-a084-2b5f746d9a39"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 308 "*7668.PMIC_ON_REQ-signal")
+            (net 308 "*A7C8.PMIC_ON_REQ-signal")
             (uuid "49218492-a6a2-4b99-865d-18db40e31e2b"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -22386,17 +22386,17 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "45133c88-af3c-48e6-a99b-9372299e3c8c")
+            (uuid "6cc52103-e376-44e7-a3ce-145b1f08d723")
             (effects
                 (font
                     (size 1.27 1.27)
                     (thickness 0.15))
                 (hide yes)))
-        (property "atopile_name" "*7668.PMIC_STBY_REQ.pull_up"
+        (property "atopile_name" "*A7C8.PMIC_STBY_REQ.pull_up"
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "961c584b-b99b-4d13-8734-552be1807c4c")
+            (uuid "6597cdc3-e8af-4b85-9d52-f738f42c325e")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22406,7 +22406,7 @@
             (at 0 0 0)
             (layer "User.9")
             (hide no)
-            (uuid "35516361-3cc7-413c-abe0-bc3ea36efd58")
+            (uuid "24da06c1-3843-43b3-80e4-dd871939130a")
             (effects
                 (font
                     (size 1.27 1.27)
@@ -22493,14 +22493,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 304 "*7668-hv")
+            (net 304 "*A7C8-hv")
             (uuid "11ddd699-2722-4a13-a890-a3fc6332c6b8"))
         (pad "1" smd rect
             (at -0.24 0 0)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "*7668.PMIC_STBY_REQ-signal")
+            (net 2 "*A7C8.PMIC_STBY_REQ-signal")
             (uuid "e146ff31-e7ef-4524-90f9-953739e232ae"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset

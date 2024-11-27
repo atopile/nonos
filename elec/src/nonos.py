@@ -81,21 +81,71 @@ class App(Module):
         self.RAM.DRAM_ODT_CA_A.connect(self.IMX8.NVCC_DRAM_1V1)
         self.RAM.DRAM_ODT_CA_B.connect(self.IMX8.NVCC_DRAM_1V1)
 
-    # DRAM_DATA_A = times(16, F.ElectricLogic)  # Data
-    # DRAM_DATA_B = times(16, F.ElectricLogic)  # Data
-    # DRAM_DMI_A = times(2, F.ElectricLogic)  # Data mask (bit inversion)
-    # DRAM_DMI_B = times(2, F.ElectricLogic)  # Data mask (bit inversion)
-    # DRAM_SDQS_A = times(2, F.DifferentialPair)  # Data strobe (differential)
-    # DRAM_SDQS_B = times(2, F.DifferentialPair)  # Data strobe (differential)
-    # DRAM_CA_A = times(6, F.ElectricLogic)  # Command address
-    # DRAM_CA_B = times(6, F.ElectricLogic)  # Command address
-    # DRAM_CK_A: F.DifferentialPair  # Clock
-    # DRAM_CK_B: F.DifferentialPair  # Clock
-    # DRAM_CKE_A = times(2, F.ElectricLogic)  # Clock enable
-    # DRAM_CKE_B = times(2, F.ElectricLogic)  # Clock enable
-    # DRAM_nCS_A = times(2, F.ElectricLogic)  # Chip select
-    # DRAM_nCS_B = times(2, F.ElectricLogic)  # Chip select
-    # DRAM_nRESET: F.ElectricLogic  # Reset
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_DATA_A, self.IMX8.DRAM_DATA_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_DATA_A_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_DATA_B, self.IMX8.DRAM_DATA_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_DATA_B_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_DMI_A, self.IMX8.DRAM_DMI_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_DMI_A_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_DMI_B, self.IMX8.DRAM_DMI_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_DMI_B_{i}").part_of.connect(imx.signal)
+
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_SDQS_A, self.IMX8.DRAM_SDQS_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_SDQS_A_{i}_N").part_of.connect(imx.n.signal)
+            F.Net.with_name(f"DRAM_SDQS_A_{i}_P").part_of.connect(imx.p.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_SDQS_B, self.IMX8.DRAM_SDQS_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_SDQS_B_{i}_N").part_of.connect(imx.n.signal)
+            F.Net.with_name(f"DRAM_SDQS_B_{i}_P").part_of.connect(imx.p.signal)
+
+
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_CA_A, self.IMX8.DRAM_CA_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_CA_A_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_CA_B, self.IMX8.DRAM_CA_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_CA_B_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_CKE_A, self.IMX8.DRAM_CKE_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_CKE_A_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_CKE_B, self.IMX8.DRAM_CKE_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_CKE_B_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_nCS_A, self.IMX8.DRAM_nCS_A)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_nCS_A_{i}").part_of.connect(imx.signal)
+        
+        for i, (ram, imx) in enumerate(zip(self.RAM.DRAM_nCS_B, self.IMX8.DRAM_nCS_B)):
+            ram.connect(imx)
+            F.Net.with_name(f"DRAM_nCS_B_{i}").part_of.connect(imx.signal)
+
+        self.RAM.DRAM_CK_A.connect(self.IMX8.DRAM_CK_A)
+        self.RAM.DRAM_CK_B.connect(self.IMX8.DRAM_CK_B)
+
+        F.Net.with_name("DRAM_CK_A_N").part_of.connect(self.IMX8.DRAM_CK_A.n.signal)
+        F.Net.with_name("DRAM_CK_A_P").part_of.connect(self.IMX8.DRAM_CK_A.p.signal)
+        F.Net.with_name("DRAM_CK_B_N").part_of.connect(self.IMX8.DRAM_CK_B.n.signal)
+        F.Net.with_name("DRAM_CK_B_P").part_of.connect(self.IMX8.DRAM_CK_B.p.signal)
+        
+        self.RAM.DRAM_nRESET.connect(self.IMX8.DRAM_nRESET)
+        F.Net.with_name("DRAM_nRESET").part_of.connect(self.IMX8.DRAM_nRESET.signal)
+
+
+
+        # Net naming
 
         # ------------------------------------
         #          parametrization

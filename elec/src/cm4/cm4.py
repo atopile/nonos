@@ -7,6 +7,7 @@ from faebryk.libs.units import P  # noqa: F401
 
 # Interfaces
 from .HDMI import HDMI
+from .Ethernet import GigabitEthernet
 
 # Components
 from .HRSHirose_DF40C_100DS_0_4V51 import HRSHirose_DF40C_100DS_0_4V51
@@ -22,6 +23,7 @@ class CM4_MINIMAL(Module):
     # Interfaces
     hdmi0: HDMI
     hdmi1: HDMI
+    ethernet: GigabitEthernet
     usb2: F.USB2_0
     power_5v: F.ElectricPower
     power_3v3: F.ElectricPower
@@ -126,3 +128,19 @@ class CM4_MINIMAL(Module):
         for gpio_num, pin_num in gpio_mapping.items():
             self.gpio[gpio_num].connect(self.hdi_a.pins[pin_num])
 
+        # Ethernet
+        self.ethernet.pair1.p.connect(self.hdi_a.pins[4])
+        self.ethernet.pair1.n.connect(self.hdi_a.pins[6])
+        self.ethernet.pair0.n.connect(self.hdi_a.pins[10])
+        self.ethernet.pair0.p.connect(self.hdi_a.pins[12])
+        self.ethernet.pair3.p.connect(self.hdi_a.pins[3])
+        self.ethernet.pair3.n.connect(self.hdi_a.pins[5])
+        self.ethernet.pair2.n.connect(self.hdi_a.pins[9])
+        self.ethernet.pair2.p.connect(self.hdi_a.pins[11])
+
+        # Ethernet LED signals
+        self.ethernet.led_link.connect(self.hdi_a.pins[15])
+        self.ethernet.led_activity.connect(self.hdi_a.pins[17])
+
+
+        # Boot selection

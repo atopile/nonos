@@ -12,8 +12,14 @@ builds:
     entry: elec/src/processor/RAM.py:App
   emmc:
     entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
+  amplifier:
+    entry: elec/src/amplifier.ato:Amplifier
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'
   link_broken: true
   path: elec/src/generics
+- name: lv2842xlvddcr
+  version_spec: '@b2676b2f3315b39709fb498f429856e4725867eb'
+  link_broken: true
+  path: elec/src/lv2842xlvddcr

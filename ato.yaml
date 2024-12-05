@@ -12,6 +12,8 @@ builds:
     entry: elec/src/processor/RAM.py:App
   emmc:
     entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
+  cm4:
+    entry: elec/src/CM4/cm4.py:CM4_MINIMAL
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

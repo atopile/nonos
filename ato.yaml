@@ -1,7 +1,7 @@
 ato-version: ^0.2.0
 builds:
   default:
-    entry: elec/src/nonos.ato:Nonos
+    entry: elec/src/nonos.py:NONOS
   imx8:
     entry: elec/src/processor/imx8.py:App
   # pd-controller:

@@ -20,8 +20,9 @@ class GigabitEthernet(ModuleInterface):
     pair3: F.DifferentialPair  # Ethernet_Pair3_P/N
     
     # Status LEDs
-    led_activity: F.ElectricLogic  # Activity LED
+    led_speed: F.ElectricLogic  # Speed LED
     led_link: F.ElectricLogic     # Link LED
+
 
     @L.rt_field
     def single_electric_reference(self):

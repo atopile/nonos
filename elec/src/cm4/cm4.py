@@ -37,6 +37,7 @@ class CM4_MINIMAL(Module):
     power_1v8: F.ElectricPower
     gpio = L.list_field(28, F.ElectricLogic)
     i2s: I2S
+    i2c: F.I2C
 
     # Components
     hdi_a: HRSHirose_DF40C_100DS_0_4V51
@@ -54,44 +55,44 @@ class CM4_MINIMAL(Module):
         #           connections
         # ------------------------------------
         #HDMI0
-        self.hdmi0.data2.p.signal.connect(self.hdi_b.pins[69])  # HDMI0_D2_P, pin 170
-        self.hdmi0.data2.n.signal.connect(self.hdi_b.pins[71])  # HDMI0_D2_N, pin 172
-        self.hdmi0.data1.p.signal.connect(self.hdi_b.pins[75])  # HDMI0_D1_P, pin 176
-        self.hdmi0.data1.n.signal.connect(self.hdi_b.pins[77])  # HDMI0_D1_N, pin 178
-        self.hdmi0.data0.p.signal.connect(self.hdi_b.pins[81])  # HDMI0_D0_P, pin 182
-        self.hdmi0.data0.n.signal.connect(self.hdi_b.pins[83])  # HDMI0_D0_N, pin 184
+        self.hdmi0.data2.p.signal.connect(self.hdi_b.pins[69])
+        self.hdmi0.data2.n.signal.connect(self.hdi_b.pins[71])
+        self.hdmi0.data1.p.signal.connect(self.hdi_b.pins[75])
+        self.hdmi0.data1.n.signal.connect(self.hdi_b.pins[77])
+        self.hdmi0.data0.p.signal.connect(self.hdi_b.pins[81])
+        self.hdmi0.data0.n.signal.connect(self.hdi_b.pins[83])
 
         # Clock pair
-        self.hdmi0.clock.p.signal.connect(self.hdi_b.pins[87])  # HDMI0_CK_P, pin 188
-        self.hdmi0.clock.n.signal.connect(self.hdi_b.pins[89])  # HDMI0_CK_N, pin 190
+        self.hdmi0.clock.p.signal.connect(self.hdi_b.pins[87])
+        self.hdmi0.clock.n.signal.connect(self.hdi_b.pins[89])
 
         # I2C and control signals
-        self.hdmi0.i2c.scl.signal.connect(self.hdi_b.pins[99]) # HDMI0_SCL, pin 200
-        self.hdmi0.i2c.sda.signal.connect(self.hdi_b.pins[98])  # HDMI0_SDA, pin 199
-        self.hdmi0.cec.signal.connect(self.hdi_b.pins[50])      # HDMI0_CEC, pin 151
-        self.hdmi0.hotplug.signal.connect(self.hdi_b.pins[52])  # HDMI0_HOTPLUG, pin 153
+        self.hdmi0.i2c.scl.signal.connect(self.hdi_b.pins[99])
+        self.hdmi0.i2c.sda.signal.connect(self.hdi_b.pins[98])
+        self.hdmi0.cec.signal.connect(self.hdi_b.pins[50])
+        self.hdmi0.hotplug.signal.connect(self.hdi_b.pins[52])
         
         # HDMI1
-        self.hdmi1.data2.p.signal.connect(self.hdi_b.pins[67])  # HDMI0_D2_P, pin 168
-        self.hdmi1.data2.n.signal.connect(self.hdi_b.pins[69])  # HDMI0_D2_N, pin 170
-        self.hdmi1.data1.p.signal.connect(self.hdi_b.pins[75])  # HDMI0_D1_P, pin 176
-        self.hdmi1.data1.n.signal.connect(self.hdi_b.pins[77])  # HDMI0_D1_N, pin 178
-        self.hdmi1.data0.p.signal.connect(self.hdi_b.pins[81])  # HDMI0_D0_P, pin 182
-        self.hdmi1.data0.n.signal.connect(self.hdi_b.pins[83])  # HDMI0_D0_N, pin 184
+        self.hdmi1.data2.p.signal.connect(self.hdi_b.pins[45])
+        self.hdmi1.data2.n.signal.connect(self.hdi_b.pins[47])
+        self.hdmi1.data1.p.signal.connect(self.hdi_b.pins[51])
+        self.hdmi1.data1.n.signal.connect(self.hdi_b.pins[53])
+        self.hdmi1.data0.p.signal.connect(self.hdi_b.pins[57])
+        self.hdmi1.data0.n.signal.connect(self.hdi_b.pins[59])
 
         # Clock pair
-        self.hdmi1.clock.p.signal.connect(self.hdi_b.pins[87])  # HDMI0_CK_P, pin 188
-        self.hdmi1.clock.n.signal.connect(self.hdi_b.pins[89])  # HDMI0_CK_N, pin 190
+        self.hdmi1.clock.p.signal.connect(self.hdi_b.pins[63])
+        self.hdmi1.clock.n.signal.connect(self.hdi_b.pins[65])
 
         # I2C and control signals
-        self.hdmi1.i2c.scl.signal.connect(self.hdi_b.pins[46])      # HDMI0_SCL, pin 147
-        self.hdmi1.i2c.sda.signal.connect(self.hdi_b.pins[44])      # HDMI0_SDA, pin 145
-        self.hdmi1.cec.signal.connect(self.hdi_b.pins[48])      # HDMI0_CEC, pin 149
-        self.hdmi1.hotplug.signal.connect(self.hdi_b.pins[50])  # HDMI0_HOTPLUG, pin 151
+        self.hdmi1.i2c.scl.signal.connect(self.hdi_b.pins[46])
+        self.hdmi1.i2c.sda.signal.connect(self.hdi_b.pins[44])
+        self.hdmi1.cec.signal.connect(self.hdi_b.pins[48])
+        self.hdmi1.hotplug.signal.connect(self.hdi_b.pins[42])
 
         # USBS2
-        self.usb2.usb_if.d.p.signal.connect(self.hdi_b.pins[4])  # USB2_D_P, pin 10
-        self.usb2.usb_if.d.n.signal.connect(self.hdi_b.pins[2])  # USB2_D_N, pin 11
+        self.usb2.usb_if.d.p.signal.connect(self.hdi_b.pins[4])
+        self.usb2.usb_if.d.n.signal.connect(self.hdi_b.pins[2])
 
         # Power
         # 5V power pins
@@ -122,7 +123,7 @@ class CM4_MINIMAL(Module):
             self.power_5v.lv.connect(self.hdi_a.pins[pin])
 
         gnd_pins_hdi_b = [
-            6, 7, 12, 13, 18, 19, 24, 25, 30, 31, 36, 37, 42, 43, 54, 55,
+            6, 7, 12, 13, 18, 19, 24, 25, 30, 31, 36, 37, 43, 54, 55,
             60, 61, 66, 67, 72, 73, 78, 79, 84, 85, 90, 91, 96, 97
         ]
 
@@ -156,14 +157,18 @@ class CM4_MINIMAL(Module):
         self.ethernet.pair2.n.signal.connect(self.hdi_a.pins[8])
         self.ethernet.pair2.p.signal.connect(self.hdi_a.pins[10])
 
+        # Ethernet LED signals
+        self.ethernet.led_link.signal.connect(self.hdi_a.pins[14])
+        self.ethernet.led_speed.signal.connect(self.hdi_a.pins[16])
+
         # I2S
         self.i2s.sck.connect(self.gpio[18])
         self.i2s.ws.connect(self.gpio[19])
         self.i2s.sd.connect(self.gpio[21]) # output
 
-        # Ethernet LED signals
-        self.ethernet.led_link.signal.connect(self.hdi_a.pins[14])
-        self.ethernet.led_activity.signal.connect(self.hdi_a.pins[16])
+        # I2C
+        self.i2c.scl.signal.connect(self.hdi_a.pins[79])
+        self.i2c.sda.signal.connect(self.hdi_a.pins[81])
 
         # Boot selection
 
@@ -177,6 +182,50 @@ class CM4_MINIMAL(Module):
             low_side=True
         )
         self.power_led.cathode.connect(self.power_led_buffer.output.signal)
+
+        # Net name overrides
+        F.Net.with_name("VCC_5V").part_of.connect(self.power_5v.hv)
+        F.Net.with_name("VCC_3V3").part_of.connect(self.power_3v3.hv)
+        F.Net.with_name("VCC_1V8").part_of.connect(self.power_1v8.hv)
+        F.Net.with_name("GND").part_of.connect(self.power_5v.lv)
+        F.Net.with_name("SCL").part_of.connect(self.i2c.scl.signal)
+        F.Net.with_name("SDA").part_of.connect(self.i2c.sda.signal)
+        F.Net.with_name("HDMI0_D0_P").part_of.connect(self.hdmi0.data0.p.signal)
+        F.Net.with_name("HDMI0_D0_N").part_of.connect(self.hdmi0.data0.n.signal)
+        F.Net.with_name("HDMI0_D1_P").part_of.connect(self.hdmi0.data1.p.signal)
+        F.Net.with_name("HDMI0_D1_N").part_of.connect(self.hdmi0.data1.n.signal)
+        F.Net.with_name("HDMI0_D2_P").part_of.connect(self.hdmi0.data2.p.signal)
+        F.Net.with_name("HDMI0_D2_N").part_of.connect(self.hdmi0.data2.n.signal)
+        F.Net.with_name("HDMI0_CK_P").part_of.connect(self.hdmi0.clock.p.signal)
+        F.Net.with_name("HDMI0_CK_N").part_of.connect(self.hdmi0.clock.n.signal)
+        F.Net.with_name("HDMI0_CEC").part_of.connect(self.hdmi0.cec.signal)
+        F.Net.with_name("HDMI0_HOTPLUG").part_of.connect(self.hdmi0.hotplug.signal)
+        F.Net.with_name("HDMI1_D0_P").part_of.connect(self.hdmi1.data0.p.signal)
+        F.Net.with_name("HDMI1_D0_N").part_of.connect(self.hdmi1.data0.n.signal)
+        F.Net.with_name("HDMI1_D1_P").part_of.connect(self.hdmi1.data1.p.signal)
+        F.Net.with_name("HDMI1_D1_N").part_of.connect(self.hdmi1.data1.n.signal)
+        F.Net.with_name("HDMI1_D2_P").part_of.connect(self.hdmi1.data2.p.signal)
+        F.Net.with_name("HDMI1_D2_N").part_of.connect(self.hdmi1.data2.n.signal)
+        F.Net.with_name("HDMI1_CK_P").part_of.connect(self.hdmi1.clock.p.signal)
+        F.Net.with_name("HDMI1_CK_N").part_of.connect(self.hdmi1.clock.n.signal)
+        F.Net.with_name("HDMI1_CEC").part_of.connect(self.hdmi1.cec.signal)
+        F.Net.with_name("HDMI1_HOTPLUG").part_of.connect(self.hdmi1.hotplug.signal)
+        F.Net.with_name("USB2_D_P").part_of.connect(self.usb2.usb_if.d.p.signal)
+        F.Net.with_name("USB2_D_N").part_of.connect(self.usb2.usb_if.d.n.signal)
+        F.Net.with_name("ETH_P0_P").part_of.connect(self.ethernet.pair0.p.signal)
+        F.Net.with_name("ETH_P0_N").part_of.connect(self.ethernet.pair0.n.signal)
+        F.Net.with_name("ETH_P1_P").part_of.connect(self.ethernet.pair1.p.signal)
+        F.Net.with_name("ETH_P1_N").part_of.connect(self.ethernet.pair1.n.signal)
+        F.Net.with_name("ETH_P2_P").part_of.connect(self.ethernet.pair2.p.signal)
+        F.Net.with_name("ETH_P2_N").part_of.connect(self.ethernet.pair2.n.signal)
+        F.Net.with_name("ETH_P3_P").part_of.connect(self.ethernet.pair3.p.signal)
+        F.Net.with_name("ETH_P3_N").part_of.connect(self.ethernet.pair3.n.signal)
+        F.Net.with_name("ETH_LED_LINK").part_of.connect(self.ethernet.led_link.signal)
+        F.Net.with_name("ETH_LED_ACTIVITY").part_of.connect(self.ethernet.led_speed.signal)
+        F.Net.with_name("I2S_SCK").part_of.connect(self.i2s.sck.signal)
+        F.Net.with_name("I2S_WS").part_of.connect(self.i2s.ws.signal)
+        F.Net.with_name("I2S_SD").part_of.connect(self.i2s.sd.signal)
+        F.Net.with_name("PWR_LED").part_of.connect(self.power_led_buffer.input.signal)
 
         # ------------------------------------
         #          parametrization

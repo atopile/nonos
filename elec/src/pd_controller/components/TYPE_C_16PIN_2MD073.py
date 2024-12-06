@@ -74,8 +74,8 @@ class TYPE_C_16PIN_2MD073(Module):
         # ------------------------------------
         #          parametrization
         # ------------------------------------
-        self.CC1.reference.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
-        self.CC2.reference.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
-        self.SBU1.reference.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
-        self.SBU2.reference.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
-        self.POWER_VBUS.voltage.merge(F.Range(0 * P.V, 20 * P.V))
+        self.CC1.reference.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
+        self.CC2.reference.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
+        self.SBU1.reference.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
+        self.SBU2.reference.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
+        self.POWER_VBUS.voltage.constrain_subset(L.Range(0 * P.V, 20 * P.V))

@@ -22,6 +22,7 @@ class NONOS(Module):
     """
     processor: CM4_MINIMAL
     rj45: HANRUNZhongshan_HanRun_Elec_HR911130A
+    pd_controller: PDController
 
 
     def __preinit__(self):

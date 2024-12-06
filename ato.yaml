@@ -1,11 +1,11 @@
-ato-version: ^0.2.0
+ato-version: ^0.3.0
 builds:
   default:
     entry: elec/src/nonos.py:NONOS
-  imx8:
-    entry: elec/src/processor/imx8.py:App
-  # pd-controller:
-  #   entry: elec/src/USBPD/pd_controller.py:App
+  # imx8:
+  #   entry: elec/src/processor/imx8.py:App
+  pd-controller:
+    entry: elec/src/USBPD/pd_controller.py:PDController
   # pmic:
   #   entry: elec/src/processor/pmic.py:App
   # ram:

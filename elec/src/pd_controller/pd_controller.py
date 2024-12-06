@@ -60,7 +60,7 @@ class PDController(Module):
         self.USB_CONNECTOR.CC1.connect(self.PD_CONTROLLER.CC1, self.PD_CONTROLLER.CC1DB)
         self.USB_CONNECTOR.CC2.connect(self.PD_CONTROLLER.CC2, self.PD_CONTROLLER.CC2DB)
 
-        self.VBUS_VS_DISCH_R.resistance.merge(F.Range.from_center_rel(1 * P.kohm, 0.01))
+        self.VBUS_VS_DISCH_R.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
         self.VBUS_VS_DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VBUS.hv.connect_via(self.VBUS_VS_DISCH_R, self.PD_CONTROLLER.VBUS_VS_DISCH)
 
@@ -73,15 +73,15 @@ class PDController(Module):
         # Internal rail decoupling
         self.Vreg_2V7_CAP.unnamed[0].connect(self.PD_CONTROLLER.VREG_2V7.lv)
         self.Vreg_2V7_CAP.unnamed[1].connect(self.PD_CONTROLLER.VREG_2V7.hv)
-        self.Vreg_2V7_CAP.capacitance.merge(
+        self.Vreg_2V7_CAP.capacitance.constrain_subset(
             L.Range.from_center_rel(1 * P.uF, 0.2)
         )
         self.Vreg_2V7_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
         self.Vreg_1V2_CAP.unnamed[0].connect(self.PD_CONTROLLER.VREG_1V2.lv)
         self.Vreg_1V2_CAP.unnamed[1].connect(self.PD_CONTROLLER.VREG_1V2.hv)
-        self.Vreg_1V2_CAP.capacitance.merge(
-            F.Range.from_center_rel(1 * P.uF, 0.2)
+        self.Vreg_1V2_CAP.capacitance.constrain_subset(
+            L.Range.from_center_rel(1 * P.uF, 0.2)
         )
         self.Vreg_1V2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
@@ -93,9 +93,9 @@ class PDController(Module):
 
         self.VBUS_CAP.unnamed[0].connect(self.VBUS.lv)
         self.VBUS_CAP.unnamed[1].connect(self.VBUS.hv)
-        self.VBUS_CAP.capacitance.merge(L.Range.from_center_rel(4.7 * P.uF, 0.3))
+        self.VBUS_CAP.capacitance.constrain_subset(L.Range.from_center_rel(4.7 * P.uF, 0.3))
         self.VBUS_CAP.add(F.has_footprint_requirement_defined([("0603", 2)]))
-        self.VBUS_CAP.max_voltage.merge(F.Range(30 * P.V, float("inf") * P.V))
+        self.VBUS_CAP.max_voltage.constrain_subset(L.Range(30 * P.V, float("inf") * P.V))
 
         self.VBUS.connect(self.PD_CONTROLLER.VDD)
 
@@ -117,7 +117,7 @@ class PDController(Module):
         cc2.part_of.connect(self.PD_CONTROLLER.CC2.signal)
 
         # VSINK SWITCH
-        self.VSINK_MOSFET.channel_type.merge(F.MOSFET.ChannelType.P_CHANNEL)
+        self.VSINK_MOSFET.channel_type.constrain_subset(F.MOSFET.ChannelType.P_CHANNEL)
         self.VSINK_MOSFET.add(F.has_descriptive_properties_defined({"LCSC": "C471913"}))
         # VBUS to VSINK switching
         self.VBUS.hv.connect_via(self.VSINK_MOSFET, self.VSINK.hv)
@@ -127,15 +127,15 @@ class PDController(Module):
         self.VSINK_VCC.part_of.connect(self.VSINK.hv)
 
         # Gate pullup resistor divider
-        self.VSINK_GATE_R.resistance.merge(F.Range.from_center_rel(22 * P.kohm, 0.03))
+        self.VSINK_GATE_R.resistance.constrain_subset(L.Range.from_center_rel(22 * P.kohm, 0.03))
         self.VSINK_GATE_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VSINK_MOSFET.gate.connect_via(
             self.VSINK_GATE_R, self.PD_CONTROLLER.VBUS_EN_SNK
         )
 
         # Gate to drain pullup resistor
-        self.VSINK_GATE_PULLUP.resistance.merge(
-            F.Range.from_center_rel(100 * P.kohm, 0.02)
+        self.VSINK_GATE_PULLUP.resistance.constrain_subset(
+            L.Range.from_center_rel(100 * P.kohm, 0.02)
         )
         self.VSINK_GATE_PULLUP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VSINK_MOSFET.gate.connect_via(
@@ -143,13 +143,13 @@ class PDController(Module):
         )
 
         # Gate to source RC snubber
-        self.VSINK_GATE_SNUB_R.resistance.merge(
-            F.Range.from_center_rel(100 * P.ohm, 0.01)
+        self.VSINK_GATE_SNUB_R.resistance.constrain_subset(
+            L.Range.from_center_rel(100 * P.ohm, 0.01)
         )
         self.VSINK_GATE_SNUB_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
-        self.VSINK_GATE_SNUB_C.capacitance.merge(
-            F.Range.from_center_rel(100 * P.nF, 0.2)
+        self.VSINK_GATE_SNUB_C.capacitance.constrain_subset(
+            L.Range.from_center_rel(100 * P.nF, 0.2)
         )
         self.VSINK_GATE_SNUB_C.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
@@ -159,7 +159,7 @@ class PDController(Module):
         )
 
         # DISCH resistor
-        self.DISCH_R.resistance.merge(F.Range.from_center_rel(1 * P.kohm, 0.01))
+        self.DISCH_R.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
         self.DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VBUS.hv.connect_via(self.DISCH_R, self.PD_CONTROLLER.DISCH)
 
@@ -176,7 +176,7 @@ class PDController(Module):
             for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
                 if r is None:
                     continue
-                r.resistance.merge(F.Range.from_center_rel(4.7 * P.kohm, 0.03))
+                r.resistance.constrain_subset(L.Range.from_center_rel(4.7 * P.kohm, 0.03))
                 r.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
 
@@ -187,6 +187,6 @@ class PDController(Module):
         # ------------------------------------
         #          parametrization
         # ------------------------------------
-        self.VSINK.voltage.merge(F.Range(5 * P.V, 20 * P.V))
-        self.VMCU.voltage.merge(F.Range(0 * P.V, 3.6 * P.V))
-        self.VBUS.voltage.merge(F.Range(5 * P.V, 20 * P.V))
+        self.VSINK.voltage.constrain_subset(L.Range(5 * P.V, 20 * P.V))
+        self.VMCU.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
+        self.VBUS.voltage.constrain_subset(L.Range(5 * P.V, 20 * P.V))

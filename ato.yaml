@@ -5,7 +5,7 @@ builds:
   # imx8:
   #   entry: elec/src/processor/imx8.py:App
   pd-controller:
-    entry: elec/src/USBPD/pd_controller.py:PDController
+    entry: elec/src/pd_controller/pd_controller.py:PDController
   # pmic:
   #   entry: elec/src/processor/pmic.py:App
   # ram:

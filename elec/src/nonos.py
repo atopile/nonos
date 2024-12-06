@@ -14,6 +14,9 @@ from faebryk.libs.picker.picker import DescriptiveProperties
 # Components
 from .cm4.cm4 import CM4_MINIMAL
 from .cm4.HANRUNZhongshan_HanRun_Elec_HR911130A import HANRUNZhongshan_HanRun_Elec_HR911130A
+from .pd_controller.pd_controller import PDController
+
+
 logger = logging.getLogger(__name__)
 
 class NONOS(Module):
@@ -23,8 +26,17 @@ class NONOS(Module):
     processor: CM4_MINIMAL
     rj45: HANRUNZhongshan_HanRun_Elec_HR911130A
     pd_controller: PDController
+    # Regulator
+    # amplifier
+    # DSP
+    # 
+
+    power_vbus: F.ElectricPower
+    power_5v: F.ElectricPower
 
 
     def __preinit__(self):
+    
+
         self.rj45.ethernet.connect(self.processor.ethernet)
         self.rj45.power_led.connect(self.processor.power_3v3)

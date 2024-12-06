@@ -43,9 +43,8 @@ class PDController(Module):
 
     def __preinit__(self):
         # Tie gnd together
-        gnd = F.Net.with_name("GND")
-        gnd.part_of.connect(
-            self.VSINK.lv,
+        # gnd = F.Net.with_name("GND")
+        self.VSINK.lv.connect(
             self.VBUS.lv,
             self.VMCU.lv,
             self.PD_CONTROLLER.VDD.lv,
@@ -61,7 +60,7 @@ class PDController(Module):
         self.USB_CONNECTOR.CC2.connect(self.PD_CONTROLLER.CC2, self.PD_CONTROLLER.CC2DB)
 
         self.VBUS_VS_DISCH_R.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
-        self.VBUS_VS_DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.VBUS_VS_DISCH_R.add(F.has_package_requirement("0201"))
         self.VBUS.hv.connect_via(self.VBUS_VS_DISCH_R, self.PD_CONTROLLER.VBUS_VS_DISCH)
 
         # Output
@@ -76,14 +75,14 @@ class PDController(Module):
         self.Vreg_2V7_CAP.capacitance.constrain_subset(
             L.Range.from_center_rel(1 * P.uF, 0.2)
         )
-        self.Vreg_2V7_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.Vreg_2V7_CAP.add(F.has_package_requirement("0201"))
 
         self.Vreg_1V2_CAP.unnamed[0].connect(self.PD_CONTROLLER.VREG_1V2.lv)
         self.Vreg_1V2_CAP.unnamed[1].connect(self.PD_CONTROLLER.VREG_1V2.hv)
         self.Vreg_1V2_CAP.capacitance.constrain_subset(
             L.Range.from_center_rel(1 * P.uF, 0.2)
         )
-        self.Vreg_1V2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.Vreg_1V2_CAP.add(F.has_package_requirement("0201"))
 
         # Regulator rail net naming
         vreg_2v7 = F.Net.with_name("VREG_2V7")
@@ -94,7 +93,7 @@ class PDController(Module):
         self.VBUS_CAP.unnamed[0].connect(self.VBUS.lv)
         self.VBUS_CAP.unnamed[1].connect(self.VBUS.hv)
         self.VBUS_CAP.capacitance.constrain_subset(L.Range.from_center_rel(4.7 * P.uF, 0.3))
-        self.VBUS_CAP.add(F.has_footprint_requirement_defined([("0603", 2)]))
+        self.VBUS_CAP.add(F.has_package_requirement("0603"))
         self.VBUS_CAP.max_voltage.constrain_subset(L.Range(30 * P.V, float("inf") * P.V))
 
         self.VBUS.connect(self.PD_CONTROLLER.VDD)
@@ -128,7 +127,7 @@ class PDController(Module):
 
         # Gate pullup resistor divider
         self.VSINK_GATE_R.resistance.constrain_subset(L.Range.from_center_rel(22 * P.kohm, 0.03))
-        self.VSINK_GATE_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.VSINK_GATE_R.add(F.has_package_requirement("0201"))
         self.VSINK_MOSFET.gate.connect_via(
             self.VSINK_GATE_R, self.PD_CONTROLLER.VBUS_EN_SNK
         )
@@ -137,7 +136,7 @@ class PDController(Module):
         self.VSINK_GATE_PULLUP.resistance.constrain_subset(
             L.Range.from_center_rel(100 * P.kohm, 0.02)
         )
-        self.VSINK_GATE_PULLUP.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.VSINK_GATE_PULLUP.add(F.has_package_requirement("0201"))
         self.VSINK_MOSFET.gate.connect_via(
             self.VSINK_GATE_PULLUP, self.VSINK_MOSFET.drain
         )
@@ -146,12 +145,12 @@ class PDController(Module):
         self.VSINK_GATE_SNUB_R.resistance.constrain_subset(
             L.Range.from_center_rel(100 * P.ohm, 0.01)
         )
-        self.VSINK_GATE_SNUB_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.VSINK_GATE_SNUB_R.add(F.has_package_requirement("0201"))
 
         self.VSINK_GATE_SNUB_C.capacitance.constrain_subset(
             L.Range.from_center_rel(100 * P.nF, 0.2)
         )
-        self.VSINK_GATE_SNUB_C.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.VSINK_GATE_SNUB_C.add(F.has_package_requirement("0201"))
 
         # Connect RC snubber between gate and source
         self.VSINK_MOSFET.gate.connect_via(
@@ -160,7 +159,7 @@ class PDController(Module):
 
         # DISCH resistor
         self.DISCH_R.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
-        self.DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
+        self.DISCH_R.add(F.has_package_requirement("0201"))
         self.VBUS.hv.connect_via(self.DISCH_R, self.PD_CONTROLLER.DISCH)
 
         # I2C nets
@@ -177,7 +176,7 @@ class PDController(Module):
                 if r is None:
                     continue
                 r.resistance.constrain_subset(L.Range.from_center_rel(4.7 * P.kohm, 0.03))
-                r.add(F.has_footprint_requirement_defined([("0201", 2)]))
+                r.add(F.has_package_requirement("0201"))
 
 
         F.ElectricLogic.connect_all_node_references(

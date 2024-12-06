@@ -5,7 +5,7 @@ import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
-
+from faebryk.core.parameter import R
 # Interfaces
 from .HDMI import HDMI
 from .Ethernet import GigabitEthernet
@@ -301,9 +301,9 @@ class CM4_MINIMAL(Module):
         # ------------------------------------
         #          parametrization
         # ------------------------------------
-        self.power_5v.voltage.merge(F.Range.from_center_rel(5 * P.V, 0.05))
-        self.power_3v3.voltage.merge(F.Range.from_center_rel(3.3 * P.V, 0.05))
-        self.power_1v8.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.power_5v.voltage.constrain_subset(L.Range.from_center_rel(5 * P.V, 0.05))
+        self.power_3v3.voltage.constrain_subset(L.Range.from_center_rel(3.3 * P.V, 0.05))
+        self.power_1v8.voltage.constrain_subset(L.Range.from_center_rel(1.8 * P.V, 0.05))
 
         self.power_3v3.connect(
             F.ElectricLogic.connect_all_node_references(
@@ -313,8 +313,8 @@ class CM4_MINIMAL(Module):
         )
 
         if self.gpio_ref_voltage == GPIO_Ref_Voltages.V1_8:
-            self.gpio_ref.voltage.merge(self.power_1v8.voltage)
+            self.gpio_ref.voltage.constrain_subset(self.power_1v8.voltage)
             self.gpio_ref.connect(self.power_1v8)
         else:
-            self.gpio_ref.voltage.merge(self.power_3v3.voltage)
+            self.gpio_ref.voltage.constrain_subset(self.power_3v3.voltage)
             self.gpio_ref.connect(self.power_3v3)

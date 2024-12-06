@@ -4,26 +4,24 @@ import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.brightness import TypicalLuminousIntensity
 from faebryk.libs.units import P  # noqa: F401
+from faebryk.libs.library import L  # noqa: F401
 
 # Components
 from .components.TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
 from .components.STUSB4500 import STUSB4500QTR
 from .components.ESDA25W import ESDA25W
 from .components.ESDA25P35_1U1M import ESDA25P35_1U1M
-from .components.XT30 import XT30PW
-from .components.STEMMA import STEMMA_RIGHT_ANGLE
 
 
-class App(Module):
+class PDController(Module):
     PD_CONTROLLER: STUSB4500QTR
     USB_CONNECTOR: TYPE_C_16PIN_2MD073
     ESD_CC: ESDA25W
     VSINK_MOSFET: F.MOSFET
-    XT30PW: XT30PW
-    STEMMA: STEMMA_RIGHT_ANGLE
-    # VSYNC_LED: F.PoweredLED
-    # PDO2_LED: F.PoweredLED
-    # PDO3_LED: F.PoweredLED
+
+    power_vbus: F.ElectricPower
+    power_mcu: F.ElectricPower
+    i2c: F.I2C
 
     # Passive components
     VBUS_VS_DISCH_R: F.Resistor
@@ -66,31 +64,17 @@ class App(Module):
         self.VBUS_VS_DISCH_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.VBUS.hv.connect_via(self.VBUS_VS_DISCH_R, self.PD_CONTROLLER.VBUS_VS_DISCH)
 
-        # Output connector
-        self.XT30PW.power.connect(self.VSINK)
-
-        # LEDs
-        # self.VSYNC_LED.power.connect(self.VSINK)
-        # self.PDO2_LED.power.connect(self.VSINK)
-        # self.PDO3_LED.power.connect(self.VSINK)
-
-        # for led in [self.VSYNC_LED, self.PDO2_LED, self.PDO3_LED]:
-        #     led.led.color.merge(F.LED.Color.BLUE)
-        #     led.add(F.has_footprint_requirement_defined([("0402", 2)]))
-        #     led.led.brightness.merge(
-        #         TypicalLuminousIntensity.APPLICATION_LED_INDICATOR_INSIDE.value.value
-        #     )
+        # Output
+        self.power_vbus.connect(self.VSINK)
 
         # I2C
-        self.STEMMA.i2c.connect(self.I2C)
-        self.PD_CONTROLLER
-        self.STEMMA.power.connect(self.VMCU)
+        self.i2c.connect(self.PD_CONTROLLER.I2C)
 
         # Internal rail decoupling
         self.Vreg_2V7_CAP.unnamed[0].connect(self.PD_CONTROLLER.VREG_2V7.lv)
         self.Vreg_2V7_CAP.unnamed[1].connect(self.PD_CONTROLLER.VREG_2V7.hv)
         self.Vreg_2V7_CAP.capacitance.merge(
-            F.Range.from_center_rel(1 * P.uF, 0.2)
+            L.Range.from_center_rel(1 * P.uF, 0.2)
         )
         self.Vreg_2V7_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
@@ -109,9 +93,9 @@ class App(Module):
 
         self.VBUS_CAP.unnamed[0].connect(self.VBUS.lv)
         self.VBUS_CAP.unnamed[1].connect(self.VBUS.hv)
-        self.VBUS_CAP.capacitance.merge(F.Range.from_center_rel(4.7 * P.uF, 0.3))
+        self.VBUS_CAP.capacitance.merge(L.Range.from_center_rel(4.7 * P.uF, 0.3))
         self.VBUS_CAP.add(F.has_footprint_requirement_defined([("0603", 2)]))
-        self.VBUS_CAP.rated_voltage.merge(F.Range(30 * P.V, float("inf") * P.V))
+        self.VBUS_CAP.max_voltage.merge(F.Range(30 * P.V, float("inf") * P.V))
 
         self.VBUS.connect(self.PD_CONTROLLER.VDD)
 

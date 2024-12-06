@@ -26,3 +26,4 @@ class NONOS(Module):
 
     def __preinit__(self):
         self.rj45.ethernet.connect(self.processor.ethernet)
+        self.rj45.power_led.connect(self.processor.power_3v3)

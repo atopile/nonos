@@ -7,6 +7,7 @@ import faebryk.library._F as F
 from faebryk.core.moduleinterface import ModuleInterface
 from faebryk.libs.library import L
 from faebryk.libs.units import P
+from faebryk.core.parameter import R
 from faebryk.libs.util import cast_assert
 
 logger = logging.getLogger(__name__)
@@ -17,8 +18,8 @@ class I2S(ModuleInterface):
     ws: F.ElectricLogic    # Word Select (Left/Right Clock)
     sck: F.ElectricLogic   # Serial Clock
 
-    sample_rate: F.TBD
-    bit_depth: F.TBD
+    sample_rate = L.p_field(units=P.hertz, domain=R.Domains.Numbers.NATURAL())
+    bit_depth = L.p_field(units=P.bit, domain=R.Domains.Numbers.NATURAL())
 
     @L.rt_field
     def single_electric_reference(self):

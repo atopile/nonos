@@ -78,6 +78,20 @@ class _HANRUNZhongshan_HanRun_Elec_HR911130A(Module):
             }
         )
 
+    def __preinit__(self):
+        # Connections
+        self.link_led.led.led.cathode.connect(self.unnamed[2])
+        self.link_led.led.led.anode.connect(self.unnamed[3])
+        self.speed_led.led.led.cathode.connect(self.unnamed[0])
+        self.speed_led.led.led.anode.connect(self.unnamed[1])
+        
+        # Parameters
+        self.link_led.led.led.color.merge(F.LED.Color.GREEN)
+        self.link_led.led.led.forward_voltage.merge(2.1 * P.V)
+        self.link_led.led.led.max_current.merge(10 * P.mA)
+        self.speed_led.led.led.color.merge(F.LED.Color.YELLOW)
+        self.speed_led.led.led.forward_voltage.merge(2.1 * P.V)
+        self.speed_led.led.led.max_current.merge(10 * P.mA)
 
 class HANRUNZhongshan_HanRun_Elec_HR911130A(Module):
     """
@@ -103,6 +117,13 @@ class HANRUNZhongshan_HanRun_Elec_HR911130A(Module):
         # link and speed LEDs
         self.ethernet.led_link.connect(self.connector.link_led.logic_in)
         self.ethernet.led_speed.connect(self.connector.speed_led.logic_in)
+
+        # Hack resistor values
+        self.connector.link_led.led.current_limiting_resistor.resistance.merge(F.Range.from_center_rel(470 * P.ohm, 0.3))
+        self.connector.speed_led.led.current_limiting_resistor.resistance.merge(F.Range.from_center_rel(470 * P.ohm, 0.3))
+        
+        # self.connector.link_led.led.current_limiting_resistor.add(F.has_footprint_requirement_defined([("0402", 2)]))
+        # self.connector.speed_led.led.current_limiting_resistor.add(F.has_footprint_requirement_defined([("0402", 2)]))
 
         # shield
         self.ethernet.single_electric_reference.get_reference().lv.connect(

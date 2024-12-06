@@ -21,8 +21,8 @@ module TAS5825MRHBR:
     signal pdn
 
     # Power
-    power_pvdd.voltage = 5V to 24V
-    power_dvdd.voltage = 3.3V +/- 10%
+    # power_pvdd.voltage = 5V to 24V
+    # power_dvdd.voltage = 3.3V +/- 10%
 
     # Common ground (cant we all just get along?)
     signal gnd

@@ -3,14 +3,14 @@ from "components/TAS5825MRHBR.ato" import TAS5825MRHBR
 from "lv2842xlvddcr/lv2842kit.ato" import LV2842Kit
 
 module Amplifier:
-	"""
-	Eval board for the TAS5825MRHBR amplifier.
-	- USB PD (20V)
-	- Onboard 5V and 3V3 regulators
-	- RPI HAT form factor
-	- I2S input
-	- Two channel audio output ()
-	"""
+    """
+    Eval board for the TAS5825MRHBR amplifier.
+    - USB PD (20V)
+    - Onboard 5V and 3V3 regulators
+    - RPI HAT form factor
+    - I2S input
+    - Two channel audio output ()
+    """
     power_input = new ElectricPower
     power_3v3 = new ElectricPower
 

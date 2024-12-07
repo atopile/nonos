@@ -1,4 +1,4 @@
-ato-version: ^0.2.0
+ato-version: ^0.3.0
 builds:
   default:
     entry: elec/src/nonos.ato:Nonos
@@ -12,8 +12,10 @@ builds:
     entry: elec/src/processor/RAM.py:App
   emmc:
     entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
+  amplifier-ato:
+    entry: elec/src/components/TAS5825MRHBR.ato:TAS5825MRHBR
   amplifier:
-    entry: elec/src/amplifier.ato:Amplifier
+    entry: elec/src/amplifier/Texas_Instruments_TAS5825MRHBR.py:Texas_Instruments_TAS5825MRHBR
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

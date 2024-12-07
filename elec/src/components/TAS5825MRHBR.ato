@@ -1,14 +1,13 @@
-from "generics/interfaces.ato" import DiffPair, I2S
-import ElectricPower
-import Capacitor
-import Resistor
-import Inductor
-import I2C
+from "generics/interfaces.ato" import DiffPair, I2S, Power
+from "generics/capacitors.ato" import Capacitor
+from "generics/resistors.ato" import Resistor
+from "generics/inductors.ato" import Inductor
+from "generics/i2c.ato" import I2C
 
 module TAS5825MRHBR:
     ic = new _TAS5825MRHBR
-    power_pvdd = new ElectricPower
-    power_dvdd = new ElectricPower
+    power_pvdd = new Power
+    power_dvdd = new Power
     i2c = new I2C
     i2s = new I2S
     out_a = new DiffPair
@@ -54,12 +53,12 @@ module TAS5825MRHBR:
     power_pvdd_cap_5.package = "0805"
     power_pvdd_cap_6.package = "0805"
 
-    power_pvdd_cap_1.rated_voltage = 30V to 100V
-    power_pvdd_cap_2.rated_voltage = 30V to 100V
-    power_pvdd_cap_3.rated_voltage = 30V to 100V
-    power_pvdd_cap_4.rated_voltage = 30V to 100V
-    power_pvdd_cap_5.rated_voltage = 30V to 100V
-    power_pvdd_cap_6.rated_voltage = 30V to 100V
+    power_pvdd_cap_1.max_voltage = 30V to 100V
+    power_pvdd_cap_2.max_voltage = 30V to 100V
+    power_pvdd_cap_3.max_voltage = 30V to 100V
+    power_pvdd_cap_4.max_voltage = 30V to 100V
+    power_pvdd_cap_5.max_voltage = 30V to 100V
+    power_pvdd_cap_6.max_voltage = 30V to 100V
 
     power_pvdd_cap_1.power ~ power_pvdd
     power_pvdd_cap_2.power ~ power_pvdd
@@ -72,8 +71,8 @@ module TAS5825MRHBR:
     power_dvdd_cap_1 = new Capacitor
     power_dvdd_cap_2 = new Capacitor
 
-    power_dvdd_cap_1.value = 4.7uF +/- 20%
-    power_dvdd_cap_2.value = 100nF +/- 20%
+    power_dvdd_cap_1.capacitance = 4.7uF +/- 20%
+    power_dvdd_cap_2.capacitance = 100nF +/- 20%
 
     power_dvdd_cap_1.package = "0603"
     power_dvdd_cap_2.package = "0603"
@@ -103,10 +102,10 @@ module TAS5825MRHBR:
     warn_pullup = new Resistor
     pdn_pullup = new Resistor
 
-    fault_pullup.resistance = 10k +/- 5%
-    mute_pullup.resistance = 10k +/- 5%
-    warn_pullup.resistance = 10k +/- 5%
-    pdn_pullup.resistance = 10k +/- 5%
+    fault_pullup.resistance = 10kohm +/- 5%
+    mute_pullup.resistance = 10kohm +/- 5%
+    warn_pullup.resistance = 10kohm +/- 5%
+    pdn_pullup.resistance = 10kohm +/- 5%
 
     fault_pullup.package = "0402"
     mute_pullup.package = "0402"
@@ -129,7 +128,7 @@ module TAS5825MRHBR:
     # +---------------+----------------+----------------+
 
     address_resistor = new Resistor
-    address_resistor.resistance = 0R
+    address_resistor.resistance = 0ohm
     address_resistor.package = "0402"
     ic.ADR ~ address_resistor.1; address_resistor.2 ~ power_dvdd.gnd
 
@@ -196,20 +195,20 @@ module OutputStage:
     output.n ~ output_cap_neg.1; output_cap_neg.2 ~ input.gnd
 
     # Configure parts
-    inductor_pos.value = 10uH +/- 10%
-    inductor_neg.value = 10uH +/- 10%
-    inductor_pos.rated_current = 4A to 6A
-    inductor_neg.rated_current = 4A to 6A
-    bst_cap_pos.value = 470nF +/- 10%
-    bst_cap_neg.value = 470nF +/- 10%
-    bst_cap_pos.rated_voltage = 30V to 100V
-    bst_cap_neg.rated_voltage = 30V to 100V
+    inductor_pos.inductance = 10uH +/- 10%
+    inductor_neg.inductance = 10uH +/- 10%
+    inductor_pos.max_current = 4A to 6A
+    inductor_neg.max_current = 4A to 6A
+    bst_cap_pos.capacitance = 470nF +/- 10%
+    bst_cap_neg.capacitance = 470nF +/- 10%
+    bst_cap_pos.max_voltage = 30V to 100V
+    bst_cap_neg.max_voltage = 30V to 100V
     bst_cap_pos.package = "0603"
     bst_cap_neg.package = "0603"
-    output_cap_pos.value = 680nF +/- 10%
-    output_cap_neg.value = 680nF +/- 10%
-    output_cap_pos.rated_voltage = 30V to 100V
-    output_cap_neg.rated_voltage = 30V to 100V
+    output_cap_pos.capacitance = 680nF +/- 10%
+    output_cap_neg.capacitance = 680nF +/- 10%
+    output_cap_pos.max_voltage = 30V to 100V
+    output_cap_neg.max_voltage = 30V to 100V
     output_cap_pos.package = "0805"
     output_cap_neg.package = "0805"
 

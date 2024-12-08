@@ -2,16 +2,18 @@ ato-version: ^0.3.0
 builds:
   default:
     entry: elec/src/nonos.ato:Nonos
-  imx8:
-    entry: elec/src/processor/imx8.py:App
+  # imx8:
+  #   entry: elec/src/processor/imx8.py:App
   # pd-controller:
   #   entry: elec/src/USBPD/pd_controller.py:App
-  pmic:
-    entry: elec/src/processor/pmic.py:App
-  ram:
-    entry: elec/src/processor/RAM.py:App
-  emmc:
-    entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
+  # pmic:
+  #   entry: elec/src/processor/pmic.py:App
+  # ram:
+  #   entry: elec/src/processor/RAM.py:App
+  # emmc:
+  #   entry: elec/src/processor/eMMC.py:Samsung_KLMBG2JETD_B041
+  regulator:
+    entry: elec/src/power-supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

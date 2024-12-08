@@ -1,8 +1,0 @@
-(fp_lib_table 
-    (version 7)
-    (lib
-        (name "lcsc")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../../src/kicad/libs/footprints/lcsc.pretty")
-        (options "")
-        (descr "FBRK: LCSC footprints auto-downloaded")))

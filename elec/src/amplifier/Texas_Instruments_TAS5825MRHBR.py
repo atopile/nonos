@@ -198,6 +198,8 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
     def __preinit__(self):
 
+        # Connect all references
+
         # Connect output stages
         self.amplifier.OUT_Aplus.connect(self.output_stage_a.input.p.signal)
         self.amplifier.OUT_A_.connect(self.output_stage_a.input.n.signal)
@@ -210,6 +212,9 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         self.output_stage_a.output.connect(self.output_a)
         self.output_stage_b.output.connect(self.output_b)
+
+        self.output_stage_a.reference.connect(self.power_dvdd)
+        self.output_stage_b.reference.connect(self.power_dvdd)
 
         # Decoupling capacitors
         # PVDD decoupling
@@ -241,6 +246,20 @@ class Texas_Instruments_TAS5825MRHBR(Module):
             cap.add(F.has_package_requirement(props["footprint"]))
             cap.capacitance.constrain_subset(L.Range.from_center_rel(props["value"], 0.2))
             DVDD_CAPS.append(cap)
+        
+        # Net naming
+        F.Net.with_name("PVDD").part_of.connect(self.power_pvdd.hv)
+        F.Net.with_name("DVDD").part_of.connect(self.power_dvdd.hv)
+        F.Net.with_name("GND").part_of.connect(self.power_pvdd.lv)
+
+        # Power
+        self.power_pvdd.hv.connect(self.amplifier.PVDD)
+        self.power_dvdd.hv.connect(self.amplifier.DVDD)
+        self.power_pvdd.lv.connect(self.amplifier.PGND,
+                                   self.power_dvdd.lv,
+                                   self.amplifier.AGND,
+                                   self.amplifier.DGND,
+                                   self.amplifier.EP)
 
         # I2C
         self.i2c.scl.signal.connect(self.amplifier.SCL)
@@ -264,13 +283,7 @@ class Texas_Instruments_TAS5825MRHBR(Module):
             assert pullup is not None
             pullup.add(F.has_package_requirement("0402"))
             pullup.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
- 
-        # References
-        self.power_dvdd.connect(
-            F.ElectricLogic.connect_all_node_references(
-                nodes=[self.i2c, self.i2s, self.fault, self.mute, self.warn, self.pdn]
-            )
-        )
+
 
         # Decoupling for internal thing
         self.amplifier.VR_DIG.connect_via(self.vr_dig_cap, self.power_pvdd.lv)

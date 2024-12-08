@@ -15,6 +15,8 @@ from faebryk.libs.picker.picker import DescriptiveProperties
 from .cm4.cm4 import CM4_MINIMAL
 from .cm4.HANRUNZhongshan_HanRun_Elec_HR911130A import HANRUNZhongshan_HanRun_Elec_HR911130A
 from .pd_controller.pd_controller import PDController
+from .amplifier.Texas_Instruments_TAS5825MRHBR import Texas_Instruments_TAS5825MRHBR
+from .power_supply.Texas_Instruments_TPS56637RPAR import Texas_Instruments_TPS56637RPAR
 
 
 logger = logging.getLogger(__name__)
@@ -26,7 +28,8 @@ class NONOS(Module):
     processor: CM4_MINIMAL
     rj45: HANRUNZhongshan_HanRun_Elec_HR911130A
     pd_controller: PDController
-    # Regulator
+    regulator: Texas_Instruments_TPS56637RPAR
+    amplifier: Texas_Instruments_TAS5825MRHBR
     # amplifier
     # DSP
     # 

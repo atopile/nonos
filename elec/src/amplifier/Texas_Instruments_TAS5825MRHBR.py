@@ -250,7 +250,7 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         # Net naming
         F.Net.with_name("PVDD").part_of.connect(self.power_pvdd.hv)
         F.Net.with_name("DVDD").part_of.connect(self.power_dvdd.hv)
-        F.Net.with_name("GND").part_of.connect(self.power_pvdd.lv)
+        # F.Net.with_name("GND").part_of.connect(self.power_pvdd.lv)
 
         # Power
         self.power_pvdd.hv.connect(self.amplifier.PVDD)

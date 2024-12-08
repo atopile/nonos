@@ -287,14 +287,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 26 "net-1")
+            (net 23 "net-3")
             (uuid "9fc425d2-a8be-42e2-886a-1feba27daa63"))
         (pad "2" smd rect
             (at 0.24 0 270)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 24 "net-4")
+            (net 20 "net")
             (uuid "972aaee8-d4cb-4c65-82fa-9c8c0d33a22a"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -497,7 +497,7 @@
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 1 "USB_CONNECTOR-signal-1")
+            (net 2 "USB_CONNECTOR-signal")
             (uuid "1a91d475-c99e-477b-8f34-60a6b53fcb5b"))
         (pad "4" smd rect
             (at -1.25 -2.38 270)
@@ -511,35 +511,35 @@
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "USB_CONNECTOR-net-1")
+            (net 4 "USB_CONNECTOR-net")
             (uuid "83eaf8a2-b3c1-4851-b642-b0bb780be614"))
         (pad "6" smd rect
             (at -0.25 -2.38 270)
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 4 "USB_CONNECTOR-net")
+            (net 3 "USB_CONNECTOR-net-1")
             (uuid "dfe03e88-aa9c-4e86-a5a0-6ccb0ba071c3"))
         (pad "7" smd rect
             (at 0.25 -2.38 270)
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "USB_CONNECTOR-net-1")
+            (net 4 "USB_CONNECTOR-net")
             (uuid "ef9f5afc-a0ed-4905-baeb-8f3f54bb181b"))
         (pad "8" smd rect
             (at 0.75 -2.38 270)
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 4 "USB_CONNECTOR-net")
+            (net 3 "USB_CONNECTOR-net-1")
             (uuid "d52db5e3-0f65-4b19-ab4b-a01f94bfc511"))
         (pad "9" smd rect
             (at 1.25 -2.38 270)
             (size 0.3 1.1)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "USB_CONNECTOR-signal")
+            (net 1 "USB_CONNECTOR-signal-1")
             (uuid "42a95c7e-bde2-4dfe-bd58-d9d94c8066f7"))
         (pad "10" smd rect
             (at 1.75 -2.38 270)
@@ -831,7 +831,7 @@
             (size 0.28 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 23 "net-3")
+            (net 26 "net-1")
             (uuid "1884dbc2-1918-4234-8b21-43208cfbdda4"))
         (pad "10" smd oval
             (at 2 -0.25 0)
@@ -880,7 +880,7 @@
             (size 0.28 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 24 "net-4")
+            (net 20 "net")
             (uuid "00c3fba3-19f9-4b6b-b255-4a6908e52a95"))
         (pad "17" smd oval
             (at -0.75 -2 90)
@@ -1345,7 +1345,7 @@
             (size 0.37 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 20 "net")
+            (net 24 "net-4")
             (uuid "6cd7629e-b468-410d-9968-435cfd7b484d"))
         (pad "2" smd rect
             (at 0.27 0 90)
@@ -2018,14 +2018,14 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 26 "net-1")
+            (net 23 "net-3")
             (uuid "5d5fd16a-9ae0-438e-b608-0bee3d027592"))
         (pad "2" smd rect
             (at 0.24 0 90)
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 20 "net")
+            (net 24 "net-4")
             (uuid "e7d7b310-fd55-4713-a9eb-445459a390d4"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -2405,7 +2405,7 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 26 "net-1")
+            (net 23 "net-3")
             (uuid "7e535428-ae3c-48a7-ae74-027594dacbaf"))
         (pad "2" smd rect
             (at 0.24 0 90)
@@ -2764,7 +2764,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "1µF ±20% 6.3V X5R"
+        (property "Value" ""
             (at 0 4 90)
             (layer "F.Fab")
             (hide no)
@@ -2972,7 +2972,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" ""
+        (property "Value" "1µF ±20% 6.3V X5R"
             (at 0 4 90)
             (layer "F.Fab")
             (hide no)
@@ -3329,7 +3329,7 @@
             (size 0.3 0.32)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 23 "net-3")
+            (net 26 "net-1")
             (uuid "43105e64-4b83-4468-b476-f7ed2c454049"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0201_L0.6-W0.3-H0.3.wrl"
             (offset
@@ -3464,7 +3464,7 @@
             (size 1.25 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 26 "net-1")
+            (net 23 "net-3")
             (uuid "22b73d3e-4a97-46cb-871e-49f4278dfdff"))
         (pad "2" smd rect
             (at 1 -0.95 0)

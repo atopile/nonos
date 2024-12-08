@@ -1,0 +1,262 @@
+from "generics/interfaces.ato" import DiffPair, I2S, Power
+from "generics/capacitors.ato" import Capacitor
+from "generics/resistors.ato" import Resistor
+from "generics/inductors.ato" import Inductor
+from "generics/i2c.ato" import I2C
+
+module TAS5825MRHBR:
+    ic = new _TAS5825MRHBR
+    power_pvdd = new Power
+    power_dvdd = new Power
+    i2c = new I2C
+    i2s = new I2S
+    out_a = new DiffPair
+    out_b = new DiffPair
+
+    # Signals
+    signal fault
+    signal mute
+    signal warn
+    signal pdn
+
+    # Power
+    # power_pvdd.voltage = 5V to 24V
+    # power_dvdd.voltage = 3.3V +/- 10%
+
+    # Common ground (cant we all just get along?)
+    signal gnd
+    gnd ~ power_pvdd.gnd
+    gnd ~ power_dvdd.gnd
+    gnd ~ ic.AGND
+    gnd ~ ic.DGND
+    gnd ~ ic.EP
+
+    # PVDD decoupling capacitors - Analog
+    power_pvdd_cap_1 = new Capacitor
+    power_pvdd_cap_2 = new Capacitor
+    power_pvdd_cap_3 = new Capacitor
+    power_pvdd_cap_4 = new Capacitor
+    power_pvdd_cap_5 = new Capacitor
+    power_pvdd_cap_6 = new Capacitor
+
+    power_pvdd_cap_1.capacitance = 22uF +/- 20%
+    power_pvdd_cap_2.capacitance = 22uF +/- 20%
+    power_pvdd_cap_3.capacitance = 22uF +/- 20%
+    power_pvdd_cap_4.capacitance = 100nF +/- 20%
+    power_pvdd_cap_5.capacitance = 100nF +/- 20%
+    power_pvdd_cap_6.capacitance = 100nF +/- 20%
+
+    power_pvdd_cap_1.package = "0805"
+    power_pvdd_cap_2.package = "0805"
+    power_pvdd_cap_3.package = "0805"
+    power_pvdd_cap_4.package = "0805"
+    power_pvdd_cap_5.package = "0805"
+    power_pvdd_cap_6.package = "0805"
+
+    power_pvdd_cap_1.max_voltage = 30V to 100V
+    power_pvdd_cap_2.max_voltage = 30V to 100V
+    power_pvdd_cap_3.max_voltage = 30V to 100V
+    power_pvdd_cap_4.max_voltage = 30V to 100V
+    power_pvdd_cap_5.max_voltage = 30V to 100V
+    power_pvdd_cap_6.max_voltage = 30V to 100V
+
+    power_pvdd_cap_1.power ~ power_pvdd
+    power_pvdd_cap_2.power ~ power_pvdd
+    power_pvdd_cap_3.power ~ power_pvdd
+    power_pvdd_cap_4.power ~ power_pvdd
+    power_pvdd_cap_5.power ~ power_pvdd
+    power_pvdd_cap_6.power ~ power_pvdd
+
+    # DVDD decoupling capacitors - Digital
+    power_dvdd_cap_1 = new Capacitor
+    power_dvdd_cap_2 = new Capacitor
+
+    power_dvdd_cap_1.capacitance = 4.7uF +/- 20%
+    power_dvdd_cap_2.capacitance = 100nF +/- 20%
+
+    power_dvdd_cap_1.package = "0603"
+    power_dvdd_cap_2.package = "0603"
+
+    power_dvdd_cap_1.power ~ power_dvdd
+    power_dvdd_cap_2.power ~ power_dvdd
+
+    # Control signals
+    # I2C
+    i2c.scl ~ ic.SCL
+    i2c.sda ~ ic.SDA
+
+    # I2S signals
+    i2s.sck ~ ic.SCLK
+    i2s.ws ~ ic.LRCLK
+    i2s.sd ~ ic.SDIN
+
+    # Control signals
+    fault ~ ic.GPIO0
+    mute ~ ic.GPIO1
+    warn ~ ic.GPIO2
+    pdn ~ ic.PDN_hash
+
+    # Pullups for control signals
+    fault_pullup = new Resistor
+    mute_pullup = new Resistor
+    warn_pullup = new Resistor
+    pdn_pullup = new Resistor
+
+    fault_pullup.resistance = 10kohm +/- 5%
+    mute_pullup.resistance = 10kohm +/- 5%
+    warn_pullup.resistance = 10kohm +/- 5%
+    pdn_pullup.resistance = 10kohm +/- 5%
+
+    fault_pullup.package = "0402"
+    mute_pullup.package = "0402"
+    warn_pullup.package = "0402"
+    pdn_pullup.package = "0402"
+
+    fault ~ fault_pullup.1; fault_pullup.2 ~ power_dvdd.vcc
+    mute_pullup.1 ~ mute; mute_pullup.2 ~ power_dvdd.vcc
+    warn_pullup.1 ~ warn; warn_pullup.2 ~ power_dvdd.vcc
+    pdn_pullup.1 ~ pdn; pdn_pullup.2 ~ power_dvdd.vcc
+
+    # Address resistor
+    # +---------------+----------------+----------------+
+    # | ADR Resistor  | Write Address | Read Address  |
+    # +---------------+----------------+----------------+
+    # |     0 Ω      |     0x98      |     0x99      |
+    # |     1 kΩ     |     0x99      |     0x9A      |
+    # |    4.7 kΩ    |     0x9A      |     0x9B      |
+    # |    15 kΩ     |     0x9B      |     0x9C      |
+    # +---------------+----------------+----------------+
+
+    address_resistor = new Resistor
+    address_resistor.resistance = 0ohm
+    address_resistor.package = "0402"
+    ic.ADR ~ address_resistor.1; address_resistor.2 ~ power_dvdd.gnd
+
+    # Decoupling for internal things
+    vr_dig_cap = new Capacitor
+    gvdd_cap = new Capacitor
+    avdd_cap = new Capacitor
+
+    vr_dig_cap.capacitance = 1uF +/- 10%
+    gvdd_cap.capacitance = 1uF +/- 10%
+    avdd_cap.capacitance = 1uF +/- 10%
+
+    vr_dig_cap.package = "0402"
+    gvdd_cap.package = "0402"
+    avdd_cap.package = "0402"
+
+    ic.VR_DIG ~ vr_dig_cap.1; vr_dig_cap.2 ~ power_dvdd.gnd
+    ic.GVDD ~ gvdd_cap.1; gvdd_cap.2 ~ power_dvdd.gnd
+    ic.AVDD ~ avdd_cap.1; avdd_cap.2 ~ power_dvdd.gnd
+
+    # Output stages
+    output_stage_a = new OutputStage
+    output_stage_b = new OutputStage
+
+    # Output stage A
+    gnd ~ output_stage_a.input.gnd
+    ic.OUT_A_plus ~ output_stage_a.output.p
+    ic.OUT_A_minus ~ output_stage_a.output.n
+    ic.BST_A_plus ~ output_stage_a.output.bst_p
+    ic.BST_A_minus ~ output_stage_a.output.bst_n
+    out_a ~ output_stage_a.output
+
+    # Output stage B
+    gnd ~ output_stage_b.input.gnd
+    ic.OUT_B_plus ~ output_stage_b.output.p
+    ic.OUT_B_minus ~ output_stage_b.output.n
+    ic.BST_B_plus ~ output_stage_b.output.bst_p
+    ic.BST_B_minus ~ output_stage_b.output.bst_n
+    out_b ~ output_stage_b.output
+
+
+module OutputStage:
+    input = new OutputStageIF
+    output = new DiffPair
+    inductor_pos = new Inductor
+    inductor_neg = new Inductor
+    bst_cap_pos = new Capacitor
+    bst_cap_neg = new Capacitor
+    output_cap_pos = new Capacitor
+    output_cap_neg = new Capacitor
+
+    # Connections
+
+    # output inductors
+    input.p ~ inductor_pos.1; inductor_pos.2 ~ output.p
+    input.n ~ inductor_neg.1; inductor_neg.2 ~ output.n
+
+    # bootstrap caps
+    input.bst_p ~ bst_cap_pos.1; bst_cap_pos.2 ~ input.p
+    input.bst_n ~ bst_cap_neg.1; bst_cap_neg.2 ~ input.n
+
+    # output caps
+    output.p ~ output_cap_pos.1; output_cap_pos.2 ~ input.gnd
+    output.n ~ output_cap_neg.1; output_cap_neg.2 ~ input.gnd
+
+    # Configure parts
+    inductor_pos.inductance = 10uH +/- 10%
+    inductor_neg.inductance = 10uH +/- 10%
+    inductor_pos.max_current = 4A to 6A
+    inductor_neg.max_current = 4A to 6A
+    bst_cap_pos.capacitance = 470nF +/- 10%
+    bst_cap_neg.capacitance = 470nF +/- 10%
+    bst_cap_pos.max_voltage = 30V to 100V
+    bst_cap_neg.max_voltage = 30V to 100V
+    bst_cap_pos.package = "0603"
+    bst_cap_neg.package = "0603"
+    output_cap_pos.capacitance = 680nF +/- 10%
+    output_cap_neg.capacitance = 680nF +/- 10%
+    output_cap_pos.max_voltage = 30V to 100V
+    output_cap_neg.max_voltage = 30V to 100V
+    output_cap_pos.package = "0805"
+    output_cap_neg.package = "0805"
+
+
+interface OutputStageIF:
+    signal p
+    signal n
+    signal bst_p
+    signal bst_n
+    signal gnd
+
+
+component _TAS5825MRHBR:
+    # component TAS5825MRHBR
+    footprint = "VQFN-32_L5.0-W5.0-P0.50-TL-EP"
+    lcsc_id = "C471049"
+    mpn = "C471049"
+    # pins
+    signal BST_A_plus ~ pin 1
+    signal OUT_A_plus ~ pin 2
+    signal PVDD ~ pin 3
+    PVDD ~ pin 4
+    signal DGND ~ pin 5
+    signal DVDD ~ pin 6
+    signal VR_DIG ~ pin 7
+    signal ADR ~ pin 8
+    signal GPIO0 ~ pin 9
+    signal GPIO1 ~ pin 10
+    signal GPIO2 ~ pin 11
+    signal LRCLK ~ pin 12
+    signal SCLK ~ pin 13
+    signal SDIN ~ pin 14
+    signal SDA ~ pin 15
+    signal SCL ~ pin 16
+    signal PDN_hash ~ pin 17
+    signal GVDD ~ pin 18
+    signal AVDD ~ pin 19
+    signal AGND ~ pin 20
+    PVDD ~ pin 21
+    PVDD ~ pin 22
+    signal OUT_B_plus ~ pin 23
+    signal BST_B_plus ~ pin 24
+    signal PGND ~ pin 25
+    PGND ~ pin 26
+    signal OUT_B_minus ~ pin 27
+    signal BST_B_minus ~ pin 28
+    signal BST_A_minus ~ pin 29
+    signal OUT_A_minus ~ pin 30
+    PGND ~ pin 31
+    PGND ~ pin 32
+    signal EP ~ pin 33

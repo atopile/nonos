@@ -91,8 +91,8 @@ class STUSB4500QTR(Module):
         )
 
     def __preinit__(self):
-        self.VREG_1V2.voltage.merge(F.Range(1.1 * P.V, 1.3 * P.V))
-        self.VREG_2V7.voltage.merge(F.Range(2.6 * P.V, 2.8 * P.V))
+        self.VREG_1V2.voltage.constrain_subset(L.Range(1.1 * P.V, 1.3 * P.V))
+        self.VREG_2V7.voltage.constrain_subset(L.Range(2.6 * P.V, 2.8 * P.V))
 
         self.VDD.lv.connect(
             self.VREG_2V7.lv, self.VREG_1V2.lv, self.EP, self.RESET, self.VSYS, self.NC

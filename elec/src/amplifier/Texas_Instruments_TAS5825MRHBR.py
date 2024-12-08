@@ -135,24 +135,23 @@ class OutputStage(Module):
     output_cap_neg: F.Capacitor
 
     def __preinit__(self):
-
         # Connections
         self.input.p.signal.connect_via(self.inductor_pos, self.output.p.signal)
         self.input.n.signal.connect_via(self.inductor_neg, self.output.n.signal)
 
-        self.input.p.signal.connect_via(self.bootstrap_pos, self.output.p.signal)
-        self.input.n.signal.connect_via(self.bootstrap_neg, self.output.n.signal)
+        self.bootstrap.p.signal.connect_via(self.bootstrap_pos, self.input.p.signal)
+        self.bootstrap.n.signal.connect_via(self.bootstrap_neg, self.input.n.signal)
 
         self.output.p.signal.connect_via(self.output_cap_pos, self.reference.lv)
         self.output.n.signal.connect_via(self.output_cap_neg, self.reference.lv)
 
         # Parameterize
-        self.inductor_pos.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
-        self.inductor_neg.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
-        self.inductor_pos.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
-        self.inductor_neg.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
-        self.inductor_pos.add(F.has_descriptive_properties_defined({"lcsc": "C167223"}))
-        self.inductor_neg.add(F.has_descriptive_properties_defined({"lcsc": "C167223"}))
+        # self.inductor_pos.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
+        # self.inductor_neg.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
+        # self.inductor_pos.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
+        # self.inductor_neg.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
+        self.inductor_pos.add(F.has_descriptive_properties_defined({"LCSC": "C167223"}))
+        self.inductor_neg.add(F.has_descriptive_properties_defined({"LCSC": "C167223"}))
 
         self.bootstrap_pos.capacitance.constrain_subset(L.Range.from_center_rel(470 * P.nF, 0.1))
         self.bootstrap_neg.capacitance.constrain_subset(L.Range.from_center_rel(470 * P.nF, 0.1))
@@ -204,6 +203,10 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         self.amplifier.OUT_A_.connect(self.output_stage_a.input.n.signal)
         self.amplifier.OUT_Bplus.connect(self.output_stage_b.input.p.signal)
         self.amplifier.OUT_B_.connect(self.output_stage_b.input.n.signal)
+        self.amplifier.BST_Aplus.connect(self.output_stage_a.bootstrap.p.signal)
+        self.amplifier.BST_A_.connect(self.output_stage_a.bootstrap.n.signal)
+        self.amplifier.BST_Bplus.connect(self.output_stage_b.bootstrap.p.signal)
+        self.amplifier.BST_B_.connect(self.output_stage_b.bootstrap.n.signal)
 
         self.output_stage_a.output.connect(self.output_a)
         self.output_stage_b.output.connect(self.output_b)

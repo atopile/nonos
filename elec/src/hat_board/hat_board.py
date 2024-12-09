@@ -38,7 +38,7 @@ class HatBoard(Module):
         
         # Connect LEDs in series
         for i in range(len(self.leds)-1):
-            self.leds[i].output.connect(self.leds[i+1].input)
+            self.leds[i].output.connect(self.leds[i+1].input) 
 
         # Board to board connector
         self.power_3v3.connect(self.board_to_board_connector.power_3v3, self.nfc.power_3v3)
@@ -46,8 +46,11 @@ class HatBoard(Module):
         self.board_to_board_connector.hat_led_data.connect(self.leds[0].input.data)
 
         # NFC
-        
-        
+        self.board_to_board_connector.i2c.connect(self.nfc.i2c)
+        self.nfc.antenna_output.connect(self.hat_button_antenna.antenna)
+        self.nfc.interrupt.connect(self.board_to_board_connector.hat_nfc_irq)
+        self.nfc.reset.connect(self.board_to_board_connector.hat_reset)
+
 
         # Net naming
         F.Net.with_name("led_data").part_of.connect(self.board_to_board_connector.hat_led_data.signal)

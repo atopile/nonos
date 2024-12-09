@@ -142,6 +142,8 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
     tx2_series_capacitor: F.Capacitor
     tx1_decouple_capacitor: F.Capacitor
     tx2_decouple_capacitor: F.Capacitor
+    tx1_mid_decouple_capacitor: F.Capacitor
+    tx2_mid_decouple_capacitor: F.Capacitor
     rx_capacitor: F.Capacitor
     rx_resistor: F.Resistor
     vmid_resistor: F.Resistor
@@ -213,10 +215,11 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         vmid_cap = self.power_vmid.decoupled.decouple()
         vmid_cap.add(F.has_package_requirement("0402"))
         vmid_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
+        self.nfc_ic.VMID.connect_via(vmid_cap, self.power_vmid.lv)
 
         POWER_TVDD_CAP_PROPERTIES = [
             {"value": 10 * P.uF, "footprint": "0603"},
-            {"value": 100 * P.nF, "footprint": "0401"},
+            {"value": 100 * P.nF, "footprint": "0402"},
         ]
 
         POWER_TVDD_CAPS = []
@@ -230,7 +233,7 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
 
         POWER_DVDD_CAP_PROPERTIES = [
             {"value": 10 * P.uF, "footprint": "0603"},
-            {"value": 100 * P.nF, "footprint": "0401"},
+            {"value": 100 * P.nF, "footprint": "0402"},
         ]
 
         POWER_DVDD_CAPS = []
@@ -246,13 +249,15 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         tx1_mid = F.Net.with_name("tx_1_mid")
         tx1_mid.part_of.connect_via(self.tx1_series_capacitor, self.antenna_output.p.signal)
         tx1_mid.part_of.connect_via(self.tx1_inductor, self.nfc_ic.TX1)
-        tx1_mid.part_of.connect_via(self.tx1_decouple_capacitor, self.power_tvdd.lv)
+        tx1_mid.part_of.connect_via(self.tx1_mid_decouple_capacitor, self.power_tvdd.lv)
+        self.antenna_output.p.signal.connect_via(self.tx1_decouple_capacitor, self.power_tvdd.lv)
 
         tx2_mid = F.Net.with_name("tx_2_mid")
         tx2_mid.part_of.connect_via(self.tx2_series_capacitor, self.antenna_output.n.signal)
         tx2_mid.part_of.connect_via(self.tx2_inductor, self.nfc_ic.TX2)
-        tx2_mid.part_of.connect_via(self.tx2_decouple_capacitor, self.power_tvdd.lv)
+        tx2_mid.part_of.connect_via(self.tx2_mid_decouple_capacitor, self.power_tvdd.lv)
         tx2_mid.part_of.connect_via([self.rx_capacitor, self.rx_resistor], self.nfc_ic.RX)
+        self.antenna_output.n.signal.connect_via(self.tx2_decouple_capacitor, self.power_tvdd.lv)
 
         self.power_vmid.hv.connect_via(self.vmid_resistor, self.nfc_ic.RX)
 
@@ -277,5 +282,25 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.nfc_ic.OSCOUT.connect(self.oscillator.xtal_if.xout)
         self.oscillator.xtal_if.gnd.connect(self.power_3v3.lv)
         self.oscillator.crystal.add(F.has_descriptive_properties_defined({"LCSC": "C70591"}))
-        # self.oscillator.crystal.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.crystal.unnamed[0], "2": self.oscillator.crystal.unnamed[1]}))
+        self.oscillator.crystal.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.crystal.unnamed[0], "3": self.oscillator.crystal.unnamed[1], "2": self.oscillator.crystal.gnd, "4": self.oscillator.crystal.gnd}))
         self.oscillator.crystal.add(F.has_designator_prefix_defined("XTAL"))
+
+        # Antenna parameters
+        self.tx1_inductor.add(F.has_descriptive_properties_defined({"LCSC": "C91630"}))
+        self.tx2_inductor.add(F.has_descriptive_properties_defined({"LCSC": "C91630"}))
+        self.tx1_series_capacitor.add(F.has_package_requirement("0402"))
+        self.tx2_series_capacitor.add(F.has_package_requirement("0402"))
+        self.tx1_series_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(22 * P.pF, 0.2))
+        self.tx2_series_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(22 * P.pF, 0.2))
+        self.tx1_mid_decouple_capacitor.add(F.has_package_requirement("0402"))
+        self.tx2_mid_decouple_capacitor.add(F.has_package_requirement("0402"))
+        self.tx1_mid_decouple_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(220 * P.pF, 0.2))
+        self.tx2_mid_decouple_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(220 * P.pF, 0.2))
+        self.tx1_decouple_capacitor.add(F.has_package_requirement("0402"))
+        self.tx2_decouple_capacitor.add(F.has_package_requirement("0402"))
+        self.tx1_decouple_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.pF, 0.2))
+        self.tx2_decouple_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.pF, 0.2))
+        self.rx_capacitor.add(F.has_package_requirement("0402"))
+        self.rx_capacitor.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
+        self.rx_resistor.add(F.has_package_requirement("0402"))
+        self.rx_resistor.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.2))

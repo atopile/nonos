@@ -11,7 +11,7 @@ builds:
     entry: 
       elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
   nfc:
-    entry: elec/src/nfc/hat_board/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
+    entry: elec/src/hat_board/nfc/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
   capacative-sensor:
     entry: elec/src/hat_board/capacative-sensor.py:CapacativeSensor
   hat-board:

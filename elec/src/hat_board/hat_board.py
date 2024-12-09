@@ -11,6 +11,7 @@ from faebryk.libs.units import P  # noqa: F401
 from .nfc.NXP_Semicon_PN5321A3HN_C106_51 import NXP_Semicon_PN5321A3HN_C106_51
 from .TE_Connectivity_1_2328702_0 import BoardToBoardConnector
 from .OPSCO_Optoelectronics_SK6805SIDE_G_001 import OPSCO_Optoelectronics_SK6805SIDE_G_001
+from .Hat_Button_Antenna import HatButtonAntenna
 # from .capacative_sensor.
 
 logger = logging.getLogger(__name__)
@@ -25,6 +26,7 @@ class HatBoard(Module):
 
     nfc: NXP_Semicon_PN5321A3HN_C106_51
     board_to_board_connector: BoardToBoardConnector
+    hat_button_antenna: HatButtonAntenna
     leds = L.list_field(23, OPSCO_Optoelectronics_SK6805SIDE_G_001)
     # capacitive_sensor: 
 
@@ -38,10 +40,14 @@ class HatBoard(Module):
         for i in range(len(self.leds)-1):
             self.leds[i].output.connect(self.leds[i+1].input)
 
-        # Connect first LED
+        # Board to board connector
         self.power_3v3.connect(self.board_to_board_connector.power_3v3, self.nfc.power_3v3)
         self.power_5v.connect(self.leds[0].input.power, self.board_to_board_connector.power_5v)
         self.board_to_board_connector.hat_led_data.connect(self.leds[0].input.data)
+
+        # NFC
+        
+        
 
         # Net naming
         F.Net.with_name("led_data").part_of.connect(self.board_to_board_connector.hat_led_data.signal)

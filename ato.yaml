@@ -11,9 +11,11 @@ builds:
     entry: 
       elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
   nfc:
-    entry: elec/src/nfc.ato:Nfc
+    entry: elec/src/nfc/hat_board/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
   capacative-sensor:
-    entry: elec/src/capacative-sensor.ato:CapacativeSensor
+    entry: elec/src/hat_board/capacative-sensor.py:CapacativeSensor
+  hat-board:
+    entry: elec/src/hat_board/hat_board.py:HatBoard
 dependencies:
 - name: generics
   version_spec: '@2b1dae37e5d4978345d7fa372efb5f512e4cd187'

@@ -49,6 +49,8 @@ class CM4_MINIMAL(Module):
     power_3v3_led: F.LED
     power_1v8_led: F.LED
     power_5v_led: F.LED
+    activity_led: F.LED
+    activity_led_resistor: F.Resistor
 
     def __init__(
         self, gpio_ref_voltage: GPIO_Ref_Voltages = GPIO_Ref_Voltages.V3_3
@@ -251,6 +253,9 @@ class CM4_MINIMAL(Module):
         self.power_led_buffer.output.signal.connect_via(
             [self.power_led, self.power_led_resistor], self.power_3v3.hv
         )
+
+        # Activity LED
+        self.power_3v3.hv.connect_via([self.activity_led, self.activity_led_resistor], self.hdi_a.pins[20])
 
         self.power_3v3_led.connect_via_current_limiting_resistor_to_power(
             F.Resistor(), self.power_3v3, low_side=True

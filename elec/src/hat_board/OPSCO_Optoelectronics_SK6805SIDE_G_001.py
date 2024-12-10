@@ -69,7 +69,6 @@ class SK6805Interface(ModuleInterface):
     power: F.ElectricPower
     data: F.ElectricLogic
 
-
 class OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
     """
     SMD,1.3x3.5mm RGB LEDs(Built-in IC) ROHS

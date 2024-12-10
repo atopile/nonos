@@ -121,6 +121,13 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
 
     capacitive_sensor: _Microchip_Tech_CAP1188_1_CP_TR
 
+    @L.rt_field
+    def single_electric_reference(self):
+        return F.has_single_electric_reference_defined(
+            F.ElectricLogic.connect_all_module_references(self)
+        )   
+
+
     def __preinit__(self):
 
         # Power 
@@ -136,6 +143,7 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
         self.i2c.scl.signal.connect(self.capacitive_sensor.SMCLK_BC_CLK_SPI_CLK)
         self.reset.signal.connect(self.capacitive_sensor.RESET)
         self.interrupt.signal.connect(self.capacitive_sensor.ALERTh_BC_IRQh)
+        self.address.signal.connect(self.capacitive_sensor.ADDR_COMM)
 
         self.i2c.terminate()
 

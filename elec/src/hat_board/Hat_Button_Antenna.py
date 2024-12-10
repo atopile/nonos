@@ -27,10 +27,7 @@ class HatButtonAntenna(Module):
         F.has_designator_prefix.Prefix.P
     )
 
-    @L.rt_field
-    def kicad_footprint(self):
-        return F.has_footprint_defined(F.KicadFootprint("lcsc:hat-button-antenna", [str(i + 1) for i in range(10)]))
-    
+
 
     @L.rt_field
     def attach_via_pinmap(self):
@@ -44,7 +41,10 @@ class HatButtonAntenna(Module):
                 "6": self.slider[2].signal,
                 "7": self.slider[3].signal,
                 "8": self.slider[4].signal,
-                "9": self.antenna.p.signal,
-                "10": self.antenna.n.signal,
+                "10": self.antenna.p.signal,
+                "9": self.antenna.n.signal,
             }
         )
+
+    def __preinit__(self):
+        self.get_trait(F.can_attach_to_footprint).attach(F.KicadFootprint("lcsc:hat-button-antenna", [str(i + 1) for i in range(10)]))

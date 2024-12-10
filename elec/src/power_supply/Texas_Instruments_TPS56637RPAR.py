@@ -89,7 +89,7 @@ class Texas_Instruments_TPS56637RPAR(Module):
     regulator: _Texas_Instruments_TPS56637RPAR
     inductor: F.Inductor
     feedback_rtop: F.Resistor
-    feedback_rbottom: F.Resistor
+    feedback_rbottom: F.Resistorx
     compensation_resistor: F.Resistor
     compensation_capacitor: F.Capacitor
     boot_capacitor: F.Capacitor

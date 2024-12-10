@@ -68,6 +68,10 @@ class HatBoard(Module):
         ] + self.hat_button_antenna.slider):
             pad.connect(self.capacitive_sensor.pads[i])
         self.capacitive_sensor.interrupt.connect(self.board_to_board_connector.hat_touch_irq)
+        self.capacitive_sensor.power.connect(self.power_3v3)
+        self.capacitive_sensor.i2c.connect(self.board_to_board_connector.i2c)
+
+        
 
         # Net naming
         F.Net.with_name("led_data").part_of.connect(

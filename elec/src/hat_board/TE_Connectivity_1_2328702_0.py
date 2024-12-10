@@ -109,6 +109,12 @@ class BoardToBoardConnector(Module):
     def invert_connector_pinmap(self):
         self.board_to_board_connector.invert_pinmap()
 
+    @L.rt_field
+    def single_electric_reference(self):
+        return F.has_single_electric_reference_defined(
+            F.ElectricLogic.connect_all_module_references(self, gnd_only=True)
+        )
+
     def __preinit__(self):
         self.board_to_board_connector.unnamed[0].connect(self.i2c.sda.signal)
         self.board_to_board_connector.unnamed[1].connect(self.i2c.scl.signal)
@@ -120,3 +126,4 @@ class BoardToBoardConnector(Module):
         self.board_to_board_connector.unnamed[7].connect(self.hat_nfc_irq.signal)
         self.board_to_board_connector.unnamed[8].connect(self.hat_touch_irq.signal)
         self.board_to_board_connector.unnamed[9].connect(self.hat_led_data.signal)
+

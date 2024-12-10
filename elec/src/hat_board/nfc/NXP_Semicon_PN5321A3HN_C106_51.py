@@ -101,9 +101,9 @@ class _NXP_Semicon_PN5321A3HN_C106_51(Module):
                 "17": self.I1,
                 "18": self.TESTEN,
                 "19": self.P35,
-                "20": self.N_C_,
-                "21": self.N_C_,
-                "22": self.N_C_,
+                "20": None,
+                "21": None,
+                "22": None,
                 "23": self.PVDD,
                 "24": self.P30_UART_RX,
                 "25": self.P70_IRQ,
@@ -190,12 +190,12 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.power_avdd.lv.connect(self.nfc_ic.AVSS)
 
         self.power_svdd.hv.connect(self.nfc_ic.SVDD)
-        # self.power_svdd.lv.connect(self.nfc_ic.DVSS)
+        self.power_svdd.lv.connect(self.power_3v3.lv)
 
         self.power_vmid.hv.connect(self.nfc_ic.VMID)
         # self.power_vmid.lv.connect(self.nfc_ic.DVSS)
 
-        # Decoupling caps for power rails
+        # Decoupling caps for power railsx
         vbat_cap = self.power_vbat.decoupled.decouple()
         vbat_cap.add(F.has_package_requirement("0402"))
         vbat_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
@@ -284,6 +284,7 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.oscillator.crystal.add(F.has_descriptive_properties_defined({"LCSC": "C70591"}))
         self.oscillator.crystal.add(F.can_attach_to_footprint_via_pinmap({"1": self.oscillator.crystal.unnamed[0], "3": self.oscillator.crystal.unnamed[1], "2": self.oscillator.crystal.gnd, "4": self.oscillator.crystal.gnd}))
         self.oscillator.crystal.add(F.has_designator_prefix_defined("XTAL"))
+        self.oscillator.del_trait(F.has_pcb_layout)
 
         # Antenna parameters
         self.tx1_inductor.add(F.has_descriptive_properties_defined({"LCSC": "C91630"}))

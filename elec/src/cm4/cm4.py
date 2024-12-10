@@ -6,6 +6,7 @@ from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
 from faebryk.core.parameter import R
+
 # Interfaces
 from .HDMI import HDMI
 
@@ -44,6 +45,12 @@ class CM4_MINIMAL(Module):
     hdi_b: HRSHirose_DF40C_100DS_0_4V51
     power_led_buffer: Texas_Instruments_SN74LVC1G07DBVR
     power_led: F.LED
+    power_led_resistor: F.Resistor
+    power_3v3_led: F.LED
+    power_1v8_led: F.LED
+    power_5v_led: F.LED
+    activity_led: F.LED
+    activity_led_resistor: F.Resistor
 
     def __init__(
         self, gpio_ref_voltage: GPIO_Ref_Voltages = GPIO_Ref_Voltages.V3_3
@@ -240,15 +247,27 @@ class CM4_MINIMAL(Module):
         self.i2c.scl.signal.connect(self.hdi_a.pins[79])
         self.i2c.sda.signal.connect(self.hdi_a.pins[81])
 
-        # Boot selection
-
-        # Power LED
+        # Power LEDs
         self.power_led_buffer.power.connect(self.power_3v3)
         self.power_led_buffer.input.signal.connect(self.hdi_a.pins[95])
-        self.power_led.connect_via_current_limiting_resistor_to_power(
+        self.power_led_buffer.output.signal.connect_via(
+            [self.power_led, self.power_led_resistor], self.power_3v3.hv
+        )
+
+        # Activity LED
+        self.power_3v3.hv.connect_via([self.activity_led, self.activity_led_resistor], self.hdi_a.pins[20])
+
+        self.power_3v3_led.connect_via_current_limiting_resistor_to_power(
             F.Resistor(), self.power_3v3, low_side=True
         )
-        self.power_led.cathode.connect(self.power_led_buffer.output.signal)
+
+        self.power_1v8_led.connect_via_current_limiting_resistor_to_power(
+            F.Resistor(), self.power_1v8, low_side=True
+        )
+
+        self.power_5v_led.connect_via_current_limiting_resistor_to_power(
+            F.Resistor(), self.power_5v, low_side=True
+        )
 
         # Net name overrides
         F.Net.with_name("VCC_5V").part_of.connect(self.power_5v.hv)
@@ -300,8 +319,12 @@ class CM4_MINIMAL(Module):
         #          parametrization
         # ------------------------------------
         self.power_5v.voltage.constrain_subset(L.Range.from_center_rel(5 * P.V, 0.05))
-        self.power_3v3.voltage.constrain_subset(L.Range.from_center_rel(3.3 * P.V, 0.05))
-        self.power_1v8.voltage.constrain_subset(L.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.power_3v3.voltage.constrain_subset(
+            L.Range.from_center_rel(3.3 * P.V, 0.05)
+        )
+        self.power_1v8.voltage.constrain_subset(
+            L.Range.from_center_rel(1.8 * P.V, 0.05)
+        )
 
         self.power_3v3.connect(
             F.ElectricLogic.connect_all_node_references(

@@ -68,6 +68,10 @@ class HatBoard(Module):
         ] + self.hat_button_antenna.slider):
             pad.connect(self.capacitive_sensor.pads[i])
         self.capacitive_sensor.interrupt.connect(self.board_to_board_connector.hat_touch_irq)
+        self.capacitive_sensor.power.connect(self.power_3v3)
+        self.capacitive_sensor.i2c.connect(self.board_to_board_connector.i2c)
+
+        
 
         # Net naming
         F.Net.with_name("led_data").part_of.connect(
@@ -91,3 +95,14 @@ class HatBoard(Module):
         F.Net.with_name("touch_irq").part_of.connect(
             self.board_to_board_connector.hat_touch_irq.signal
         )
+        F.Net.with_name("play_button").part_of.connect(self.hat_button_antenna.play_button.signal)
+        F.Net.with_name("prev_button").part_of.connect(self.hat_button_antenna.prev_button.signal)
+        F.Net.with_name("next_button").part_of.connect(self.hat_button_antenna.next_button.signal)
+        F.Net.with_name("slider_0").part_of.connect(self.hat_button_antenna.slider[0].signal)
+        F.Net.with_name("slider_1").part_of.connect(self.hat_button_antenna.slider[1].signal)
+        F.Net.with_name("slider_2").part_of.connect(self.hat_button_antenna.slider[2].signal)
+        F.Net.with_name("slider_3").part_of.connect(self.hat_button_antenna.slider[3].signal)
+        F.Net.with_name("slider_4").part_of.connect(self.hat_button_antenna.slider[4].signal)
+        F.Net.with_name("antenna_p").part_of.connect(self.hat_button_antenna.antenna.p.signal)
+        F.Net.with_name("antenna_n").part_of.connect(self.hat_button_antenna.antenna.n.signal)
+        

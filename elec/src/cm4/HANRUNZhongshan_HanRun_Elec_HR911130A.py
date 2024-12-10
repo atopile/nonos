@@ -98,7 +98,7 @@ class HANRUNZhongshan_HanRun_Elec_HR911130A(Module):
     RJ45Receptacle 1 WithLED Plugin Ethernet Connectors / Modular Connectors (RJ45 RJ11) ROHS
     """
 
-    ethernet: GigabitEthernet
+    ethernet: F.Ethernet
     power_led: F.ElectricPower
     connector: _HANRUNZhongshan_HanRun_Elec_HR911130A
     # link_led = L.f_field(F.LEDIndicator)(use_mosfet=False)
@@ -108,14 +108,14 @@ class HANRUNZhongshan_HanRun_Elec_HR911130A(Module):
     speed_led_resistor: F.Resistor
 
     def __preinit__(self):
-        self.ethernet.pair0.p.signal.connect(self.connector.MDI0plus)
-        self.ethernet.pair0.n.signal.connect(self.connector.MDI0_)
-        self.ethernet.pair1.p.signal.connect(self.connector.MDI1plus)
-        self.ethernet.pair1.n.signal.connect(self.connector.MDI1_)
-        self.ethernet.pair2.p.signal.connect(self.connector.MDI2plus)
-        self.ethernet.pair2.n.signal.connect(self.connector.MDI2_)
-        self.ethernet.pair3.p.signal.connect(self.connector.MDI3plus)
-        self.ethernet.pair3.n.signal.connect(self.connector.MDI3_)
+        self.ethernet.pairs[0].p.signal.connect(self.connector.MDI0plus)
+        self.ethernet.pairs[0].n.signal.connect(self.connector.MDI0_)
+        self.ethernet.pairs[1].p.signal.connect(self.connector.MDI1plus)
+        self.ethernet.pairs[1].n.signal.connect(self.connector.MDI1_)
+        self.ethernet.pairs[2].p.signal.connect(self.connector.MDI2plus)
+        self.ethernet.pairs[2].n.signal.connect(self.connector.MDI2_)
+        self.ethernet.pairs[3].p.signal.connect(self.connector.MDI3plus)
+        self.ethernet.pairs[3].n.signal.connect(self.connector.MDI3_)
 
         # link and speed LEDs
         # self.ethernet.led_link.connect(self.link_led.logic_in)

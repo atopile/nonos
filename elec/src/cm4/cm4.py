@@ -8,8 +8,6 @@ from faebryk.libs.units import P  # noqa: F401
 from faebryk.core.parameter import R
 # Interfaces
 from .HDMI import HDMI
-from .Ethernet import GigabitEthernet
-from .I2S import I2S
 
 # Components
 from .HRSHirose_DF40C_100DS_0_4V51 import HRSHirose_DF40C_100DS_0_4V51
@@ -29,16 +27,16 @@ class CM4_MINIMAL(Module):
     """
 
     # Interfaces
-    hdmi0: HDMI
-    hdmi1: HDMI
-    ethernet: GigabitEthernet
+    hdmi0: F.HDMI
+    hdmi1: F.HDMI
+    ethernet: F.Ethernet
     usb2: F.USB2_0
     power_5v: F.ElectricPower
     power_3v3: F.ElectricPower
     power_1v8: F.ElectricPower
     gpio_ref: F.ElectricPower
     gpio = L.list_field(28, F.ElectricLogic)
-    i2s: I2S
+    i2s: F.I2S
     i2c: F.I2C
 
     # Components
@@ -58,12 +56,12 @@ class CM4_MINIMAL(Module):
         #           connections
         # ------------------------------------
         # HDMI0
-        self.hdmi0.data2.p.signal.connect(self.hdi_b.pins[69])
-        self.hdmi0.data2.n.signal.connect(self.hdi_b.pins[71])
-        self.hdmi0.data1.p.signal.connect(self.hdi_b.pins[75])
-        self.hdmi0.data1.n.signal.connect(self.hdi_b.pins[77])
-        self.hdmi0.data0.p.signal.connect(self.hdi_b.pins[81])
-        self.hdmi0.data0.n.signal.connect(self.hdi_b.pins[83])
+        self.hdmi0.data[2].p.signal.connect(self.hdi_b.pins[69])
+        self.hdmi0.data[2].n.signal.connect(self.hdi_b.pins[71])
+        self.hdmi0.data[1].p.signal.connect(self.hdi_b.pins[75])
+        self.hdmi0.data[1].n.signal.connect(self.hdi_b.pins[77])
+        self.hdmi0.data[0].p.signal.connect(self.hdi_b.pins[81])
+        self.hdmi0.data[0].n.signal.connect(self.hdi_b.pins[83])
 
         # Clock pair
         self.hdmi0.clock.p.signal.connect(self.hdi_b.pins[87])
@@ -76,12 +74,12 @@ class CM4_MINIMAL(Module):
         self.hdmi0.hotplug.signal.connect(self.hdi_b.pins[52])
 
         # HDMI1
-        self.hdmi1.data2.p.signal.connect(self.hdi_b.pins[45])
-        self.hdmi1.data2.n.signal.connect(self.hdi_b.pins[47])
-        self.hdmi1.data1.p.signal.connect(self.hdi_b.pins[51])
-        self.hdmi1.data1.n.signal.connect(self.hdi_b.pins[53])
-        self.hdmi1.data0.p.signal.connect(self.hdi_b.pins[57])
-        self.hdmi1.data0.n.signal.connect(self.hdi_b.pins[59])
+        self.hdmi1.data[2].p.signal.connect(self.hdi_b.pins[45])
+        self.hdmi1.data[2].n.signal.connect(self.hdi_b.pins[47])
+        self.hdmi1.data[1].p.signal.connect(self.hdi_b.pins[51])
+        self.hdmi1.data[1].n.signal.connect(self.hdi_b.pins[53])
+        self.hdmi1.data[0].p.signal.connect(self.hdi_b.pins[57])
+        self.hdmi1.data[0].n.signal.connect(self.hdi_b.pins[59])
 
         # Clock pair
         self.hdmi1.clock.p.signal.connect(self.hdi_b.pins[63])
@@ -220,14 +218,14 @@ class CM4_MINIMAL(Module):
             self.power_3v3.hv.connect(self.hdi_a.pins[77])
 
         # Ethernet
-        self.ethernet.pair1.p.signal.connect(self.hdi_a.pins[3])
-        self.ethernet.pair1.n.signal.connect(self.hdi_a.pins[5])
-        self.ethernet.pair0.n.signal.connect(self.hdi_a.pins[9])
-        self.ethernet.pair0.p.signal.connect(self.hdi_a.pins[11])
-        self.ethernet.pair3.p.signal.connect(self.hdi_a.pins[2])
-        self.ethernet.pair3.n.signal.connect(self.hdi_a.pins[4])
-        self.ethernet.pair2.n.signal.connect(self.hdi_a.pins[8])
-        self.ethernet.pair2.p.signal.connect(self.hdi_a.pins[10])
+        self.ethernet.pairs[1].p.signal.connect(self.hdi_a.pins[3])
+        self.ethernet.pairs[1].n.signal.connect(self.hdi_a.pins[5])
+        self.ethernet.pairs[0].n.signal.connect(self.hdi_a.pins[9])
+        self.ethernet.pairs[0].p.signal.connect(self.hdi_a.pins[11])
+        self.ethernet.pairs[3].p.signal.connect(self.hdi_a.pins[2])
+        self.ethernet.pairs[3].n.signal.connect(self.hdi_a.pins[4])
+        self.ethernet.pairs[2].n.signal.connect(self.hdi_a.pins[8])
+        self.ethernet.pairs[2].p.signal.connect(self.hdi_a.pins[10])
 
         # Ethernet LED signals
         self.ethernet.led_link.signal.connect(self.hdi_a.pins[14])
@@ -259,36 +257,36 @@ class CM4_MINIMAL(Module):
         F.Net.with_name("GND").part_of.connect(self.power_5v.lv)
         F.Net.with_name("SCL").part_of.connect(self.i2c.scl.signal)
         F.Net.with_name("SDA").part_of.connect(self.i2c.sda.signal)
-        F.Net.with_name("HDMI0_D0_P").part_of.connect(self.hdmi0.data0.p.signal)
-        F.Net.with_name("HDMI0_D0_N").part_of.connect(self.hdmi0.data0.n.signal)
-        F.Net.with_name("HDMI0_D1_P").part_of.connect(self.hdmi0.data1.p.signal)
-        F.Net.with_name("HDMI0_D1_N").part_of.connect(self.hdmi0.data1.n.signal)
-        F.Net.with_name("HDMI0_D2_P").part_of.connect(self.hdmi0.data2.p.signal)
-        F.Net.with_name("HDMI0_D2_N").part_of.connect(self.hdmi0.data2.n.signal)
+        F.Net.with_name("HDMI0_D0_P").part_of.connect(self.hdmi0.data[0].p.signal)
+        F.Net.with_name("HDMI0_D0_N").part_of.connect(self.hdmi0.data[0].n.signal)
+        F.Net.with_name("HDMI0_D1_P").part_of.connect(self.hdmi0.data[1].p.signal)
+        F.Net.with_name("HDMI0_D1_N").part_of.connect(self.hdmi0.data[1].n.signal)
+        F.Net.with_name("HDMI0_D2_P").part_of.connect(self.hdmi0.data[2].p.signal)
+        F.Net.with_name("HDMI0_D2_N").part_of.connect(self.hdmi0.data[2].n.signal)
         F.Net.with_name("HDMI0_CK_P").part_of.connect(self.hdmi0.clock.p.signal)
         F.Net.with_name("HDMI0_CK_N").part_of.connect(self.hdmi0.clock.n.signal)
         F.Net.with_name("HDMI0_CEC").part_of.connect(self.hdmi0.cec.signal)
         F.Net.with_name("HDMI0_HOTPLUG").part_of.connect(self.hdmi0.hotplug.signal)
-        F.Net.with_name("HDMI1_D0_P").part_of.connect(self.hdmi1.data0.p.signal)
-        F.Net.with_name("HDMI1_D0_N").part_of.connect(self.hdmi1.data0.n.signal)
-        F.Net.with_name("HDMI1_D1_P").part_of.connect(self.hdmi1.data1.p.signal)
-        F.Net.with_name("HDMI1_D1_N").part_of.connect(self.hdmi1.data1.n.signal)
-        F.Net.with_name("HDMI1_D2_P").part_of.connect(self.hdmi1.data2.p.signal)
-        F.Net.with_name("HDMI1_D2_N").part_of.connect(self.hdmi1.data2.n.signal)
+        F.Net.with_name("HDMI1_D0_P").part_of.connect(self.hdmi1.data[0].p.signal)
+        F.Net.with_name("HDMI1_D0_N").part_of.connect(self.hdmi1.data[0].n.signal)
+        F.Net.with_name("HDMI1_D1_P").part_of.connect(self.hdmi1.data[1].p.signal)
+        F.Net.with_name("HDMI1_D1_N").part_of.connect(self.hdmi1.data[1].n.signal)
+        F.Net.with_name("HDMI1_D2_P").part_of.connect(self.hdmi1.data[2].p.signal)
+        F.Net.with_name("HDMI1_D2_N").part_of.connect(self.hdmi1.data[2].n.signal)
         F.Net.with_name("HDMI1_CK_P").part_of.connect(self.hdmi1.clock.p.signal)
         F.Net.with_name("HDMI1_CK_N").part_of.connect(self.hdmi1.clock.n.signal)
         F.Net.with_name("HDMI1_CEC").part_of.connect(self.hdmi1.cec.signal)
         F.Net.with_name("HDMI1_HOTPLUG").part_of.connect(self.hdmi1.hotplug.signal)
         F.Net.with_name("USB2_D_P").part_of.connect(self.usb2.usb_if.d.p.signal)
         F.Net.with_name("USB2_D_N").part_of.connect(self.usb2.usb_if.d.n.signal)
-        F.Net.with_name("ETH_P0_P").part_of.connect(self.ethernet.pair0.p.signal)
-        F.Net.with_name("ETH_P0_N").part_of.connect(self.ethernet.pair0.n.signal)
-        F.Net.with_name("ETH_P1_P").part_of.connect(self.ethernet.pair1.p.signal)
-        F.Net.with_name("ETH_P1_N").part_of.connect(self.ethernet.pair1.n.signal)
-        F.Net.with_name("ETH_P2_P").part_of.connect(self.ethernet.pair2.p.signal)
-        F.Net.with_name("ETH_P2_N").part_of.connect(self.ethernet.pair2.n.signal)
-        F.Net.with_name("ETH_P3_P").part_of.connect(self.ethernet.pair3.p.signal)
-        F.Net.with_name("ETH_P3_N").part_of.connect(self.ethernet.pair3.n.signal)
+        F.Net.with_name("ETH_P0_P").part_of.connect(self.ethernet.pairs[0].p.signal)
+        F.Net.with_name("ETH_P0_N").part_of.connect(self.ethernet.pairs[0].n.signal)
+        F.Net.with_name("ETH_P1_P").part_of.connect(self.ethernet.pairs[1].p.signal)
+        F.Net.with_name("ETH_P1_N").part_of.connect(self.ethernet.pairs[1].n.signal)
+        F.Net.with_name("ETH_P2_P").part_of.connect(self.ethernet.pairs[2].p.signal)
+        F.Net.with_name("ETH_P2_N").part_of.connect(self.ethernet.pairs[2].n.signal)
+        F.Net.with_name("ETH_P3_P").part_of.connect(self.ethernet.pairs[3].p.signal)
+        F.Net.with_name("ETH_P3_N").part_of.connect(self.ethernet.pairs[3].n.signal)
         F.Net.with_name("ETH_LED_LINK").part_of.connect(self.ethernet.led_link.signal)
         F.Net.with_name("ETH_LED_ACTIVITY").part_of.connect(
             self.ethernet.led_speed.signal

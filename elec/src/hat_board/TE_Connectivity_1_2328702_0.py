@@ -37,9 +37,32 @@ class TE_Connectivity_1_2328702_0(Module):
             DescriptiveProperties.partno: "1-2328702-0",
         }
     )
+    pin_map_inverted = False
+
+    def invert_pinmap(self):
+        self.pin_map_inverted = True
+
 
     @L.rt_field
     def attach_via_pinmap(self):
+        if self.pin_map_inverted:
+            return F.can_attach_to_footprint_via_pinmap(
+                {
+                    "10": self.unnamed[0],
+                    "9": self.unnamed[1],
+                    "8": self.unnamed[2],
+                    "7": self.unnamed[3],
+                    "6": self.unnamed[4],
+                    "5": self.unnamed[5],
+                    "4": self.unnamed[6],
+                    "3": self.unnamed[7],
+                    "2": self.unnamed[8],
+                    "1": self.unnamed[9],
+                    "11": self.unnamed[10],
+                    "12": self.unnamed[11],
+                }
+            )
+        
         return F.can_attach_to_footprint_via_pinmap(
             {
                 "1": self.unnamed[0],
@@ -66,3 +89,34 @@ class TE_Connectivity_1_2328702_0(Module):
         #          parametrization
         # ------------------------------------
         pass
+
+
+class BoardToBoardConnector(Module):
+    """
+    Board to board connector
+    """
+    board_to_board_connector: TE_Connectivity_1_2328702_0
+
+    # interfaces
+    i2c: F.I2C
+    power_3v3: F.ElectricPower
+    power_5v: F.ElectricPower
+    hat_reset: F.ElectricLogic
+    hat_nfc_irq: F.ElectricLogic
+    hat_touch_irq: F.ElectricLogic
+    hat_led_data: F.ElectricLogic
+
+    def invert_connector_pinmap(self):
+        self.board_to_board_connector.invert_pinmap()
+
+    def __preinit__(self):
+        self.board_to_board_connector.unnamed[0].connect(self.i2c.sda.signal)
+        self.board_to_board_connector.unnamed[1].connect(self.i2c.scl.signal)
+        self.board_to_board_connector.unnamed[2].connect(self.power_5v.lv)
+        self.board_to_board_connector.unnamed[3].connect(self.power_5v.hv)
+        self.board_to_board_connector.unnamed[4].connect(self.power_3v3.hv)
+        self.board_to_board_connector.unnamed[5].connect(self.power_3v3.lv)
+        self.board_to_board_connector.unnamed[6].connect(self.hat_reset.signal)
+        self.board_to_board_connector.unnamed[7].connect(self.hat_nfc_irq.signal)
+        self.board_to_board_connector.unnamed[8].connect(self.hat_touch_irq.signal)
+        self.board_to_board_connector.unnamed[9].connect(self.hat_led_data.signal)

@@ -292,7 +292,7 @@
             (size 0.57 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 15 "net-13")
+            (net 17 "net-9")
             (uuid "14d4f196-a85f-42d5-9ad4-409e39bc4dde"))
         (pad "2" smd rect
             (at 0.43 0 0)
@@ -500,14 +500,14 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 6 "net-8")
+            (net 11 "net-5")
             (uuid "7293c6e0-0de6-4b79-b4d8-6597b1b2a3ec"))
         (pad "2" smd rect
             (at 0.55 0 270)
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "693ae825-de2e-41ed-b5c9-c78717edcd34"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -708,14 +708,14 @@
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 11 "net-5")
+            (net 10 "net")
             (uuid "584f0674-d67a-46c8-8c81-24129588cec1"))
         (pad "2" smd rect
             (at 0.7 0 90)
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 20 "net-6")
+            (net 3 "net-1")
             (uuid "41ec6b66-ad05-4e13-aedd-a58a5e193f4c"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
             (offset
@@ -880,7 +880,7 @@
             (size 0.57 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 25 "net-12")
+            (net 9 "net-15")
             (uuid "333e09dc-cebf-493d-972b-f2e1600e067e"))
         (pad "2" smd rect
             (at 0.43 0 270)
@@ -1088,14 +1088,14 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 28 "signal-2")
+            (net 18 "signal-1")
             (uuid "5f2245c6-4db6-4a63-9fdb-d08f0f7f733d"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "93332887-c01d-4ead-b5d4-d27f39265069"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -1260,14 +1260,14 @@
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 16 "net-3")
+            (net 6 "net-8")
             (uuid "101f36ff-277f-48d4-80c4-5e2522051044"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 28 "signal-2")
+            (net 18 "signal-1")
             (uuid "d42f65be-440a-4951-9f06-cc9da9a3b583"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
@@ -1468,14 +1468,14 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "signal-1")
+            (net 14 "signal")
             (uuid "f7219d7b-c1c0-402e-8124-53c8f02ddbce"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "38ed59a4-e7eb-4ef1-9ddb-cde6059cb494"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -1683,7 +1683,7 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "a44592d6-7bf0-4007-b1a2-50d592f1643c"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -1848,7 +1848,7 @@
             (size 0.57 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 7 "net-7")
+            (net 20 "net-6")
             (uuid "43b68d80-6731-4d8f-b972-3075b5b9774a"))
         (pad "2" smd rect
             (at 0.43 0 270)
@@ -2054,14 +2054,14 @@
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 5 "net-2")
+            (net 7 "net-7")
             (uuid "b30d3866-d11a-4eff-a457-530856ce75a4"))
         (pad "2" smd rect
             (at -2.41 -1.25 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 16 "net-3")
+            (net 6 "net-8")
             (uuid "6e122657-c4f1-48de-a421-984b98b4427c"))
         (pad "3" smd rect
             (at -2.41 -0.75 0)
@@ -2082,7 +2082,7 @@
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "5283737a-c4b2-4d12-8bbd-864a5736d906"))
         (pad "6" smd rect
             (at -2.41 0.75 0)
@@ -2096,21 +2096,21 @@
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 6 "net-8")
+            (net 11 "net-5")
             (uuid "2eb428e2-c16e-4968-8d0c-ca4fa280d053"))
         (pad "8" smd rect
             (at -2.41 1.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 17 "net-9")
+            (net 2 "net-10")
             (uuid "47ab9309-4a6d-4a7f-8eb0-870f89b8ed75"))
         (pad "9" smd rect
             (at -1.75 2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 7 "net-7")
+            (net 20 "net-6")
             (uuid "9c955065-8110-430f-a891-73ca6cd1eee6"))
         (pad "10" smd rect
             (at -1.25 2.41 0)
@@ -2124,7 +2124,7 @@
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 25 "net-12")
+            (net 9 "net-15")
             (uuid "0b8b04a3-e298-4629-8179-b72febfcb33a"))
         (pad "12" smd rect
             (at -0.25 2.41 0)
@@ -2166,28 +2166,28 @@
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 15 "net-13")
+            (net 17 "net-9")
             (uuid "230cb4de-1a93-49c4-9bfb-7564a1c8cb8f"))
         (pad "18" smd rect
             (at 2.41 1.25 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "net-15")
+            (net 1 "net-16")
             (uuid "5db0b3cc-88b5-42c3-849c-0aef92a653b7"))
         (pad "19" smd rect
             (at 2.41 0.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 29 "net-14")
+            (net 25 "net-12")
             (uuid "d267ded0-2645-434a-b0a3-e1edc7093acc"))
         (pad "20" smd rect
             (at 2.41 0.25 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "c9c5413c-e40a-4803-8979-03380f6ac715"))
         (pad "21" smd rect
             (at 2.41 -0.25 0)
@@ -2208,77 +2208,77 @@
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 10 "net")
+            (net 16 "net-3")
             (uuid "0f504455-6319-4575-957d-3962e1e4bc2d"))
         (pad "24" smd rect
             (at 2.41 -1.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "net-10")
+            (net 19 "net-4")
             (uuid "34b7a056-ebc3-4f01-a68a-04330bb691b1"))
         (pad "25" smd rect
             (at 1.75 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "a452b89b-1ef9-4d17-8152-9ef138cc97e9"))
         (pad "26" smd rect
             (at 1.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "5a96a1d1-29d6-4278-804f-b764f18aa416"))
         (pad "27" smd rect
             (at 0.75 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 20 "net-6")
+            (net 3 "net-1")
             (uuid "79d0dc5e-28f7-42e6-90b7-b7b2bdac5c6f"))
         (pad "28" smd rect
             (at 0.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 11 "net-5")
+            (net 10 "net")
             (uuid "223e33b1-a708-4b78-9dba-e92b77766bb7"))
         (pad "29" smd rect
             (at -0.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 1 "net-16")
+            (net 15 "net-13")
             (uuid "6dc2705a-b3b9-45f5-9153-ba4b70965597"))
         (pad "30" smd rect
             (at -0.75 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 19 "net-4")
+            (net 29 "net-14")
             (uuid "636dfaf5-ba6d-4cab-b01e-6916eb2b6dd5"))
         (pad "31" smd rect
             (at -1.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "84b1c37e-74d0-468b-814b-69fe09f22f09"))
         (pad "32" smd rect
             (at -1.75 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "75d297ba-6787-4e10-8dcc-31fa76403a06"))
         (pad "33" smd rect
             (at 0 0 0)
             (size 3.5 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "612c85d3-52e2-42cc-9566-5dd91a1a242f"))
         (path "/78476d27-80ac-42a4-a211-cc82b682e128"))
     (footprint "lcsc:IND-SMD_L7.3-W6.8"
@@ -2436,14 +2436,14 @@
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 20 "net-6")
+            (net 3 "net-1")
             (uuid "38dc8732-51b9-44e6-a58f-0c674a799782"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 30 "signal-3")
+            (net 28 "signal-2")
             (uuid "346499a5-bf06-4f7e-a78e-c801a0e94e27"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
@@ -2644,14 +2644,14 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 29 "net-14")
+            (net 25 "net-12")
             (uuid "5d45e66a-00a9-4300-9de1-9723198cb65d"))
         (pad "2" smd rect
             (at 0.55 0 0)
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "50dcaa2d-e8ee-444e-92f5-44b1e4ab2c87"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -2859,7 +2859,7 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "2433b0cf-511c-4bab-8bfd-e6bf9041cdba"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -3067,7 +3067,7 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "771982f6-d443-4f56-82ec-a1844866e1d2"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -3275,7 +3275,7 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "02073d7e-5aa2-4eff-b446-1c331d4820aa"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -3483,7 +3483,7 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "f7d3a8cb-7572-49c6-ab03-eadaf5815ae6"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -3820,14 +3820,14 @@
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 10 "net")
+            (net 16 "net-3")
             (uuid "47cec3ed-5cfc-47ca-8a05-a5b9b08964ee"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 14 "signal")
+            (net 30 "signal-3")
             (uuid "694eff10-d253-4ba1-bbef-316a03470cf5"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
@@ -4035,7 +4035,7 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "ed3e2a9b-3876-4d44-89db-1c995692ab5c"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -4243,7 +4243,7 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "2c19a2f1-d225-4145-b8b6-16249c45f7f8"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -4444,14 +4444,14 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 30 "signal-3")
+            (net 28 "signal-2")
             (uuid "f51d7cc4-c921-44da-a8d8-99f9b03db3d9"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "458ab122-a98c-4eb2-96c0-4739111a7cdf"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -4652,14 +4652,14 @@
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 14 "signal")
+            (net 30 "signal-3")
             (uuid "a25ec925-ec61-457b-9d3b-0e04ee05c229"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "9c5a3704-84c2-429c-a8a3-461708e1b6cc"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0805_L2.0-W1.3-H1.3.wrl"
             (offset
@@ -4860,14 +4860,14 @@
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 2 "net-10")
+            (net 19 "net-4")
             (uuid "3ad966a8-81bd-4b39-b73d-809b801bd52e"))
         (pad "2" smd rect
             (at 0.7 0 0)
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 10 "net")
+            (net 16 "net-3")
             (uuid "ace800d5-489e-4a2a-9c31-fa59a5571abc"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
             (offset
@@ -5075,7 +5075,7 @@
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "3b6faffa-f9a2-456b-98d6-ee87879f73f2"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
             (offset
@@ -5276,14 +5276,14 @@
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 5 "net-2")
+            (net 7 "net-7")
             (uuid "86977c7d-e765-41f3-b1cc-951a37ce5be6"))
         (pad "2" smd rect
             (at 0.7 0 180)
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 16 "net-3")
+            (net 6 "net-8")
             (uuid "2f567cfa-0524-473f-bbcd-b670b024c91c"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
             (offset
@@ -5484,14 +5484,14 @@
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 1 "net-16")
+            (net 15 "net-13")
             (uuid "3c4f8270-5a4b-45e3-898b-07282c098fec"))
         (pad "2" smd rect
             (at 0.7 0 90)
             (size 0.8 0.9)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 19 "net-4")
+            (net 29 "net-14")
             (uuid "ab354bd1-86f2-4924-bc62-a18c4fd417a2"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
             (offset
@@ -5656,14 +5656,14 @@
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 19 "net-4")
+            (net 29 "net-14")
             (uuid "356ec03c-f8e0-4f57-937c-ee80c8885a56"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 18 "signal-1")
+            (net 14 "signal")
             (uuid "444bdce4-8860-4fad-ab45-ca4eb7e88596"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
@@ -5864,14 +5864,14 @@
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 9 "net-15")
+            (net 1 "net-16")
             (uuid "1d6c460b-62f5-4b39-b143-7c3e197605ee"))
         (pad "2" smd rect
             (at 0.55 0 0)
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "a8f00725-66ea-42db-b18a-519d74ba0ee8"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
@@ -6036,14 +6036,14 @@
             (size 0.57 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 17 "net-9")
+            (net 2 "net-10")
             (uuid "0be34c66-1c87-43a0-b278-eba26d83066d"))
         (pad "2" smd rect
             (at 0.43 0 270)
             (size 0.57 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
-            (net 3 "net-1")
+            (net 5 "net-2")
             (uuid "de1fba6c-b992-407e-bd64-cd2006dfc91d"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset

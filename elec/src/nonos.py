@@ -40,7 +40,6 @@ class NONOS(Module):
     power_3v3: F.ElectricPower
 
     def __preinit__(self):
-
         # Power
         self.pd_controller.power_vbus.connect(self.power_vbus)
         self.regulator.power_in.connect(self.power_vbus)
@@ -52,6 +51,8 @@ class NONOS(Module):
         self.rj45.power_led.connect(self.processor.power_3v3)
 
         # Amplifier
+        self.amplifier.power_pvdd.connect(self.power_vbus)
+        self.amplifier.power_dvdd.connect(self.power_3v3)
         self.processor.i2s.connect(self.amplifier.i2s)
         self.processor.i2c.connect(self.amplifier.i2c)
         self.processor.gpio[0].connect(self.amplifier.mute)
@@ -60,8 +61,8 @@ class NONOS(Module):
         self.processor.gpio[3].connect(self.amplifier.pdn)
         self.amplifier.output_a.p.signal.connect(self.full_range_speaker_connector.unnamed[0])
         self.amplifier.output_a.n.signal.connect(self.full_range_speaker_connector.unnamed[1])
-        self.amplifier.output_b.p.signal.connect(self.tweeter_speaker_connector.unnamed[0])
-        self.amplifier.output_b.n.signal.connect(self.tweeter_speaker_connector.unnamed[1])
+        self.amplifier.output_b.p.signal.connect(self.tweeter_speaker_connector.unnamed[1])
+        self.amplifier.output_b.n.signal.connect(self.tweeter_speaker_connector.unnamed[0])
 
         # Hat board
         self.board_to_board_connector.i2c.connect(self.processor.i2c)
@@ -71,3 +72,4 @@ class NONOS(Module):
         self.board_to_board_connector.hat_nfc_irq.connect(self.processor.gpio[5])
         self.board_to_board_connector.hat_touch_irq.connect(self.processor.gpio[6])
         self.board_to_board_connector.hat_led_data.connect(self.processor.gpio[7])
+ 

@@ -12,8 +12,8 @@ builds:
       elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
   nfc:
     entry: elec/src/hat_board/nfc/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
-  capacative-sensor:
-    entry: elec/src/hat_board/capacative-sensor.py:CapacativeSensor
+  capacitive-sensor:
+    entry: elec/src/hat_board/capacitive_sensor/microchip_tech_cap11881cptr.py:Microchip_Tech_CAP1188_1_CP_TR
   hat-board:
     entry: elec/src/hat_board/hat_board.py:HatBoard
 dependencies:

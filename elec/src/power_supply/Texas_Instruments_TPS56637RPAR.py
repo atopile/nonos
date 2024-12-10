@@ -76,7 +76,7 @@ class _Texas_Instruments_TPS56637RPAR(Module):
         pass
 
 
-class Texas_Instruments_TPS56637RPAR(_Texas_Instruments_TPS56637RPAR):
+class Texas_Instruments_TPS56637RPAR(Module):
     """
     Step-down type Adjustable 4.5V~28V 600mV~13V 6A VQFN-10-HR(3x3) DC-DC Converters ROHS
     """

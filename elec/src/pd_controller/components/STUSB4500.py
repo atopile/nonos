@@ -73,7 +73,6 @@ class STUSB4500QTR(Module):
                 self.EP: ["EP"],
                 self.VDD.lv: ["GND"],
                 self.GPIO: ["GPIO"],
-                self.NC: ["NC"],
                 self.POWER_OK2: ["POWER_OK2"],
                 self.POWER_OK3: ["POWER_OK3"],
                 self.RESET: ["RESET"],
@@ -88,6 +87,7 @@ class STUSB4500QTR(Module):
             },
             accept_prefix=False,
             case_sensitive=False,
+            nc=["NC"],
         )
 
     def __preinit__(self):

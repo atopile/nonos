@@ -7,15 +7,14 @@ from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.library import L  # noqa: F401
 
 # Components
-from .components.TYPE_C_16PIN_2MD073 import TYPE_C_16PIN_2MD073
 from .components.STUSB4500 import STUSB4500QTR
 from .components.ESDA25W import ESDA25W
 from .components.ESDA25P35_1U1M import ESDA25P35_1U1M
-
+from .components.hctl_hc_type_c24p_vs935a_f1104 import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
 class PDController(Module):
     PD_CONTROLLER: STUSB4500QTR
-    USB_CONNECTOR: TYPE_C_16PIN_2MD073
+    USB_CONNECTOR: HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
     ESD_CC: ESDA25W
     VSINK_MOSFET: F.MOSFET
 
@@ -116,7 +115,7 @@ class PDController(Module):
         cc2.part_of.connect(self.PD_CONTROLLER.CC2.signal)
 
         # VSINK SWITCH
-        self.VSINK_MOSFET.channel_type.constrain_subset(F.MOSFET.ChannelType.P_CHANNEL)
+        self.VSINK_MOSFET.channel_type.alias_is(F.MOSFET.ChannelType.P_CHANNEL)
         self.VSINK_MOSFET.add(F.has_descriptive_properties_defined({"LCSC": "C471913"}))
         # VBUS to VSINK switching
         self.VBUS.hv.connect_via(self.VSINK_MOSFET, self.VSINK.hv)

@@ -118,6 +118,7 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
 
     def __preinit__(self):
         self.power_vbus.hv.connect(self.connector.VBUS)
+        self.power_vbus.lv.connect(self.connector.GND, self.connector.EH)
         self.usb2.p.signal.connect(self.connector.DP1, self.connector.DP2)
         self.usb2.n.signal.connect(self.connector.DN1, self.connector.DN2)
         self.sbu[0].signal.connect(self.connector.SBU2)

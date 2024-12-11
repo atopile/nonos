@@ -17,12 +17,11 @@ class PDController(Module):
     esd_cc: ESDA25W
     vsink_mosfet: F.MOSFET
 
-    power_vbus: F.ElectricPower
-    power_mcu: F.ElectricPower
+    power_vbus: F.ElectricPower # input from USB connector
+    power_mcu: F.ElectricPower # input from processor
     i2c: F.I2C
     cc = L.list_field(2, F.ElectricLogic)
-    power_vsink: F.ElectricPower
-    power_vmcu: F.ElectricPower
+    power_vsink: F.ElectricPower # output to power supply
     i2c: F.I2C
 
     # Passive components
@@ -43,7 +42,7 @@ class PDController(Module):
         # Tie gnd together
         self.power_vsink.lv.connect(
             self.power_vbus.lv,
-            self.vmcu.lv,
+            self.power_mcu.lv,
             self.pd_controller.VDD.lv,
             self.pd_controller.VREG_1V2.lv,
             self.pd_controller.VREG_2V7.lv,
@@ -57,10 +56,7 @@ class PDController(Module):
 
         self.vbus_vs_disch_r.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
         self.vbus_vs_disch_r.add(F.has_package_requirement("0402"))
-        self.vbus.hv.connect_via(self.vbus_vs_disch_r, self.pd_controller.VBUS_VS_DISCH)
-
-        # Output
-        self.power_vbus.connect(self.power_vsink)
+        self.power_vbus.hv.connect_via(self.vbus_vs_disch_r, self.pd_controller.VBUS_VS_DISCH)
 
         # I2C
         self.i2c.connect(self.pd_controller.I2C)
@@ -86,8 +82,8 @@ class PDController(Module):
         vreg_2v7.part_of.connect(self.pd_controller.VREG_2V7.hv)
         vreg_1v2.part_of.connect(self.pd_controller.VREG_1V2.hv)
 
-        self.vbus_cap.unnamed[0].connect(self.vbus.lv)
-        self.vbus_cap.unnamed[1].connect(self.vbus.hv)
+        self.vbus_cap.unnamed[0].connect(self.power_vbus.lv)
+        self.vbus_cap.unnamed[1].connect(self.power_vbus.hv)
         self.vbus_cap.capacitance.constrain_subset(L.Range.from_center_rel(4.7 * P.uF, 0.3))
         self.vbus_cap.add(F.has_package_requirement("0603"))
         self.vbus_cap.max_voltage.constrain_subset(L.Range(30 * P.V, float("inf") * P.V))
@@ -119,7 +115,7 @@ class PDController(Module):
 
         # VSINK voltage divider for VCC
         self.VSINK_VCC = F.Net.with_name("VSINK_VCC")
-        self.VSINK_VCC.part_of.connect(self.VSINK.hv)
+        self.VSINK_VCC.part_of.connect(self.power_vsink.hv)
 
         # Gate pullup resistor divider
         self.vsink_gate_r.resistance.constrain_subset(L.Range.from_center_rel(22 * P.kohm, 0.03))
@@ -159,10 +155,10 @@ class PDController(Module):
         self.power_vbus.hv.connect_via(self.disch_r, self.pd_controller.DISCH)
 
         # I2C nets
-        self.i2c_scl = F.Net.with_name("I2C_SCL")
-        self.i2c_sda = F.Net.with_name("I2C_SDA")
-        self.i2c.scl.signal.connect(self.i2c_scl.part_of)
-        self.i2c.sda.signal.connect(self.i2c_sda.part_of)
+        # self.i2c_scl = F.Net.with_name("I2C_SCL")
+        # self.i2c_sda = F.Net.with_name("I2C_SDA")
+        # self.i2c.scl.signal.connect(self.i2c_scl.part_of)
+        # self.i2c.sda.signal.connect(self.i2c_sda.part_of)
 
         self.i2c.connect(self.pd_controller.I2C)
 

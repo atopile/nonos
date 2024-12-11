@@ -40,15 +40,15 @@ class CM4_MINIMAL(Module):
     i2s: F.I2S
     i2c: F.I2C
 
+    uart_rx: F.ElectricLogic
+    uart_tx: F.ElectricLogic
+
     # Components
     hdi_a: HRSHirose_DF40C_100DS_0_4V51
     hdi_b: HRSHirose_DF40C_100DS_0_4V51
     power_led_buffer: Texas_Instruments_SN74LVC1G07DBVR
     power_led: F.LED
     power_led_resistor: F.Resistor
-    power_3v3_led: F.LED
-    power_1v8_led: F.LED
-    power_5v_led: F.LED
     activity_led: F.LED
     activity_led_resistor: F.Resistor
 
@@ -101,6 +101,10 @@ class CM4_MINIMAL(Module):
         # USBS2
         self.usb2.usb_if.d.p.signal.connect(self.hdi_b.pins[4])
         self.usb2.usb_if.d.n.signal.connect(self.hdi_b.pins[2])
+
+        # UART
+        F.Net.with_name("UART_TX").part_of.connect(self.gpio[13].signal, self.uart_tx.signal)
+        F.Net.with_name("UART_RX").part_of.connect(self.gpio[14].signal, self.uart_rx.signal)
 
         # Power
         # 5V power pins

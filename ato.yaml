@@ -2,7 +2,7 @@ ato-version: ^0.3.0
 builds:
   default:
     entry: elec/src/nonos.py:NONOS
-  pd-controller:
+  pd_controller:
     entry: elec/src/pd_controller/pd_controller.py:PDController
   amplifier:
     entry: 
@@ -14,7 +14,7 @@ builds:
     entry: elec/src/hat_board/nfc/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
   capacitive-sensor:
     entry: elec/src/hat_board/capacitive_sensor/microchip_tech_cap11881cptr.py:Microchip_Tech_CAP1188_1_CP_TR
-  hat-board:
+  hat_board:
     entry: elec/src/hat_board/hat_board.py:HatBoard
 dependencies:
 - name: generics

@@ -40,15 +40,15 @@ class CM4_MINIMAL(Module):
     i2s: F.I2S
     i2c: F.I2C
 
+    uart_rx: F.ElectricLogic
+    uart_tx: F.ElectricLogic
+
     # Components
     hdi_a: HRSHirose_DF40C_100DS_0_4V51
     hdi_b: HRSHirose_DF40C_100DS_0_4V51
     power_led_buffer: Texas_Instruments_SN74LVC1G07DBVR
     power_led: F.LED
     power_led_resistor: F.Resistor
-    power_3v3_led: F.LED
-    power_1v8_led: F.LED
-    power_5v_led: F.LED
     activity_led: F.LED
     activity_led_resistor: F.Resistor
 
@@ -101,6 +101,10 @@ class CM4_MINIMAL(Module):
         # USBS2
         self.usb2.usb_if.d.p.signal.connect(self.hdi_b.pins[4])
         self.usb2.usb_if.d.n.signal.connect(self.hdi_b.pins[2])
+
+        # UART
+        F.Net.with_name("UART_TX").part_of.connect(self.gpio[13].signal, self.uart_tx.signal)
+        F.Net.with_name("UART_RX").part_of.connect(self.gpio[14].signal, self.uart_rx.signal)
 
         # Power
         # 5V power pins
@@ -241,7 +245,7 @@ class CM4_MINIMAL(Module):
         # I2S
         self.i2s.sck.connect(self.gpio[18])
         self.i2s.ws.connect(self.gpio[19])
-        self.i2s.sd.connect(self.gpio[21])  # output
+        self.i2s.sd.connect(self.gpio[21])
 
         # I2C
         self.i2c.scl.signal.connect(self.hdi_a.pins[79])
@@ -250,24 +254,12 @@ class CM4_MINIMAL(Module):
         # Power LEDs
         self.power_led_buffer.power.connect(self.power_3v3)
         self.power_led_buffer.input.signal.connect(self.hdi_a.pins[95])
-        self.power_led_buffer.output.signal.connect_via(
-            [self.power_led, self.power_led_resistor], self.power_3v3.hv
+        self.power_3v3.hv.connect_via(
+            [self.power_led, self.power_led_resistor], self.power_led_buffer.output.signal
         )
 
         # Activity LED
-        self.power_3v3.hv.connect_via([self.activity_led, self.activity_led_resistor], self.hdi_a.pins[20])
-
-        self.power_3v3_led.connect_via_current_limiting_resistor_to_power(
-            F.Resistor(), self.power_3v3, low_side=True
-        )
-
-        self.power_1v8_led.connect_via_current_limiting_resistor_to_power(
-            F.Resistor(), self.power_1v8, low_side=True
-        )
-
-        self.power_5v_led.connect_via_current_limiting_resistor_to_power(
-            F.Resistor(), self.power_5v, low_side=True
-        )
+        self.power_3v3.hv.connect_via([self.activity_led, self.activity_led_resistor], self.hdi_a.pins[19])
 
         # Net name overrides
         F.Net.with_name("VCC_5V").part_of.connect(self.power_5v.hv)
@@ -318,13 +310,13 @@ class CM4_MINIMAL(Module):
         # ------------------------------------
         #          parametrization
         # ------------------------------------
-        self.power_5v.voltage.constrain_subset(L.Range.from_center_rel(5 * P.V, 0.05))
-        self.power_3v3.voltage.constrain_subset(
-            L.Range.from_center_rel(3.3 * P.V, 0.05)
-        )
-        self.power_1v8.voltage.constrain_subset(
-            L.Range.from_center_rel(1.8 * P.V, 0.05)
-        )
+        # self.power_5v.voltage.constrain_subset(L.Range.from_center_rel(5 * P.V, 0.05))
+        # self.power_3v3.voltage.constrain_subset(
+        #     L.Range.from_center_rel(3.3 * P.V, 0.05)
+        # )
+        # self.power_1v8.voltage.constrain_subset(
+        #     L.Range.from_center_rel(1.8 * P.V, 0.05)
+        # )
 
         self.power_3v3.connect(
             F.ElectricLogic.connect_all_node_references(

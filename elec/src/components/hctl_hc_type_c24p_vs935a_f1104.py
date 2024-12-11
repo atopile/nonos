@@ -97,7 +97,7 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
         #           connections
         # ------------------------------------
 
-        # ------------------------------------
+        # ------------------------------------x
         #          parametrization
         # ------------------------------------
         pass
@@ -109,21 +109,20 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD USB Connectors ROHS
     """
 
-    POWER_VBUS: F.ElectricPower
-    USB2: F.USB2_0_IF.Data
-
-    SBU2: F.ElectricLogic
-    SBU1: F.ElectricLogic
-    CC1: F.ElectricLogic
-    CC2: F.ElectricLogic
+    power_vbus: F.ElectricPower
+    usb2: F.USB2_0_IF.Data
+    sbu = L.list_field(2, F.ElectricLogic)
+    cc = L.list_field(2, F.ElectricLogic)
 
     connector: _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     def __preinit__(self):
-        self.POWER_VBUS.hv.connect(self.connector.VBUS)
-        self.USB2.p.signal.connect(self.connector.DP1, self.connector.DP2)
-        self.USB2.n.signal.connect(self.connector.DN1, self.connector.DN2)
-        self.SBU2.signal.connect(self.connector.SBU2)
-        self.SBU1.signal.connect(self.connector.SBU1)
-        self.CC1.signal.connect(self.connector.CC1)
-        self.CC2.signal.connect(self.connector.CC2)
+        self.power_vbus.hv.connect(self.connector.VBUS)
+        self.power_vbus.lv.connect(self.connector.GND, self.connector.EH)
+        self.usb2.p.signal.connect(self.connector.DP1, self.connector.DP2)
+        self.usb2.n.signal.connect(self.connector.DN1, self.connector.DN2)
+        self.sbu[0].signal.connect(self.connector.SBU2)
+        self.sbu[1].signal.connect(self.connector.SBU1)
+        self.cc[0].signal.connect(self.connector.CC1)
+        self.cc[1].signal.connect(self.connector.CC2)
+

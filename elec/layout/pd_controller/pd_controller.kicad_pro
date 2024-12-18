@@ -3,7 +3,7 @@
         "last_paths": {
             "gencad": "",
             "idf": "",
-            "netlist": "../../../build/pd_controller/pd_controller.net",
+            "netlist": "../../../build/pd-controller/pd-controller.net",
             "plot": "/Users/napowderly/Projects/nonos/elec/layout/pd-controller/build/",
             "pos_files": "",
             "specctra_dsn": "",

@@ -129,7 +129,7 @@
     (net 2 "pins[22]")
     (net 3 "HDMI0_D0_P")
     (net 4 "I2S_WS")
-    (net 5 "pins[30]")
+    (net 5 "processor-pins[28]")
     (net 6 "processor.hdi_a-pins[93]")
     (net 7 "processor.hdi_a-pins[56]")
     (net 8 "pins[0]")
@@ -184,7 +184,7 @@
     (net 58 "HDMI0_HOTPLUG")
     (net 59 "processor-pins[98]")
     (net 60 "ETH_LED_LINK")
-    (net 61 "processor-pins[38]")
+    (net 61 "processor-signal-8")
     (net 62 "pins[5]")
     (net 63 "net")
     (net 64 "HDMI0_CEC")
@@ -315,26 +315,26 @@
     (net 189 "sstxn1")
     (net 190 "ssrxn1")
     (net 191 "processor-net-3")
-    (net 192 "processor-pins[26]")
-    (net 193 "processor.hdi_b-pins[26]")
+    (net 192 "pins[37]")
+    (net 193 "pins[26]")
     (net 194 "processor.hdi_b-pins[49]")
     (net 195 "pins[40]")
-    (net 196 "pins[44]")
+    (net 196 "processor-pins[49]")
     (net 197 "usb_connector-signal")
     (net 198 "pins[27]")
     (net 199 "net-4")
     (net 200 "processor-signal-5")
-    (net 201 "pins[28]")
-    (net 202 "processor-pins[49]")
-    (net 203 "processor.hdi_b-pins[39]")
-    (net 204 "processor.hdi_b-pins[38]")
-    (net 205 "processor-signal-6")
+    (net 201 "processor.hdi_b-pins[28]")
+    (net 202 "processor-signal-6")
+    (net 203 "pins[39]")
+    (net 204 "pins[38]")
+    (net 205 "pins[47]")
     (net 206 "pins[23]")
-    (net 208 "pins[45]")
+    (net 208 "processor-signal-9")
     (net 210 "pins[46]")
-    (net 212 "pins[50]")
-    (net 215 "processor-pins[39]")
-    (net 216 "pins[37]")
+    (net 212 "pins[44]")
+    (net 215 "processor-signal-7")
+    (net 216 "pins[30]")
     (footprint "lcsc:C0402"
         (layer "F.Cu")
         (uuid "03df2873-b5ed-49ac-9934-f4f3b700adb7")
@@ -518,7 +518,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "a297248c-1961-4c1e-ad2a-f9e4dc75b083")
-            (net 148 "amplifier-net-5"))
+            (net 161 "amplifier-net-10"))
         (pad "2" smd rect
             (at 0.55 0 0)
             (size 0.79 0.54)
@@ -547,7 +547,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "10µH ±20% 4.5A 68mΩ"
+        (property "Value" "10µH ±20% infHz 4.5A 68mΩ"
             (at 0 4 90)
             (layer "F.Fab")
             (hide yes)
@@ -680,7 +680,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "2ae557a6-11cc-408e-9609-4c3e04648595")
-            (net 170 "amplifier-net-9"))
+            (net 164 "amplifier-net-2"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
@@ -709,7 +709,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "3.3µH ±20% 4A 73mΩ"
+        (property "Value" "3.3µH ±20% infHz 4A 73mΩ"
             (at 0 4 90)
             (layer "F.Fab")
             (hide yes)
@@ -849,7 +849,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "36d5b057-d185-47fd-9482-1f4796097ae0")
-            (net 171 "regulator-net-2"))
+            (net 50 "regulator-net-3"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L4.0-W4.0-H1.9.wrl"
             (offset
                 (xyz 0 0 0))
@@ -1401,14 +1401,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "af187876-75e8-46b0-98c5-ec23b8f6757c")
-            (net 50 "regulator-net-3"))
+            (net 29 "regulator-net-4"))
         (pad "2" smd rect
             (at 0.55 0 270)
             (size 0.79 0.54)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "c87a9a7b-06e5-473d-9af1-4accc0163fbd")
-            (net 171 "regulator-net-2"))
+            (net 50 "regulator-net-3"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/C0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -1706,7 +1706,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "7d3b1eb8-3d9f-4056-b8d8-6e89a5d24be1")
-            (net 203 "processor.hdi_b-pins[39]"))
+            (net 203 "pins[39]"))
         (pad "21" smd rect
             (at 1.8 1.6 90)
             (size 0.2 0.7)
@@ -2112,7 +2112,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "b64bdb3e-d1ce-48ee-b9b8-84d023f1573e")
-            (net 196 "pins[44]"))
+            (net 212 "pins[44]"))
         (pad "79" smd rect
             (at 1.4 -1.6 90)
             (size 0.2 0.7)
@@ -2133,7 +2133,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "7de8eb24-0c6f-42de-90c9-8a4878c105bb")
-            (net 204 "processor.hdi_b-pins[38]"))
+            (net 204 "pins[38]"))
         (pad "82" smd rect
             (at 2.6 -1.6 90)
             (size 0.2 0.7)
@@ -2168,14 +2168,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "d17d32bd-554e-42ab-b389-4572313939cf")
-            (net 201 "pins[28]"))
+            (net 201 "processor.hdi_b-pins[28]"))
         (pad "87" smd rect
             (at 4.6 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "2c6c0bfd-faaf-4b2c-baf7-174256c2969d")
-            (net 193 "processor.hdi_b-pins[26]"))
+            (net 193 "pins[26]"))
         (pad "88" smd rect
             (at 5 -1.6 90)
             (size 0.2 0.7)
@@ -2451,7 +2451,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "0b5ceffa-261c-4ee0-b841-723a388b47d1")
-            (net 29 "regulator-net-4"))
+            (net 47 "regulator-net-1"))
         (pad "2" smd rect
             (at 0.55 0 0)
             (size 0.79 0.54)
@@ -2700,7 +2700,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "e41b7d28-17d4-4f7b-83d9-4184917fdd40")
-            (net 103 "processor-signal-1"))
+            (net 215 "processor-signal-7"))
         (pad "13" smd rect
             (at 5 1.6 90)
             (size 0.2 0.7)
@@ -2721,7 +2721,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "21d2296b-b6f8-40d9-afc7-0fde990ce2e1")
-            (net 75 "signal-1"))
+            (net 163 "signal-4"))
         (pad "16" smd rect
             (at 3.8 1.6 90)
             (size 0.2 0.7)
@@ -2749,14 +2749,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f6384597-b22b-4259-b99d-2d7572bee025")
-            (net 216 "pins[37]"))
+            (net 192 "pins[37]"))
         (pad "20" smd rect
             (at 2.2 1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "bccaa6c4-16bc-4294-b4a5-15dfe06972d0")
-            (net 215 "processor-pins[39]"))
+            (net 200 "processor-signal-5"))
         (pad "21" smd rect
             (at 1.8 1.6 90)
             (size 0.2 0.7)
@@ -2770,28 +2770,28 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "e9e6fe53-a3be-4c91-aa31-aef412df19b1")
-            (net 125 "processor-signal-3"))
+            (net 131 "processor-signal"))
         (pad "23" smd rect
             (at 1 1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "4dfc02d9-24d3-46c4-97bd-027927a2626e")
-            (net 208 "pins[45]"))
+            (net 93 "processor-signal-2"))
         (pad "24" smd rect
             (at 0.6 1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "0c7c8af8-82a2-4f51-9854-17f0da9b5fb7")
-            (net 200 "processor-signal-5"))
+            (net 205 "pins[47]"))
         (pad "25" smd rect
             (at 0.2 1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "5966937f-d112-4411-aa13-bb5b81ddc77d")
-            (net 202 "processor-pins[49]"))
+            (net 196 "processor-pins[49]"))
         (pad "26" smd rect
             (at -0.2 1.6 90)
             (size 0.2 0.7)
@@ -2812,14 +2812,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "05cad90f-b8d4-4bda-b399-83a11f902da6")
-            (net 63 "net"))
+            (net 167 "net-1"))
         (pad "29" smd rect
             (at -1.4 1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "a97bb065-5fd6-4e6c-80aa-7bc424ad9eb3")
-            (net 158 "net-3"))
+            (net 150 "net-2"))
         (pad "30" smd rect
             (at -1.8 1.6 90)
             (size 0.2 0.7)
@@ -3141,7 +3141,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "1ecbd2b2-3588-4d5c-b784-c60ba06ea203")
-            (net 212 "pins[50]"))
+            (net 103 "processor-signal-1"))
         (pad "76" smd rect
             (at 0.2 -1.6 90)
             (size 0.2 0.7)
@@ -3155,14 +3155,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f1706f18-54ed-463f-b329-af9947d7ac13")
-            (net 205 "processor-signal-6"))
+            (net 208 "processor-signal-9"))
         (pad "78" smd rect
             (at 1 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "8fca0e6c-897e-4de8-b45e-1393833b5687")
-            (net 93 "processor-signal-2"))
+            (net 180 "processor-signal-4"))
         (pad "79" smd rect
             (at 1.4 -1.6 90)
             (size 0.2 0.7)
@@ -3176,21 +3176,21 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "7f8e6fb2-5a7b-4b0b-8bab-c110309d06c5")
-            (net 180 "processor-signal-4"))
+            (net 125 "processor-signal-3"))
         (pad "81" smd rect
             (at 2.2 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f9b63557-da9f-4916-b91b-884f1746b282")
-            (net 61 "processor-pins[38]"))
+            (net 202 "processor-signal-6"))
         (pad "82" smd rect
             (at 2.6 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "bf237c72-b235-40d1-8676-b42f0c1ce1ae")
-            (net 163 "signal-4"))
+            (net 157 "signal-5"))
         (pad "83" smd rect
             (at 3 -1.6 90)
             (size 0.2 0.7)
@@ -3211,21 +3211,21 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "067d3625-ad92-45d3-8f2c-8c65a934484a")
-            (net 5 "pins[30]"))
+            (net 216 "pins[30]"))
         (pad "86" smd rect
             (at 4.2 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "20adaded-9304-44fa-9eeb-d11895af54ec")
-            (net 131 "processor-signal"))
+            (net 5 "processor-pins[28]"))
         (pad "87" smd rect
             (at 4.6 -1.6 90)
             (size 0.2 0.7)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "44e9ab7c-e00a-4cfd-ae62-95cc8f6a58f9")
-            (net 192 "processor-pins[26]"))
+            (net 61 "processor-signal-8"))
         (pad "88" smd rect
             (at 5 -1.6 90)
             (size 0.2 0.7)
@@ -3472,7 +3472,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "2b39459e-b204-4fdc-ba1a-9c4c87694c3d")
-            (net 136 "pd_controller-net-2"))
+            (net 135 "pd_controller-net-3"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -3653,7 +3653,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "ea12803d-1d28-41c7-b93a-05afadd0fffb")
-            (net 105 "pd_controller.pd_controller-signal"))
+            (net 160 "pd_controller.pd_controller-signal-1"))
         (pad "2" smd oval
             (at -0.75 2 0)
             (size 0.28 0.7)
@@ -3681,7 +3681,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "387762de-9e91-4060-93b1-3656eaf85854")
-            (net 160 "pd_controller.pd_controller-signal-1"))
+            (net 105 "pd_controller.pd_controller-signal"))
         (pad "6" smd oval
             (at 1.25 2 0)
             (size 0.28 0.7)
@@ -3709,7 +3709,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "df7f1439-79b9-49d6-987a-d3b77a7030a3")
-            (net 135 "pd_controller-net-3"))
+            (net 92 "pd_controller-net-1"))
         (pad "10" smd oval
             (at 2 -0.25 270)
             (size 0.28 0.7)
@@ -3758,7 +3758,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "7fb30ac0-9519-4853-8056-ca898bd64753")
-            (net 92 "pd_controller-net-1"))
+            (net 136 "pd_controller-net-2"))
         (pad "17" smd oval
             (at -0.75 -2 0)
             (size 0.28 0.7)
@@ -3772,7 +3772,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "bb796d59-41fb-48ee-8e8c-bf36a78d9615")
-            (net 136 "pd_controller-net-2"))
+            (net 135 "pd_controller-net-3"))
         (pad "19" smd oval
             (at -2 -1.25 270)
             (size 0.28 0.7)
@@ -4049,7 +4049,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f329710b-cf39-4cda-955e-d26a2533d405")
-            (net 47 "regulator-net-1"))
+            (net 171 "regulator-net-2"))
         (pad "5" smd rect
             (at -0.89 1.4 90)
             (size 0.6 0.25)
@@ -4063,14 +4063,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "35fb081e-c107-4737-9019-a4fcae30d966")
-            (net 171 "regulator-net-2"))
+            (net 50 "regulator-net-3"))
         (pad "7" smd rect
             (at 0.91 1.4 90)
             (size 0.6 0.25)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f7e7b42b-e7a2-41b8-819e-d469d1176d75")
-            (net 50 "regulator-net-3"))
+            (net 29 "regulator-net-4"))
         (pad "8" smd rect
             (at 0.99 -0.65 180)
             (size 0.4 2.1)
@@ -4268,7 +4268,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "dc5735e7-a109-4318-a3ca-f0f851561235")
-            (net 29 "regulator-net-4"))
+            (net 47 "regulator-net-1"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -4291,7 +4291,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" ""
+        (property "Value" "infV"
             (at 0 4 0)
             (layer "F.Fab")
             (hide yes)
@@ -4694,7 +4694,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "10µH ±20% 4.5A 68mΩ"
+        (property "Value" "10µH ±20% infHz 4.5A 68mΩ"
             (at 0 4 90)
             (layer "F.Fab")
             (hide yes)
@@ -4827,14 +4827,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f04db5e3-a034-4098-89eb-3cffeaaeb6dd")
-            (net 164 "amplifier-net-2"))
+            (net 154 "amplifier-net-11"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "abb19899-454a-43d8-8e3d-b4abdb3745a2")
-            (net 150 "net-2"))
+            (net 158 "net-3"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
                 (xyz 0 0 0))
@@ -5061,14 +5061,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "14e7d29c-1ad0-4995-86b1-7eef6d2b928b")
-            (net 75 "signal-1"))
+            (net 163 "signal-4"))
         (pad "10" smd rect
             (at -2.25 -1.25 180)
             (size 0.3 0.8)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "7320f107-552c-4c38-a540-fd1862cab418")
-            (net 163 "signal-4"))
+            (net 157 "signal-5"))
         (pad "11" smd rect
             (at -3.25 1.25 180)
             (size 0.4 0.8)
@@ -5407,7 +5407,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "a2eeab1a-9503-411e-81cf-7e82f26864f1")
-            (net 47 "regulator-net-1"))
+            (net 171 "regulator-net-2"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -5797,7 +5797,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "16262c87-03b6-4d9d-bb28-3f099148c33d")
-            (net 167 "net-1"))
+            (net 173 "net-5"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
@@ -6157,7 +6157,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "a8ce6463-660f-4599-ac8b-df3567f6d7cd")
-            (net 174 "amplifier-net"))
+            (net 152 "amplifier-net-4"))
         (pad "2" smd rect
             (at 0.55 0 270)
             (size 0.79 0.54)
@@ -6482,7 +6482,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "779f3792-c3c4-439c-bd17-0cb78129f09f")
-            (net 169 "amplifier-net-1"))
+            (net 148 "amplifier-net-5"))
         (pad "2" smd rect
             (at 0.43 0 270)
             (size 0.57 0.54)
@@ -6651,7 +6651,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "91933071-0c41-4026-aa65-4237bc6a4b7d")
-            (net 92 "pd_controller-net-1"))
+            (net 136 "pd_controller-net-2"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -6848,7 +6848,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "d7f3a01e-adb4-475f-9c2e-bf338a682458")
-            (net 164 "amplifier-net-2"))
+            (net 154 "amplifier-net-11"))
         (pad "3" smd rect
             (at -2.41 -0.75 0)
             (size 0.66 0.28)
@@ -6883,21 +6883,21 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "4bdc2a2a-e9fb-4538-92ed-53c8c9c5ad23")
-            (net 174 "amplifier-net"))
+            (net 152 "amplifier-net-4"))
         (pad "8" smd rect
             (at -2.41 1.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "ec5a9875-8786-485e-b06b-0baab98f33f3")
-            (net 169 "amplifier-net-1"))
+            (net 148 "amplifier-net-5"))
         (pad "9" smd rect
             (at -1.75 2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "756a600e-2882-4fcb-ae20-ae92b63e2355")
-            (net 158 "net-3"))
+            (net 150 "net-2"))
         (pad "10" smd rect
             (at -1.25 2.41 0)
             (size 0.28 0.66)
@@ -6911,7 +6911,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "d9abb394-9dfb-4030-b707-04cdc554ea02")
-            (net 157 "signal-5"))
+            (net 75 "signal-1"))
         (pad "12" smd rect
             (at -0.25 2.41 0)
             (size 0.28 0.66)
@@ -6953,21 +6953,21 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "99ff9bec-d0fe-4947-96f5-f0b2c8cebbab")
-            (net 63 "net"))
+            (net 167 "net-1"))
         (pad "18" smd rect
             (at 2.41 1.25 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "30bd30bc-cda1-4184-b9a6-28f220774c42")
-            (net 166 "amplifier-net-6"))
+            (net 170 "amplifier-net-9"))
         (pad "19" smd rect
             (at 2.41 0.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "e1e6402b-034a-46cc-8831-f99ab17ace63")
-            (net 148 "amplifier-net-5"))
+            (net 161 "amplifier-net-10"))
         (pad "20" smd rect
             (at 2.41 0.25 0)
             (size 0.66 0.28)
@@ -6995,14 +6995,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "74fb6703-ad79-4d4f-82f6-459717ef368a")
-            (net 154 "amplifier-net-11"))
+            (net 174 "amplifier-net"))
         (pad "24" smd rect
             (at 2.41 -1.75 0)
             (size 0.66 0.28)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "63de3545-9fda-496e-b661-164e28422f38")
-            (net 161 "amplifier-net-10"))
+            (net 162 "amplifier-net-8"))
         (pad "25" smd rect
             (at 1.75 -2.41 0)
             (size 0.28 0.66)
@@ -7023,28 +7023,28 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "52c5e1f7-1edc-4fbd-aef5-183d88326c1f")
-            (net 170 "amplifier-net-9"))
+            (net 164 "amplifier-net-2"))
         (pad "28" smd rect
             (at 0.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "038bac84-1b48-47af-9782-41a8afb63788")
-            (net 162 "amplifier-net-8"))
+            (net 169 "amplifier-net-1"))
         (pad "29" smd rect
             (at -0.25 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "35ee7bbc-6d49-4859-8512-1568371b2c85")
-            (net 153 "amplifier-net-3"))
+            (net 166 "amplifier-net-6"))
         (pad "30" smd rect
             (at -0.75 -2.41 0)
             (size 0.28 0.66)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "82ae0b37-cf97-4763-a243-7becc2f80e3f")
-            (net 152 "amplifier-net-4"))
+            (net 153 "amplifier-net-3"))
         (pad "31" smd rect
             (at -1.25 -2.41 0)
             (size 0.28 0.66)
@@ -7318,7 +7318,7 @@
             (layers "*.Cu" "*.Mask")
             (remove_unused_layers no)
             (uuid "262c2e3e-2aa6-4dfa-8179-fd144374b64a")
-            (net 127 "rj45-net"))
+            (net 72 "rj45-net-1"))
         (pad "13" thru_hole circle
             (at -4.09 -6.89 0)
             (size 1.7 1.7)
@@ -7326,7 +7326,7 @@
             (layers "*.Cu" "*.Mask")
             (remove_unused_layers no)
             (uuid "0fafcc54-ef13-4080-8d8a-8fd88635d9c0")
-            (net 72 "rj45-net-1"))
+            (net 127 "rj45-net"))
         (pad "14" thru_hole circle
             (at -6.63 -6.89 0)
             (size 1.7 1.7)
@@ -8217,7 +8217,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "10µH ±20% 4.5A 68mΩ"
+        (property "Value" "10µH ±20% infHz 4.5A 68mΩ"
             (at 0 4 90)
             (layer "F.Fab")
             (hide yes)
@@ -8350,14 +8350,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "a9fe13bf-0f12-4b7a-bda7-af04fc0915b3")
-            (net 154 "amplifier-net-11"))
+            (net 174 "amplifier-net"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "6b3d317b-3c70-4085-91cf-f9427e0c29c7")
-            (net 173 "net-5"))
+            (net 63 "net"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
                 (xyz 0 0 0))
@@ -8512,7 +8512,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "2612af7d-1d6a-4baf-be4b-a4461d0a6b45")
-            (net 157 "signal-5"))
+            (net 75 "signal-1"))
         (pad "2" smd rect
             (at 0.43 0 270)
             (size 0.57 0.54)
@@ -8674,7 +8674,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "b938ee39-153c-4d0e-b5d6-d730367a5f64")
-            (net 158 "net-3"))
+            (net 150 "net-2"))
         (pad "2" smd rect
             (at 0.43 0 90)
             (size 0.57 0.54)
@@ -9043,7 +9043,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "3ac5e516-5abf-4228-a660-da3842447b43")
-            (net 135 "pd_controller-net-3"))
+            (net 92 "pd_controller-net-1"))
         (model "/Users/napowderly/Projects/nonos/build/kicad/libs/3dmodels/lcsc.3dshapes/R0402_L1.0-W0.5-H0.5.wrl"
             (offset
                 (xyz 0 0 0))
@@ -9265,7 +9265,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" ""
+        (property "Value" "infV"
             (at 0 4 0)
             (layer "F.Fab")
             (hide yes)
@@ -9693,7 +9693,7 @@
             (layers "*.Cu" "*.Mask")
             (remove_unused_layers no)
             (uuid "d4a1d45a-40bb-410f-9cf3-8796e4456a75")
-            (net 173 "net-5"))
+            (net 63 "net"))
         (path "/d4c13e26-7a11-4044-aca7-0e30dbf04238"))
     (footprint "lcsc:C0805"
         (layer "F.Cu")
@@ -9878,7 +9878,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "6e855dc0-c985-4906-be9a-2905418a0a4c")
-            (net 150 "net-2"))
+            (net 158 "net-3"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
@@ -10105,7 +10105,7 @@
                     (size 1 1)
                     (thickness 0.15))
                 (hide no)))
-        (property "Value" "10µH ±20% 4.5A 68mΩ"
+        (property "Value" "10µH ±20% infHz 4.5A 68mΩ"
             (at 0 4 90)
             (layer "F.Fab")
             (hide yes)
@@ -10238,14 +10238,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "584af9e4-1fd4-4335-8cf4-3626a47672f5")
-            (net 152 "amplifier-net-4"))
+            (net 153 "amplifier-net-3"))
         (pad "2" smd rect
             (at 3 0 0)
             (size 2.35 3.5)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "c20c5567-9af6-4cfc-873f-b3140065a6b9")
-            (net 167 "net-1"))
+            (net 173 "net-5"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/IND-SMD_L7.3-W6.8-H3.0.wrl"
             (offset
                 (xyz 0 0 0))
@@ -10539,7 +10539,7 @@
             (layers "*.Cu" "*.Mask")
             (remove_unused_layers no)
             (uuid "7c3bca6b-000a-4465-858a-02f9a486d437")
-            (net 150 "net-2"))
+            (net 158 "net-3"))
         (pad "2" thru_hole circle
             (at -1.27 0 180)
             (size 1.5 1.5)
@@ -10547,7 +10547,7 @@
             (layers "*.Cu" "*.Mask")
             (remove_unused_layers no)
             (uuid "9d44111c-50f2-4435-9e6d-d16d4681c9c5")
-            (net 167 "net-1"))
+            (net 173 "net-5"))
         (path "/ab7d388b-48cf-439c-a0fd-c2be0a34ec8d"))
     (footprint "lcsc:R0402"
         (layer "F.Cu")
@@ -10895,7 +10895,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "33a0d134-6ed0-4eb8-9cce-673788745efb")
-            (net 166 "amplifier-net-6"))
+            (net 170 "amplifier-net-9"))
         (pad "2" smd rect
             (at 0.55 0 0)
             (size 0.79 0.54)
@@ -11292,7 +11292,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "4ca5d1d6-9784-41a6-ae50-65a9a006a34d")
-            (net 173 "net-5"))
+            (net 63 "net"))
         (pad "2" smd rect
             (at 1 0 270)
             (size 1.41 1.35)
@@ -11454,7 +11454,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "e2cf6032-8664-4923-98f7-a8869ac7fbc8")
-            (net 63 "net"))
+            (net 167 "net-1"))
         (pad "2" smd rect
             (at 0.43 0 270)
             (size 0.57 0.54)
@@ -11934,7 +11934,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "230df736-9e87-494f-92b8-1f703fc574fd")
-            (net 179 "processor-net"))
+            (net 177 "processor-net-1"))
         (pad "5" smd rect
             (at -1.3 0.95 270)
             (size 1.1 0.6)
@@ -12501,14 +12501,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "9ef10488-91d3-4b8d-b519-ff94e30fb477")
-            (net 153 "amplifier-net-3"))
+            (net 166 "amplifier-net-6"))
         (pad "2" smd rect
             (at 0.73 0 180)
             (size 0.85 0.85)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "f9ad133c-ee3a-4c4c-93c4-81df0b41539a")
-            (net 152 "amplifier-net-4"))
+            (net 153 "amplifier-net-3"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/CAP-SMD_L1.6-W0.8-3.wrl"
             (offset
                 (xyz 0 0 0))
@@ -12685,7 +12685,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "e0bddec2-c6c9-4917-9e5c-122f922f58a7")
-            (net 164 "amplifier-net-2"))
+            (net 154 "amplifier-net-11"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/CAP-SMD_L1.6-W0.8-3.wrl"
             (offset
                 (xyz 0 0 0))
@@ -12855,14 +12855,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "be133004-dd58-43d3-9b33-0d6a59f9db1e")
-            (net 162 "amplifier-net-8"))
+            (net 169 "amplifier-net-1"))
         (pad "2" smd rect
             (at 0.73 0 180)
             (size 0.85 0.85)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "77db9e1b-55d3-43bd-9023-c4c588202b16")
-            (net 170 "amplifier-net-9"))
+            (net 164 "amplifier-net-2"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/CAP-SMD_L1.6-W0.8-3.wrl"
             (offset
                 (xyz 0 0 0))
@@ -13032,14 +13032,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "c9507a07-fbee-42da-9d4e-b5a7cb09827e")
-            (net 161 "amplifier-net-10"))
+            (net 162 "amplifier-net-8"))
         (pad "2" smd rect
             (at 0.73 0 180)
             (size 0.85 0.85)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "40d2b4bb-21f0-4e39-8eda-1ebab5f8029e")
-            (net 154 "amplifier-net-11"))
+            (net 174 "amplifier-net"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/CAP-SMD_L1.6-W0.8-3.wrl"
             (offset
                 (xyz 0 0 0))
@@ -13314,14 +13314,14 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "1e65a777-a0ab-4f64-8dc9-0210b43ad3fa")
-            (net 179 "processor-net"))
+            (net 177 "processor-net-1"))
         (pad "1" smd rect
             (at -0.75 0 0)
             (size 0.81 0.86)
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "9f8e67a0-954c-4016-9a45-e4bf880a0182")
-            (net 177 "processor-net-1"))
+            (net 179 "processor-net"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/R0603.wrl"
             (offset
                 (xyz 0 0 0))
@@ -13455,7 +13455,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "02bf468c-a8bb-4eaf-aba5-45a4ef66ffd8")
-            (net 127 "rj45-net"))
+            (net 72 "rj45-net-1"))
         (pad "1" smd rect
             (at -0.75 0 0)
             (size 0.81 0.86)
@@ -13596,7 +13596,7 @@
             (layers "F.Cu" "F.Paste" "F.Mask")
             (remove_unused_layers no)
             (uuid "4826e192-506a-4d20-86ad-c6f6e49fb5bf")
-            (net 72 "rj45-net-1"))
+            (net 127 "rj45-net"))
         (pad "1" smd rect
             (at -0.75 0 0)
             (size 0.81 0.86)
@@ -14850,356 +14850,6 @@
                 (xyz 1 1 1))
             (rotate
                 (xyz 0 0 0))))
-    (footprint "lcsc:LED0402-RD"
-        (layer "F.Cu")
-        (uuid "b570e7a2-743e-4fbf-8293-2bdcb4a4cc2e")
-        (at 134.602452 61.117298 90)
-        (property "Reference" "D4"
-            (at 0 -4 0)
-            (layer "F.SilkS")
-            (hide no)
-            (uuid "94c22a23-b610-465a-b1de-edcc3b8cc390")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (property "Value" ""
-            (at 0 4 0)
-            (layer "F.Fab")
-            (hide no)
-            (uuid "ad811a3e-2064-4b65-9d3b-37986d33cb08")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (property "atopile_address" "processor.activity_led"
-            (at 0 0 0)
-            (layer "User.9")
-            (hide no)
-            (uuid "2bf0294e-dc50-4313-9e7c-6a1bf5705b37")
-            (effects
-                (font
-                    (size 1.27 1.27)
-                    (thickness 0.15))
-                (hide yes)))
-        (property "LCSC" "C25503345"
-            (at 0 0 0)
-            (layer "User.9")
-            (hide no)
-            (uuid "3d9871ec-cb2e-4abf-8094-198105c04c74")
-            (effects
-                (font
-                    (size 1.27 1.27)
-                    (thickness 0.15))
-                (hide yes)))
-        (attr smd)
-        (fp_line
-            (start 0.3 0.5)
-            (end 1.09 0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "a2875846-c740-43d0-8fca-36d9d9aa3189"))
-        (fp_line
-            (start 1.09 0.5)
-            (end 1.09 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "50f5d5ce-fa21-4f87-a98c-03ec8f188777"))
-        (fp_line
-            (start 1.09 -0.5)
-            (end 0.3 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "a9619034-016f-4243-bd53-1c56177b4d2d"))
-        (fp_line
-            (start -0.3 0.5)
-            (end -0.93 0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "6ca09d0a-e31f-45ef-ad61-cbf4e3f3596f"))
-        (fp_line
-            (start -0.93 0.5)
-            (end -1.09 0.35)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "e9f76d0f-803a-4307-b83f-63576363ae47"))
-        (fp_line
-            (start -1.09 0.35)
-            (end -1.09 -0.35)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "b7afcf31-444b-4baa-b6d9-47fa4396bf00"))
-        (fp_line
-            (start -1.09 -0.35)
-            (end -0.93 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "57e8bf67-e718-4167-99a5-3da80f42a0c1"))
-        (fp_line
-            (start -0.93 -0.5)
-            (end -0.3 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "8a4dc67b-2d71-4864-be9f-bdbe95795866"))
-        (fp_circle
-            (center -0.5 0.25)
-            (end -0.47 0.25)
-            (stroke
-                (width 0.06)
-                (type solid))
-            (fill none)
-            (layer "F.Fab")
-            (uuid "61a1fb2c-630d-4c36-a134-cb964aedc341"))
-        (fp_circle
-            (center 0 0.5)
-            (end 0.04 0.5)
-            (stroke
-                (width 0.08)
-                (type solid))
-            (fill none)
-            (layer "F.SilkS")
-            (uuid "53e46c0e-5648-4de5-8505-d4c9ef8a13af"))
-        (fp_circle
-            (center 0 -0.5)
-            (end 0.04 -0.5)
-            (stroke
-                (width 0.08)
-                (type solid))
-            (fill none)
-            (layer "F.SilkS")
-            (uuid "10239592-3d60-426c-80fe-2a065d121c6b"))
-        (fp_text user "%R"
-            (at 0 0 0)
-            (layer "F.Fab")
-            (uuid "ca5d9f2d-492e-4604-a46e-ff562ba34fbc")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (fp_text user "${REFERENCE}"
-            (at 0 -4 0)
-            (layer "F.SilkS")
-            (uuid "94c22a23-b610-465a-b1de-edcc3b8cc390")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (pad "2" smd rect
-            (at 0.54 0 0)
-            (size 0.64 0.54)
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (remove_unused_layers no)
-            (uuid "a4f8d434-e96d-4edd-be22-959024f58a78")
-            (net 45 "VCC_3V3"))
-        (pad "1" smd rect
-            (at -0.54 0 0)
-            (size 0.64 0.54)
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (remove_unused_layers no)
-            (uuid "db41fe6d-c16f-459e-87e9-9373f6d0d2dd")
-            (net 191 "processor-net-3"))
-        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/LED0402_L1.0-W0.5-H0.2.wrl"
-            (offset
-                (xyz 0 0 0))
-            (scale
-                (xyz 1 1 1))
-            (rotate
-                (xyz 0 0 0))))
-    (footprint "lcsc:LED0402-RD"
-        (layer "F.Cu")
-        (uuid "206736c4-be22-48c7-886d-51e981167549")
-        (at 132.553081 61.106001 90)
-        (property "Reference" "D5"
-            (at 0 -4 0)
-            (layer "F.SilkS")
-            (hide no)
-            (uuid "923a76bf-bb8c-4a63-b64a-e6c6e9f0ceaf")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (property "Value" ""
-            (at 0 4 0)
-            (layer "F.Fab")
-            (hide no)
-            (uuid "ea15fa9c-5fe7-4f38-ba4e-e8771d0c98e3")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (property "atopile_address" "processor.power_led"
-            (at 0 0 0)
-            (layer "User.9")
-            (hide no)
-            (uuid "a9c7a8d4-3adb-48ac-a4e2-aa1219659069")
-            (effects
-                (font
-                    (size 1.27 1.27)
-                    (thickness 0.15))
-                (hide yes)))
-        (property "LCSC" "C25503345"
-            (at 0 0 0)
-            (layer "User.9")
-            (hide no)
-            (uuid "2a3c3ca1-6b10-4b6e-83ce-5b45e8b7963b")
-            (effects
-                (font
-                    (size 1.27 1.27)
-                    (thickness 0.15))
-                (hide yes)))
-        (attr smd)
-        (fp_line
-            (start 0.3 0.5)
-            (end 1.09 0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "01886db2-3e63-41f2-933a-541e59750f5f"))
-        (fp_line
-            (start 1.09 0.5)
-            (end 1.09 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "6afcc55c-7e29-4c88-a572-9122e6999274"))
-        (fp_line
-            (start 1.09 -0.5)
-            (end 0.3 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "82f48ca3-eeec-4464-9164-d2d500b0dd40"))
-        (fp_line
-            (start -0.3 0.5)
-            (end -0.93 0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "7d2e21b0-1206-4998-b437-62292f929b52"))
-        (fp_line
-            (start -0.93 0.5)
-            (end -1.09 0.35)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "a4ba0a56-7937-4486-a64f-b2533b39aab8"))
-        (fp_line
-            (start -1.09 0.35)
-            (end -1.09 -0.35)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "c05b8802-8954-4207-8a63-a73315f00594"))
-        (fp_line
-            (start -1.09 -0.35)
-            (end -0.93 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "b5c2adf5-d245-4708-971b-8e581dfce696"))
-        (fp_line
-            (start -0.93 -0.5)
-            (end -0.3 -0.5)
-            (stroke
-                (width 0.15)
-                (type solid))
-            (layer "F.SilkS")
-            (uuid "bfa86857-7fea-4adf-876d-bbdf71ce10bc"))
-        (fp_circle
-            (center -0.5 0.25)
-            (end -0.47 0.25)
-            (stroke
-                (width 0.06)
-                (type solid))
-            (fill none)
-            (layer "F.Fab")
-            (uuid "cf0cf203-6daa-46a6-aef2-bae5415c6887"))
-        (fp_circle
-            (center 0 0.5)
-            (end 0.04 0.5)
-            (stroke
-                (width 0.08)
-                (type solid))
-            (fill none)
-            (layer "F.SilkS")
-            (uuid "4d9dfd22-9961-46d2-b593-b6d0807881cd"))
-        (fp_circle
-            (center 0 -0.5)
-            (end 0.04 -0.5)
-            (stroke
-                (width 0.08)
-                (type solid))
-            (fill none)
-            (layer "F.SilkS")
-            (uuid "d243e515-9239-41c2-a73f-bb304c3564a0"))
-        (fp_text user "%R"
-            (at 0 0 0)
-            (layer "F.Fab")
-            (uuid "eaa32d45-b8a1-42fb-9977-6f961fc3de02")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (fp_text user "${REFERENCE}"
-            (at 0 -4 0)
-            (layer "F.SilkS")
-            (uuid "923a76bf-bb8c-4a63-b64a-e6c6e9f0ceaf")
-            (effects
-                (font
-                    (size 1 1)
-                    (thickness 0.15))
-                (hide no)))
-        (pad "2" smd rect
-            (at 0.54 0 0)
-            (size 0.64 0.54)
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (remove_unused_layers no)
-            (uuid "cc0bf242-2f13-48ab-b77d-8db4dc4c275c")
-            (net 45 "VCC_3V3"))
-        (pad "1" smd rect
-            (at -0.54 0 0)
-            (size 0.64 0.54)
-            (layers "F.Cu" "F.Paste" "F.Mask")
-            (remove_unused_layers no)
-            (uuid "66a79373-de7e-4658-8b74-cd528336ecc7")
-            (net 177 "processor-net-1"))
-        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/LED0402_L1.0-W0.5-H0.2.wrl"
-            (offset
-                (xyz 0 0 0))
-            (scale
-                (xyz 1 1 1))
-            (rotate
-                (xyz 0 0 0))))
     (footprint "lcsc:C0603"
         (layer "F.Cu")
         (uuid "efd83cfe-b24e-4ce4-a875-1363401b926c")
@@ -16079,6 +15729,448 @@
             (uuid "689c9f5d-f97c-4c92-b068-572c6dc62b85")
             (net 40 "VCC_5V"))
         (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/C0603_L1.6-W0.8-H0.8.wrl"
+            (offset
+                (xyz 0 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:LED0603-RD"
+        (layer "F.Cu")
+        (uuid "bcfcf516-906e-469a-ad99-d0d900e3bbb2")
+        (at 134.602452 61.117298 90)
+        (property "Reference" "D4"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "2a402b11-11ea-42be-a30e-df5726ccb820")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "2V"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "40380270-6acf-434e-9d61-7ef1e6666525")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "processor.activity_led"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "5cc50727-b53d-4f96-95a2-d90d65f81c2d")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C7429913"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "e748fa43-3a8d-45e7-886b-5ce420e4b53a")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr smd)
+        (fp_line
+            (start 0.22 0.33)
+            (end 0.21 0.33)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "d307afde-280c-4d18-991c-9e683206f729"))
+        (fp_line
+            (start 0.21 0.33)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "75edaa7f-8efc-4c4d-97e1-0a2d36c5baf1"))
+        (fp_line
+            (start 0.22 -0.35)
+            (end 0.22 -0.34)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "2aefb0b9-439b-49da-8cc3-424ddc7c3889"))
+        (fp_line
+            (start 0.22 -0.34)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "4874972f-c865-46dc-a0d3-a32e5d1e0f0c"))
+        (fp_line
+            (start 0.22 -0.35)
+            (end 0.22 0.33)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "628d2baf-489b-46b0-998f-35c39c5d50fc"))
+        (fp_line
+            (start 0.24 -0.75)
+            (end 1.39 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "5cec36a1-7873-474e-8df8-e6fd39f4a377"))
+        (fp_line
+            (start 0.24 0.75)
+            (end 1.39 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "1c34c912-e929-43fb-a4ec-42c8ba42abd4"))
+        (fp_line
+            (start 1.39 -0.75)
+            (end 1.39 0.73)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "8f2ab865-bdce-4e1c-8e60-bae8b604ae10"))
+        (fp_line
+            (start -0.14 0.75)
+            (end -1.19 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7cc4622e-b56d-453c-8132-4525afe3e9f5"))
+        (fp_line
+            (start -1.49 0.35)
+            (end -1.49 0.45)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "907a67f9-bf2a-4bb3-8b7c-e002c7ee5035"))
+        (fp_line
+            (start -1.49 0.45)
+            (end -1.19 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "61203306-9af0-4dcf-b6ce-72c4a516a667"))
+        (fp_line
+            (start -1.49 -0.35)
+            (end -1.49 0.35)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "3850eb03-4245-4869-9c9f-474ceda76936"))
+        (fp_line
+            (start -1.49 -0.35)
+            (end -1.49 -0.45)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "35f37d13-577c-444c-a4a0-10f15c1d8f37"))
+        (fp_line
+            (start -1.49 -0.45)
+            (end -1.19 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "0d0d1ccc-72b9-4fb3-a6f0-73e4a612e3d7"))
+        (fp_line
+            (start -0.14 -0.75)
+            (end -1.19 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7f9d8661-b036-4263-b572-70461d70509c"))
+        (fp_line
+            (start 0.22 0)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7b6f858a-432b-4a98-ac74-b9a81fc71925"))
+        (fp_circle
+            (center -0.8 0.4)
+            (end -0.77 0.4)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "dbd50eab-1372-40e8-a1b8-3ff5147e322a"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "9a805269-ed4a-45be-a88e-96075f3c4047")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "2a402b11-11ea-42be-a30e-df5726ccb820")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.8 0 90)
+            (size 0.8 0.8)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (uuid "96230456-15b1-4289-b247-f3aa03236c66")
+            (net 45 "VCC_3V3"))
+        (pad "1" smd rect
+            (at -0.8 0 90)
+            (size 0.8 0.8)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (uuid "e87860d8-02e5-4518-9f6a-e649c1aa64f1")
+            (net 191 "processor-net-3"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/LED0603-RD.wrl"
+            (offset
+                (xyz 0 0 0))
+            (scale
+                (xyz 1 1 1))
+            (rotate
+                (xyz 0 0 0))))
+    (footprint "lcsc:LED0603-RD"
+        (layer "F.Cu")
+        (uuid "4d67bb56-77ce-4478-abbe-227c5256095b")
+        (at 132.553081 61.106001 90)
+        (property "Reference" "D5"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (hide no)
+            (uuid "9e522863-7a8e-4097-aca2-0f0d3b700fba")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "Value" "2V"
+            (at 0 4 0)
+            (layer "F.Fab")
+            (hide no)
+            (uuid "6a3063a9-571a-41c7-8707-1737edcc5d36")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (property "atopile_address" "processor.power_led"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "578297f6-67df-4f2b-b6e0-115c66be6ddc")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (property "LCSC" "C7429913"
+            (at 0 0 0)
+            (layer "User.9")
+            (hide no)
+            (uuid "40c61d7e-7510-4a56-bd03-17a7113f44fe")
+            (effects
+                (font
+                    (size 1.27 1.27)
+                    (thickness 0.15))
+                (hide yes)))
+        (attr smd)
+        (fp_line
+            (start 0.22 0.33)
+            (end 0.21 0.33)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "671d608e-098d-404b-b935-353caacd3faf"))
+        (fp_line
+            (start 0.21 0.33)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a47fc2dc-fd93-4cbd-a495-01c05d8236e5"))
+        (fp_line
+            (start 0.22 -0.35)
+            (end 0.22 -0.34)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "03194e59-043f-4d81-a2f7-fafb25fabe3b"))
+        (fp_line
+            (start 0.22 -0.34)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "d872d50b-2cdd-4869-a8f2-d9e7f091cd24"))
+        (fp_line
+            (start 0.22 -0.35)
+            (end 0.22 0.33)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a61d1fbf-5ba9-43b5-8413-ce3795179ef4"))
+        (fp_line
+            (start 0.24 -0.75)
+            (end 1.39 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "798ed5ea-5e28-4cfd-909b-025fbc800971"))
+        (fp_line
+            (start 0.24 0.75)
+            (end 1.39 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a6ca3574-f228-478b-8499-cd8b13ebf104"))
+        (fp_line
+            (start 1.39 -0.75)
+            (end 1.39 0.73)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "1cd1576b-ec80-433f-b14f-2e9caa000e08"))
+        (fp_line
+            (start -0.14 0.75)
+            (end -1.19 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "a88ad37d-a983-47cd-a043-d55f5692061b"))
+        (fp_line
+            (start -1.49 0.35)
+            (end -1.49 0.45)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "b78d5a5d-8384-463b-a5fe-74bf3f746715"))
+        (fp_line
+            (start -1.49 0.45)
+            (end -1.19 0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "8d13e1cc-0ba8-48d2-9719-9b44b75be478"))
+        (fp_line
+            (start -1.49 -0.35)
+            (end -1.49 0.35)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "4d4993a1-1a57-4e3d-8d9a-0cb2d13b800b"))
+        (fp_line
+            (start -1.49 -0.35)
+            (end -1.49 -0.45)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "7f66588c-f469-4112-8745-a9fe93ede12b"))
+        (fp_line
+            (start -1.49 -0.45)
+            (end -1.19 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "fd5d272b-0259-4fdd-a5ae-0b3794801bdc"))
+        (fp_line
+            (start -0.14 -0.75)
+            (end -1.19 -0.75)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "e774bac2-a468-472f-b20b-3fa7c1274e8c"))
+        (fp_line
+            (start 0.22 0)
+            (end -0.12 0)
+            (stroke
+                (width 0.15)
+                (type solid))
+            (layer "F.SilkS")
+            (uuid "e1214f8e-7fd9-4cd5-b023-2c6ca1ab0320"))
+        (fp_circle
+            (center -0.8 0.4)
+            (end -0.77 0.4)
+            (stroke
+                (width 0.06)
+                (type solid))
+            (fill none)
+            (layer "F.Fab")
+            (uuid "87cad376-70ff-461b-b468-b429ff9eee32"))
+        (fp_text user "%R"
+            (at 0 0 0)
+            (layer "F.Fab")
+            (uuid "683f6766-b34e-4a24-8298-fcdd7a6d0e51")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (fp_text user "${REFERENCE}"
+            (at 0 -4 0)
+            (layer "F.SilkS")
+            (uuid "9e522863-7a8e-4097-aca2-0f0d3b700fba")
+            (effects
+                (font
+                    (size 1 1)
+                    (thickness 0.15))
+                (hide no)))
+        (pad "2" smd rect
+            (at 0.8 0 90)
+            (size 0.8 0.8)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (uuid "371c27ce-c5a4-44b7-9101-39a56ff9008a")
+            (net 45 "VCC_3V3"))
+        (pad "1" smd rect
+            (at -0.8 0 90)
+            (size 0.8 0.8)
+            (layers "F.Cu" "F.Paste" "F.Mask")
+            (remove_unused_layers no)
+            (uuid "e565cdbf-3ab2-4b37-93bc-ad70de10331b")
+            (net 179 "processor-net"))
+        (model "${KIPRJMOD}/../libs/3dmodels/lcsc.3dshapes/LED0603-RD.wrl"
             (offset
                 (xyz 0 0 0))
             (scale

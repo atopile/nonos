@@ -403,7 +403,7 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
         VDD_1V8_CAPS = []
 
         for props in VDD_1V8_CAP_PROPERTIES:
-            cap = self.VDD_1V8.decoupled.decouple()
+            cap = self.VDD_1V8.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_1V8_CAPS.append(cap)
@@ -439,7 +439,7 @@ class SK_HYNIX_H9HCNNNBKUMLXR_NEE(Module):
         NVCC_DRAM_1V1_CAPS = []
 
         for props in NVCC_DRAM_1V1_CAP_PROPERTIES:
-            cap = self.NVCC_DRAM_1V1.decoupled.decouple()
+            cap = self.NVCC_DRAM_1V1.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             NVCC_DRAM_1V1_CAPS.append(cap)

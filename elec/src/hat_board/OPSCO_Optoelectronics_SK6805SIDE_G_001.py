@@ -65,14 +65,17 @@ class _OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
         # ------------------------------------
         pass
 
+
 class SK6805Interface(ModuleInterface):
     power: F.ElectricPower
     data: F.ElectricLogic
+
 
 class OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
     """
     SMD,1.3x3.5mm RGB LEDs(Built-in IC) ROHS
     """
+
     input: SK6805Interface
     output: SK6805Interface
 
@@ -93,6 +96,6 @@ class OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
         self.led.DOUT.connect(self.output.data.signal)
         self.led.DIN.connect(self.input.data.signal)
 
-        input_cap = self.input.power.decoupled.decouple()
+        input_cap = self.input.power.decoupled.decouple(owner=self)
         input_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
         input_cap.add(F.has_package_requirement("0402"))

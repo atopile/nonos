@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT
 
 import logging
-from os import times
 
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
@@ -40,7 +39,7 @@ class _Samsung_KLMBG2JETD_B041(Module):
     VDD: F.Electrical
     VSS: F.Electrical
 
-    NC: F.Electrical #TODO: remove NC, replace with a not-connected flag
+    NC: F.Electrical  # TODO: remove NC, replace with a not-connected flag
 
     # ----------------------------------------
     #                 traits
@@ -231,15 +230,15 @@ class _Samsung_KLMBG2JETD_B041(Module):
             dat.reference.connect(self.VDD_1V8)
             dat.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
         self.DATA_STROBE.reference.connect(self.VDD_1V8)
-        self.DATA_STROBE.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.DATA_STROBE.reference.voltage.merge(
+            F.Range.from_center_rel(1.8 * P.V, 0.05)
+        )
         self.CMD.reference.connect(self.VDD_1V8)
         self.CMD.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
         self.CLK.reference.connect(self.VDD_1V8)
         self.CLK.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
         self.RSTN.reference.connect(self.VDD_1V8)
         self.RSTN.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
-
-
 
         # ------------------------------------
         #          parametrization
@@ -255,7 +254,8 @@ class Samsung_KLMBG2JETD_B041(Module):
 
 
     """
-    #Interfaces
+
+    # Interfaces
     VDD_3V3: F.ElectricPower
     VDD_1V8: F.ElectricPower
     DAT = times(8, F.ElectricLogic)
@@ -290,7 +290,6 @@ class Samsung_KLMBG2JETD_B041(Module):
         F.Net.with_name("VDD_INTERNAL").part_of.connect(self.eMMC.VDD_INTERNAL.hv)
         # F.Net.with_name("GND").part_of.connect(self.VDD_1V8.lv)
 
-
         # Pass through
         for dat in self.DAT:
             dat.connect(self.eMMC.DAT[self.DAT.index(dat)])
@@ -311,7 +310,7 @@ class Samsung_KLMBG2JETD_B041(Module):
         VDD_3V3_CAPS = []
 
         for props in VDD_3V3_CAP_PROPERTIES:
-            cap = self.VDD_3V3.decoupled.decouple()
+            cap = self.VDD_3V3.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_3V3_CAPS.append(cap)
@@ -327,7 +326,7 @@ class Samsung_KLMBG2JETD_B041(Module):
         VDD_1V8_CAPS = []
 
         for props in VDD_1V8_CAP_PROPERTIES:
-            cap = self.VDD_1V8.decoupled.decouple()
+            cap = self.VDD_1V8.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_1V8_CAPS.append(cap)
@@ -341,7 +340,7 @@ class Samsung_KLMBG2JETD_B041(Module):
         VDD_INTERNAL_CAPS = []
 
         for props in VDD_INTERNAL_CAP_PROPERTIES:
-            cap = self.eMMC.VDD_INTERNAL.decoupled.decouple()
+            cap = self.eMMC.VDD_INTERNAL.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_INTERNAL_CAPS.append(cap)
@@ -350,9 +349,11 @@ class Samsung_KLMBG2JETD_B041(Module):
         for dat in self.DAT:
             dat.reference.connect(self.VDD_1V8)
             dat.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
-        
+
         self.DATA_STROBE.reference.connect(self.VDD_1V8)
-        self.DATA_STROBE.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+        self.DATA_STROBE.reference.voltage.merge(
+            F.Range.from_center_rel(1.8 * P.V, 0.05)
+        )
         self.CMD.reference.connect(self.VDD_1V8)
         self.CMD.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
         self.CLK.reference.connect(self.VDD_1V8)

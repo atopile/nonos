@@ -9,7 +9,6 @@ from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
 
-from .Ethernet import GigabitEthernet
 
 logger = logging.getLogger(__name__)
 

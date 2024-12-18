@@ -2,7 +2,6 @@
 
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
-from faebryk.libs.brightness import TypicalLuminousIntensity
 from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.library import L  # noqa: F401
 
@@ -11,17 +10,18 @@ from .components.STUSB4500 import STUSB4500QTR
 from .components.ESDA25W import ESDA25W
 from .components.ESDA25P35_1U1M import ESDA25P35_1U1M
 
+
 class PDController(Module):
     pd_controller: STUSB4500QTR
     # USB_CONNECTOR: HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
     esd_cc: ESDA25W
     vsink_mosfet: F.MOSFET
 
-    power_vbus: F.ElectricPower # input from USB connector
-    power_mcu: F.ElectricPower # input from processor
+    power_vbus: F.ElectricPower  # input from USB connector
+    power_mcu: F.ElectricPower  # input from processor
     i2c: F.I2C
     cc = L.list_field(2, F.ElectricLogic)
-    power_vsink: F.ElectricPower # output to power supply
+    power_vsink: F.ElectricPower  # output to power supply
     i2c: F.I2C
 
     # Passive components
@@ -36,7 +36,6 @@ class PDController(Module):
     vsink_gate_snub_r: F.Resistor
     vsink_gate_snub_c: F.Capacitor
     disch_r: F.Resistor
-
 
     def __preinit__(self):
         # Tie gnd together
@@ -54,9 +53,13 @@ class PDController(Module):
         self.cc[0].connect(self.pd_controller.CC1)
         self.cc[1].connect(self.pd_controller.CC2)
 
-        self.vbus_vs_disch_r.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
+        self.vbus_vs_disch_r.resistance.constrain_subset(
+            L.Range.from_center_rel(1 * P.kohm, 0.01)
+        )
         self.vbus_vs_disch_r.add(F.has_package_requirement("0402"))
-        self.power_vbus.hv.connect_via(self.vbus_vs_disch_r, self.pd_controller.VBUS_VS_DISCH)
+        self.power_vbus.hv.connect_via(
+            self.vbus_vs_disch_r, self.pd_controller.VBUS_VS_DISCH
+        )
 
         # I2C
         self.i2c.connect(self.pd_controller.I2C)
@@ -84,14 +87,18 @@ class PDController(Module):
 
         self.vbus_cap.unnamed[0].connect(self.power_vbus.lv)
         self.vbus_cap.unnamed[1].connect(self.power_vbus.hv)
-        self.vbus_cap.capacitance.constrain_subset(L.Range.from_center_rel(4.7 * P.uF, 0.3))
+        self.vbus_cap.capacitance.constrain_subset(
+            L.Range.from_center_rel(4.7 * P.uF, 0.3)
+        )
         self.vbus_cap.add(F.has_package_requirement("0603"))
-        self.vbus_cap.max_voltage.constrain_subset(L.Range(30 * P.V, float("inf") * P.V))
+        self.vbus_cap.max_voltage.constrain_subset(
+            L.Range(30 * P.V, float("inf") * P.V)
+        )
 
         self.power_vbus.connect(self.pd_controller.VDD)
 
         # VBUS net naming
-        vbus = F.Net.with_name("VBUS") 
+        vbus = F.Net.with_name("VBUS")
         vbus.part_of.connect(self.power_vbus.hv)
 
         # ESD protection
@@ -118,7 +125,9 @@ class PDController(Module):
         self.VSINK_VCC.part_of.connect(self.power_vsink.hv)
 
         # Gate pullup resistor divider
-        self.vsink_gate_r.resistance.constrain_subset(L.Range.from_center_rel(22 * P.kohm, 0.03))
+        self.vsink_gate_r.resistance.constrain_subset(
+            L.Range.from_center_rel(22 * P.kohm, 0.03)
+        )
         self.vsink_gate_r.add(F.has_package_requirement("0402"))
         self.vsink_mosfet.gate.connect_via(
             self.vsink_gate_r, self.pd_controller.VBUS_EN_SNK
@@ -150,7 +159,9 @@ class PDController(Module):
         )
 
         # DISCH resistor
-        self.disch_r.resistance.constrain_subset(L.Range.from_center_rel(1 * P.kohm, 0.01))
+        self.disch_r.resistance.constrain_subset(
+            L.Range.from_center_rel(1 * P.kohm, 0.01)
+        )
         self.disch_r.add(F.has_package_requirement("0402"))
         self.power_vbus.hv.connect_via(self.disch_r, self.pd_controller.DISCH)
 
@@ -162,23 +173,20 @@ class PDController(Module):
 
         self.i2c.connect(self.pd_controller.I2C)
 
-        self.i2c.terminate()
+        self.i2c.terminate(owner=self)
         for line in [self.i2c.sda, self.i2c.scl]:
             for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
                 if r is None:
                     continue
-                r.resistance.constrain_subset(L.Range.from_center_rel(4.7 * P.kohm, 0.03))
+                r.resistance.constrain_subset(
+                    L.Range.from_center_rel(4.7 * P.kohm, 0.03)
+                )
                 r.add(F.has_package_requirement("0402"))
 
-
-        F.ElectricLogic.connect_all_node_references(
-            [self.power_mcu]
-            + [self.i2c]
-        )
+        F.ElectricLogic.connect_all_node_references([self.power_mcu] + [self.i2c])
         # ------------------------------------
         #          parametrization
         # ------------------------------------
         self.power_vsink.voltage.constrain_superset(L.Range(5 * P.V, 20 * P.V))
         self.power_vbus.voltage.constrain_superset(L.Range(5 * P.V, 20 * P.V))
         self.power_mcu.voltage.constrain_subset(L.Range(0 * P.V, 3.6 * P.V))
-

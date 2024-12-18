@@ -5,10 +5,8 @@ import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
-from faebryk.core.parameter import R
 
 # Interfaces
-from .HDMI import HDMI
 
 # Components
 from .HRSHirose_DF40C_100DS_0_4V51 import HRSHirose_DF40C_100DS_0_4V51

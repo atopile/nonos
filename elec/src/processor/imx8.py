@@ -1004,7 +1004,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.imx8.NVCC_SAI3,
             self.imx8.NVCC_SAI5,
             self.imx8.NVCC_ESCPI,
-            self.imx8.VDD_USB_3P3
+            self.imx8.VDD_USB_3P3,
         )
         self.NVCC_ENET.hv.connect(self.imx8.NVCC_ENET)
         # self.NVCC_ENET.connect(self.VDD_1V8) #TODO: Confirm
@@ -1030,7 +1030,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
             self.VDD_PHY_1V2.lv,
             self.VDD_PHY_0V9.lv,
             self.NVCC_SD2.lv,
-            self.NVCC_ENET.lv, #Ethernet logic level voltage for RGMII interface
+            self.NVCC_ENET.lv,  # Ethernet logic level voltage for RGMII interface
             self.VDD_ARM_0V9.lv,
         )
 
@@ -1052,12 +1052,12 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         # Decoupling capacitors
 
         # NVCC_SNVS_1V8
-        NVCC_SNVS_1V8_CAP = self.NVCC_SNVS_1V8.decoupled.decouple()
+        NVCC_SNVS_1V8_CAP = self.NVCC_SNVS_1V8.decoupled.decouple(owner=self)
         NVCC_SNVS_1V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         NVCC_SNVS_1V8_CAP.capacitance.merge(F.Range.from_center_rel(1 * P.uF, 0.2))
 
         # # VDD_SNVS_0V8
-        VDD_SNVS_0V8_CAP = self.VDD_SNVS_0V8.decoupled.decouple()
+        VDD_SNVS_0V8_CAP = self.VDD_SNVS_0V8.decoupled.decouple(owner=self)
         VDD_SNVS_0V8_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         VDD_SNVS_0V8_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
@@ -1070,7 +1070,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDDA_1V8_CAPS = []
 
         for props in VDDA_1V8_CAP_PROPERTIES:
-            cap = self.VDDA_1V8.decoupled.decouple()
+            cap = self.VDDA_1V8.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDDA_1V8_CAPS.append(cap)
@@ -1087,7 +1087,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         VDD_ARM_0V9_CAPS = []
         for props in VDD_ARM_0V9_CAP_PROPERTIES:
-            cap = self.VDD_ARM_0V9.decoupled.decouple()
+            cap = self.VDD_ARM_0V9.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_ARM_0V9_CAPS.append(cap)
@@ -1107,7 +1107,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_SOC_0V8_CAPS = []
 
         for props in VDD_SOC_0V8_CAP_PROPERTIES:
-            cap = self.VDD_SOC_0V8.decoupled.decouple()
+            cap = self.VDD_SOC_0V8.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_SOC_0V8_CAPS.append(cap)
@@ -1127,7 +1127,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_DRAM_0V9_CAPS = []
 
         for props in VDD_DRAM_0V9_CAP_PROPERTIES:
-            cap = self.VDD_DRAM_0V9.decoupled.decouple()
+            cap = self.VDD_DRAM_0V9.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_DRAM_0V9_CAPS.append(cap)
@@ -1147,7 +1147,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         NVCC_DRAM_1V1_CAPS = []
 
         for props in NVCC_DRAM_1V1_CAP_PROPERTIES:
-            cap = self.NVCC_DRAM_1V1.decoupled.decouple()
+            cap = self.NVCC_DRAM_1V1.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             NVCC_DRAM_1V1_CAPS.append(cap)
@@ -1169,7 +1169,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_1V8_CAPS = []
 
         for props in VDD_1V8_CAP_PROPERTIES:
-            cap = self.VDD_1V8.decoupled.decouple()
+            cap = self.VDD_1V8.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_1V8_CAPS.append(cap)
@@ -1186,18 +1186,18 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_3V3_CAPS = []
 
         for props in VDD_3V3_CAP_PROPERTIES:
-            cap = self.VDD_3V3.decoupled.decouple()
+            cap = self.VDD_3V3.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_3V3_CAPS.append(cap)
 
         # NVCC_ENET
-        NVCC_ENET_CAP = self.NVCC_ENET.decoupled.decouple()
+        NVCC_ENET_CAP = self.NVCC_ENET.decoupled.decouple(owner=self)
         NVCC_ENET_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         NVCC_ENET_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
         # NVCC_SD2
-        NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple()
+        NVCC_SD2_CAP = self.NVCC_SD2.decoupled.decouple(owner=self)
         NVCC_SD2_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         NVCC_SD2_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
         self.NVCC_SD2.hv.connect(self.imx8.NVCC_SD2)
@@ -1211,13 +1211,13 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         VDD_PHY_1V2_CAPS = []
 
         for props in VDD_PHY_1V2_CAP_PROPERTIES:
-            cap = self.VDD_PHY_1V2.decoupled.decouple()
+            cap = self.VDD_PHY_1V2.decoupled.decouple(owner=self)
             cap.add(F.has_footprint_requirement_defined([(props["footprint"], 2)]))
             cap.capacitance.merge(F.Range.from_center_rel(props["value"], 0.2))
             VDD_PHY_1V2_CAPS.append(cap)
 
         # VDD_PHY_0V9
-        VDD_PHY_0V9_CAP = self.VDD_PHY_0V9.decoupled.decouple()
+        VDD_PHY_0V9_CAP = self.VDD_PHY_0V9.decoupled.decouple(owner=self)
         VDD_PHY_0V9_CAP.add(F.has_footprint_requirement_defined([("0201", 2)]))
         VDD_PHY_0V9_CAP.capacitance.merge(F.Range.from_center_rel(220 * P.nF, 0.2))
 
@@ -1237,10 +1237,10 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.PMIC_ON_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
         self.PMIC_STBY_REQ.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
 
-        # Add 100k pull-up to ONOFF PMIC_ON_REQ and PMIC_STBY_REQ 
-        self.ONOFF.pulled.pull(up=True)
-        self.PMIC_ON_REQ.pulled.pull(up=True)
-        self.PMIC_STBY_REQ.pulled.pull(up=True) #TODO: DNP
+        # Add 100k pull-up to ONOFF PMIC_ON_REQ and PMIC_STBY_REQ
+        self.ONOFF.pulled.pull(up=True, owner=self)
+        self.PMIC_ON_REQ.pulled.pull(up=True, owner=self)
+        self.PMIC_STBY_REQ.pulled.pull(up=True, owner=self)  # TODO: DNP
 
         for line in [self.ONOFF, self.PMIC_ON_REQ, self.PMIC_STBY_REQ]:
             for r in line.get_trait(F.ElectricLogic.has_pulls).get_pulls():
@@ -1248,7 +1248,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
                     continue
                 r.resistance.merge(F.Range.from_center_rel(100 * P.kohm, 0.03))
                 r.add(F.has_footprint_requirement_defined([("0201", 2)]))
-            
+
         self.PMIC_ON_REQ.reference.connect(self.NVCC_SNVS_1V8)
         self.PMIC_STBY_REQ.reference.connect(self.NVCC_SNVS_1V8)
 
@@ -1264,19 +1264,18 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         XTALI_32K_R.resistance.merge(0 * P.ohm)
         XTALI_32K_R.add(F.has_footprint_requirement_defined([("0201", 2)]))
         self.imx8.RTC_XTALI.connect_via(XTALI_32K_R, self.XTALI_32K.signal)
-        
+
         self.XTALI_32K.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
         self.XTALI_32K.reference.connect(self.NVCC_SNVS_1V8)
 
         # 24MHz internal oscillator
-
 
         # I2C
         self.I2C1.sda.signal.connect(self.imx8.I2C1_SDA)
         self.I2C1.scl.signal.connect(self.imx8.I2C1_SCL)
 
         self.I2C2.sda.signal.connect(self.imx8.I2C2_SDA)
-        self.I2C2.scl.signal.connect(self.imx8.I2C2_SCL)   
+        self.I2C2.scl.signal.connect(self.imx8.I2C2_SCL)
 
         self.I2C3.sda.signal.connect(self.imx8.I2C3_SDA)
         self.I2C3.scl.signal.connect(self.imx8.I2C3_SCL)
@@ -1285,11 +1284,11 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         self.I2C4.scl.signal.connect(self.imx8.I2C4_SCL)
 
         # Pull-ups
-        self.I2C1.terminate()
-        self.I2C2.terminate()
-        self.I2C3.terminate()
-        self.I2C4.terminate()
-        
+        self.I2C1.terminate(owner=self)
+        self.I2C2.terminate(owner=self)
+        self.I2C3.terminate(owner=self)
+        self.I2C4.terminate(owner=self)
+
         for i2c in [self.I2C1, self.I2C2, self.I2C3, self.I2C4]:
             for line in [i2c.sda, i2c.scl]:
                 line.reference.voltage.merge(F.Range(0 * P.V, 1.8 * P.V))
@@ -1301,7 +1300,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # ------------------------------------
         #
-        #  ____      _    __  __ 
+        #  ____      _    __  __
         # |  _ \    / \  |  \/  |
         # | |_) |  / _ \ | |\/| |
         # |  _ <  / ___ \| |  | |
@@ -1407,7 +1406,9 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         # DRAM RESET
         self.DRAM_nRESET.signal.connect(self.imx8.DRAM_RESET_N)
         self.DRAM_nRESET.pulled.pull(up=False)
-        dram_pulldown = self.DRAM_nRESET.get_trait(F.ElectricLogic.has_pulls).get_pulls()[1]
+        dram_pulldown = self.DRAM_nRESET.get_trait(
+            F.ElectricLogic.has_pulls
+        ).get_pulls()[1]
         dram_pulldown.resistance.merge(F.Range.from_center_rel(10 * P.kohm, 0.01))
         dram_pulldown.add(F.has_footprint_requirement_defined([("0201", 2)]))
 
@@ -1451,10 +1452,10 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
 
         # ------------------------------------
         #
-        #  _____ __  __ __  __ ____ 
+        #  _____ __  __ __  __ ____
         # | ____|  \/  |  \/  / ___|
-        # |  _| | |\/| | |\/| | |    
-        # | |___| |  | | |  | | |___ 
+        # |  _| | |\/| | |\/| | |
+        # | |___| |  | | |  | | |___
         # |_____|_|  |_|_|  |_|\____|
         #
         # ------------------------------------
@@ -1478,6 +1479,7 @@ class NXP_Semicon_MIMX8MM6CVTKZAA(Module):
         for signal in [self.SD3_STROBE, self.SD3_CMD, self.SD3_CLK]:
             signal.reference.connect(self.VDD_1V8)
             signal.reference.voltage.merge(F.Range.from_center_rel(1.8 * P.V, 0.05))
+
 
 class App(Module):
     processor: NXP_Semicon_MIMX8MM6CVTKZAA

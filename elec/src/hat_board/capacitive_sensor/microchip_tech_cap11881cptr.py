@@ -112,6 +112,7 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
     8 QFN-24-EP(4x4)
     Touch Sensors ROHS
     """
+
     power: F.ElectricPower
     i2c: F.I2C
     reset: F.ElectricLogic
@@ -125,45 +126,55 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
     def single_electric_reference(self):
         return F.has_single_electric_reference_defined(
             F.ElectricLogic.connect_all_module_references(self)
-        )   
-
+        )
 
     def __preinit__(self):
-
-        # Power 
+        # Power
         self.power.hv.connect(self.capacitive_sensor.VDD)
         self.power.lv.connect(self.capacitive_sensor.GND)
 
-        decouple_cap = self.power.decoupled.decouple()
-        decouple_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.3))
+        decouple_cap = self.power.decoupled.decouple(owner=self)
+        decouple_cap.capacitance.constrain_subset(
+            L.Range.from_center_rel(100 * P.nF, 0.3)
+        )
         decouple_cap.add(F.has_package_requirement("0402"))
 
         # Data
-        self.i2c.sda.signal.connect(self.capacitive_sensor.SMDATA_BC_DATA_SPI_MSIO_SPI_MISO)
+        self.i2c.sda.signal.connect(
+            self.capacitive_sensor.SMDATA_BC_DATA_SPI_MSIO_SPI_MISO
+        )
         self.i2c.scl.signal.connect(self.capacitive_sensor.SMCLK_BC_CLK_SPI_CLK)
         self.reset.signal.connect(self.capacitive_sensor.RESET)
         self.interrupt.signal.connect(self.capacitive_sensor.ALERTh_BC_IRQh)
         self.address.signal.connect(self.capacitive_sensor.ADDR_COMM)
 
-        self.i2c.terminate()
+        self.i2c.terminate(owner=self)
 
-        self.interrupt.get_trait(F.ElectricLogic.can_be_pulled).pull(up=True)
+        self.interrupt.get_trait(F.ElectricLogic.can_be_pulled).pull(
+            up=True, owner=self
+        )
         pullup = self.interrupt.get_trait(F.ElectricLogic.has_pulls).get_pulls()[0]
         assert pullup is not None
         pullup.add(F.has_package_requirement("0402"))
         pullup.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
 
-        self.reset.get_trait(F.ElectricLogic.can_be_pulled).pull(up=False)
+        self.reset.get_trait(F.ElectricLogic.can_be_pulled).pull(up=False, owner=self)
         reset_pulldown = self.reset.get_trait(F.ElectricLogic.has_pulls).get_pulls()[1]
         assert reset_pulldown is not None
         reset_pulldown.add(F.has_package_requirement("0402"))
-        reset_pulldown.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
+        reset_pulldown.resistance.constrain_subset(
+            L.Range.from_center_rel(10 * P.kohm, 0.05)
+        )
 
-        self.address.get_trait(F.ElectricLogic.can_be_pulled).pull(up=False)
-        address_pulldown = self.address.get_trait(F.ElectricLogic.has_pulls).get_pulls()[1]
+        self.address.get_trait(F.ElectricLogic.can_be_pulled).pull(up=False, owner=self)
+        address_pulldown = self.address.get_trait(
+            F.ElectricLogic.has_pulls
+        ).get_pulls()[1]
         assert address_pulldown is not None
         address_pulldown.add(F.has_package_requirement("0402"))
-        address_pulldown.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
+        address_pulldown.resistance.constrain_subset(
+            L.Range.from_center_rel(10 * P.kohm, 0.05)
+        )
 
         # Pads
         self.capacitive_sensor.CS1.connect(self.pads[0].signal)

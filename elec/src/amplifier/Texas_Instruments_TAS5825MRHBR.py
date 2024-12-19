@@ -116,6 +116,7 @@ class _Texas_Instruments_TAS5825MRHBR(Module):
         # ------------------------------------
         pass
 
+
 class OutputStage(Module):
     """
     Output stage for the TAS5825MRHBR amplifier
@@ -153,20 +154,27 @@ class OutputStage(Module):
         self.inductor_pos.add(F.has_descriptive_properties_defined({"LCSC": "C167223"}))
         self.inductor_neg.add(F.has_descriptive_properties_defined({"LCSC": "C167223"}))
 
-        self.bootstrap_pos.capacitance.constrain_subset(L.Range.from_center_rel(470 * P.nF, 0.1))
-        self.bootstrap_neg.capacitance.constrain_subset(L.Range.from_center_rel(470 * P.nF, 0.1))
+        self.bootstrap_pos.capacitance.constrain_subset(
+            L.Range.from_center_rel(470 * P.nF, 0.1)
+        )
+        self.bootstrap_neg.capacitance.constrain_subset(
+            L.Range.from_center_rel(470 * P.nF, 0.1)
+        )
         self.bootstrap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
         self.bootstrap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
         self.bootstrap_pos.add(F.has_package_requirement("0603"))
         self.bootstrap_neg.add(F.has_package_requirement("0603"))
 
-        self.output_cap_pos.capacitance.constrain_subset(L.Range.from_center_rel(680 * P.nF, 0.1))
-        self.output_cap_neg.capacitance.constrain_subset(L.Range.from_center_rel(680 * P.nF, 0.1))
+        self.output_cap_pos.capacitance.constrain_subset(
+            L.Range.from_center_rel(680 * P.nF, 0.1)
+        )
+        self.output_cap_neg.capacitance.constrain_subset(
+            L.Range.from_center_rel(680 * P.nF, 0.1)
+        )
         self.output_cap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
         self.output_cap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
         self.output_cap_pos.add(F.has_package_requirement("0805"))
         self.output_cap_neg.add(F.has_package_requirement("0805"))
-
 
 
 class Texas_Instruments_TAS5825MRHBR(Module):
@@ -197,7 +205,6 @@ class Texas_Instruments_TAS5825MRHBR(Module):
     avdd_cap: F.Capacitor
 
     def __preinit__(self):
-
         # Connect all references
 
         # Connect output stages
@@ -229,9 +236,11 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         PVDD_CAPS = []
         for props in PVDD_CAP_PROPERTIES:
-            cap = self.power_pvdd.decoupled.decouple()
+            cap = self.power_pvdd.decoupled.decouple(owner=self)
             cap.add(F.has_package_requirement(props["footprint"]))
-            cap.capacitance.constrain_subset(L.Range.from_center_rel(props["value"], 0.2))
+            cap.capacitance.constrain_subset(
+                L.Range.from_center_rel(props["value"], 0.2)
+            )
             PVDD_CAPS.append(cap)
 
         # DVDD decoupling
@@ -242,11 +251,13 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         DVDD_CAPS = []
         for props in DVDD_CAP_PROPERTIES:
-            cap = self.power_dvdd.decoupled.decouple()
+            cap = self.power_dvdd.decoupled.decouple(owner=self)
             cap.add(F.has_package_requirement(props["footprint"]))
-            cap.capacitance.constrain_subset(L.Range.from_center_rel(props["value"], 0.2))
+            cap.capacitance.constrain_subset(
+                L.Range.from_center_rel(props["value"], 0.2)
+            )
             DVDD_CAPS.append(cap)
-        
+
         # Net naming
         # F.Net.with_name("PVDD").part_of.connect(self.power_pvdd.hv)
         # F.Net.with_name("DVDD").part_of.connect(self.power_dvdd.hv)
@@ -255,11 +266,13 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         # Power
         self.power_pvdd.hv.connect(self.amplifier.PVDD)
         self.power_dvdd.hv.connect(self.amplifier.DVDD)
-        self.power_pvdd.lv.connect(self.amplifier.PGND,
-                                   self.power_dvdd.lv,
-                                   self.amplifier.AGND,
-                                   self.amplifier.DGND,
-                                   self.amplifier.EP)
+        self.power_pvdd.lv.connect(
+            self.amplifier.PGND,
+            self.power_dvdd.lv,
+            self.amplifier.AGND,
+            self.amplifier.DGND,
+            self.amplifier.EP,
+        )
 
         # I2C
         self.i2c.scl.signal.connect(self.amplifier.SCL)
@@ -278,12 +291,13 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         # Pullups for control signals
         for signal in [self.fault, self.mute, self.warn, self.pdn]:
-            signal.get_trait(F.ElectricLogic.can_be_pulled).pull(up=True)
+            signal.get_trait(F.ElectricLogic.can_be_pulled).pull(up=True, owner=self)
             pullup = signal.get_trait(F.ElectricLogic.has_pulls).get_pulls()[0]
             assert pullup is not None
             pullup.add(F.has_package_requirement("0402"))
-            pullup.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
-
+            pullup.resistance.constrain_subset(
+                L.Range.from_center_rel(10 * P.kohm, 0.05)
+            )
 
         # Decoupling for internal thing
         self.amplifier.VR_DIG.connect_via(self.vr_dig_cap, self.power_pvdd.lv)
@@ -294,11 +308,19 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         self.gvdd_cap.add(F.has_package_requirement("0402"))
         self.avdd_cap.add(F.has_package_requirement("0402"))
 
-        self.vr_dig_cap.capacitance.constrain_subset(L.Range.from_center_rel(1 * P.uF, 0.2))
-        self.gvdd_cap.capacitance.constrain_subset(L.Range.from_center_rel(1 * P.uF, 0.2))
-        self.avdd_cap.capacitance.constrain_subset(L.Range.from_center_rel(1 * P.uF, 0.2))
+        self.vr_dig_cap.capacitance.constrain_subset(
+            L.Range.from_center_rel(1 * P.uF, 0.2)
+        )
+        self.gvdd_cap.capacitance.constrain_subset(
+            L.Range.from_center_rel(1 * P.uF, 0.2)
+        )
+        self.avdd_cap.capacitance.constrain_subset(
+            L.Range.from_center_rel(1 * P.uF, 0.2)
+        )
 
         # Address resistor
         self.amplifier.ADR.connect_via(self.address_resistor, self.power_dvdd.lv)
         self.address_resistor.add(F.has_package_requirement("0402"))
-        self.address_resistor.resistance.constrain_subset(L.Range.from_center_rel(10 * P.ohm, 0.5))
+        self.address_resistor.resistance.constrain_subset(
+            L.Range.from_center_rel(10 * P.ohm, 0.5)
+        )

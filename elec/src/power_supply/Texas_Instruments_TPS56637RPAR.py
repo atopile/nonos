@@ -106,14 +106,14 @@ class Texas_Instruments_TPS56637RPAR(Module):
 
         INPUT_CAPS = []
         for props in INPUT_CAP_PROPERTIES:
-            cap = self.power_in.decoupled.decouple()
+            cap = self.power_in.decoupled.decouple(owner=self)
             cap.add(F.has_package_requirement(props["footprint"]))
             cap.capacitance.constrain_subset(
                 L.Range.from_center_rel(props["value"], 0.2)
             )
             INPUT_CAPS.append(cap)
 
-        output_cap = self.power_out.decoupled.decouple()
+        output_cap = self.power_out.decoupled.decouple(owner=self)
         output_cap.add(F.has_package_requirement("0805"))
         output_cap.capacitance.constrain_subset(L.Range.from_center_rel(47 * P.uF, 0.2))
 

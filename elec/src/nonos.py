@@ -9,7 +9,6 @@ import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
 from faebryk.libs.units import P  # noqa: F401
-from faebryk.libs.picker.picker import DescriptiveProperties
 
 # Components
 from .cm4.cm4 import CM4_MINIMAL

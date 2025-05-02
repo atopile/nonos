@@ -96,6 +96,6 @@ class OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
         self.led.DOUT.connect(self.output.data.line)
         self.led.DIN.connect(self.input.data.line)
 
-        input_cap = self.input.power.decoupled.decouple(owner=self)
+        input_cap = self.input.power.decoupled.decouple(owner=self).capacitors[0]
         input_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
         input_cap.add(F.has_package(F.has_package.Package.C0402))

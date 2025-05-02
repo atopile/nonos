@@ -202,7 +202,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "pdn.pull_up"
+		(property "atopile_address" "pull_up_pdn"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -872,7 +872,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "warn.pull_up"
+		(property "atopile_address" "pull_up_warn"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1736,7 +1736,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[6]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -1974,7 +1974,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "fault.pull_up"
+		(property "atopile_address" "pull_up_fault"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3042,7 +3042,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[2]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3280,7 +3280,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[5]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3518,7 +3518,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_dvdd.runtime_anon[2]"
+		(property "atopile_address" "decouple_power_dvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3756,7 +3756,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[0]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -3994,7 +3994,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "mute.pull_up"
+		(property "atopile_address" "pull_up_mute"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4382,7 +4382,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[4]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -4620,7 +4620,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_pvdd.runtime_anon[3]"
+		(property "atopile_address" "decouple_power_pvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)
@@ -5572,7 +5572,7 @@
 				)
 			)
 		)
-		(property "atopile_address" "power_dvdd.runtime_anon[0]"
+		(property "atopile_address" "decouple_power_dvdd.capacitors[0]"
 			(at 0 0 0)
 			(layer "User.9")
 			(hide yes)

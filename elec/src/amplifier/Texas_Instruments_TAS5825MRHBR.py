@@ -160,10 +160,10 @@ class OutputStage(Module):
         self.bootstrap_neg.capacitance.constrain_subset(
             L.Range.from_center_rel(470 * P.nF, 0.1)
         )
-        self.bootstrap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.bootstrap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.bootstrap_pos.add(F.has_package(F.has_package.Package.R0603))
-        self.bootstrap_neg.add(F.has_package(F.has_package.Package.R0603))
+        self.bootstrap_pos.max_voltage.constrain_ge(30 * P.V)
+        self.bootstrap_neg.max_voltage.constrain_ge(30 * P.V)
+        self.bootstrap_pos.add(F.has_package(F.has_package.Package.C0603))
+        self.bootstrap_neg.add(F.has_package(F.has_package.Package.C0603))
 
         self.output_cap_pos.capacitance.constrain_subset(
             L.Range.from_center_rel(680 * P.nF, 0.1)
@@ -171,8 +171,8 @@ class OutputStage(Module):
         self.output_cap_neg.capacitance.constrain_subset(
             L.Range.from_center_rel(680 * P.nF, 0.1)
         )
-        self.output_cap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.output_cap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
+        self.output_cap_pos.max_voltage.constrain_ge(30 * P.V)
+        self.output_cap_neg.max_voltage.constrain_ge(30 * P.V)
         self.output_cap_pos.add(F.has_package(F.has_package.Package.C0805))
         self.output_cap_neg.add(F.has_package(F.has_package.Package.C0805))
 

@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +16,8 @@ class JST_Sales_America_B02B_XASK_1_ALFSN(Module):
     """
     TODO: Docstring describing your module
 
-    1x2P 2P XA Tin 2 -25℃~+85℃ 3A 1 2.5mm Brass Alloy Direct Insert Plugin,P=2.5mm Wire To Board Connector ROHS
+    1x2P 2P XA Tin 2 -25℃~+85℃ 3A 1 2.5mm Brass Alloy Direct Insert Plugin,P=2.5mm Wire
+    To Board Connector ROHS
     """
 
     # ----------------------------------------

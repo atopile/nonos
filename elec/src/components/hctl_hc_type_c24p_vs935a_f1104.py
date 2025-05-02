@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +16,8 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     """
     TODO: Docstring describing your module
 
-    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD USB Connectors ROHS
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
     """
 
     # ----------------------------------------
@@ -106,7 +107,8 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
 class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     """
 
-    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD USB Connectors ROHS
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
     """
 
     power_vbus: F.ElectricPower

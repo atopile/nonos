@@ -7,16 +7,15 @@ import faebryk.library._F as F
 from faebryk.core.module import Module
 from faebryk.libs.util import times
 
-
-from .nfc.NXP_Semicon_PN5321A3HN_C106_51 import NXP_Semicon_PN5321A3HN_C106_51
-from .TE_Connectivity_1_2328702_0 import BoardToBoardConnector
-from .OPSCO_Optoelectronics_SK6805SIDE_G_001 import (
-    OPSCO_Optoelectronics_SK6805SIDE_G_001,
-)
-from .Hat_Button_Antenna import HatButtonAntenna
 from .capacitive_sensor.microchip_tech_cap11881cptr import (
     Microchip_Tech_CAP1188_1_CP_TR,
 )
+from .Hat_Button_Antenna import HatButtonAntenna
+from .nfc.NXP_Semicon_PN5321A3HN_C106_51 import NXP_Semicon_PN5321A3HN_C106_51
+from .OPSCO_Optoelectronics_SK6805SIDE_G_001 import (
+    OPSCO_Optoelectronics_SK6805SIDE_G_001,
+)
+from .TE_Connectivity_1_2328702_0 import BoardToBoardConnector
 
 logger = logging.getLogger(__name__)
 

@@ -16,8 +16,9 @@ class TE_Connectivity_1_2328702_0(Module):
     """
     TODO: Docstring describing your module
 
-    Flip type -40℃~+85℃ 10P Dual-sided contacts / top and bottom connection Horizontal attachment 0.5mm SMD,P=0.5mm,Surface Mount，Right Angle
-    FFC, FPC (Flat Flexible) Connector Assemblies ROHS
+    Flip type -40℃~+85℃ 10P Dual-sided contacts / top and bottom connection Horizontal
+    attachment 0.5mm SMD,P=0.5mm,Surface Mount，Right Angle FFC, FPC (Flat Flexible)
+    Connector Assemblies ROHS
     """
 
     # ----------------------------------------

@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -16,8 +16,8 @@ class HCTL_PZ254_2_04_S(Module):
     """
     TODO: Docstring describing your module
 
-    250V 3A Standing paste Policy 2.5mm 260℃@5S 8P 6mm -40℃~+105℃ 2.54mm Double Row Black 2.54mm 2x4P SMD,P=2.54mm
-    Pin Headers ROHS
+    250V 3A Standing paste Policy 2.5mm 260℃@5S 8P 6mm -40℃~+105℃ 2.54mm Double Row
+    Black 2.54mm 2x4P SMD,P=2.54mm Pin Headers ROHS
     """
 
     # ----------------------------------------
@@ -86,7 +86,5 @@ class SaleaeHeader(Module):
             self.connector.unnamed[0],
             self.connector.unnamed[2],
             self.connector.unnamed[4],
-            self.connector.unnamed[6]
+            self.connector.unnamed[6],
         )
-
-

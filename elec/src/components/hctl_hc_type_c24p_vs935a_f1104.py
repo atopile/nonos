@@ -112,7 +112,7 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     """
 
     power_vbus: F.ElectricPower
-    usb2: F.USB2_0_IF.Data
+    usb2: F.USB2_0
     sbu = L.list_field(2, F.ElectricLogic)
     cc = L.list_field(2, F.ElectricLogic)
 
@@ -121,9 +121,9 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     def __preinit__(self):
         self.power_vbus.hv.connect(self.connector.VBUS)
         self.power_vbus.lv.connect(self.connector.GND, self.connector.EH)
-        self.usb2.p.signal.connect(self.connector.DP1, self.connector.DP2)
-        self.usb2.n.signal.connect(self.connector.DN1, self.connector.DN2)
-        self.sbu[0].signal.connect(self.connector.SBU2)
-        self.sbu[1].signal.connect(self.connector.SBU1)
-        self.cc[0].signal.connect(self.connector.CC1)
-        self.cc[1].signal.connect(self.connector.CC2)
+        self.usb2.usb_if.d.p.line.connect(self.connector.DP1, self.connector.DP2)
+        self.usb2.usb_if.d.n.line.connect(self.connector.DN1, self.connector.DN2)
+        self.sbu[0].line.connect(self.connector.SBU2)
+        self.sbu[1].line.connect(self.connector.SBU1)
+        self.cc[0].line.connect(self.connector.CC1)
+        self.cc[1].line.connect(self.connector.CC2)

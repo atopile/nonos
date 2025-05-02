@@ -182,6 +182,17 @@ class OutputStage(Module):
 class Texas_Instruments_TAS5825MRHBR(Module):
     """
     Dual Channel 38Wx1@8Ω VQFN-32(5x5) Audio Amplifiers ROHS
+
+    I2C Slave Address Configuration (determined by ADR pin resistor to GND):
+
+    | ADR PIN Resistance  | Address Bits | Address |
+    |---------------------|--------------|---------|
+    | 0 Ω                 | 1001100      | 0x4C    |
+    | 1 kΩ                | 1001101      | 0x4D    |
+    | 4.7 kΩ              | 1001110      | 0x4E    |
+    | 15 kΩ               | 1001111      | 0x4F    |
+
+    The LSB (R/W bit) is appended by the I2C master.
     """
 
     # Power

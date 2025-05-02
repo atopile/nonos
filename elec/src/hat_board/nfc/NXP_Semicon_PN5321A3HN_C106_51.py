@@ -180,10 +180,10 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.power_tvdd.lv.connect(self.nfc_ic.TVSS1, self.nfc_ic.TVSS2)
 
         self.power_pvdd.hv.connect(self.nfc_ic.PVDD)
-        self.power_pvdd.lv.connect(self.nfc_ic.VMID)
+        self.power_pvdd.lv.connect(self.nfc_ic.DVSS)
 
         self.power_vbat.hv.connect(self.nfc_ic.VBAT)
-        # self.power_vbat.lv.connect(self.nfc_ic.DVSS)
+        self.power_vbat.lv.connect(self.nfc_ic.DVSS)
 
         self.power_avdd.hv.connect(self.nfc_ic.AVDD)
         self.power_avdd.lv.connect(self.nfc_ic.AVSS)
@@ -192,7 +192,7 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.power_svdd.lv.connect(self.power_3v3.lv)
 
         self.power_vmid.hv.connect(self.nfc_ic.VMID)
-        # self.power_vmid.lv.connect(self.nfc_ic.DVSS)
+        self.power_vmid.lv.connect(self.nfc_ic.DVSS)
 
         # Decoupling caps for power railsx
         vbat_cap = self.power_vbat.decoupled.decouple(owner=self).capacitors[0]
@@ -214,35 +214,30 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         vmid_cap = self.power_vmid.decoupled.decouple(owner=self).capacitors[0]
         vmid_cap.add(F.has_package(F.has_package.Package.C0402))
         vmid_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
-        self.nfc_ic.VMID.connect_via(vmid_cap, self.power_vmid.lv)
 
         POWER_TVDD_CAP_PROPERTIES = [
             {"value": 10 * P.uF, "package": F.has_package.Package.C0603},
             {"value": 100 * P.nF, "package": F.has_package.Package.C0402},
         ]
 
-        POWER_TVDD_CAPS = []
-        for props in POWER_TVDD_CAP_PROPERTIES:
-            cap = self.power_tvdd.decoupled.decouple(owner=self).capacitors[0]
+        power_tvdd_cap = self.power_tvdd.decoupled.decouple(owner=self, count=2)
+        for cap, props in zip(power_tvdd_cap.capacitors, POWER_TVDD_CAP_PROPERTIES):
             cap.add(F.has_package(props["package"]))
             cap.capacitance.constrain_subset(
                 L.Range.from_center_rel(props["value"], 0.2)
             )
-            POWER_TVDD_CAPS.append(cap)
 
         POWER_DVDD_CAP_PROPERTIES = [
             {"value": 10 * P.uF, "package": F.has_package.Package.C0603},
             {"value": 100 * P.nF, "package": F.has_package.Package.C0402},
         ]
 
-        POWER_DVDD_CAPS = []
-        for props in POWER_DVDD_CAP_PROPERTIES:
-            cap = self.power_dvdd.decoupled.decouple(owner=self).capacitors[0]
+        power_dvdd_cap = self.power_dvdd.decoupled.decouple(owner=self, count=2)
+        for cap, props in zip(power_dvdd_cap.capacitors, POWER_DVDD_CAP_PROPERTIES):
             cap.add(F.has_package(props["package"]))
             cap.capacitance.constrain_subset(
                 L.Range.from_center_rel(props["value"], 0.2)
             )
-            POWER_DVDD_CAPS.append(cap)
 
         # Antenna
         tx1_mid = F.Net.with_name("tx_1_mid")
@@ -278,6 +273,8 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         self.i2c.scl.line.connect(self.nfc_ic.MOSI_SDA_HSU_TX)
         self.i2c.sda.line.connect(self.nfc_ic.NSS_P50_SCL_HSU_RX)
         self.i2c.terminate(owner=self)
+        for r in self.i2c.pull_up_scl, self.i2c.pull_up_sda:
+            r.add(F.has_package(F.has_package.Package.R0402))
 
         # Select communication mode
         # I2C = I0: 1, I1: 0
@@ -304,7 +301,18 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
             )
         )
         self.oscillator.crystal.add(F.has_designator_prefix("XTAL"))
-        self.oscillator.del_trait(F.has_pcb_layout)
+        for c in self.oscillator.capacitors:
+            c.add(F.has_package(F.has_package.Package.C0402))
+
+        # TODO: remove
+        # workaround: force remove layout of oscillator
+        for layed_out_child in self.oscillator.get_children(
+            types=Module,
+            direct_only=False,
+            f_filter=lambda c: c.has_trait(F.has_pcb_layout),
+            include_root=True,
+        ):
+            layed_out_child.del_trait(F.has_pcb_layout)
 
         # Antenna parameters
         self.tx1_inductor.add(F.has_descriptive_properties_defined({"LCSC": "C91630"}))

@@ -5,7 +5,7 @@ import logging
 
 import faebryk.library._F as F
 from faebryk.core.module import Module
-from faebryk.libs.util import times
+from faebryk.libs.library import L
 
 from .capacitive_sensor.microchip_tech_cap11881cptr import (
     Microchip_Tech_CAP1188_1_CP_TR,
@@ -32,7 +32,7 @@ class HatBoard(Module):
     nfc: NXP_Semicon_PN5321A3HN_C106_51
     board_to_board_connector: BoardToBoardConnector
     hat_button_antenna: HatButtonAntenna
-    leds = times(23, OPSCO_Optoelectronics_SK6805SIDE_G_001)
+    leds = L.list_field(23, OPSCO_Optoelectronics_SK6805SIDE_G_001)
     capacitive_sensor: Microchip_Tech_CAP1188_1_CP_TR
 
     def __preinit__(self):

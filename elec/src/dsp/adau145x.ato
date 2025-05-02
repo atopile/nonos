@@ -1,0 +1,91 @@
+module Analog_Devices_ADAU145x_package:
+    """
+    Common base package module for Analog Devices ADAU1450/51/52 series.
+    """
+
+    manufacturer = "Analog Devices"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Analog-Devices-ADAU1452WBCPZ_C403699.pdf"
+    designator_prefix = "U"
+
+    # pins
+    pin 1 ~ signal DGND
+    pin 2 ~ signal IOVDD
+    pin 3 ~ signal VDRIVE
+    pin 4 ~ signal SPDIFIN
+    pin 5 ~ signal SPDIFOUT
+    pin 6 ~ signal AGND
+    pin 7 ~ signal AVDD
+    pin 8 ~ signal AUXADC0
+    pin 9 ~ signal AUXADC1
+    pin 10 ~ signal AUXADC2
+    pin 11 ~ signal AUXADC3
+    pin 12 ~ signal AUXADC4
+    pin 13 ~ signal AUXADC5
+    pin 14 ~ signal PGND
+    pin 15 ~ signal PVDD
+    pin 16 ~ signal PLLFILT
+    pin 17 ~ signal DGND
+    pin 18 ~ signal IOVDD
+    pin 19 ~ signal DGND
+    pin 20 ~ signal DVDD
+    pin 21 ~ signal XTALIN/MCLK
+    pin 22 ~ signal XTALOUT
+    pin 23 ~ signal CLKOUT
+    pin 24 ~ signal RESET#
+    pin 25 ~ signal DGND
+    pin 26 ~ signal SS_M/MP0
+    pin 27 ~ signal MOSI_M/MP1
+    pin 28 ~ signal SCL_M/SCLK_M/MP2
+    pin 29 ~ signal SDA_M/MISO_M/MP3
+    pin 30 ~ signal MISO/SDA
+    pin 31 ~ signal SCLK/SCL
+    pin 32 ~ signal MOSI/ADDR1
+    pin 33 ~ signal SS/ADDR0
+    pin 34 ~ signal SELFBOOT
+    pin 35 ~ signal DVDD
+    pin 36 ~ signal DGND
+    pin 37 ~ signal DGND
+    pin 38 ~ signal IOVDD
+    pin 39 ~ signal LRCLK_OUT0/MP4
+    pin 40 ~ signal BCLK_OUT0
+    pin 41 ~ signal SDATA_OUT0
+    pin 42 ~ signal LRCLK_OUT1/MP5
+    pin 43 ~ signal BCLK_OUT1
+    pin 44 ~ signal SDATA_OUT1
+    pin 45 ~ signal MP6
+    pin 46 ~ signal MP7
+    pin 47 ~ signal LRCLK_OUT2/MP8
+    pin 48 ~ signal BCLK_OUT2
+    pin 49 ~ signal SDATA_OUT2
+    pin 50 ~ signal LRCLK_OUT3/MP9
+    pin 51 ~ signal BCLK_OUT3
+    pin 52 ~ signal SDATA_OUT3
+    pin 53 ~ signal DVDD
+    pin 54 ~ signal DGND
+    pin 55 ~ signal DGND
+    pin 56 ~ signal IOVDD
+    pin 57 ~ signal BCLK_IN0
+    pin 58 ~ signal LRCLK_IN0/MP10
+    pin 59 ~ signal SDATA_IN0
+    pin 60 ~ signal BCLK_IN1
+    pin 61 ~ signal LRCLK_IN1/MP11
+    pin 62 ~ signal SDATA_IN1
+    pin 63 ~ signal THD_M
+    pin 64 ~ signal THD_P
+    pin 65 ~ signal BCLK_IN2
+    pin 66 ~ signal LRCLK_IN2/MP12
+    pin 67 ~ signal SDATA_IN2
+    pin 68 ~ signal BCLK_IN3
+    pin 69 ~ signal LRCLK_IN3/MP13
+    pin 70 ~ signal SDATA_IN3
+    pin 71 ~ signal DVDD
+    pin 72 ~ signal DGND
+    pin 73 ~ signal EP
+
+module Analog_Devices_ADAU145x_model:
+    """
+    Model for Analog Devices ADAU1450/51/52 series.
+    """
+    package = Analog_Devices_ADAU145x_package
+
+    

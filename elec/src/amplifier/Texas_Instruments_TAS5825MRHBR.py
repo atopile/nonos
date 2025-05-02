@@ -294,7 +294,7 @@ class Texas_Instruments_TAS5825MRHBR(Module):
             signal.get_trait(F.ElectricLogic.can_be_pulled).pull(up=True, owner=self)
             pullup = signal.get_trait(F.ElectricLogic.has_pulls).get_pulls()[0]
             assert pullup is not None
-            pullup.add(F.has_package(F.has_package.Package.C0402))
+            pullup.add(F.has_package(F.has_package.Package.R0402))
             pullup.resistance.constrain_subset(
                 L.Range.from_center_rel(10 * P.kohm, 0.05)
             )
@@ -320,7 +320,7 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         # Address resistor
         self.amplifier.ADR.connect_via(self.address_resistor, self.power_dvdd.lv)
-        self.address_resistor.add(F.has_package(F.has_package.Package.C0402))
+        self.address_resistor.add(F.has_package(F.has_package.Package.R0402))
         self.address_resistor.resistance.constrain_subset(
             L.Range.from_center_rel(10 * P.ohm, 0.5)
         )

@@ -28,7 +28,7 @@ module NONOS:
     debug_headers = new SaleaeHeader[3]
 
     # addressing
-    pd_controller.i2c.address ~ 0z28
+    pd_controller.i2c.address = 0x28
 
     # substitute default pd_controller.usb_connector
     pd_controller.usb_connector.exclude_from_bom = True

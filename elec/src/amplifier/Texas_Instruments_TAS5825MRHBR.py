@@ -55,7 +55,7 @@ class _Texas_Instruments_TAS5825MRHBR(Module):
     #                 traits
     # ----------------------------------------
     lcsc_id = L.f_field(F.has_descriptive_properties_defined)({"LCSC": "C471049"})
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "Texas Instruments",

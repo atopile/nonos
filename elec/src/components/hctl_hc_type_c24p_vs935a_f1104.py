@@ -46,7 +46,7 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     # ----------------------------------------
     #                 traits
     # ----------------------------------------
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "HCTL",
@@ -125,4 +125,3 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
         self.sbu[1].signal.connect(self.connector.SBU1)
         self.cc[0].signal.connect(self.connector.CC1)
         self.cc[1].signal.connect(self.connector.CC2)
-

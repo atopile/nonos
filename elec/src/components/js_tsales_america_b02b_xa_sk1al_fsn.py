@@ -28,7 +28,7 @@ class JST_Sales_America_B02B_XASK_1_ALFSN(Module):
     # ----------------------------------------
     #                 traits
     # ----------------------------------------
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "JST Sales America",

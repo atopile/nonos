@@ -33,7 +33,7 @@ class _OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
     #                 traits
     # ----------------------------------------
     lcsc_id = L.f_field(F.has_descriptive_properties_defined)({"LCSC": "C2909060"})
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "OPSCO Optoelectronics",
@@ -93,9 +93,9 @@ class OPSCO_Optoelectronics_SK6805SIDE_G_001(Module):
         self.input.power.connect(self.output.power)
         self.input.power.hv.connect(self.led.VDD)
         self.led.VSS.connect(self.input.power.lv)
-        self.led.DOUT.connect(self.output.data.signal)
-        self.led.DIN.connect(self.input.data.signal)
+        self.led.DOUT.connect(self.output.data.line)
+        self.led.DIN.connect(self.input.data.line)
 
         input_cap = self.input.power.decoupled.decouple(owner=self)
         input_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
-        input_cap.add(F.has_package_requirement("0402"))
+        input_cap.add(F.has_package(F.has_package.Package.C0402))

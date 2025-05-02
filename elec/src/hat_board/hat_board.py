@@ -81,7 +81,6 @@ class HatBoard(Module):
         )
         F.Net.with_name("power_3v3").part_of.connect(self.power_3v3.hv)
         F.Net.with_name("power_5v").part_of.connect(self.power_5v.hv)
-        F.Net.with_name("gnd").part_of.connect(self.power_3v3.lv)
         F.Net.with_name("reset").part_of.connect(
             self.board_to_board_connector.hat_reset.line
         )

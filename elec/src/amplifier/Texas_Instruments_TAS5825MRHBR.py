@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -55,7 +55,7 @@ class _Texas_Instruments_TAS5825MRHBR(Module):
     #                 traits
     # ----------------------------------------
     lcsc_id = L.f_field(F.has_descriptive_properties_defined)({"LCSC": "C471049"})
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "Texas Instruments",
@@ -137,18 +137,20 @@ class OutputStage(Module):
 
     def __preinit__(self):
         # Connections
-        self.input.p.signal.connect_via(self.inductor_pos, self.output.p.signal)
-        self.input.n.signal.connect_via(self.inductor_neg, self.output.n.signal)
+        self.input.p.line.connect_via(self.inductor_pos, self.output.p.line)
+        self.input.n.line.connect_via(self.inductor_neg, self.output.n.line)
 
-        self.bootstrap.p.signal.connect_via(self.bootstrap_pos, self.input.p.signal)
-        self.bootstrap.n.signal.connect_via(self.bootstrap_neg, self.input.n.signal)
+        self.bootstrap.p.line.connect_via(self.bootstrap_pos, self.input.p.line)
+        self.bootstrap.n.line.connect_via(self.bootstrap_neg, self.input.n.line)
 
-        self.output.p.signal.connect_via(self.output_cap_pos, self.reference.lv)
-        self.output.n.signal.connect_via(self.output_cap_neg, self.reference.lv)
+        self.output.p.line.connect_via(self.output_cap_pos, self.reference.lv)
+        self.output.n.line.connect_via(self.output_cap_neg, self.reference.lv)
 
         # Parameterize
-        # self.inductor_pos.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
-        # self.inductor_neg.inductance.constrain_subset(L.Range.from_center_rel(10 * P.uH, 0.3))
+        # self.inductor_pos.inductance.constrain_subset(
+        #   L.Range.from_center_rel(10 * P.uH, 0.3))
+        # self.inductor_neg.inductance.constrain_subset(
+        #   L.Range.from_center_rel(10 * P.uH, 0.3))
         # self.inductor_pos.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
         # self.inductor_neg.max_current.constrain_subset(L.Range(4 * P.A, 6 * P.A))
         self.inductor_pos.add(F.has_descriptive_properties_defined({"LCSC": "C167223"}))
@@ -160,10 +162,10 @@ class OutputStage(Module):
         self.bootstrap_neg.capacitance.constrain_subset(
             L.Range.from_center_rel(470 * P.nF, 0.1)
         )
-        self.bootstrap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.bootstrap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.bootstrap_pos.add(F.has_package_requirement("0603"))
-        self.bootstrap_neg.add(F.has_package_requirement("0603"))
+        self.bootstrap_pos.max_voltage.constrain_ge(30 * P.V)
+        self.bootstrap_neg.max_voltage.constrain_ge(30 * P.V)
+        self.bootstrap_pos.add(F.has_package(F.has_package.Package.C0603))
+        self.bootstrap_neg.add(F.has_package(F.has_package.Package.C0603))
 
         self.output_cap_pos.capacitance.constrain_subset(
             L.Range.from_center_rel(680 * P.nF, 0.1)
@@ -171,15 +173,26 @@ class OutputStage(Module):
         self.output_cap_neg.capacitance.constrain_subset(
             L.Range.from_center_rel(680 * P.nF, 0.1)
         )
-        self.output_cap_pos.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.output_cap_neg.max_voltage.constrain_subset(L.Range(30 * P.V, 100 * P.V))
-        self.output_cap_pos.add(F.has_package_requirement("0805"))
-        self.output_cap_neg.add(F.has_package_requirement("0805"))
+        self.output_cap_pos.max_voltage.constrain_ge(30 * P.V)
+        self.output_cap_neg.max_voltage.constrain_ge(30 * P.V)
+        self.output_cap_pos.add(F.has_package(F.has_package.Package.C0805))
+        self.output_cap_neg.add(F.has_package(F.has_package.Package.C0805))
 
 
 class Texas_Instruments_TAS5825MRHBR(Module):
     """
     Dual Channel 38Wx1@8Ω VQFN-32(5x5) Audio Amplifiers ROHS
+
+    I2C Slave Address Configuration (determined by ADR pin resistor to GND):
+
+    | ADR PIN Resistance  | Address Bits | Address |
+    |---------------------|--------------|---------|
+    | 0 Ω                 | 1001100      | 0x4C    |
+    | 1 kΩ                | 1001101      | 0x4D    |
+    | 4.7 kΩ              | 1001110      | 0x4E    |
+    | 15 kΩ               | 1001111      | 0x4F    |
+
+    The LSB (R/W bit) is appended by the I2C master.
     """
 
     # Power
@@ -208,14 +221,14 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         # Connect all references
 
         # Connect output stages
-        self.amplifier.OUT_Aplus.connect(self.output_stage_a.input.p.signal)
-        self.amplifier.OUT_A_.connect(self.output_stage_a.input.n.signal)
-        self.amplifier.OUT_Bplus.connect(self.output_stage_b.input.p.signal)
-        self.amplifier.OUT_B_.connect(self.output_stage_b.input.n.signal)
-        self.amplifier.BST_Aplus.connect(self.output_stage_a.bootstrap.p.signal)
-        self.amplifier.BST_A_.connect(self.output_stage_a.bootstrap.n.signal)
-        self.amplifier.BST_Bplus.connect(self.output_stage_b.bootstrap.p.signal)
-        self.amplifier.BST_B_.connect(self.output_stage_b.bootstrap.n.signal)
+        self.amplifier.OUT_Aplus.connect(self.output_stage_a.input.p.line)
+        self.amplifier.OUT_A_.connect(self.output_stage_a.input.n.line)
+        self.amplifier.OUT_Bplus.connect(self.output_stage_b.input.p.line)
+        self.amplifier.OUT_B_.connect(self.output_stage_b.input.n.line)
+        self.amplifier.BST_Aplus.connect(self.output_stage_a.bootstrap.p.line)
+        self.amplifier.BST_A_.connect(self.output_stage_a.bootstrap.n.line)
+        self.amplifier.BST_Bplus.connect(self.output_stage_b.bootstrap.p.line)
+        self.amplifier.BST_B_.connect(self.output_stage_b.bootstrap.n.line)
 
         self.output_stage_a.output.connect(self.output_a)
         self.output_stage_b.output.connect(self.output_b)
@@ -225,38 +238,27 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         # Decoupling capacitors
         # PVDD decoupling
-        PVDD_CAP_PROPERTIES = [
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-        ]
+        pvdd_multicap = self.power_pvdd.decoupled.decouple(owner=self, count=6)
+        for cap in pvdd_multicap.capacitors[:3]:
+            cap.add(F.has_package(F.has_package.Package.C0805))
+            cap.capacitance.constrain_subset(L.Range.from_center_rel(22 * P.uF, 0.2))
 
-        PVDD_CAPS = []
-        for props in PVDD_CAP_PROPERTIES:
-            cap = self.power_pvdd.decoupled.decouple(owner=self)
-            cap.add(F.has_package_requirement(props["footprint"]))
-            cap.capacitance.constrain_subset(
-                L.Range.from_center_rel(props["value"], 0.2)
-            )
-            PVDD_CAPS.append(cap)
+        for cap in pvdd_multicap.capacitors[3:]:
+            cap.add(F.has_package(F.has_package.Package.C0402))
+            cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
         # DVDD decoupling
-        DVDD_CAP_PROPERTIES = [
-            {"value": 4.7 * P.uF, "footprint": "0603"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-        ]
+        dvdd_caps = self.power_dvdd.decoupled.decouple(owner=self, count=2)
 
-        DVDD_CAPS = []
-        for props in DVDD_CAP_PROPERTIES:
-            cap = self.power_dvdd.decoupled.decouple(owner=self)
-            cap.add(F.has_package_requirement(props["footprint"]))
-            cap.capacitance.constrain_subset(
-                L.Range.from_center_rel(props["value"], 0.2)
-            )
-            DVDD_CAPS.append(cap)
+        dvdd_caps.capacitors[0].add(F.has_package(F.has_package.Package.C0603))
+        dvdd_caps.capacitors[0].capacitance.constrain_subset(
+            L.Range.from_center_rel(4.7 * P.uF, 0.2)
+        )
+
+        dvdd_caps.capacitors[1].add(F.has_package(F.has_package.Package.C0402))
+        dvdd_caps.capacitors[1].capacitance.constrain_subset(
+            L.Range.from_center_rel(100 * P.nF, 0.2)
+        )
 
         # Net naming
         # F.Net.with_name("PVDD").part_of.connect(self.power_pvdd.hv)
@@ -275,26 +277,26 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         )
 
         # I2C
-        self.i2c.scl.signal.connect(self.amplifier.SCL)
-        self.i2c.sda.signal.connect(self.amplifier.SDA)
+        self.i2c.scl.line.connect(self.amplifier.SCL)
+        self.i2c.sda.line.connect(self.amplifier.SDA)
 
         # I2S
-        self.i2s.sck.signal.connect(self.amplifier.SCLK)
-        self.i2s.ws.signal.connect(self.amplifier.LRCLK)
-        self.i2s.sd.signal.connect(self.amplifier.SDIN)
+        self.i2s.sck.line.connect(self.amplifier.SCLK)
+        self.i2s.ws.line.connect(self.amplifier.LRCLK)
+        self.i2s.sd.line.connect(self.amplifier.SDIN)
 
         # Control signals
-        self.fault.signal.connect(self.amplifier.GPIO0)
-        self.mute.signal.connect(self.amplifier.GPIO1)
-        self.warn.signal.connect(self.amplifier.GPIO2)
-        self.pdn.signal.connect(self.amplifier.PDNh)
+        self.fault.line.connect(self.amplifier.GPIO0)
+        self.mute.line.connect(self.amplifier.GPIO1)
+        self.warn.line.connect(self.amplifier.GPIO2)
+        self.pdn.line.connect(self.amplifier.PDNh)
 
         # Pullups for control signals
         for signal in [self.fault, self.mute, self.warn, self.pdn]:
             signal.get_trait(F.ElectricLogic.can_be_pulled).pull(up=True, owner=self)
             pullup = signal.get_trait(F.ElectricLogic.has_pulls).get_pulls()[0]
             assert pullup is not None
-            pullup.add(F.has_package_requirement("0402"))
+            pullup.add(F.has_package(F.has_package.Package.R0402))
             pullup.resistance.constrain_subset(
                 L.Range.from_center_rel(10 * P.kohm, 0.05)
             )
@@ -304,9 +306,9 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         self.amplifier.GVDD.connect_via(self.gvdd_cap, self.power_dvdd.lv)
         self.amplifier.AVDD.connect_via(self.avdd_cap, self.power_dvdd.lv)
 
-        self.vr_dig_cap.add(F.has_package_requirement("0402"))
-        self.gvdd_cap.add(F.has_package_requirement("0402"))
-        self.avdd_cap.add(F.has_package_requirement("0402"))
+        self.vr_dig_cap.add(F.has_package(F.has_package.Package.C0402))
+        self.gvdd_cap.add(F.has_package(F.has_package.Package.C0402))
+        self.avdd_cap.add(F.has_package(F.has_package.Package.C0402))
 
         self.vr_dig_cap.capacitance.constrain_subset(
             L.Range.from_center_rel(1 * P.uF, 0.2)
@@ -320,7 +322,7 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         # Address resistor
         self.amplifier.ADR.connect_via(self.address_resistor, self.power_dvdd.lv)
-        self.address_resistor.add(F.has_package_requirement("0402"))
+        self.address_resistor.add(F.has_package(F.has_package.Package.R0402))
         self.address_resistor.resistance.constrain_subset(
             L.Range.from_center_rel(10 * P.ohm, 0.5)
         )

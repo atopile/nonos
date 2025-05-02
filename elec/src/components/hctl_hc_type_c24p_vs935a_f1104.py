@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +16,8 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     """
     TODO: Docstring describing your module
 
-    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD USB Connectors ROHS
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
     """
 
     # ----------------------------------------
@@ -46,7 +47,7 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     # ----------------------------------------
     #                 traits
     # ----------------------------------------
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "HCTL",
@@ -106,11 +107,12 @@ class _HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
 class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     """
 
-    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD USB Connectors ROHS
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
     """
 
     power_vbus: F.ElectricPower
-    usb2: F.USB2_0_IF.Data
+    usb2: F.USB2_0
     sbu = L.list_field(2, F.ElectricLogic)
     cc = L.list_field(2, F.ElectricLogic)
 
@@ -119,10 +121,9 @@ class HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04(Module):
     def __preinit__(self):
         self.power_vbus.hv.connect(self.connector.VBUS)
         self.power_vbus.lv.connect(self.connector.GND, self.connector.EH)
-        self.usb2.p.signal.connect(self.connector.DP1, self.connector.DP2)
-        self.usb2.n.signal.connect(self.connector.DN1, self.connector.DN2)
-        self.sbu[0].signal.connect(self.connector.SBU2)
-        self.sbu[1].signal.connect(self.connector.SBU1)
-        self.cc[0].signal.connect(self.connector.CC1)
-        self.cc[1].signal.connect(self.connector.CC2)
-
+        self.usb2.usb_if.d.p.line.connect(self.connector.DP1, self.connector.DP2)
+        self.usb2.usb_if.d.n.line.connect(self.connector.DN1, self.connector.DN2)
+        self.sbu[0].line.connect(self.connector.SBU2)
+        self.sbu[1].line.connect(self.connector.SBU1)
+        self.cc[0].line.connect(self.connector.CC1)
+        self.cc[1].line.connect(self.connector.CC2)

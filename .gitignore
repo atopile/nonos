@@ -47,3 +47,5 @@ __pycache__/
 
 # Platformio
 .pio/
+
+*.egg-info/

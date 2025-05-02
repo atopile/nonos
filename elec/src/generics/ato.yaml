@@ -1,6 +1,0 @@
-ato-version: v0.2.0
-builds:
-  default:
-    entry: ""  # See: https://github.com/atopile/atopile/issues/322
-paths:
-  src: ./

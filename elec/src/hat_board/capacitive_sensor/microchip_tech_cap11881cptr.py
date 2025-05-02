@@ -6,8 +6,8 @@ import logging
 import faebryk.library._F as F  # noqa: F401
 from faebryk.core.module import Module
 from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
 from faebryk.libs.picker.picker import DescriptiveProperties
+from faebryk.libs.units import P  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +53,7 @@ class _Microchip_Tech_CAP1188_1_CP_TR(Module):
     # ----------------------------------------
     #                 traits
     # ----------------------------------------
-    designator_prefix = L.f_field(F.has_designator_prefix_defined)("U")
+    designator_prefix = L.f_field(F.has_designator_prefix)("U")
     descriptive_properties = L.f_field(F.has_descriptive_properties_defined)(
         {
             DescriptiveProperties.manufacturer: "Microchip Tech",
@@ -133,20 +133,20 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
         self.power.hv.connect(self.capacitive_sensor.VDD)
         self.power.lv.connect(self.capacitive_sensor.GND)
 
-        decouple_cap = self.power.decoupled.decouple(owner=self)
+        decouple_cap = self.power.decoupled.decouple(owner=self).capacitors[0]
         decouple_cap.capacitance.constrain_subset(
             L.Range.from_center_rel(100 * P.nF, 0.3)
         )
-        decouple_cap.add(F.has_package_requirement("0402"))
+        decouple_cap.add(F.has_package(F.has_package.Package.C0402))
 
         # Data
-        self.i2c.sda.signal.connect(
+        self.i2c.sda.line.connect(
             self.capacitive_sensor.SMDATA_BC_DATA_SPI_MSIO_SPI_MISO
         )
-        self.i2c.scl.signal.connect(self.capacitive_sensor.SMCLK_BC_CLK_SPI_CLK)
-        self.reset.signal.connect(self.capacitive_sensor.RESET)
-        self.interrupt.signal.connect(self.capacitive_sensor.ALERTh_BC_IRQh)
-        self.address.signal.connect(self.capacitive_sensor.ADDR_COMM)
+        self.i2c.scl.line.connect(self.capacitive_sensor.SMCLK_BC_CLK_SPI_CLK)
+        self.reset.line.connect(self.capacitive_sensor.RESET)
+        self.interrupt.line.connect(self.capacitive_sensor.ALERTh_BC_IRQh)
+        self.address.line.connect(self.capacitive_sensor.ADDR_COMM)
 
         self.i2c.terminate(owner=self)
 
@@ -155,13 +155,13 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
         )
         pullup = self.interrupt.get_trait(F.ElectricLogic.has_pulls).get_pulls()[0]
         assert pullup is not None
-        pullup.add(F.has_package_requirement("0402"))
+        pullup.add(F.has_package(F.has_package.Package.R0402))
         pullup.resistance.constrain_subset(L.Range.from_center_rel(10 * P.kohm, 0.05))
 
         self.reset.get_trait(F.ElectricLogic.can_be_pulled).pull(up=False, owner=self)
         reset_pulldown = self.reset.get_trait(F.ElectricLogic.has_pulls).get_pulls()[1]
         assert reset_pulldown is not None
-        reset_pulldown.add(F.has_package_requirement("0402"))
+        reset_pulldown.add(F.has_package(F.has_package.Package.R0402))
         reset_pulldown.resistance.constrain_subset(
             L.Range.from_center_rel(10 * P.kohm, 0.05)
         )
@@ -171,17 +171,17 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
             F.ElectricLogic.has_pulls
         ).get_pulls()[1]
         assert address_pulldown is not None
-        address_pulldown.add(F.has_package_requirement("0402"))
+        address_pulldown.add(F.has_package(F.has_package.Package.R0402))
         address_pulldown.resistance.constrain_subset(
             L.Range.from_center_rel(10 * P.kohm, 0.05)
         )
 
         # Pads
-        self.capacitive_sensor.CS1.connect(self.pads[0].signal)
-        self.capacitive_sensor.CS2.connect(self.pads[1].signal)
-        self.capacitive_sensor.CS3.connect(self.pads[2].signal)
-        self.capacitive_sensor.CS4.connect(self.pads[3].signal)
-        self.capacitive_sensor.CS5.connect(self.pads[4].signal)
-        self.capacitive_sensor.CS6.connect(self.pads[5].signal)
-        self.capacitive_sensor.CS7.connect(self.pads[6].signal)
-        self.capacitive_sensor.CS8.connect(self.pads[7].signal)
+        self.capacitive_sensor.CS1.connect(self.pads[0].line)
+        self.capacitive_sensor.CS2.connect(self.pads[1].line)
+        self.capacitive_sensor.CS3.connect(self.pads[2].line)
+        self.capacitive_sensor.CS4.connect(self.pads[3].line)
+        self.capacitive_sensor.CS5.connect(self.pads[4].line)
+        self.capacitive_sensor.CS6.connect(self.pads[5].line)
+        self.capacitive_sensor.CS7.connect(self.pads[6].line)
+        self.capacitive_sensor.CS8.connect(self.pads[7].line)

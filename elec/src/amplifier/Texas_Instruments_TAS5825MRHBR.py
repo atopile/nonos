@@ -227,38 +227,27 @@ class Texas_Instruments_TAS5825MRHBR(Module):
 
         # Decoupling capacitors
         # PVDD decoupling
-        PVDD_CAP_PROPERTIES = [
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 22 * P.uF, "footprint": "0805"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-            {"value": 100 * P.nF, "footprint": "0402"},
-        ]
-
-        PVDD_CAPS = []
-        for props in PVDD_CAP_PROPERTIES:
-            cap = self.power_pvdd.decoupled.decouple(owner=self).capacitors[0]
+        pvdd_multicap = self.power_pvdd.decoupled.decouple(owner=self, count=6)
+        for cap in pvdd_multicap.capacitors[:3]:
             cap.add(F.has_package(F.has_package.Package.C0805))
-            cap.capacitance.constrain_subset(
-                L.Range.from_center_rel(props["value"], 0.2)
-            )
-            PVDD_CAPS.append(cap)
+            cap.capacitance.constrain_subset(L.Range.from_center_rel(22 * P.uF, 0.2))
+
+        for cap in pvdd_multicap.capacitors[3:]:
+            cap.add(F.has_package(F.has_package.Package.C0402))
+            cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
         # DVDD decoupling
-        DVDD_CAP_PROPERTIES = [
-            {"value": 4.7 * P.uF, "package": F.has_package.Package.C0603},
-            {"value": 100 * P.nF, "package": F.has_package.Package.C0402},
-        ]
+        dvdd_caps = self.power_dvdd.decoupled.decouple(owner=self, count=2)
 
-        DVDD_CAPS = []
-        for props in DVDD_CAP_PROPERTIES:
-            cap = self.power_dvdd.decoupled.decouple(owner=self).capacitors[0]
-            cap.add(F.has_package(props["package"]))
-            cap.capacitance.constrain_subset(
-                L.Range.from_center_rel(props["value"], 0.2)
-            )
-            DVDD_CAPS.append(cap)
+        dvdd_caps.capacitors[0].add(F.has_package(F.has_package.Package.C0603))
+        dvdd_caps.capacitors[0].capacitance.constrain_subset(
+            L.Range.from_center_rel(4.7 * P.uF, 0.2)
+        )
+
+        dvdd_caps.capacitors[1].add(F.has_package(F.has_package.Package.C0402))
+        dvdd_caps.capacitors[1].capacitance.constrain_subset(
+            L.Range.from_center_rel(100 * P.nF, 0.2)
+        )
 
         # Net naming
         # F.Net.with_name("PVDD").part_of.connect(self.power_pvdd.hv)

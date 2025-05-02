@@ -107,8 +107,8 @@ class BoardToBoardConnector(Module):
     hat_touch_irq: F.ElectricLogic
     hat_led_data: F.ElectricLogic
 
-    def invert_connector_pinmap(self):
-        self.board_to_board_connector.invert_pinmap()
+    # def invert_connector_pinmap(self):
+    #     self.board_to_board_connector.invert_pinmap()
 
     @L.rt_field
     def single_electric_reference(self):
@@ -127,3 +127,38 @@ class BoardToBoardConnector(Module):
         self.board_to_board_connector.unnamed[7].connect(self.hat_nfc_irq.line)
         self.board_to_board_connector.unnamed[8].connect(self.hat_touch_irq.line)
         self.board_to_board_connector.unnamed[9].connect(self.hat_led_data.line)
+
+
+class BoardToBoardConnectorInverted(Module):
+    """
+    Board to board connector
+    """
+
+    board_to_board_connector: TE_Connectivity_1_2328702_0
+
+    # interfaces
+    i2c: F.I2C
+    power_3v3: F.ElectricPower
+    power_5v: F.ElectricPower
+    hat_reset: F.ElectricLogic
+    hat_nfc_irq: F.ElectricLogic
+    hat_touch_irq: F.ElectricLogic
+    hat_led_data: F.ElectricLogic
+
+    @L.rt_field
+    def single_electric_reference(self):
+        return F.has_single_electric_reference_defined(
+            F.ElectricLogic.connect_all_module_references(self, gnd_only=True)
+        )
+
+    def __preinit__(self):
+        self.board_to_board_connector.unnamed[9].connect(self.i2c.sda.line)
+        self.board_to_board_connector.unnamed[8].connect(self.i2c.scl.line)
+        self.board_to_board_connector.unnamed[7].connect(self.power_5v.lv)
+        self.board_to_board_connector.unnamed[6].connect(self.power_5v.hv)
+        self.board_to_board_connector.unnamed[5].connect(self.power_3v3.hv)
+        self.board_to_board_connector.unnamed[4].connect(self.power_3v3.lv)
+        self.board_to_board_connector.unnamed[3].connect(self.hat_reset.line)
+        self.board_to_board_connector.unnamed[2].connect(self.hat_nfc_irq.line)
+        self.board_to_board_connector.unnamed[1].connect(self.hat_touch_irq.line)
+        self.board_to_board_connector.unnamed[0].connect(self.hat_led_data.line)

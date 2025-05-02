@@ -27,6 +27,6 @@ dependencies:
 - type: registry
   identifier: atopile/saleae-header
   release: 0.1.0
-- type: file
+- type: registry
   identifier: atopile/st-stusb4500
   release: 0.1.0

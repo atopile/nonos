@@ -1,0 +1,4 @@
+import Analog_Devices_ADAU1452WBCPZ
+
+module DSP:
+    adau1452 = new Analog_Devices_ADAU1452WBCPZ

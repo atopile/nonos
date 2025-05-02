@@ -133,7 +133,7 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
         self.power.hv.connect(self.capacitive_sensor.VDD)
         self.power.lv.connect(self.capacitive_sensor.GND)
 
-        decouple_cap = self.power.decoupled.decouple(owner=self)
+        decouple_cap = self.power.decoupled.decouple(owner=self).capacitors[0]
         decouple_cap.capacitance.constrain_subset(
             L.Range.from_center_rel(100 * P.nF, 0.3)
         )

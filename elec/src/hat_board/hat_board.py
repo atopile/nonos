@@ -3,10 +3,10 @@
 
 import logging
 
-import faebryk.library._F as F  # noqa: F401
+import faebryk.library._F as F
 from faebryk.core.module import Module
-from faebryk.libs.library import L  # noqa: F401
-from faebryk.libs.units import P  # noqa: F401
+from faebryk.libs.util import times
+
 
 from .nfc.NXP_Semicon_PN5321A3HN_C106_51 import NXP_Semicon_PN5321A3HN_C106_51
 from .TE_Connectivity_1_2328702_0 import BoardToBoardConnector
@@ -33,7 +33,7 @@ class HatBoard(Module):
     nfc: NXP_Semicon_PN5321A3HN_C106_51
     board_to_board_connector: BoardToBoardConnector
     hat_button_antenna: HatButtonAntenna
-    leds = L.list_field(23, OPSCO_Optoelectronics_SK6805SIDE_G_001)
+    leds = times(23, OPSCO_Optoelectronics_SK6805SIDE_G_001)
     capacitive_sensor: Microchip_Tech_CAP1188_1_CP_TR
 
     def __preinit__(self):

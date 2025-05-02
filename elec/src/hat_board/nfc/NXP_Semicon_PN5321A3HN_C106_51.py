@@ -195,23 +195,23 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
         # self.power_vmid.lv.connect(self.nfc_ic.DVSS)
 
         # Decoupling caps for power railsx
-        vbat_cap = self.power_vbat.decoupled.decouple(owner=self)
+        vbat_cap = self.power_vbat.decoupled.decouple(owner=self).capacitors[0]
         vbat_cap.add(F.has_package(F.has_package.Package.C0402))
         vbat_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
-        svdd_cap = self.power_svdd.decoupled.decouple(owner=self)
+        svdd_cap = self.power_svdd.decoupled.decouple(owner=self).capacitors[0]
         svdd_cap.add(F.has_package(F.has_package.Package.C0402))
         svdd_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
-        avdd_cap = self.power_avdd.decoupled.decouple(owner=self)
+        avdd_cap = self.power_avdd.decoupled.decouple(owner=self).capacitors[0]
         avdd_cap.add(F.has_package(F.has_package.Package.C0402))
         avdd_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
-        pvdd_cap = self.power_pvdd.decoupled.decouple(owner=self)
+        pvdd_cap = self.power_pvdd.decoupled.decouple(owner=self).capacitors[0]
         pvdd_cap.add(F.has_package(F.has_package.Package.C0402))
         pvdd_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
 
-        vmid_cap = self.power_vmid.decoupled.decouple(owner=self)
+        vmid_cap = self.power_vmid.decoupled.decouple(owner=self).capacitors[0]
         vmid_cap.add(F.has_package(F.has_package.Package.C0402))
         vmid_cap.capacitance.constrain_subset(L.Range.from_center_rel(100 * P.nF, 0.2))
         self.nfc_ic.VMID.connect_via(vmid_cap, self.power_vmid.lv)
@@ -223,7 +223,7 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
 
         POWER_TVDD_CAPS = []
         for props in POWER_TVDD_CAP_PROPERTIES:
-            cap = self.power_tvdd.decoupled.decouple(owner=self)
+            cap = self.power_tvdd.decoupled.decouple(owner=self).capacitors[0]
             cap.add(F.has_package(props["package"]))
             cap.capacitance.constrain_subset(
                 L.Range.from_center_rel(props["value"], 0.2)
@@ -237,7 +237,7 @@ class NXP_Semicon_PN5321A3HN_C106_51(Module):
 
         POWER_DVDD_CAPS = []
         for props in POWER_DVDD_CAP_PROPERTIES:
-            cap = self.power_dvdd.decoupled.decouple(owner=self)
+            cap = self.power_dvdd.decoupled.decouple(owner=self).capacitors[0]
             cap.add(F.has_package(props["package"]))
             cap.capacitance.constrain_subset(
                 L.Range.from_center_rel(props["value"], 0.2)

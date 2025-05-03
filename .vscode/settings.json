@@ -3,5 +3,6 @@
     "editor.rulers": [
         89
     ],
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.formatOnSave": true
 }

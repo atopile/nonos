@@ -18,7 +18,7 @@ builds:
   hat-board:
     entry: elec/src/hat_board/hat_board.py:HatBoard
   tps62933:
-    entry: /Users/mattwildoer/Projects/nonos/elec/src/tps62933.ato:Tps62933
+    entry: /Users/mattwildoer/Projects/nonos/elec/src/tps62933.ato:TPS62933
 
 dependencies:
 - type: registry

@@ -1,9 +1,12 @@
-import Capacitor, ElectricLogic
+#pragma experiment("FOR_LOOP")
+#pragma experiment("BRIDGE_CONNECT")
+
+import Capacitor, ElectricLogic, Resistor, Inductor
 
 from "regulators.ato" import AdjustableRegulator
 
 
-module TPS62933DRLR from AdjustableRegulator:
+module TPS62933 from AdjustableRegulator:
     """
     TPS62933 Adjustable Regulator Driver
 
@@ -11,6 +14,7 @@ module TPS62933DRLR from AdjustableRegulator:
     `power_in` and `power_out` are self-explanatory, and inherited
     from AdjustableRegulator
     `power_out.voltage`, which must be between 0.8 to 22V
+    `power_out.max_current`, which must be <2A
 
     `enable` may be left floating, which default enables the device.
     `switching_frequency` can be overridden if desired.
@@ -60,13 +64,30 @@ module TPS62933DRLR from AdjustableRegulator:
     _c_bst.capacitance = 100nF +/- 25%  # Fixed from the datasheet
     _c_bst.package = "C0402"
 
+    ### Inductor
+    switching_frequency = 500kHz +/- 5%
+    ripple_current: current = 0.4 * power_out.max_current
+    assert ripple_current is power_out.voltage / power_in.voltage * (power_in.voltage - power_out.voltage) / (inductor.inductance * switching_frequency)
+    assert inductor.max_current > (power_out.max_current ** 2 + ripple_current ** 2 / 12) ** 0.5
+
+    ### Output cap(s)
+    # FIXME: Hack!
+    # TODO: I'd like to do this
+    # _c_out -> MultiCapacitor<count=2>
+    _c_out2 = new Capacitor
+    _c_out.power ~ _c_out2.power
+    for out_cap in [_c_out, _c_out2]:
+        out_cap.package = "C1206"
+        assert out_cap.capacitance > 19uF
+        assert out_cap.max_voltage > 30V
+
     ### Frequency selection
-    switching_frequency: frequency = 500kHz
     assert switching_frequency within 200kHz to 2200kHz
-    assert switching_frequency / 1kHz is 17293 * (_r_rt.resistance / 1kOhm) ** -0.942
+    assert switching_frequency / 1kHz is 17293 * (_r_rt.resistance / 1kohm) ** -0.942
 
     ### Soft-Start
-    soft_start_time: time = 5ms
+    # FIXME: what's the correct "type" for this? duration?
+    soft_start_time = 5 to 20ms
     # TODO: this would be better as a `check`
     # equation provided in the datasheet is all in SI units
     assert soft_start_time is (v_ref * _c_ss.capacitance) / 5.5uA +/- 1%
@@ -75,6 +96,14 @@ module TPS62933DRLR from AdjustableRegulator:
     ## Checks
     assert power_in.voltage < 30V
     assert power_out.voltage within 0.8 to 22V
+
+
+module Test:
+    """
+    Test the TPS62933 driver
+    """
+    _ic = new TPS62933
+    _ic.power_out.voltage = 5V +/- 10%
 
 
 component _TPS62933DRLR:
@@ -102,8 +131,8 @@ component _TPS62933ODRLR:
     variant that will keep the frequency out of audible range
     """
     lcsc_id = "C6290372"
-    manufacturer = "Texas Instruments"
-    mpn = "TPS62933ODRLR"
+    # manufacturer = "Texas Instruments"
+    # mpn = "TPS62933ODRLR"
     datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2307211801_Texas-Instruments-TPS62933ODRLR_C6290372.pdf"
     designator_prefix = "U"
 

@@ -13,92 +13,92 @@ module Analog_Devices_ADAU145x_package:
     designator_prefix = "U"
 
     # Signals
-    signal AUXADC0 # done
-    signal AUXADC1 # done
-    signal AUXADC2 # done
-    signal AUXADC3 # done
-    signal AUXADC4 # done
-    signal AUXADC5 # done
-    signal BCLK_IN0 # done
-    signal BCLK_IN1 # done
-    signal BCLK_IN2 # done
-    signal BCLK_IN3 # done
-    signal BCLK_OUT0 # done
-    signal BCLK_OUT1 # done
-    signal BCLK_OUT2 # done
-    signal BCLK_OUT3 # done
-    signal CLKOUT # done
-    signal DGND # done
-    signal DVDD # done
-    signal EP # done
-    signal GND # done
-    signal IOVDD # done
-    signal LRCLK_IN0_MP10 # done
-    signal LRCLK_IN1_MP11 # done
-    signal LRCLK_IN2_MP12 # done
-    signal LRCLK_IN3_MP13 # done
-    signal LRCLK_OUT0_MP4 # done
-    signal LRCLK_OUT1_MP5 # done
-    signal LRCLK_OUT2_MP8 # done
-    signal LRCLK_OUT3_MP9 # done
-    signal MISO_SDA # done
-    signal MOSI_M_MP1 # done
-    signal MOSI_ADDR1 # done
-    signal MP6 # done
-    signal MP7 # done
-    signal SPDIFIN # done
-    signal SPDIFOUT # done
-    signal PGND # done
-    signal PLLFILT # done
-    signal PVDD # done
-    signal nRESET # done
-    signal SCL_M_SCLK_M_MP2 # done
-    signal SCLK_SCL # done
-    signal SDA_M_MISO_M_MP3 # done
-    signal SDATA_IN0 # done
-    signal SDATA_IN1 # done
-    signal SDATA_IN2 # done
-    signal SDATA_IN3 # done
-    signal SDATA_OUT0 # done
-    signal SDATA_OUT1 # done
-    signal SDATA_OUT2 # done
-    signal SDATA_OUT3 # done
-    signal SELFBOOT # done
-    signal SS_M_MP0 # done
-    signal SS_ADDR0 # done
-    signal THD_M # done
-    signal THD_P # done
-    signal VDD # done
-    signal VDRIVE # done
-    signal XTALIN_MCLK # done
-    signal XTALOUT # done
+    AUXADC0 = new Electrical
+    AUXADC1 = new Electrical
+    AUXADC2 = new Electrical
+    AUXADC3 = new Electrical
+    AUXADC4 = new Electrical
+    AUXADC5 = new Electrical
+    AGND = new Electrical[1]
+    AVDD = new Electrical[1]
+    BCLK_IN0 = new Electrical
+    BCLK_IN1 = new Electrical
+    BCLK_IN2 = new Electrical
+    BCLK_IN3 = new Electrical
+    BCLK_OUT0 = new Electrical
+    BCLK_OUT1 = new Electrical
+    BCLK_OUT2 = new Electrical
+    BCLK_OUT3 = new Electrical
+    CLKOUT = new Electrical
+    DGND = new Electrical[8]
+    DVDD = new Electrical[4]
+    EP = new Electrical
+    IOVDD = new Electrical[4]
+    LRCLK_IN0_MP10 = new Electrical
+    LRCLK_IN1_MP11 = new Electrical
+    LRCLK_IN2_MP12 = new Electrical
+    LRCLK_IN3_MP13 = new Electrical
+    LRCLK_OUT0_MP4 = new Electrical
+    LRCLK_OUT1_MP5 = new Electrical
+    LRCLK_OUT2_MP8 = new Electrical
+    LRCLK_OUT3_MP9 = new Electrical
+    MISO_SDA = new Electrical
+    MOSI_M_MP1 = new Electrical
+    MOSI_ADDR1 = new Electrical
+    MP6 = new Electrical
+    MP7 = new Electrical
+    SPDIFIN = new Electrical
+    SPDIFOUT = new Electrical
+    PGND = new Electrical[1]
+    PLLFILT = new Electrical
+    PVDD = new Electrical[1]
+    nRESET = new Electrical
+    SCL_M_SCLK_M_MP2 = new Electrical
+    SCLK_SCL = new Electrical
+    SDA_M_MISO_M_MP3 = new Electrical
+    SDATA_IN0 = new Electrical
+    SDATA_IN1 = new Electrical
+    SDATA_IN2 = new Electrical
+    SDATA_IN3 = new Electrical
+    SDATA_OUT0 = new Electrical
+    SDATA_OUT1 = new Electrical
+    SDATA_OUT2 = new Electrical
+    SDATA_OUT3 = new Electrical
+    SELFBOOT = new Electrical
+    SS_M_MP0 = new Electrical
+    SS_ADDR0 = new Electrical
+    THD_M = new Electrical
+    THD_P = new Electrical
+    VDRIVE = new Electrical
+    XTALIN_MCLK = new Electrical
+    XTALOUT = new Electrical
 
     # Pinmap
-    pin 1 ~ DGND
-    pin 2 ~ IOVDD
+    pin 1 ~ DGND[0]
+    pin 2 ~ IOVDD[0]
     pin 3 ~ VDRIVE
     pin 4 ~ SPDIFIN
     pin 5 ~ SPDIFOUT
-    pin 6 ~ AGND
-    pin 7 ~ AVDD
+    pin 6 ~ AGND[0]
+    pin 7 ~ AVDD[0]
     pin 8 ~ AUXADC0
     pin 9 ~ AUXADC1
     pin 10 ~ AUXADC2
     pin 11 ~ AUXADC3
     pin 12 ~ AUXADC4
     pin 13 ~ AUXADC5
-    pin 14 ~ PGND
-    pin 15 ~ PVDD
+    pin 14 ~ PGND[0]
+    pin 15 ~ PVDD[0]
     pin 16 ~ PLLFILT
-    pin 17 ~ DGND
-    pin 18 ~ IOVDD
-    pin 19 ~ DGND
-    pin 20 ~ DVDD
+    pin 17 ~ DGND[1]
+    pin 18 ~ IOVDD[1]
+    pin 19 ~ DGND[2]
+    pin 20 ~ DVDD[0]
     pin 21 ~ XTALIN_MCLK
     pin 22 ~ XTALOUT
     pin 23 ~ CLKOUT
     pin 24 ~ nRESET
-    pin 25 ~ DGND
+    pin 25 ~ DGND[3]
     pin 26 ~ SS_M_MP0
     pin 27 ~ MOSI_M_MP1
     pin 28 ~ SCL_M_SCLK_M_MP2
@@ -108,10 +108,10 @@ module Analog_Devices_ADAU145x_package:
     pin 32 ~ MOSI_ADDR1
     pin 33 ~ SS_ADDR0
     pin 34 ~ SELFBOOT
-    pin 35 ~ DVDD
-    pin 36 ~ DGND
-    pin 37 ~ DGND
-    pin 38 ~ IOVDD
+    pin 35 ~ DVDD[1]
+    pin 36 ~ DGND[4]
+    pin 37 ~ DGND[5]
+    pin 38 ~ IOVDD[2]
     pin 39 ~ LRCLK_OUT0_MP4
     pin 40 ~ BCLK_OUT0
     pin 41 ~ SDATA_OUT0
@@ -126,10 +126,10 @@ module Analog_Devices_ADAU145x_package:
     pin 50 ~ LRCLK_OUT3_MP9
     pin 51 ~ BCLK_OUT3
     pin 52 ~ SDATA_OUT3
-    pin 53 ~ DVDD
-    pin 54 ~ DGND
-    pin 55 ~ DGND
-    pin 56 ~ IOVDD
+    pin 53 ~ DVDD[2]
+    pin 54 ~ DGND[6]
+    pin 55 ~ DGND[7]
+    pin 56 ~ IOVDD[3]
     pin 57 ~ BCLK_IN0
     pin 58 ~ LRCLK_IN0_MP10
     pin 59 ~ SDATA_IN0
@@ -144,8 +144,8 @@ module Analog_Devices_ADAU145x_package:
     pin 68 ~ BCLK_IN3
     pin 69 ~ LRCLK_IN3_MP13
     pin 70 ~ SDATA_IN3
-    pin 71 ~ DVDD
-    pin 72 ~ DGND
+    pin 71 ~ DVDD[3]
+    pin 72 ~ DGND[8]
     pin 73 ~ EP
 
 
@@ -155,31 +155,29 @@ module Analog_Devices_ADAU145x_package:
     
 
 module Analog_Devices_ADAU145x_model:
-    # TODO do not forget to tie the references together
-
     package = new Analog_Devices_ADAU145x_package
-
     
     # power
     power_io = new ElectricPower
     power_analog = new ElectricPower
     power_digital = new ElectricPower
     power_pll = new ElectricPower
-    power = new ElectricPower
 
     regulator_vdrive = new Electrical
+
+    assert power_io.voltage within (1.8V * 95%) to (3.3V * 110%)
+    assert power_analog.voltage within 3.3V +/- 10%
+    assert power_digital.voltage within 1.2V +/- 5%
+    assert power_pll.voltage within 3.3V +/- 10%
 
     power_io.hv ~ package.IOVDD
     power_analog.hv ~ package.AVDD
     power_digital.hv ~ package.DVDD
     power_pll.hv ~ package.PVDD
-    power.hv ~ package.VDD
 
-    #TODO
     power_analog.lv ~ package.AGND
     power_digital.lv ~ package.DGND
     power_pll.lv ~ package.PGND
-    power.lv ~ package.GND
 
     power_digital.lv ~ power_analog.lv
     power_digital.lv ~ power_pll.lv
@@ -188,6 +186,7 @@ module Analog_Devices_ADAU145x_model:
     power_io.lv ~ power_digital.lv
 
     regulator_vdrive ~ package.VDRIVE
+
 
     # peripherals
     spi = new SPI
@@ -312,18 +311,82 @@ module Analog_Devices_ADAU145x_model:
 
     reset_disable.line ~ package.nRESET
     selfboot_enable.line ~ package.SELFBOOT
+    
+    # logic references
+    trait ElectricSignal:has_single_electric_reference_shared<gnd_only=True>
 
+    for logic in [
+        spi,
+        spi_cs,
+        spi_master_cs,
+        i2c,
+        i2c_master,
+        aux_adc_inputs,
+        spdif_in,
+        spdif_out,
+        reset_disable,
+        selfboot_enable,
+    ]:
+        logic.reference_shim ~ power_io
 
+    for logic in i2c_address_bits:
+        logic.reference_shim ~ power_io
+    for logic in i2s_ins:
+        logic.reference_shim ~ power_io
+    for logic in i2s_outs:
+        logic.reference_shim ~ power_io
+    for logic in gpios:
+        logic.reference_shim ~ power_io
 
+module _BypassCapacitor from Capacitor:
+    big_cap = new Capacitor
+    small_cap = new Capacitor
 
+    for c in [big_cap, small_cap]:
+        unnamed[0] ~> c ~> unnamed[1]
+
+    big_cap.capacitance = 100nF +/- 10%
+    small_cap.capacitance = 10nF +/- 10%
+
+    big_cap.package = "C0402"
+    small_cap.package = "C0402"
 
 module Analog_Devices_ADAU145x_driver:
     model = new Analog_Devices_ADAU145x_model
 
     power = new ElectricPower
 
-    # decouple
-    # model.package.18 ~ model.package.17
-
     # connect thermal pad
     model.package.EP ~ power.lv
+
+    # Decoupling caps
+    # TODO verify pin neighbours with chip
+    decoupling_power_io = new MultiCapacitor<count=4>
+    power_io.hv ~> decoupling_power_io ~> power_io.lv
+    model.package.IOVDD[0] ~> decoupling_power_io[0] ~> model.package.DGND[0]
+    model.package.IOVDD[1] ~> decoupling_power_io[1] ~> model.package.DGND[1]
+    model.package.IOVDD[2] ~> decoupling_power_io[2] ~> model.package.DGND[5]
+    model.package.IOVDD[3] ~> decoupling_power_io[3] ~> model.package.DGND[7]
+    for c in decoupling_power_io.capacitors:
+        c -> _BypassCapacitor
+
+    decoupling_power_analog = new MultiCapacitor<count=1>
+    power_analog.hv ~> decoupling_power_analog ~> power_analog.lv
+    model.package.AVDD[0] ~> decoupling_power_analog[0] ~> model.package.AGND[0]
+    for c in decoupling_power_io.capacitors:
+        c -> _BypassCapacitor
+
+    decoupling_power_digital = new MultiCapacitor<count=4>
+    power_digital.hv ~> decoupling_power_digital ~> power_digital.lv
+    model.package.DVDD[0] ~> decoupling_power_digital[0] ~> model.package.DGND[2]
+    model.package.DVDD[1] ~> decoupling_power_digital[1] ~> model.package.DGND[4]
+    model.package.DVDD[2] ~> decoupling_power_digital[2] ~> model.package.DGND[6]
+    model.package.DVDD[3] ~> decoupling_power_digital[3] ~> model.package.DGND[8]
+    for c in decoupling_power_io.capacitors:
+        c -> _BypassCapacitor
+
+    decoupling_power_pll = new MultiCapacitor<count=1>
+    power_pll.hv ~> decoupling_power_pll ~> power_pll.lv
+    model.package.PVDD[0] ~> decoupling_power_pll[0] ~> model.package.PGND[0]
+    for c in decoupling_power_io.capacitors:
+        c -> _BypassCapacitor

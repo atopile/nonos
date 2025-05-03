@@ -29,6 +29,7 @@ module NONOS:
 
     # addressing
     pd_controller.i2c.address = 0x28
+    amplifier.i2c.address = 0x4C
 
     # substitute default pd_controller.usb_connector
     pd_controller.usb_connector.exclude_from_bom = True
@@ -64,22 +65,27 @@ module NONOS:
     cm5.cm5.gpio[19] ~ amplifier.i2s.ws
     cm5.cm5.gpio[21] ~ amplifier.i2s.sd
 
+    # speakers
+    amplifier.output_a.p.line ~ full_range_speaker_connector.unnamed[0]
+    amplifier.output_a.n.line ~ full_range_speaker_connector.unnamed[1]
+    amplifier.output_b.p.line ~ tweeter_speaker_connector.unnamed[0]
+    amplifier.output_b.n.line ~ tweeter_speaker_connector.unnamed[1]
 
+    # hat board
+    board_to_board_connector.i2c ~ cm5.i2c0
+    board_to_board_connector.power_3v3 ~ power_3v3
+    board_to_board_connector.power_5v ~ power_5v
+    cm5.cm5.gpio[7] ~ board_to_board_connector.hat_reset
+    cm5.cm5.gpio[8] ~ board_to_board_connector.hat_nfc_irq
+    cm5.cm5.gpio[9] ~ board_to_board_connector.hat_touch_irq
+    cm5.cm5.gpio[10] ~ board_to_board_connector.hat_led_data
 
-    # # infix operators with list literals don't work super nicely
-    # [amplifier.output_a.p.signal, amplifier.output_a.n.signal] ~ [full_range_speaker_connector.unnamed[0], full_range_speaker_connector.unnamed[1]]
-    # [amplifier.output_b.p.signal, amplifier.output_b.n.signal] ~ [tweeter_speaker_connector.unnamed[0], tweeter_speaker_connector.unnamed[1]]
-
-    # # hat board
-    # board_to_board_connector.i2c ~ cm5.i2c
-    # board_to_board_connector.power_3v3 ~ power_3v3
-    # board_to_board_connector.power_5v ~ power_5v
-
-    # # address selectors? e.g. with list of attrs
-    # cm5.gpio[4:8] ~ board_to_board_connector.[hat_reset, hat_nfc_irq, hat_touch_irq, hat_led_data]
-
-    # # debug headers
-    # [cm5.uart_tx, cm5.uart_rx] ~ debug_headers[0].pins[0, 1]
-    # [cm5.i2c.scl, cm5.i2c.sda] ~ debug_headers[0].pins[2, 3]
-    # [cm5.i2s.sck, cm5.i2s.ws, cm5.i2s.sd] ~ debug_headers[1].pins[0, 1, 2]
-    # power_5v.hv ~ debug_headers[1].pins[3].signal
+    # debug headers
+    cm5.cm5.uart0.base_uart.tx ~ debug_headers[0].ch0.line
+    cm5.cm5.uart0.base_uart.rx ~ debug_headers[0].ch1.line
+    cm5.i2c0.scl ~ debug_headers[0].ch2.line
+    cm5.i2c0.sda ~ debug_headers[0].ch3.line
+    cm5.cm5.gpio[18] ~ debug_headers[1].ch0.line # I2S sck
+    cm5.cm5.gpio[19] ~ debug_headers[1].ch1.line # I2S ws
+    cm5.cm5.gpio[21] ~ debug_headers[1].ch2.line # I2S sd
+    power_5v.hv ~ debug_headers[1].ch3.reference.hv

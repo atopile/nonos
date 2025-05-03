@@ -324,5 +324,6 @@ class Texas_Instruments_TAS5825MRHBR(Module):
         self.amplifier.ADR.connect_via(self.address_resistor, self.power_dvdd.lv)
         self.address_resistor.add(F.has_package(F.has_package.Package.R0402))
         self.address_resistor.resistance.constrain_subset(
-            L.Range.from_center_rel(10 * P.ohm, 0.5)
+            L.Range.from_center_rel(0 * P.kohm, 0)
         )
+        self.i2c.address.alias_is(0x4C)

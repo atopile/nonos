@@ -2,13 +2,9 @@ requires-atopile: ^0.6.0
 builds:
   default:
     entry: elec/src/nonos.ato:NONOS
-  #pd_controller:
-  #  entry: elec/src/pd_controller/pd_controller.py:PDController
   amplifier:
     entry:
       elec/src/amplifier/Texas_Instruments_TAS5825MRHBR.py:Texas_Instruments_TAS5825MRHBR
-  #regulator:
-  #  entry: elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
   nfc:
     entry:
       elec/src/hat_board/nfc/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51

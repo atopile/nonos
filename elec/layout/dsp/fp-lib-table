@@ -1,0 +1,10 @@
+(fp_lib_table
+    (version 7)
+    (lib
+        (name "atopile")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../../build/kicad/libs/footprints/atopile.pretty")
+        (options "")
+        (descr "atopile: atopile footprints")
+    )
+)

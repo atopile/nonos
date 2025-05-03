@@ -1,7 +1,18 @@
-import SPI
-import ElectricPower
-import I2C
+#pragma experiment("FOR_LOOP")
+#pragma experiment("TRAITS")
+#pragma experiment("MODULE_TEMPLATING")
+#pragma experiment("BRIDGE_CONNECT")
+
+import Capacitor
 import Electrical
+import ElectricLogic
+import ElectricPower
+import ElectricSignal
+import has_single_electric_reference_shared
+import I2C
+import I2S
+import MultiCapacitor
+import SPI
 
 module Analog_Devices_ADAU145x_package:
     """
@@ -30,7 +41,7 @@ module Analog_Devices_ADAU145x_package:
     BCLK_OUT2 = new Electrical
     BCLK_OUT3 = new Electrical
     CLKOUT = new Electrical
-    DGND = new Electrical[8]
+    DGND = new Electrical[9]
     DVDD = new Electrical[4]
     EP = new Electrical
     IOVDD = new Electrical[4]
@@ -149,6 +160,29 @@ module Analog_Devices_ADAU145x_package:
     pin 73 ~ EP
 
 
+    signal R_AGND
+    signal R_AVDD
+    signal R_DGND
+    signal R_DVDD
+    signal R_IOVDD
+    signal R_PGND
+    signal R_PVDD
+
+    for dup in AGND:
+        dup ~> R_AGND
+    for dup in AVDD:
+        dup ~> R_AVDD
+    for dup in DGND:
+        dup ~> R_DGND
+    for dup in DVDD:
+        dup ~> R_DVDD
+    for dup in IOVDD:
+        dup ~> R_IOVDD
+    for dup in PGND:
+        dup ~> R_PGND
+    for dup in PVDD:
+        dup ~> R_PVDD
+
 
 
     
@@ -165,19 +199,20 @@ module Analog_Devices_ADAU145x_model:
 
     regulator_vdrive = new Electrical
 
-    assert power_io.voltage within (1.8V * 95%) to (3.3V * 110%)
+    assert power_io.voltage >= 1.8V * 0.95
+    assert power_io.voltage <= 3.3V * 1.10
     assert power_analog.voltage within 3.3V +/- 10%
     assert power_digital.voltage within 1.2V +/- 5%
     assert power_pll.voltage within 3.3V +/- 10%
 
-    power_io.hv ~ package.IOVDD
-    power_analog.hv ~ package.AVDD
-    power_digital.hv ~ package.DVDD
-    power_pll.hv ~ package.PVDD
+    power_io.hv ~ package.R_IOVDD
+    power_analog.hv ~ package.R_AVDD
+    power_digital.hv ~ package.R_DVDD
+    power_pll.hv ~ package.R_PVDD
 
-    power_analog.lv ~ package.AGND
-    power_digital.lv ~ package.DGND
-    power_pll.lv ~ package.PGND
+    power_analog.lv ~ package.R_AGND
+    power_digital.lv ~ package.R_DGND
+    power_pll.lv ~ package.R_PGND
 
     power_digital.lv ~ power_analog.lv
     power_digital.lv ~ power_pll.lv
@@ -251,7 +286,7 @@ module Analog_Devices_ADAU145x_model:
     i2s_outs[2].sd.line ~ package.SDATA_OUT2
     i2s_outs[3].sd.line ~ package.SDATA_OUT3
 
-    gpios = new GPIO[13]
+    gpios = new ElectricLogic[14]
 
     gpios[0].line ~ package.SS_M_MP0
     gpios[1].line ~ package.MOSI_M_MP1
@@ -287,14 +322,14 @@ module Analog_Devices_ADAU145x_model:
     temperature_sensor_in_p = new Electrical
     temperature_sensor_in_n = new Electrical
 
-    temperature_sensor_in_p.line ~ package.THD_P
-    temperature_sensor_in_n.line ~ package.THD_M
+    temperature_sensor_in_p ~ package.THD_P
+    temperature_sensor_in_n ~ package.THD_M
 
     xtal_in = new Electrical
     xtal_out = new Electrical
 
-    xtal_in.line ~ package.XTALIN_MCLK
-    xtal_out.line ~ package.XTALOUT
+    xtal_in ~ package.XTALIN_MCLK
+    xtal_out ~ package.XTALOUT
 
     # TODO PLL
     pll_mclk = new Electrical
@@ -313,7 +348,7 @@ module Analog_Devices_ADAU145x_model:
     selfboot_enable.line ~ package.SELFBOOT
     
     # logic references
-    trait ElectricSignal:has_single_electric_reference_shared<gnd_only=True>
+    trait has_single_electric_reference_shared<gnd_only=True>
 
     for logic in [
         spi,
@@ -321,7 +356,6 @@ module Analog_Devices_ADAU145x_model:
         spi_master_cs,
         i2c,
         i2c_master,
-        aux_adc_inputs,
         spdif_in,
         spdif_out,
         reset_disable,
@@ -336,6 +370,8 @@ module Analog_Devices_ADAU145x_model:
     for logic in i2s_outs:
         logic.reference_shim ~ power_io
     for logic in gpios:
+        logic.reference_shim ~ power_io
+    for logic in aux_adc_inputs:
         logic.reference_shim ~ power_io
 
 module _BypassCapacitor from Capacitor:
@@ -358,35 +394,52 @@ module Analog_Devices_ADAU145x_driver:
 
     # connect thermal pad
     model.package.EP ~ power.lv
+    for rail in [
+        model.power_io,
+        model.power_analog,
+        model.power_pll,
+    ]:
+        power ~ rail
 
     # Decoupling caps
     # TODO verify pin neighbours with chip
     decoupling_power_io = new MultiCapacitor<count=4>
-    power_io.hv ~> decoupling_power_io ~> power_io.lv
-    model.package.IOVDD[0] ~> decoupling_power_io[0] ~> model.package.DGND[0]
-    model.package.IOVDD[1] ~> decoupling_power_io[1] ~> model.package.DGND[1]
-    model.package.IOVDD[2] ~> decoupling_power_io[2] ~> model.package.DGND[5]
-    model.package.IOVDD[3] ~> decoupling_power_io[3] ~> model.package.DGND[7]
-    for c in decoupling_power_io.capacitors:
-        c -> _BypassCapacitor
+    model.power_io.hv ~> decoupling_power_io ~> model.power_io.lv
+    model.package.IOVDD[0] ~> decoupling_power_io.capacitors[0] ~> model.package.DGND[0]
+    model.package.IOVDD[1] ~> decoupling_power_io.capacitors[1] ~> model.package.DGND[1]
+    model.package.IOVDD[2] ~> decoupling_power_io.capacitors[2] ~> model.package.DGND[5]
+    model.package.IOVDD[3] ~> decoupling_power_io.capacitors[3] ~> model.package.DGND[7]
 
     decoupling_power_analog = new MultiCapacitor<count=1>
-    power_analog.hv ~> decoupling_power_analog ~> power_analog.lv
-    model.package.AVDD[0] ~> decoupling_power_analog[0] ~> model.package.AGND[0]
-    for c in decoupling_power_io.capacitors:
-        c -> _BypassCapacitor
+    model.power_analog.hv ~> decoupling_power_analog ~> model.power_analog.lv
+    model.package.AVDD[0] ~> decoupling_power_analog.capacitors[0] ~> model.package.AGND[0]
 
     decoupling_power_digital = new MultiCapacitor<count=4>
-    power_digital.hv ~> decoupling_power_digital ~> power_digital.lv
-    model.package.DVDD[0] ~> decoupling_power_digital[0] ~> model.package.DGND[2]
-    model.package.DVDD[1] ~> decoupling_power_digital[1] ~> model.package.DGND[4]
-    model.package.DVDD[2] ~> decoupling_power_digital[2] ~> model.package.DGND[6]
-    model.package.DVDD[3] ~> decoupling_power_digital[3] ~> model.package.DGND[8]
-    for c in decoupling_power_io.capacitors:
-        c -> _BypassCapacitor
+    model.power_digital.hv ~> decoupling_power_digital ~> model.power_digital.lv
+    model.package.DVDD[0] ~> decoupling_power_digital.capacitors[0] ~> model.package.DGND[2]
+    model.package.DVDD[1] ~> decoupling_power_digital.capacitors[1] ~> model.package.DGND[4]
+    model.package.DVDD[2] ~> decoupling_power_digital.capacitors[2] ~> model.package.DGND[6]
+    model.package.DVDD[3] ~> decoupling_power_digital.capacitors[3] ~> model.package.DGND[8]
 
     decoupling_power_pll = new MultiCapacitor<count=1>
-    power_pll.hv ~> decoupling_power_pll ~> power_pll.lv
-    model.package.PVDD[0] ~> decoupling_power_pll[0] ~> model.package.PGND[0]
+    model.power_pll.hv ~> decoupling_power_pll ~> model.power_pll.lv
+    model.package.PVDD[0] ~> decoupling_power_pll.capacitors[0] ~> model.package.PGND[0]
+
     for c in decoupling_power_io.capacitors:
-        c -> _BypassCapacitor
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_analog.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_digital.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_pll.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+
+

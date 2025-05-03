@@ -75,7 +75,6 @@ module NONOS:
     board_to_board_connector.i2c ~ cm5.i2c0
     board_to_board_connector.power_3v3 ~ power_3v3
     board_to_board_connector.power_5v ~ power_5v
-    # TODO: review pin suitability
     cm5.cm5.gpio[7] ~ board_to_board_connector.hat_reset
     cm5.cm5.gpio[8] ~ board_to_board_connector.hat_nfc_irq
     cm5.cm5.gpio[9] ~ board_to_board_connector.hat_touch_irq

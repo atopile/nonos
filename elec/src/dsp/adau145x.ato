@@ -12,6 +12,7 @@ import has_single_electric_reference_shared
 import I2C
 import I2S
 import MultiCapacitor
+import Net
 import SPI
 
 module Analog_Devices_ADAU145x_package:
@@ -160,28 +161,28 @@ module Analog_Devices_ADAU145x_package:
     pin 73 ~ EP
 
 
-    signal R_AGND
-    signal R_AVDD
-    signal R_DGND
-    signal R_DVDD
-    signal R_IOVDD
-    signal R_PGND
-    signal R_PVDD
+    N_AGND = new Net
+    N_AVDD = new Net
+    N_DGND = new Net
+    N_DVDD = new Net
+    N_IOVDD = new Net
+    N_PGND = new Net
+    N_PVDD = new Net
 
     for dup in AGND:
-        dup ~> R_AGND
+        dup ~> N_AGND.part_of
     for dup in AVDD:
-        dup ~> R_AVDD
+        dup ~> N_AVDD.part_of
     for dup in DGND:
-        dup ~> R_DGND
+        dup ~> N_DGND.part_of
     for dup in DVDD:
-        dup ~> R_DVDD
+        dup ~> N_DVDD.part_of
     for dup in IOVDD:
-        dup ~> R_IOVDD
+        dup ~> N_IOVDD.part_of
     for dup in PGND:
-        dup ~> R_PGND
+        dup ~> N_PGND.part_of
     for dup in PVDD:
-        dup ~> R_PVDD
+        dup ~> N_PVDD.part_of
 
 
 
@@ -205,14 +206,14 @@ module Analog_Devices_ADAU145x_model:
     assert power_digital.voltage within 1.2V +/- 5%
     assert power_pll.voltage within 3.3V +/- 10%
 
-    power_io.hv ~ package.R_IOVDD
-    power_analog.hv ~ package.R_AVDD
-    power_digital.hv ~ package.R_DVDD
-    power_pll.hv ~ package.R_PVDD
+    power_io.hv ~ package.N_IOVDD.part_of
+    power_analog.hv ~ package.N_AVDD.part_of
+    power_digital.hv ~ package.N_DVDD.part_of
+    power_pll.hv ~ package.N_PVDD.part_of
 
-    power_analog.lv ~ package.R_AGND
-    power_digital.lv ~ package.R_DGND
-    power_pll.lv ~ package.R_PGND
+    power_analog.lv ~ package.N_AGND.part_of
+    power_digital.lv ~ package.N_DGND.part_of
+    power_pll.lv ~ package.N_PGND.part_of
 
     power_digital.lv ~ power_analog.lv
     power_digital.lv ~ power_pll.lv

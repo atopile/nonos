@@ -1,3 +1,8 @@
+import SPI
+import ElectricPower
+import I2C
+import Electrical
+
 module Analog_Devices_ADAU145x_package:
     """
     Common base package module for Analog Devices ADAU1450/51/52 series.
@@ -7,78 +12,318 @@ module Analog_Devices_ADAU145x_package:
     datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Analog-Devices-ADAU1452WBCPZ_C403699.pdf"
     designator_prefix = "U"
 
-    # pins
-    pin 1 ~ signal DGND
-    pin 2 ~ signal IOVDD
-    pin 3 ~ signal VDRIVE
-    pin 4 ~ signal SPDIFIN
-    pin 5 ~ signal SPDIFOUT
-    pin 6 ~ signal AGND
-    pin 7 ~ signal AVDD
-    pin 8 ~ signal AUXADC0
-    pin 9 ~ signal AUXADC1
-    pin 10 ~ signal AUXADC2
-    pin 11 ~ signal AUXADC3
-    pin 12 ~ signal AUXADC4
-    pin 13 ~ signal AUXADC5
-    pin 14 ~ signal PGND
-    pin 15 ~ signal PVDD
-    pin 16 ~ signal PLLFILT
-    pin 17 ~ signal DGND
-    pin 18 ~ signal IOVDD
-    pin 19 ~ signal DGND
-    pin 20 ~ signal DVDD
-    pin 21 ~ signal XTALIN/MCLK
-    pin 22 ~ signal XTALOUT
-    pin 23 ~ signal CLKOUT
-    pin 24 ~ signal RESET#
-    pin 25 ~ signal DGND
-    pin 26 ~ signal SS_M/MP0
-    pin 27 ~ signal MOSI_M/MP1
-    pin 28 ~ signal SCL_M/SCLK_M/MP2
-    pin 29 ~ signal SDA_M/MISO_M/MP3
-    pin 30 ~ signal MISO/SDA
-    pin 31 ~ signal SCLK/SCL
-    pin 32 ~ signal MOSI/ADDR1
-    pin 33 ~ signal SS/ADDR0
-    pin 34 ~ signal SELFBOOT
-    pin 35 ~ signal DVDD
-    pin 36 ~ signal DGND
-    pin 37 ~ signal DGND
-    pin 38 ~ signal IOVDD
-    pin 39 ~ signal LRCLK_OUT0/MP4
-    pin 40 ~ signal BCLK_OUT0
-    pin 41 ~ signal SDATA_OUT0
-    pin 42 ~ signal LRCLK_OUT1/MP5
-    pin 43 ~ signal BCLK_OUT1
-    pin 44 ~ signal SDATA_OUT1
-    pin 45 ~ signal MP6
-    pin 46 ~ signal MP7
-    pin 47 ~ signal LRCLK_OUT2/MP8
-    pin 48 ~ signal BCLK_OUT2
-    pin 49 ~ signal SDATA_OUT2
-    pin 50 ~ signal LRCLK_OUT3/MP9
-    pin 51 ~ signal BCLK_OUT3
-    pin 52 ~ signal SDATA_OUT3
-    pin 53 ~ signal DVDD
-    pin 54 ~ signal DGND
-    pin 55 ~ signal DGND
-    pin 56 ~ signal IOVDD
-    pin 57 ~ signal BCLK_IN0
-    pin 58 ~ signal LRCLK_IN0/MP10
-    pin 59 ~ signal SDATA_IN0
-    pin 60 ~ signal BCLK_IN1
-    pin 61 ~ signal LRCLK_IN1/MP11
-    pin 62 ~ signal SDATA_IN1
-    pin 63 ~ signal THD_M
-    pin 64 ~ signal THD_P
-    pin 65 ~ signal BCLK_IN2
-    pin 66 ~ signal LRCLK_IN2/MP12
-    pin 67 ~ signal SDATA_IN2
-    pin 68 ~ signal BCLK_IN3
-    pin 69 ~ signal LRCLK_IN3/MP13
-    pin 70 ~ signal SDATA_IN3
-    pin 71 ~ signal DVDD
-    pin 72 ~ signal DGND
-    pin 73 ~ signal EP
+    # Signals
+    signal AUXADC0 # done
+    signal AUXADC1 # done
+    signal AUXADC2 # done
+    signal AUXADC3 # done
+    signal AUXADC4 # done
+    signal AUXADC5 # done
+    signal BCLK_IN0 # done
+    signal BCLK_IN1 # done
+    signal BCLK_IN2 # done
+    signal BCLK_IN3 # done
+    signal BCLK_OUT0 # done
+    signal BCLK_OUT1 # done
+    signal BCLK_OUT2 # done
+    signal BCLK_OUT3 # done
+    signal CLKOUT # done
+    signal DGND # done
+    signal DVDD # done
+    signal EP # done
+    signal GND # done
+    signal IOVDD # done
+    signal LRCLK_IN0_MP10 # done
+    signal LRCLK_IN1_MP11 # done
+    signal LRCLK_IN2_MP12 # done
+    signal LRCLK_IN3_MP13 # done
+    signal LRCLK_OUT0_MP4 # done
+    signal LRCLK_OUT1_MP5 # done
+    signal LRCLK_OUT2_MP8 # done
+    signal LRCLK_OUT3_MP9 # done
+    signal MISO_SDA # done
+    signal MOSI_M_MP1 # done
+    signal MOSI_ADDR1 # done
+    signal MP6 # done
+    signal MP7 # done
+    signal SPDIFIN # done
+    signal SPDIFOUT # done
+    signal PGND # done
+    signal PLLFILT # done
+    signal PVDD # done
+    signal nRESET # done
+    signal SCL_M_SCLK_M_MP2 # done
+    signal SCLK_SCL # done
+    signal SDA_M_MISO_M_MP3 # done
+    signal SDATA_IN0 # done
+    signal SDATA_IN1 # done
+    signal SDATA_IN2 # done
+    signal SDATA_IN3 # done
+    signal SDATA_OUT0 # done
+    signal SDATA_OUT1 # done
+    signal SDATA_OUT2 # done
+    signal SDATA_OUT3 # done
+    signal SELFBOOT # done
+    signal SS_M_MP0 # done
+    signal SS_ADDR0 # done
+    signal THD_M # done
+    signal THD_P # done
+    signal VDD # done
+    signal VDRIVE # done
+    signal XTALIN_MCLK # done
+    signal XTALOUT # done
 
+    # Pinmap
+    pin 1 ~ DGND
+    pin 2 ~ IOVDD
+    pin 3 ~ VDRIVE
+    pin 4 ~ SPDIFIN
+    pin 5 ~ SPDIFOUT
+    pin 6 ~ AGND
+    pin 7 ~ AVDD
+    pin 8 ~ AUXADC0
+    pin 9 ~ AUXADC1
+    pin 10 ~ AUXADC2
+    pin 11 ~ AUXADC3
+    pin 12 ~ AUXADC4
+    pin 13 ~ AUXADC5
+    pin 14 ~ PGND
+    pin 15 ~ PVDD
+    pin 16 ~ PLLFILT
+    pin 17 ~ DGND
+    pin 18 ~ IOVDD
+    pin 19 ~ DGND
+    pin 20 ~ DVDD
+    pin 21 ~ XTALIN_MCLK
+    pin 22 ~ XTALOUT
+    pin 23 ~ CLKOUT
+    pin 24 ~ nRESET
+    pin 25 ~ DGND
+    pin 26 ~ SS_M_MP0
+    pin 27 ~ MOSI_M_MP1
+    pin 28 ~ SCL_M_SCLK_M_MP2
+    pin 29 ~ SDA_M_MISO_M_MP3
+    pin 30 ~ MISO_SDA
+    pin 31 ~ SCLK_SCL
+    pin 32 ~ MOSI_ADDR1
+    pin 33 ~ SS_ADDR0
+    pin 34 ~ SELFBOOT
+    pin 35 ~ DVDD
+    pin 36 ~ DGND
+    pin 37 ~ DGND
+    pin 38 ~ IOVDD
+    pin 39 ~ LRCLK_OUT0_MP4
+    pin 40 ~ BCLK_OUT0
+    pin 41 ~ SDATA_OUT0
+    pin 42 ~ LRCLK_OUT1_MP5
+    pin 43 ~ BCLK_OUT1
+    pin 44 ~ SDATA_OUT1
+    pin 45 ~ MP6
+    pin 46 ~ MP7
+    pin 47 ~ LRCLK_OUT2_MP8
+    pin 48 ~ BCLK_OUT2
+    pin 49 ~ SDATA_OUT2
+    pin 50 ~ LRCLK_OUT3_MP9
+    pin 51 ~ BCLK_OUT3
+    pin 52 ~ SDATA_OUT3
+    pin 53 ~ DVDD
+    pin 54 ~ DGND
+    pin 55 ~ DGND
+    pin 56 ~ IOVDD
+    pin 57 ~ BCLK_IN0
+    pin 58 ~ LRCLK_IN0_MP10
+    pin 59 ~ SDATA_IN0
+    pin 60 ~ BCLK_IN1
+    pin 61 ~ LRCLK_IN1_MP11
+    pin 62 ~ SDATA_IN1
+    pin 63 ~ THD_M
+    pin 64 ~ THD_P
+    pin 65 ~ BCLK_IN2
+    pin 66 ~ LRCLK_IN2_MP12
+    pin 67 ~ SDATA_IN2
+    pin 68 ~ BCLK_IN3
+    pin 69 ~ LRCLK_IN3_MP13
+    pin 70 ~ SDATA_IN3
+    pin 71 ~ DVDD
+    pin 72 ~ DGND
+    pin 73 ~ EP
+
+
+
+
+    
+    
+
+module Analog_Devices_ADAU145x_model:
+    # TODO do not forget to tie the references together
+
+    package = new Analog_Devices_ADAU145x_package
+
+    
+    # power
+    power_io = new ElectricPower
+    power_analog = new ElectricPower
+    power_digital = new ElectricPower
+    power_pll = new ElectricPower
+    power = new ElectricPower
+
+    regulator_vdrive = new Electrical
+
+    power_io.hv ~ package.IOVDD
+    power_analog.hv ~ package.AVDD
+    power_digital.hv ~ package.DVDD
+    power_pll.hv ~ package.PVDD
+    power.hv ~ package.VDD
+
+    #TODO
+    power_analog.lv ~ package.AGND
+    power_digital.lv ~ package.DGND
+    power_pll.lv ~ package.PGND
+    power.lv ~ package.GND
+
+    power_digital.lv ~ power_analog.lv
+    power_digital.lv ~ power_pll.lv
+
+    # not 100% sure
+    power_io.lv ~ power_digital.lv
+
+    regulator_vdrive ~ package.VDRIVE
+
+    # peripherals
+    spi = new SPI
+    spi_cs = new ElectricLogic
+
+    spi.sclk.line ~ package.SCLK_SCL
+    spi.miso.line ~ package.MISO_SDA
+    spi.mosi.line ~ package.MOSI_ADDR1
+    spi_cs.line ~ package.SS_ADDR0
+
+
+    spi_master = new SPI
+    spi_master_cs = new ElectricLogic
+
+    spi_master.sclk.line ~ package.SCL_M_SCLK_M_MP2
+    spi_master.miso.line ~ package.SDA_M_MISO_M_MP3
+    spi_master.mosi.line ~ package.MOSI_M_MP1
+    spi_master_cs.line ~ package.SS_M_MP0
+
+
+    i2c = new I2C
+    i2c_address_bits = new ElectricLogic[2]
+
+    i2c.scl.line ~ package.SCLK_SCL
+    i2c.sda.line ~ package.MISO_SDA
+
+    i2c_address_bits[0].line ~ package.SS_ADDR0
+    i2c_address_bits[1].line ~ package.MOSI_ADDR1
+
+    i2c_master = new I2C
+
+    i2c.scl.line ~ package.SCL_M_SCLK_M_MP2
+    i2c.sda.line ~ package.SDA_M_MISO_M_MP3
+
+    i2s_ins = new I2S[4]
+    i2s_outs = new I2S[4]
+
+    i2s_ins[0].ws.line ~ package.LRCLK_IN0_MP10
+    i2s_ins[1].ws.line ~ package.LRCLK_IN1_MP11
+    i2s_ins[2].ws.line ~ package.LRCLK_IN2_MP12
+    i2s_ins[3].ws.line ~ package.LRCLK_IN3_MP13
+    i2s_outs[0].ws.line ~ package.LRCLK_OUT0_MP4
+    i2s_outs[1].ws.line ~ package.LRCLK_OUT1_MP5
+    i2s_outs[2].ws.line ~ package.LRCLK_OUT2_MP8
+    i2s_outs[3].ws.line ~ package.LRCLK_OUT3_MP9
+
+    i2s_ins[0].sck.line ~ package.BCLK_IN0
+    i2s_ins[1].sck.line ~ package.BCLK_IN1
+    i2s_ins[2].sck.line ~ package.BCLK_IN2
+    i2s_ins[3].sck.line ~ package.BCLK_IN3
+    i2s_outs[0].sck.line ~ package.BCLK_OUT0
+    i2s_outs[1].sck.line ~ package.BCLK_OUT1
+    i2s_outs[2].sck.line ~ package.BCLK_OUT2
+    i2s_outs[3].sck.line ~ package.BCLK_OUT3
+
+    i2s_ins[0].sd.line ~ package.SDATA_IN0
+    i2s_ins[1].sd.line ~ package.SDATA_IN1
+    i2s_ins[2].sd.line ~ package.SDATA_IN2
+    i2s_ins[3].sd.line ~ package.SDATA_IN3
+    i2s_outs[0].sd.line ~ package.SDATA_OUT0
+    i2s_outs[1].sd.line ~ package.SDATA_OUT1
+    i2s_outs[2].sd.line ~ package.SDATA_OUT2
+    i2s_outs[3].sd.line ~ package.SDATA_OUT3
+
+    gpios = new GPIO[13]
+
+    gpios[0].line ~ package.SS_M_MP0
+    gpios[1].line ~ package.MOSI_M_MP1
+    gpios[2].line ~ package.SCL_M_SCLK_M_MP2
+    gpios[3].line ~ package.SDA_M_MISO_M_MP3
+    gpios[4].line ~ package.LRCLK_OUT0_MP4
+    gpios[5].line ~ package.LRCLK_OUT1_MP5
+    gpios[6].line ~ package.MP6
+    gpios[7].line ~ package.MP7
+    gpios[8].line ~ package.LRCLK_OUT2_MP8
+    gpios[9].line ~ package.LRCLK_OUT3_MP9
+    gpios[10].line ~ package.LRCLK_IN0_MP10
+    gpios[11].line ~ package.LRCLK_IN1_MP11
+    gpios[12].line ~ package.LRCLK_IN2_MP12
+    gpios[13].line ~ package.LRCLK_IN3_MP13
+
+    aux_adc_inputs = new ElectricSignal[6]
+
+    aux_adc_inputs[0].line ~ package.AUXADC0
+    aux_adc_inputs[1].line ~ package.AUXADC1
+    aux_adc_inputs[2].line ~ package.AUXADC2
+    aux_adc_inputs[3].line ~ package.AUXADC3
+    aux_adc_inputs[4].line ~ package.AUXADC4
+    aux_adc_inputs[5].line ~ package.AUXADC5
+
+
+    spdif_in = new ElectricSignal
+    spdif_out = new ElectricSignal
+
+    spdif_in.line ~ package.SPDIFIN
+    spdif_out.line ~ package.SPDIFOUT
+
+    temperature_sensor_in_p = new Electrical
+    temperature_sensor_in_n = new Electrical
+
+    temperature_sensor_in_p.line ~ package.THD_P
+    temperature_sensor_in_n.line ~ package.THD_M
+
+    xtal_in = new Electrical
+    xtal_out = new Electrical
+
+    xtal_in.line ~ package.XTALIN_MCLK
+    xtal_out.line ~ package.XTALOUT
+
+    # TODO PLL
+    pll_mclk = new Electrical
+    pll_filter = new Electrical
+    pll_clock_out = new Electrical
+
+    pll_mclk ~ package.XTALIN_MCLK
+    pll_filter ~ package.PLLFILT
+    pll_clock_out ~ package.CLKOUT
+
+    # configure
+    reset_disable = new ElectricLogic
+    selfboot_enable = new ElectricLogic
+
+    reset_disable.line ~ package.nRESET
+    selfboot_enable.line ~ package.SELFBOOT
+
+
+
+
+
+module Analog_Devices_ADAU145x_driver:
+    model = new Analog_Devices_ADAU145x_model
+
+    power = new ElectricPower
+
+    # decouple
+    # model.package.18 ~ model.package.17
+
+    # connect thermal pad
+    model.package.EP ~ power.lv

@@ -38,31 +38,9 @@ class TE_Connectivity_1_2328702_0(Module):
             DescriptiveProperties.partno: "1-2328702-0",
         }
     )
-    pin_map_inverted = False
-
-    def invert_pinmap(self):
-        self.pin_map_inverted = True
 
     @L.rt_field
     def attach_via_pinmap(self):
-        if self.pin_map_inverted:
-            return F.can_attach_to_footprint_via_pinmap(
-                {
-                    "10": self.unnamed[0],
-                    "9": self.unnamed[1],
-                    "8": self.unnamed[2],
-                    "7": self.unnamed[3],
-                    "6": self.unnamed[4],
-                    "5": self.unnamed[5],
-                    "4": self.unnamed[6],
-                    "3": self.unnamed[7],
-                    "2": self.unnamed[8],
-                    "1": self.unnamed[9],
-                    "11": self.unnamed[10],
-                    "12": self.unnamed[11],
-                }
-            )
-
         return F.can_attach_to_footprint_via_pinmap(
             {
                 "1": self.unnamed[0],
@@ -106,9 +84,6 @@ class BoardToBoardConnector(Module):
     hat_nfc_irq: F.ElectricLogic
     hat_touch_irq: F.ElectricLogic
     hat_led_data: F.ElectricLogic
-
-    # def invert_connector_pinmap(self):
-    #     self.board_to_board_connector.invert_pinmap()
 
     @L.rt_field
     def single_electric_reference(self):

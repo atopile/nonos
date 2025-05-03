@@ -148,7 +148,8 @@ class Microchip_Tech_CAP1188_1_CP_TR(Module):
         self.interrupt.line.connect(self.capacitive_sensor.ALERTh_BC_IRQh)
         self.address.line.connect(self.capacitive_sensor.ADDR_COMM)
 
-        self.i2c.terminate(owner=self)
+        # Already terminated in NXP_Semicon_PN5321A3HN_C106_51
+        # self.i2c.terminate(owner=self)
 
         self.interrupt.get_trait(F.ElectricLogic.can_be_pulled).pull(
             up=True, owner=self

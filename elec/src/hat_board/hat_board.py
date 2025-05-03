@@ -36,9 +36,6 @@ class HatBoard(Module):
     capacitive_sensor: Microchip_Tech_CAP1188_1_CP_TR
 
     def __preinit__(self):
-        # Connector inverts pinmap, need to flip it back
-        self.board_to_board_connector.invert_connector_pinmap()
-
         # Connect LEDs in series
         for i in range(len(self.leds) - 1):
             self.leds[i].output.connect(self.leds[i + 1].input)

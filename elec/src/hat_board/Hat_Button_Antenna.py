@@ -42,3 +42,8 @@ class HatButtonAntenna(Module):
                 "9": self.antenna.n.line,
             }
         )
+
+    def __preinit__(self):
+        kicad_fp = F.KicadFootprint([str(i + 1) for i in range(10)])
+        kicad_fp.add(F.KicadFootprint.has_kicad_identifier("lcsc:hat-button-antenna"))
+        self.get_trait(F.can_attach_to_footprint).attach(kicad_fp)

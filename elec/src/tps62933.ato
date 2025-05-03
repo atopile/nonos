@@ -1,0 +1,118 @@
+import Capacitor, ElectricLogic
+
+from "regulators.ato" import AdjustableRegulator
+
+
+module TPS62933DRLR from AdjustableRegulator:
+    """
+    TPS62933 Adjustable Regulator Driver
+
+    Required attributes:
+    `power_in` and `power_out` are self-explanatory, and inherited
+    from AdjustableRegulator
+    `power_out.voltage`, which must be between 0.8 to 22V
+
+    `enable` may be left floating, which default enables the device.
+    `switching_frequency` can be overridden if desired.
+    `soft_start_time` can be overridden if desired.
+    """
+    _ic = new _TPS62933ODRLR
+
+    enable = new ElectricLogic
+    enable.line ~ _ic.EN
+
+    ## Power Topology
+    signal _gnd
+
+    for gndy in [power_in.gnd, power_out.gnd, _ic.GND]:
+        gndy ~ _gnd
+
+    _c_in = new Capacitor
+    # FIXME: should be decoupling
+    power_in.hv ~> _c_in ~> _gnd
+    power_in.hv ~ _ic.VIN
+
+    _c_bst = new Capacitor
+    # FIXME: should be decoupling
+    _ic.BST ~> _c_bst ~> _ic.SW
+
+    inductor = new Inductor
+    _ic.SW ~> inductor ~> power_out.hv
+
+    power_out ~ feedback_div.power
+    feedback_div.output.line ~ _ic.FB
+
+    _c_out = new Capacitor
+    # FIXME: should be decoupling
+    power_out.hv ~> _c_out ~> _gnd
+
+    ## Configuration Topology
+    ### Soft-Start Capacitor
+    _c_ss = new Capacitor
+    _ic.SS ~> _c_ss ~> _gnd
+
+    _r_rt = new Resistor
+    _ic.RT ~> _r_rt ~> _gnd
+
+    ## Parametisation
+    assert v_ref is 784 to 816mV
+
+    _c_bst.capacitance = 100nF +/- 25%  # Fixed from the datasheet
+    _c_bst.package = "C0402"
+
+    ### Frequency selection
+    switching_frequency: frequency = 500kHz
+    assert switching_frequency within 200kHz to 2200kHz
+    assert switching_frequency / 1kHz is 17293 * (_r_rt.resistance / 1kOhm) ** -0.942
+
+    ### Soft-Start
+    soft_start_time: time = 5ms
+    # TODO: this would be better as a `check`
+    # equation provided in the datasheet is all in SI units
+    assert soft_start_time is (v_ref * _c_ss.capacitance) / 5.5uA +/- 1%
+    assert _c_ss.capacitance > 6.8nF  # minimum provided by the datasheet
+
+    ## Checks
+    assert power_in.voltage < 30V
+    assert power_out.voltage within 0.8 to 22V
+
+
+component _TPS62933DRLR:
+    """Texas_Instruments_TPS62933DRLR component"""
+    lcsc_id = "C3200405"
+    manufacturer = "Texas Instruments"
+    mpn = "TPS62933DRLR"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2302220500_Texas-Instruments-TPS62933DRLR_C3200405.pdf"
+    designator_prefix = "U"
+
+    # pins
+    pin 1 ~ signal RT
+    pin 2 ~ signal EN
+    pin 3 ~ signal VIN
+    pin 4 ~ signal GND
+    pin 5 ~ signal FB
+    pin 6 ~ signal SS
+    pin 7 ~ signal BST
+    pin 8 ~ signal SW
+
+
+component _TPS62933ODRLR:
+    """
+    Texas Instruments TPS62933ODRLR buck regulator in the audio-specific
+    variant that will keep the frequency out of audible range
+    """
+    lcsc_id = "C6290372"
+    manufacturer = "Texas Instruments"
+    mpn = "TPS62933ODRLR"
+    datasheet_url = "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2307211801_Texas-Instruments-TPS62933ODRLR_C6290372.pdf"
+    designator_prefix = "U"
+
+    # pins
+    pin 1 ~ signal RT
+    pin 2 ~ signal EN
+    pin 3 ~ signal VIN
+    pin 4 ~ signal GND
+    pin 5 ~ signal FB
+    pin 6 ~ signal SS
+    pin 7 ~ signal BST
+    pin 8 ~ signal SW

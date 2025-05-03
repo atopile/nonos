@@ -29,6 +29,7 @@ module NONOS:
 
     # addressing
     pd_controller.i2c.address = 0x28
+    amplifier.i2c.address = 0x4C
 
     # substitute default pd_controller.usb_connector
     pd_controller.usb_connector.exclude_from_bom = True

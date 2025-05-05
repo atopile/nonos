@@ -17,6 +17,9 @@ builds:
       elec/src/hat_board/capacitive_sensor/microchip_tech_cap11881cptr.py:Microchip_Tech_CAP1188_1_CP_TR
   hat_board:
     entry: elec/src/hat_board/hat_board.py:HatBoard
+  tps62933:
+    entry: /Users/mattwildoer/Projects/nonos/elec/src/tps62933.ato:TPS62933
+
 dependencies:
 - type: registry
   identifier: atopile/rpi-cm5

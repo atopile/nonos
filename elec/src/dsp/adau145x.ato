@@ -161,28 +161,29 @@ module Analog_Devices_ADAU145x_package:
     pin 73 ~ EP
 
 
-    N_AGND = new Net
-    N_AVDD = new Net
-    N_DGND = new Net
-    N_DVDD = new Net
-    N_IOVDD = new Net
-    N_PGND = new Net
-    N_PVDD = new Net
+    # TODO replace with Net if #1226 is merged
+    N_AGND = new Electrical
+    N_AVDD = new Electrical
+    N_DGND = new Electrical
+    N_DVDD = new Electrical
+    N_IOVDD = new Electrical
+    N_PGND = new Electrical
+    N_PVDD = new Electrical
 
     for dup in AGND:
-        dup ~> N_AGND.part_of
+        dup ~> N_AGND
     for dup in AVDD:
-        dup ~> N_AVDD.part_of
+        dup ~> N_AVDD
     for dup in DGND:
-        dup ~> N_DGND.part_of
+        dup ~> N_DGND
     for dup in DVDD:
-        dup ~> N_DVDD.part_of
+        dup ~> N_DVDD
     for dup in IOVDD:
-        dup ~> N_IOVDD.part_of
+        dup ~> N_IOVDD
     for dup in PGND:
-        dup ~> N_PGND.part_of
+        dup ~> N_PGND
     for dup in PVDD:
-        dup ~> N_PVDD.part_of
+        dup ~> N_PVDD
 
 
 
@@ -206,14 +207,14 @@ module Analog_Devices_ADAU145x_model:
     assert power_digital.voltage within 1.2V +/- 5%
     assert power_pll.voltage within 3.3V +/- 10%
 
-    power_io.hv ~ package.N_IOVDD.part_of
-    power_analog.hv ~ package.N_AVDD.part_of
-    power_digital.hv ~ package.N_DVDD.part_of
-    power_pll.hv ~ package.N_PVDD.part_of
+    power_io.hv ~ package.N_IOVDD
+    power_analog.hv ~ package.N_AVDD
+    power_digital.hv ~ package.N_DVDD
+    power_pll.hv ~ package.N_PVDD
 
-    power_analog.lv ~ package.N_AGND.part_of
-    power_digital.lv ~ package.N_DGND.part_of
-    power_pll.lv ~ package.N_PGND.part_of
+    power_analog.lv ~ package.N_AGND
+    power_digital.lv ~ package.N_DGND
+    power_pll.lv ~ package.N_PGND
 
     power_digital.lv ~ power_analog.lv
     power_digital.lv ~ power_pll.lv
@@ -442,5 +443,3 @@ module Analog_Devices_ADAU145x_driver:
         #c -> _BypassCapacitor
         c.package = "C0402"
         c.capacitance = 100nF +/- 10%
-
-

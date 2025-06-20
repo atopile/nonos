@@ -1,0 +1,89 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Analog_Devices_ADAU1452WBCPZ_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C403699", date="2025-06-20T01:15:44.933204+00:00", checksum="14c551525787b9b30d6d066df49f020f8bc97fcc2236d5410240d744fb23791a">
+
+    trait is_atomic_part<manufacturer="Analog Devices", partnumber="ADAU1452WBCPZ", footprint="LFCSP-72_L10.0-W10.0-P0.50-LS10.2-BL-EP5.3.kicad_mod", symbol="ADAU1452WBCPZ.kicad_sym", model="LFCSP-72_L10.0-W10.0-P0.50-LS10.2-BL-EP5.3.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C403699", manufacturer="Analog Devices", partno="ADAU1452WBCPZ">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal AGND ~ pin 6
+    signal AUXADC0 ~ pin 8
+    signal AUXADC1 ~ pin 9
+    signal AUXADC2 ~ pin 10
+    signal AUXADC3 ~ pin 11
+    signal AUXADC4 ~ pin 12
+    signal AUXADC5 ~ pin 13
+    signal AVDD ~ pin 7
+    signal BCLK_IN0 ~ pin 57
+    signal BCLK_IN1 ~ pin 60
+    signal BCLK_IN2 ~ pin 65
+    signal BCLK_IN3 ~ pin 68
+    signal BCLK_OUT0 ~ pin 40
+    signal BCLK_OUT1 ~ pin 43
+    signal BCLK_OUT2 ~ pin 48
+    signal BCLK_OUT3 ~ pin 51
+    signal CLKOUT ~ pin 23
+    signal DGND ~ pin 1
+    DGND ~ pin 17
+    DGND ~ pin 19
+    DGND ~ pin 25
+    DGND ~ pin 36
+    DGND ~ pin 37
+    DGND ~ pin 54
+    DGND ~ pin 55
+    DGND ~ pin 72
+    signal DVDD ~ pin 20
+    DVDD ~ pin 35
+    DVDD ~ pin 53
+    DVDD ~ pin 71
+    signal EP ~ pin 73
+    signal IOVDD ~ pin 2
+    IOVDD ~ pin 18
+    IOVDD ~ pin 38
+    IOVDD ~ pin 56
+    signal LRCLK_IN0_MP10 ~ pin 58
+    signal LRCLK_IN1_MP11 ~ pin 61
+    signal LRCLK_IN2_MP12 ~ pin 66
+    signal LRCLK_IN3_MP13 ~ pin 69
+    signal LRCLK_OUT0_MP4 ~ pin 39
+    signal LRCLK_OUT1_MP5 ~ pin 42
+    signal LRCLK_OUT2_MP8 ~ pin 47
+    signal LRCLK_OUT3_MP9 ~ pin 50
+    signal MISO_SDA ~ pin 30
+    signal MOSI_ADDR1 ~ pin 32
+    signal MOSI_M_MP1 ~ pin 27
+    signal MP6 ~ pin 45
+    signal MP7 ~ pin 46
+    signal PGND ~ pin 14
+    signal PLLFILT ~ pin 16
+    signal PVDD ~ pin 15
+    signal SCLK_SCL ~ pin 31
+    signal SCL_M_SCLK_M_MP2 ~ pin 28
+    signal SDATA_IN0 ~ pin 59
+    signal SDATA_IN1 ~ pin 62
+    signal SDATA_IN2 ~ pin 67
+    signal SDATA_IN3 ~ pin 70
+    signal SDATA_OUT0 ~ pin 41
+    signal SDATA_OUT1 ~ pin 44
+    signal SDATA_OUT2 ~ pin 49
+    signal SDATA_OUT3 ~ pin 52
+    signal SDA_M_MISO_M_MP3 ~ pin 29
+    signal SELFBOOT ~ pin 34
+    signal SPDIFIN ~ pin 4
+    signal SPDIFOUT ~ pin 5
+    signal SS_ADDR0 ~ pin 33
+    signal SS_M_MP0 ~ pin 26
+    signal THD_M ~ pin 63
+    signal THD_P ~ pin 64
+    signal VDRIVE ~ pin 3
+    signal XTALIN_MCLK ~ pin 21
+    signal XTALOUT ~ pin 22
+    signal nRESET ~ pin 24

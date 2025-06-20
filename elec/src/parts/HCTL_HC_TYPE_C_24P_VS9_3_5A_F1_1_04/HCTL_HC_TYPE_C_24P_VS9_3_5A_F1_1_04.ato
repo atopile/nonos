@@ -1,0 +1,44 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C5342428", date="2025-06-20T20:41:02.484991+00:00", checksum="b38090d422ddcd3bcbd3b6bfa6fbd8685c11de9f5040c36cce4b7f4028d2dacb">
+
+    trait is_atomic_part<manufacturer="HCTL", partnumber="HC-TYPE-C-24P-VS9.3-5A-F1.1-04", footprint="USB-C-SMD_HC-TYPE-C-24P-VS9.3-5A-F1.1-04.kicad_mod", symbol="HC-TYPE-C-24P-VS9.3-5A-F1.1-04.kicad_sym">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C5342428", manufacturer="HCTL", partno="HC-TYPE-C-24P-VS9.3-5A-F1.1-04">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal CC1 ~ pin A5
+    signal CC2 ~ pin B5
+    signal DN1 ~ pin A7
+    signal DN2 ~ pin B7
+    signal DP1 ~ pin A6
+    signal DP2 ~ pin B6
+    signal EH ~ pin 28
+    EH ~ pin 27
+    EH ~ pin 26
+    EH ~ pin 25
+    signal GND ~ pin B12
+    GND ~ pin B1
+    GND ~ pin A12
+    GND ~ pin A1
+    signal SBU1 ~ pin A8
+    signal SBU2 ~ pin B8
+    signal SSRXN1 ~ pin B10
+    signal SSRXN2 ~ pin A10
+    signal SSRXP1 ~ pin B11
+    signal SSRXP2 ~ pin A11
+    signal SSTXN1 ~ pin A3
+    signal SSTXN2 ~ pin B3
+    signal SSTXP1 ~ pin A2
+    signal SSTXP2 ~ pin B2
+    signal VBUS ~ pin B9
+    VBUS ~ pin B4
+    VBUS ~ pin A9
+    VBUS ~ pin A4

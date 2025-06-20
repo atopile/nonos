@@ -5,7 +5,7 @@ from "atopile/rpi-cm5/cm5.ato" import CM5
 from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
 
-from "amplifier/Texas_Instruments_TAS5825MRHBR.py" import Texas_Instruments_TAS5825MRHBR
+from "parts/Texas_Instruments_TAS5825MRHBR/Texas_Instruments_TAS5825MRHBR.ato" import Texas_Instruments_TAS5825MRHBR_package
 from "components/hctl_hc_type_c24p_vs935a_f1104.py" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
 from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN

@@ -1,0 +1,64 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+import has_i2c_address
+import has_output_stage
+
+component Texas_Instruments_TAS5825MRHBR:
+    trait is_auto_generated<system="ato_part", source="easyeda:C471049", date="2025-06-20T20:38:46.160931+00:00", checksum="67051e11ae058cc0ca54dd90b668e2a5946bb79d81a9226e8c84e20879ae0d23">
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TAS5825MRHBR", footprint="VQFN-32_L5.0-W5.0-P0.50-TL-EP.kicad_mod", symbol="TAS5825MRHBR.kicad_sym", model="VQFN-32_L5.0-W5.0-H1.0-P0.50.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C471049", manufacturer="Texas Instruments", partno="TAS5825MRHBR">
+    trait has_designator_prefix<prefix="U">
+    trait has_i2c_address<base_address=0x4C, address_bits="1001100">
+    trait has_output_stage<
+        inductor_partno="C167223",
+        bootstrap_capacitance="470nF",
+        output_capacitance="680nF",
+        max_voltage="30V"
+    >
+
+    # pins
+    signal ADR ~ pin 8
+    signal AGND ~ pin 20
+    signal AVDD ~ pin 19
+    signal BST_Aneg ~ pin 29
+    signal BST_Apos ~ pin 1
+    signal BST_Bneg ~ pin 28
+    signal BST_Bpos ~ pin 24
+    signal DGND ~ pin 5
+    signal DVDD ~ pin 6
+    signal EP ~ pin 33
+    signal GPIO0 ~ pin 9
+    signal GPIO1 ~ pin 10
+    signal GPIO2 ~ pin 11
+    signal GVDD ~ pin 18
+    signal LRCLK ~ pin 12
+    signal OUT_Aneg ~ pin 30
+    signal OUT_Apos ~ pin 2
+    signal OUT_Bneg ~ pin 27
+    signal OUT_Bpos ~ pin 23
+    signal PGND ~ pin 25
+    signal PGND ~ pin 26
+    signal PGND ~ pin 31
+    signal PGND ~ pin 32
+    signal PVDD ~ pin 3
+    signal PVDD ~ pin 4
+    signal PVDD ~ pin 21
+    signal PVDD ~ pin 22
+    signal SCL ~ pin 16
+    signal SCLK ~ pin 13
+    signal SDA ~ pin 15
+    signal SDIN ~ pin 14
+    signal VR_DIG ~ pin 7
+    signal nPDN ~ pin 17
+
+    # Documentation
+    trait has_documentation<
+        description="Dual Channel 38Wx1@8Ω VQFN-32(5x5) Audio Amplifiers ROHS",
+        i2c_address_table="ADR PIN Resistance | Address Bits | Address\n0 Ω | 1001100 | 0x4C\n1 kΩ | 1001101 | 0x4D\n4.7 kΩ | 1001110 | 0x4E\n15 kΩ | 1001111 | 0x4F",
+        output_stage="Inductors: C167223 (LCSC)\nBootstrap Caps: 470nF, 30V, 0603\nOutput Caps: 680nF, 30V, 0805",
+        power_requirements="PVDD: 12V @ 1.5A per channel\nDVDD: 3.3V @ 200mA\nAVDD: 3.3V @ 200mA\nGVDD: 3.3V @ 200mA\nVR_DIG: 3.3V @ 10mA",
+        thermal_considerations="Maximum Power Dissipation: 4W\nThermal Resistance: 30°C/W\nRequires heatsink for continuous operation at full power"
+    >

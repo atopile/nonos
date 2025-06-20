@@ -1,0 +1,445 @@
+#pragma experiment("FOR_LOOP")
+#pragma experiment("TRAITS")
+#pragma experiment("MODULE_TEMPLATING")
+#pragma experiment("BRIDGE_CONNECT")
+
+import Capacitor
+import Electrical
+import ElectricLogic
+import ElectricPower
+import ElectricSignal
+import has_single_electric_reference_shared
+import I2C
+import I2S
+import MultiCapacitor
+import Net
+import SPI
+
+module Analog_Devices_ADAU145x_package:
+    """
+    Common base package module for Analog Devices ADAU1450/51/52 series.
+    """
+
+    manufacturer = "Analog Devices"
+    datasheet_url = "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Analog-Devices-ADAU1452WBCPZ_C403699.pdf"
+    designator_prefix = "U"
+
+    # Signals
+    AUXADC0 = new Electrical
+    AUXADC1 = new Electrical
+    AUXADC2 = new Electrical
+    AUXADC3 = new Electrical
+    AUXADC4 = new Electrical
+    AUXADC5 = new Electrical
+    AGND = new Electrical[1]
+    AVDD = new Electrical[1]
+    BCLK_IN0 = new Electrical
+    BCLK_IN1 = new Electrical
+    BCLK_IN2 = new Electrical
+    BCLK_IN3 = new Electrical
+    BCLK_OUT0 = new Electrical
+    BCLK_OUT1 = new Electrical
+    BCLK_OUT2 = new Electrical
+    BCLK_OUT3 = new Electrical
+    CLKOUT = new Electrical
+    DGND = new Electrical[9]
+    DVDD = new Electrical[4]
+    EP = new Electrical
+    IOVDD = new Electrical[4]
+    LRCLK_IN0_MP10 = new Electrical
+    LRCLK_IN1_MP11 = new Electrical
+    LRCLK_IN2_MP12 = new Electrical
+    LRCLK_IN3_MP13 = new Electrical
+    LRCLK_OUT0_MP4 = new Electrical
+    LRCLK_OUT1_MP5 = new Electrical
+    LRCLK_OUT2_MP8 = new Electrical
+    LRCLK_OUT3_MP9 = new Electrical
+    MISO_SDA = new Electrical
+    MOSI_M_MP1 = new Electrical
+    MOSI_ADDR1 = new Electrical
+    MP6 = new Electrical
+    MP7 = new Electrical
+    SPDIFIN = new Electrical
+    SPDIFOUT = new Electrical
+    PGND = new Electrical[1]
+    PLLFILT = new Electrical
+    PVDD = new Electrical[1]
+    nRESET = new Electrical
+    SCL_M_SCLK_M_MP2 = new Electrical
+    SCLK_SCL = new Electrical
+    SDA_M_MISO_M_MP3 = new Electrical
+    SDATA_IN0 = new Electrical
+    SDATA_IN1 = new Electrical
+    SDATA_IN2 = new Electrical
+    SDATA_IN3 = new Electrical
+    SDATA_OUT0 = new Electrical
+    SDATA_OUT1 = new Electrical
+    SDATA_OUT2 = new Electrical
+    SDATA_OUT3 = new Electrical
+    SELFBOOT = new Electrical
+    SS_M_MP0 = new Electrical
+    SS_ADDR0 = new Electrical
+    THD_M = new Electrical
+    THD_P = new Electrical
+    VDRIVE = new Electrical
+    XTALIN_MCLK = new Electrical
+    XTALOUT = new Electrical
+
+    # Pinmap
+    pin 1 ~ DGND[0]
+    pin 2 ~ IOVDD[0]
+    pin 3 ~ VDRIVE
+    pin 4 ~ SPDIFIN
+    pin 5 ~ SPDIFOUT
+    pin 6 ~ AGND[0]
+    pin 7 ~ AVDD[0]
+    pin 8 ~ AUXADC0
+    pin 9 ~ AUXADC1
+    pin 10 ~ AUXADC2
+    pin 11 ~ AUXADC3
+    pin 12 ~ AUXADC4
+    pin 13 ~ AUXADC5
+    pin 14 ~ PGND[0]
+    pin 15 ~ PVDD[0]
+    pin 16 ~ PLLFILT
+    pin 17 ~ DGND[1]
+    pin 18 ~ IOVDD[1]
+    pin 19 ~ DGND[2]
+    pin 20 ~ DVDD[0]
+    pin 21 ~ XTALIN_MCLK
+    pin 22 ~ XTALOUT
+    pin 23 ~ CLKOUT
+    pin 24 ~ nRESET
+    pin 25 ~ DGND[3]
+    pin 26 ~ SS_M_MP0
+    pin 27 ~ MOSI_M_MP1
+    pin 28 ~ SCL_M_SCLK_M_MP2
+    pin 29 ~ SDA_M_MISO_M_MP3
+    pin 30 ~ MISO_SDA
+    pin 31 ~ SCLK_SCL
+    pin 32 ~ MOSI_ADDR1
+    pin 33 ~ SS_ADDR0
+    pin 34 ~ SELFBOOT
+    pin 35 ~ DVDD[1]
+    pin 36 ~ DGND[4]
+    pin 37 ~ DGND[5]
+    pin 38 ~ IOVDD[2]
+    pin 39 ~ LRCLK_OUT0_MP4
+    pin 40 ~ BCLK_OUT0
+    pin 41 ~ SDATA_OUT0
+    pin 42 ~ LRCLK_OUT1_MP5
+    pin 43 ~ BCLK_OUT1
+    pin 44 ~ SDATA_OUT1
+    pin 45 ~ MP6
+    pin 46 ~ MP7
+    pin 47 ~ LRCLK_OUT2_MP8
+    pin 48 ~ BCLK_OUT2
+    pin 49 ~ SDATA_OUT2
+    pin 50 ~ LRCLK_OUT3_MP9
+    pin 51 ~ BCLK_OUT3
+    pin 52 ~ SDATA_OUT3
+    pin 53 ~ DVDD[2]
+    pin 54 ~ DGND[6]
+    pin 55 ~ DGND[7]
+    pin 56 ~ IOVDD[3]
+    pin 57 ~ BCLK_IN0
+    pin 58 ~ LRCLK_IN0_MP10
+    pin 59 ~ SDATA_IN0
+    pin 60 ~ BCLK_IN1
+    pin 61 ~ LRCLK_IN1_MP11
+    pin 62 ~ SDATA_IN1
+    pin 63 ~ THD_M
+    pin 64 ~ THD_P
+    pin 65 ~ BCLK_IN2
+    pin 66 ~ LRCLK_IN2_MP12
+    pin 67 ~ SDATA_IN2
+    pin 68 ~ BCLK_IN3
+    pin 69 ~ LRCLK_IN3_MP13
+    pin 70 ~ SDATA_IN3
+    pin 71 ~ DVDD[3]
+    pin 72 ~ DGND[8]
+    pin 73 ~ EP
+
+
+    # TODO replace with Net if #1226 is merged
+    N_AGND = new Electrical
+    N_AVDD = new Electrical
+    N_DGND = new Electrical
+    N_DVDD = new Electrical
+    N_IOVDD = new Electrical
+    N_PGND = new Electrical
+    N_PVDD = new Electrical
+
+    for dup in AGND:
+        dup ~> N_AGND
+    for dup in AVDD:
+        dup ~> N_AVDD
+    for dup in DGND:
+        dup ~> N_DGND
+    for dup in DVDD:
+        dup ~> N_DVDD
+    for dup in IOVDD:
+        dup ~> N_IOVDD
+    for dup in PGND:
+        dup ~> N_PGND
+    for dup in PVDD:
+        dup ~> N_PVDD
+
+
+
+    
+    
+
+module Analog_Devices_ADAU145x_model:
+    package = new Analog_Devices_ADAU145x_package
+    
+    # power
+    power_io = new ElectricPower
+    power_analog = new ElectricPower
+    power_digital = new ElectricPower
+    power_pll = new ElectricPower
+
+    regulator_vdrive = new Electrical
+
+    assert power_io.voltage >= 1.8V * 0.95
+    assert power_io.voltage <= 3.3V * 1.10
+    assert power_analog.voltage within 3.3V +/- 10%
+    assert power_digital.voltage within 1.2V +/- 5%
+    assert power_pll.voltage within 3.3V +/- 10%
+
+    power_io.hv ~ package.N_IOVDD
+    power_analog.hv ~ package.N_AVDD
+    power_digital.hv ~ package.N_DVDD
+    power_pll.hv ~ package.N_PVDD
+
+    power_analog.lv ~ package.N_AGND
+    power_digital.lv ~ package.N_DGND
+    power_pll.lv ~ package.N_PGND
+
+    power_digital.lv ~ power_analog.lv
+    power_digital.lv ~ power_pll.lv
+
+    # not 100% sure
+    power_io.lv ~ power_digital.lv
+
+    regulator_vdrive ~ package.VDRIVE
+
+
+    # peripherals
+    spi = new SPI
+    spi_cs = new ElectricLogic
+
+    spi.sclk.line ~ package.SCLK_SCL
+    spi.miso.line ~ package.MISO_SDA
+    spi.mosi.line ~ package.MOSI_ADDR1
+    spi_cs.line ~ package.SS_ADDR0
+
+
+    spi_master = new SPI
+    spi_master_cs = new ElectricLogic
+
+    spi_master.sclk.line ~ package.SCL_M_SCLK_M_MP2
+    spi_master.miso.line ~ package.SDA_M_MISO_M_MP3
+    spi_master.mosi.line ~ package.MOSI_M_MP1
+    spi_master_cs.line ~ package.SS_M_MP0
+
+
+    i2c = new I2C
+    i2c_address_bits = new ElectricLogic[2]
+
+    i2c.scl.line ~ package.SCLK_SCL
+    i2c.sda.line ~ package.MISO_SDA
+
+    i2c_address_bits[0].line ~ package.SS_ADDR0
+    i2c_address_bits[1].line ~ package.MOSI_ADDR1
+
+    i2c_master = new I2C
+
+    i2c.scl.line ~ package.SCL_M_SCLK_M_MP2
+    i2c.sda.line ~ package.SDA_M_MISO_M_MP3
+
+    i2s_ins = new I2S[4]
+    i2s_outs = new I2S[4]
+
+    i2s_ins[0].ws.line ~ package.LRCLK_IN0_MP10
+    i2s_ins[1].ws.line ~ package.LRCLK_IN1_MP11
+    i2s_ins[2].ws.line ~ package.LRCLK_IN2_MP12
+    i2s_ins[3].ws.line ~ package.LRCLK_IN3_MP13
+    i2s_outs[0].ws.line ~ package.LRCLK_OUT0_MP4
+    i2s_outs[1].ws.line ~ package.LRCLK_OUT1_MP5
+    i2s_outs[2].ws.line ~ package.LRCLK_OUT2_MP8
+    i2s_outs[3].ws.line ~ package.LRCLK_OUT3_MP9
+
+    i2s_ins[0].sck.line ~ package.BCLK_IN0
+    i2s_ins[1].sck.line ~ package.BCLK_IN1
+    i2s_ins[2].sck.line ~ package.BCLK_IN2
+    i2s_ins[3].sck.line ~ package.BCLK_IN3
+    i2s_outs[0].sck.line ~ package.BCLK_OUT0
+    i2s_outs[1].sck.line ~ package.BCLK_OUT1
+    i2s_outs[2].sck.line ~ package.BCLK_OUT2
+    i2s_outs[3].sck.line ~ package.BCLK_OUT3
+
+    i2s_ins[0].sd.line ~ package.SDATA_IN0
+    i2s_ins[1].sd.line ~ package.SDATA_IN1
+    i2s_ins[2].sd.line ~ package.SDATA_IN2
+    i2s_ins[3].sd.line ~ package.SDATA_IN3
+    i2s_outs[0].sd.line ~ package.SDATA_OUT0
+    i2s_outs[1].sd.line ~ package.SDATA_OUT1
+    i2s_outs[2].sd.line ~ package.SDATA_OUT2
+    i2s_outs[3].sd.line ~ package.SDATA_OUT3
+
+    gpios = new ElectricLogic[14]
+
+    gpios[0].line ~ package.SS_M_MP0
+    gpios[1].line ~ package.MOSI_M_MP1
+    gpios[2].line ~ package.SCL_M_SCLK_M_MP2
+    gpios[3].line ~ package.SDA_M_MISO_M_MP3
+    gpios[4].line ~ package.LRCLK_OUT0_MP4
+    gpios[5].line ~ package.LRCLK_OUT1_MP5
+    gpios[6].line ~ package.MP6
+    gpios[7].line ~ package.MP7
+    gpios[8].line ~ package.LRCLK_OUT2_MP8
+    gpios[9].line ~ package.LRCLK_OUT3_MP9
+    gpios[10].line ~ package.LRCLK_IN0_MP10
+    gpios[11].line ~ package.LRCLK_IN1_MP11
+    gpios[12].line ~ package.LRCLK_IN2_MP12
+    gpios[13].line ~ package.LRCLK_IN3_MP13
+
+    aux_adc_inputs = new ElectricSignal[6]
+
+    aux_adc_inputs[0].line ~ package.AUXADC0
+    aux_adc_inputs[1].line ~ package.AUXADC1
+    aux_adc_inputs[2].line ~ package.AUXADC2
+    aux_adc_inputs[3].line ~ package.AUXADC3
+    aux_adc_inputs[4].line ~ package.AUXADC4
+    aux_adc_inputs[5].line ~ package.AUXADC5
+
+
+    spdif_in = new ElectricSignal
+    spdif_out = new ElectricSignal
+
+    spdif_in.line ~ package.SPDIFIN
+    spdif_out.line ~ package.SPDIFOUT
+
+    temperature_sensor_in_p = new Electrical
+    temperature_sensor_in_n = new Electrical
+
+    temperature_sensor_in_p ~ package.THD_P
+    temperature_sensor_in_n ~ package.THD_M
+
+    xtal_in = new Electrical
+    xtal_out = new Electrical
+
+    xtal_in ~ package.XTALIN_MCLK
+    xtal_out ~ package.XTALOUT
+
+    # TODO PLL
+    pll_mclk = new Electrical
+    pll_filter = new Electrical
+    pll_clock_out = new Electrical
+
+    pll_mclk ~ package.XTALIN_MCLK
+    pll_filter ~ package.PLLFILT
+    pll_clock_out ~ package.CLKOUT
+
+    # configure
+    reset_disable = new ElectricLogic
+    selfboot_enable = new ElectricLogic
+
+    reset_disable.line ~ package.nRESET
+    selfboot_enable.line ~ package.SELFBOOT
+    
+    # logic references
+    trait has_single_electric_reference_shared<gnd_only=True>
+
+    for logic in [
+        spi,
+        spi_cs,
+        spi_master_cs,
+        i2c,
+        i2c_master,
+        spdif_in,
+        spdif_out,
+        reset_disable,
+        selfboot_enable,
+    ]:
+        logic.reference_shim ~ power_io
+
+    for logic in i2c_address_bits:
+        logic.reference_shim ~ power_io
+    for logic in i2s_ins:
+        logic.reference_shim ~ power_io
+    for logic in i2s_outs:
+        logic.reference_shim ~ power_io
+    for logic in gpios:
+        logic.reference_shim ~ power_io
+    for logic in aux_adc_inputs:
+        logic.reference_shim ~ power_io
+
+module _BypassCapacitor from Capacitor:
+    big_cap = new Capacitor
+    small_cap = new Capacitor
+
+    for c in [big_cap, small_cap]:
+        unnamed[0] ~> c ~> unnamed[1]
+
+    big_cap.capacitance = 100nF +/- 10%
+    small_cap.capacitance = 10nF +/- 10%
+
+    big_cap.package = "C0402"
+    small_cap.package = "C0402"
+
+module Analog_Devices_ADAU145x_driver:
+    model = new Analog_Devices_ADAU145x_model
+
+    power = new ElectricPower
+
+    # connect thermal pad
+    model.package.EP ~ power.lv
+    for rail in [
+        model.power_io,
+        model.power_analog,
+        model.power_pll,
+    ]:
+        power ~ rail
+
+    # Decoupling caps
+    # TODO verify pin neighbours with chip
+    decoupling_power_io = new MultiCapacitor<count=4>
+    model.power_io.hv ~> decoupling_power_io ~> model.power_io.lv
+    model.package.IOVDD[0] ~> decoupling_power_io.capacitors[0] ~> model.package.DGND[0]
+    model.package.IOVDD[1] ~> decoupling_power_io.capacitors[1] ~> model.package.DGND[1]
+    model.package.IOVDD[2] ~> decoupling_power_io.capacitors[2] ~> model.package.DGND[5]
+    model.package.IOVDD[3] ~> decoupling_power_io.capacitors[3] ~> model.package.DGND[7]
+
+    decoupling_power_analog = new MultiCapacitor<count=1>
+    model.power_analog.hv ~> decoupling_power_analog ~> model.power_analog.lv
+    model.package.AVDD[0] ~> decoupling_power_analog.capacitors[0] ~> model.package.AGND[0]
+
+    decoupling_power_digital = new MultiCapacitor<count=4>
+    model.power_digital.hv ~> decoupling_power_digital ~> model.power_digital.lv
+    model.package.DVDD[0] ~> decoupling_power_digital.capacitors[0] ~> model.package.DGND[2]
+    model.package.DVDD[1] ~> decoupling_power_digital.capacitors[1] ~> model.package.DGND[4]
+    model.package.DVDD[2] ~> decoupling_power_digital.capacitors[2] ~> model.package.DGND[6]
+    model.package.DVDD[3] ~> decoupling_power_digital.capacitors[3] ~> model.package.DGND[8]
+
+    decoupling_power_pll = new MultiCapacitor<count=1>
+    model.power_pll.hv ~> decoupling_power_pll ~> model.power_pll.lv
+    model.package.PVDD[0] ~> decoupling_power_pll.capacitors[0] ~> model.package.PGND[0]
+
+    for c in decoupling_power_io.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_analog.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_digital.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%
+    for c in decoupling_power_pll.capacitors:
+        #c -> _BypassCapacitor
+        c.package = "C0402"
+        c.capacitance = 100nF +/- 10%

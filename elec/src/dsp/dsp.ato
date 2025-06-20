@@ -1,0 +1,6 @@
+from "adau145x.ato" import Analog_Devices_ADAU145x_driver
+from "adau1452.ato" import Analog_Devices_ADAU1452WBCPZ
+
+module DSP:
+    dsp = new Analog_Devices_ADAU145x_driver
+    dsp.model.package -> Analog_Devices_ADAU1452WBCPZ

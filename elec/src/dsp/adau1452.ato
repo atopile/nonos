@@ -1,0 +1,7 @@
+from "adau145x.ato" import Analog_Devices_ADAU145x_package
+
+component Analog_Devices_ADAU1452WBCPZ from Analog_Devices_ADAU145x_package:
+    """Analog_Devices_ADAU1452WBCPZ component"""
+    lcsc_id = "C403699"
+    mpn = "ADAU1452WBCPZ"
+

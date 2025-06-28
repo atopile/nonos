@@ -11,7 +11,7 @@ from "atopile/microchip-cap1188/microchip_cap1188.ato" import Microchip_Tech_CAP
 
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
 from "parts/hat-button-antenna/button-antenna.ato" import ButtonAntenna
-from "parts/Diodes_Incorporated_74LVC1T45DW_7/Diodes_Incorporated_74LVC1T45DW_7.ato" import Diodes_Incorporated_74LVC1T45DW_7_driver
+from "parts/Diodes_Incorporated_74LVC1T45DW_7/Diodes_Incorporated_74LVC1T45DW_7_driver.ato" import Diodes_Incorporated_74LVC1T45DW_7_driver
 
 module Hat:
     power_3v3 = new ElectricPower

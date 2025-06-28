@@ -1,6 +1,8 @@
 import ElectricPower
 import ElectricLogic
 import I2S
+import UART
+import I2C
 import USB2_0
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
@@ -115,8 +117,22 @@ module NONOS:
     # cm5.cm5.gpio[6] ~ board_to_board_connector.hat_touch_irq
     # cm5.cm5.gpio[7] ~ board_to_board_connector.hat_led_data
 
-    # # debug headers
-    # [cm5.uart_tx, cm5.uart_rx] ~ debug_headers[0].pins[0, 1]
-    # [cm5.i2c.scl, cm5.i2c.sda] ~ debug_headers[0].pins[2, 3]
-    # [cm5.i2s.sck, cm5.i2s.ws, cm5.i2s.sd] ~ debug_headers[1].pins[0, 1, 2]
-    # power_5v.hv ~ debug_headers[1].pins[3].signal
+    # debug headers
+    debug_uart = new UART
+    cm5.uart0 ~ debug_uart
+    debug_uart.base_uart.tx ~ debug_headers[0].ch0
+    debug_uart.base_uart.rx ~ debug_headers[0].ch1
+    power_3v3.lv ~ debug_headers[0].gnd
+
+    debug_i2c = new I2C
+    cm5.i2cs[0] ~ debug_i2c
+    debug_i2c.scl ~ debug_headers[1].ch0
+    debug_i2c.sda ~ debug_headers[1].ch1
+    power_3v3.lv ~ debug_headers[1].gnd
+
+    debug_i2s = new I2S
+    cm5_i2s ~ debug_i2s
+    debug_i2s.sck ~ debug_headers[2].ch0
+    debug_i2s.ws ~ debug_headers[2].ch1
+    power_5v.hv ~ debug_headers[2].ch3.line
+    power_3v3.lv ~ debug_headers[2].gnd

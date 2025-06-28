@@ -1,32 +1,32 @@
 requires-atopile: ^0.10.3
 builds:
-  default:
-    entry: elec/src/nonos.ato:NONOS
+  # default:
+  #   entry: elec/src/nonos.ato:NONOS
   hat:
     entry: elec/src/hat.ato:Hat
 
 dependencies:
-- type: registry
-  identifier: atopile/nxp-pn5321
-  release: 0.1.0
-- type: registry
-  identifier: atopile/ti-tas5825mrhbr
-  release: 0.1.3
-- type: registry
-  identifier: atopile/addressable-leds
-  release: 0.2.3
-- type: registry
-  identifier: atopile/st-stusb4500
-  release: 0.1.3
-- type: registry
-  identifier: atopile/saleae-header
-  release: 0.1.2
-- type: registry
-  identifier: atopile/ti-tps54560x
-  release: 0.1.3
-- type: registry
-  identifier: atopile/rpi-cm5
-  release: 0.1.3
-- type: registry
-  identifier: atopile/microchip-cap1188
-  release: 0.1.0
+  - type: registry
+    identifier: atopile/nxp-pn5321
+    release: 0.1.0
+  - type: registry
+    identifier: atopile/ti-tas5825mrhbr
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/addressable-leds
+    release: 0.2.3
+  - type: registry
+    identifier: atopile/st-stusb4500
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/saleae-header
+    release: 0.1.2
+  - type: registry
+    identifier: atopile/ti-tps54560x
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/rpi-cm5
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/microchip-cap1188
+    release: 0.1.0

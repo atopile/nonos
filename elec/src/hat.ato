@@ -32,6 +32,7 @@ module Hat:
     power_3v3 ~ nfc.power_3v3
     power_5v ~ level_shifter.power_b
     power_3v3 ~ level_shifter.power_a
+    power_3v3 ~ touch.power
 
     # I2C
     i2c ~ nfc.i2c

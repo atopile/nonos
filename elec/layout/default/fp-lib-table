@@ -21,4 +21,18 @@
         (options "")
         (descr "atopile: part lib: TE_Connectivity_1_2328702_0")
     )
+    (lib
+        (name "JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (options "")
+        (descr "atopile: part lib: JST_Sales_America_B02B_XASK_1_A_LF__SN")
+    )
+    (lib
+        (name "HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
+        (options "")
+        (descr "atopile: part lib: HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
+    )
 )

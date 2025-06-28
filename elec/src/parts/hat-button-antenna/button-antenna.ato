@@ -1,0 +1,29 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import is_atomic_part
+import Electrical
+import DifferentialPair
+
+component ButtonAntenna:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_atomic_part<manufacturer="", partnumber="", symbol="", footprint="hat-button-antenna.kicad_mod">
+    trait has_designator_prefix<prefix="ANT">
+
+    # pins
+    play_button = new Electrical
+    next_button = new Electrical
+    prev_button = new Electrical
+    slider = new Electrical[5]
+    antenna = new DifferentialPair
+
+    play_button ~ pin 2
+    next_button ~ pin 3
+    prev_button ~ pin 1
+    slider[0] ~ pin 4
+    slider[1] ~ pin 5
+    slider[2] ~ pin 6
+    slider[3] ~ pin 7
+    slider[4] ~ pin 8
+    antenna.p.line ~ pin 10
+    antenna.n.line ~ pin 9

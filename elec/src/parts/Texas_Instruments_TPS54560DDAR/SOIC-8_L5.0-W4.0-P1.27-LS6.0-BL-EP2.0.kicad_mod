@@ -1,0 +1,247 @@
+(footprint "Texas_Instruments_TPS54560DDAR:SOIC-8_L5.0-W4.0-P1.27-LS6.0-BL-EP2.0"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -6.77 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "a8ac9239-47a1-4bda-bf3d-e38ea02ff30a")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "SOIC-8_L5.0-W4.0-P1.27-LS6.0-BL-EP2.0"
+        (at 0 6.77 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "5c1dbe6f-fdde-44f1-93fa-2ea0bb252182")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "5095d8b58084a6ade05f59b4f30aefb611fdaf3126addc0927113420396497ff"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "a05af46c-59cb-49bb-b640-4e5db759460c")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start -2.53 1.52)
+        (end -2.53 -1.52)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "c707e279-9a78-4985-8e21-6d1475c52f9f")
+    )
+    (fp_line
+        (start -2.53 -1.52)
+        (end 2.53 -1.52)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "8d7b9a5f-99af-4d04-a250-27d6229ba614")
+    )
+    (fp_line
+        (start 2.53 -1.52)
+        (end 2.53 1.52)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "20ca9015-fc52-4fa8-8f76-31362edc8880")
+    )
+    (fp_line
+        (start 2.53 1.52)
+        (end -2.53 1.52)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "cecdb5c8-2b23-49f7-b8a6-e2bb21a87908")
+    )
+    (fp_circle
+        (center -1.91 0.77)
+        (end -1.76 0.77)
+        (stroke
+            (width 0.3)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.SilkS")
+        (uuid "1c4e4ac7-f3d5-4af9-ac77-53e7c9f80d3a")
+    )
+    (fp_circle
+        (center -2.64 2.77)
+        (end -2.49 2.77)
+        (stroke
+            (width 0.3)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.SilkS")
+        (uuid "10421dcd-999e-43f2-9133-c3a115d15805")
+    )
+    (fp_circle
+        (center -1.91 3.4)
+        (end -1.76 3.4)
+        (stroke
+            (width 0.3)
+            (type solid)
+        )
+        (fill no)
+        (layer "Cmts.User")
+        (uuid "32d3eda8-1437-4ab8-8f62-e8661f6e8514")
+    )
+    (fp_circle
+        (center -2.45 3)
+        (end -2.42 3)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "965114ae-26ca-416f-a1d4-92a5a1c7d614")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "ba331a2f-ed64-4c9a-8163-556cfca4dc22")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -6.77 0)
+        (layer "F.SilkS")
+        (uuid "a8ac9239-47a1-4bda-bf3d-e38ea02ff30a")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "1" smd oval
+        (at -1.91 2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "c1cb5bfa-a439-4765-892b-87d40b708a57")
+    )
+    (pad "2" smd oval
+        (at -0.63 2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "8ec0063c-1387-4b7e-a084-3e750fc8d0ef")
+    )
+    (pad "3" smd oval
+        (at 0.63 2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "6e5c5f41-720a-4784-a58f-98b7296bb434")
+    )
+    (pad "4" smd oval
+        (at 1.9 2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "87d48a87-84cf-48cf-8b6f-bb9bdc9ae894")
+    )
+    (pad "8" smd oval
+        (at -1.91 -2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "5e2819bd-4d53-4d76-9241-784c08ba6a06")
+    )
+    (pad "7" smd oval
+        (at -0.63 -2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "1edb3812-d2b0-44c4-88ed-2967a8654d8b")
+    )
+    (pad "6" smd oval
+        (at 0.63 -2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "00a79240-e1c2-4258-b47f-a18fe788d689")
+    )
+    (pad "5" smd oval
+        (at 1.9 -2.77 0)
+        (size 0.57 2.04)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "7900ecaf-2de2-4a1f-b400-050d748b111c")
+    )
+    (pad "9" smd rect
+        (at 0 0 0)
+        (size 2 2)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "ce6563db-8dbc-4bc5-a3e7-99dc7c3ea4a7")
+    )
+    (pad "" thru_hole circle
+        (at 0.5 -0.5 0)
+        (size 0.61 0.61)
+        (drill 0.3)
+        (layers "*.Cu" "*.Paste" "*.Mask")
+        (uuid "e78d5cb5-6fe6-44c4-8922-6e28319703ac")
+    )
+    (pad "" thru_hole circle
+        (at -0.5 -0.5 0)
+        (size 0.61 0.61)
+        (drill 0.3)
+        (layers "*.Cu" "*.Paste" "*.Mask")
+        (uuid "a3a23974-44a8-4dd3-9c88-3c938ab460c9")
+    )
+    (pad "" thru_hole circle
+        (at -0.5 0.5 0)
+        (size 0.61 0.61)
+        (drill 0.3)
+        (layers "*.Cu" "*.Paste" "*.Mask")
+        (uuid "383e4d41-bb2f-405c-8e94-db1efe8b14d9")
+    )
+    (pad "" thru_hole circle
+        (at 0.5 0.5 0)
+        (size 0.61 0.61)
+        (drill 0.3)
+        (layers "*.Cu" "*.Paste" "*.Mask")
+        (uuid "d60a95b2-7e6f-4131-be57-8c5f230596fe")
+    )
+    (model "${KIPRJMOD}/../../src/parts/Texas_Instruments_TPS54560DDAR/SOIC-8_L4.9-W3.9-H1.7-LS6.0-P1.27.step"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

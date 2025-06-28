@@ -7,7 +7,7 @@ import is_auto_generated
 component cjiang_FXL0630_100_M_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C167223", date="2025-06-28T03:04:12.920516+00:00", checksum="c7ef57742e9f25a380bdc11df2fdf5fa5d496abe771db4b5f68fa9b1dfda7a10">
+    trait is_auto_generated<system="ato_part", source="easyeda:C167223", date="2025-06-28T03:33:37.004269+00:00", checksum="f4d76c3a0ef543ee83851dbc53f369191abcf979621edb9bb85f8124d156bbfb">
 
     trait is_atomic_part<manufacturer="cjiang", partnumber="FXL0630-100-M", footprint="IND-SMD_L7.3-W6.8.kicad_mod", symbol="FXL0630-100-M.kicad_sym", model="IND-SMD_L7.3-W6.8-H3.0.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C167223", manufacturer="cjiang", partno="FXL0630-100-M">

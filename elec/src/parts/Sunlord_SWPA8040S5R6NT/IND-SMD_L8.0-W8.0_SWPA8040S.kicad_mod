@@ -1,0 +1,164 @@
+(footprint "Sunlord_SWPA8040S5R6NT:IND-SMD_L8.0-W8.0_SWPA8040S"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "4b6711b4-c834-405a-9121-9d49e6e13fcb")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "IND-SMD_L8.0-W8.0_SWPA8040S"
+        (at 0 4 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "ff4e4579-6aeb-450c-ab28-ccd1a21a937c")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "3f173e35f5767fb78148e4794a6512176180d006c02c2e91fb8145c81b2d7b32"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "f1ddfdf1-c36e-41bb-973c-7126b2472181")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start -4.08 -3.36)
+        (end -4.08 -4.08)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "193c9e74-6ac9-4ef3-a46f-fc7b848203a5")
+    )
+    (fp_line
+        (start -4.08 -4.08)
+        (end 4.08 -4.08)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "0c057cde-fff4-4db8-94fe-3291638d4a42")
+    )
+    (fp_line
+        (start 4.08 -4.08)
+        (end 4.08 -3.36)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "e5b0e29f-7117-431e-8581-74ef8407e937")
+    )
+    (fp_line
+        (start -4.08 3.36)
+        (end -4.08 4.08)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "ac3a5f57-1e70-4084-b270-3c9a93d21e9c")
+    )
+    (fp_line
+        (start -4.08 4.08)
+        (end 4.08 4.08)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "e81fc0d6-6ad6-4e5a-b514-373d0ab678a8")
+    )
+    (fp_line
+        (start 4.08 4.08)
+        (end 4.08 3.36)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "ef5c809a-3e7e-45e7-8e00-f3070b2368b7")
+    )
+    (fp_circle
+        (center 4 3.97)
+        (end 4.03 3.97)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "904ed00d-0f62-44df-be09-90141fb8b054")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "69a2b9f2-97ba-4989-8bc4-e6222446a2d2")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (uuid "4b6711b4-c834-405a-9121-9d49e6e13fcb")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "1" smd rect
+        (at 3.38 0 0)
+        (size 2.92 6.42)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "6de954f6-b90c-4b3d-aaf5-703cad3698cd")
+    )
+    (pad "2" smd rect
+        (at -3.38 0 0)
+        (size 2.92 6.42)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "4a0b9e0f-8705-41a6-80be-31b24cacb44d")
+    )
+    (model "${KIPRJMOD}/../../src/parts/Sunlord_SWPA8040S5R6NT/IND-SMD_L8.0-W8.0-H4.2.STEP"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

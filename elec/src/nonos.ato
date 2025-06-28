@@ -3,7 +3,7 @@ import I2S
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
-# from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
+from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
 from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
 
@@ -13,9 +13,9 @@ from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5
 
 module NONOS:
     cm5 = new CM5
-    # regulator_5v = new TPS54560x
+    regulator_5v = new TPS54560x
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
-    pd_controller = new STUSB4500
+    # pd_controller_top = new STUSB4500
     # usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # board_to_board_connector = new BoardToBoardConnectorInverted
@@ -29,25 +29,25 @@ module NONOS:
     debug_headers = new SaleaeHeader[3]
 
     # addressing
-    pd_controller.i2c.address = 0x28
+    # pd_controller_top.i2c.address = 0x28
 
     # substitute default pd_controller.usb_connector
-    pd_controller.usb_connector.exclude_from_bom = True
+    # pd_controller_top.usb_connector.exclude_from_bom = True
     # usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
     # usb_connector.cc[0] ~ pd_controller.pd_controller.cc1.line
     # usb_connector.cc[1] ~ pd_controller.pd_controller.cc2.line
     # usb_connector.usb2 ~ pd_controller.usb2
-    pd_controller.i2c ~ cm5.i2cs[0]
+    # pd_controller_top.i2c ~ cm5.i2cs[0]
 
     # TOOD: make this work instead
     # pd_controller.usb_connector -> HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # power
-    pd_controller.power_out ~ power_20v
-    # regulator_5v.power_in ~ power_20v
-    # regulator_5v.power_out ~ power_5v
+    # pd_controller_top.power_out ~ power_20v
+    regulator_5v.power_in ~ power_20v
+    regulator_5v.power_out ~ power_5v
     power_5v ~ cm5.power_5v
-    power_3v3 ~ pd_controller.power_mcu
+    # power_3v3 ~ pd_controller_top.power_mcu
     cm5.power_3v3 ~ power_3v3  # onboard regulator can provide 3v3
 
     # amplifier

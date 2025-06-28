@@ -7,7 +7,7 @@ import is_auto_generated
 component HRS_DF40C_100DS_0_4V_51_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C597931", date="2025-06-28T03:04:14.246794+00:00", checksum="c142d1e050ef40923329c8d00328e57f7e732bf815f40aba422c0163102f68c2">
+    trait is_auto_generated<system="ato_part", source="easyeda:C597931", date="2025-06-28T03:33:37.315818+00:00", checksum="5749978fbfbe0e1583656d506679748d9d61df55ecdfb64445334a399b2f9295">
 
     trait is_atomic_part<manufacturer="HRS", partnumber="DF40C-100DS-0.4V(51)", footprint="CONN-SMD_DF40C-100DS-0.4V-51.kicad_mod", symbol="DF40C-100DS-0.4V(51).kicad_sym", model="DF40C-100DS.STEP">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C597931", manufacturer="HRS", partno="DF40C-100DS-0.4V(51)">

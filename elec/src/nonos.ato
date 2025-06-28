@@ -1,3 +1,5 @@
+#pragma experiment("BRIDGE_CONNECT")
+
 import ElectricPower
 import ElectricLogic
 import I2S
@@ -10,6 +12,8 @@ from "atopile/rpi-cm5/cm5.ato" import CM5
 from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
 from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
+from "atopile/adi-adau145x/adau145x.ato" import Analog_Devices_ADAU145x_driver
+from "atopile/ti-tlv75901/ti-tlv75901.ato" import TLV75901_driver
 
 from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
 from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
@@ -48,9 +52,11 @@ module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04:
 module NONOS:
     cm5 = new CM5
     regulator_5v = new TPS54560x
+    regulator_3v3 = new TLV75901_driver
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
     pd_controller = new STUSB4500
     usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+    dsp = new Analog_Devices_ADAU145x_driver
 
     # board_to_board_connector = new BoardToBoardConnectorInverted
     full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
@@ -59,6 +65,7 @@ module NONOS:
     power_20v = new ElectricPower
     power_5v = new ElectricPower
     power_3v3 = new ElectricPower
+    power_3v3_dsp = new ElectricPower
 
     debug_headers = new SaleaeHeader[3]
 
@@ -78,11 +85,13 @@ module NONOS:
 
     # power
     pd_controller.power_out ~ power_20v
-    regulator_5v.power_in ~ power_20v
-    regulator_5v.power_out ~ power_5v
+    power_20v ~> regulator_5v ~> power_5v
     power_5v ~ cm5.power_5v
     power_3v3 ~ pd_controller.power_mcu
     cm5.power_3v3 ~ power_3v3  # onboard regulator can provide 3v3
+
+    power_5v ~> regulator_3v3 ~> power_3v3_dsp
+    power_3v3_dsp ~ dsp.power
 
     # amplifier
     amplifier.power_pvdd ~ power_20v
@@ -92,14 +101,6 @@ module NONOS:
     cm5.cm5.gpio[4] ~ amplifier.warn
     cm5.cm5.gpio[5] ~ amplifier.fault
     cm5.cm5.gpio[6] ~ amplifier.pdn
-
-    # TODO: review
-    # TODO: cm5 I2S interface
-    cm5_i2s = new I2S
-    cm5_i2s.sck ~ cm5.cm5.gpio[18]
-    cm5_i2s.ws ~ cm5.cm5.gpio[19]
-    cm5_i2s.sd ~ cm5.cm5.gpio[21]
-    cm5_i2s ~ amplifier.i2s
 
     # speaker outputs
     amplifier.output_a.p.line ~ full_range_speaker_connector.1
@@ -116,6 +117,23 @@ module NONOS:
     # cm5.cm5.gpio[5] ~ board_to_board_connector.hat_nfc_irq
     # cm5.cm5.gpio[6] ~ board_to_board_connector.hat_touch_irq
     # cm5.cm5.gpio[7] ~ board_to_board_connector.hat_led_data
+
+    # dsp
+    dsp.reset_disable ~ cm5.cm5.gpio[17]  # TODO: which pin?
+    dsp.model.i2c ~ cm5.i2cs[0]
+
+    # workaround for incorrect .required in dsp package
+    _pll_mclk = new ElectricLogic
+    dsp.pll_mclk ~ _pll_mclk
+
+    # TODO: review
+    # TODO: cm5 I2S interface
+    cm5_i2s = new I2S
+    cm5_i2s.sck ~ cm5.cm5.gpio[18]
+    cm5_i2s.ws ~ cm5.cm5.gpio[19]
+    cm5_i2s.sd ~ cm5.cm5.gpio[21]
+    cm5_i2s ~ dsp.model.i2s_ins[0]
+    dsp.model.i2s_outs[0] ~ amplifier.i2s
 
     # debug headers
     debug_uart = new UART

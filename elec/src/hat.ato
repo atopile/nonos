@@ -1,0 +1,7 @@
+
+
+module HatBoard:
+    power_3v3 = new ElectricPower
+    power_5v = new ElectricPower
+    
+    nfc

@@ -1,4 +1,4 @@
-requires-atopile: ^0.6.0
+requires-atopile: ^0.10.3
 builds:
   default:
     entry: elec/src/nonos.ato:NONOS
@@ -7,14 +7,23 @@ builds:
 
 dependencies:
   - type: registry
-    identifier: atopile/rpi-cm5
+    identifier: atopile/nxp-pn5321
     release: 0.1.0
   - type: registry
-    identifier: atopile/ti-tps54560x
-    release: 0.1.1
+    identifier: atopile/ti-tas5825mrhbr
+    release: 0.1.3
   - type: registry
-    identifier: atopile/saleae-header
-    release: 0.1.0
+    identifier: atopile/addressable-leds
+    release: 0.2.3
   - type: registry
     identifier: atopile/st-stusb4500
-    release: 0.1.0
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/saleae-header
+    release: 0.1.2
+  - type: registry
+    identifier: atopile/ti-tps54560x
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/rpi-cm5
+    release: 0.1.3

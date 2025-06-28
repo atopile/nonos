@@ -4,9 +4,6 @@ builds:
     entry: elec/src/nonos.ato:NONOS
   #pd_controller:
   #  entry: elec/src/pd_controller/pd_controller.py:PDController
-  amplifier:
-    entry:
-      elec/src/amplifier/Texas_Instruments_TAS5825MRHBR.py:Texas_Instruments_TAS5825MRHBR
   #regulator:
   #  entry: elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
   nfc:
@@ -29,4 +26,7 @@ dependencies:
   release: 0.1.2
 - type: registry
   identifier: atopile/st-stusb4500
+  release: 0.1.3
+- type: registry
+  identifier: atopile/ti-tas5825mrhbr
   release: 0.1.3

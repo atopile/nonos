@@ -1,5 +1,7 @@
 import ElectricPower
+import ElectricLogic
 import I2S
+import USB2_0
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
@@ -7,16 +9,47 @@ from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
 from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
 
-# from "components/hctl_hc_type_c24p_vs935a_f1104.py" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
+
 # from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
 # from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN
+
+
+module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04:
+    """
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
+
+    Datasheet: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2301120930_HCTL-HC-TYPE-C-24P-VS9-3-5A-F1-1-04_C5342428.pdf
+
+    """
+
+    power_vbus = new ElectricPower
+    usb2 = new USB2_0
+    sbu = new ElectricLogic[2]
+    cc = new ElectricLogic[2]
+
+    connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
+
+    power_vbus.hv ~ connector.VBUS
+    power_vbus.lv ~ connector.GND
+    power_vbus.lv ~ connector.EH
+    usb2.usb_if.d.p.line ~ connector.DP1
+    usb2.usb_if.d.p.line ~ connector.DP2
+    usb2.usb_if.d.n.line ~ connector.DN1
+    usb2.usb_if.d.n.line ~ connector.DN2
+    sbu[0].line ~ connector.SBU2
+    sbu[1].line ~ connector.SBU1
+    cc[0].line ~ connector.CC1
+    cc[1].line ~ connector.CC2
+
 
 module NONOS:
     cm5 = new CM5
     regulator_5v = new TPS54560x
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
-    # pd_controller_top = new STUSB4500
-    # usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+    pd_controller = new STUSB4500
+    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # board_to_board_connector = new BoardToBoardConnectorInverted
     # full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
@@ -29,25 +62,25 @@ module NONOS:
     debug_headers = new SaleaeHeader[3]
 
     # addressing
-    # pd_controller_top.i2c.address = 0x28
+    pd_controller.i2c.address = 0x28
 
     # substitute default pd_controller.usb_connector
-    # pd_controller_top.usb_connector.exclude_from_bom = True
-    # usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
-    # usb_connector.cc[0] ~ pd_controller.pd_controller.cc1.line
-    # usb_connector.cc[1] ~ pd_controller.pd_controller.cc2.line
-    # usb_connector.usb2 ~ pd_controller.usb2
-    # pd_controller_top.i2c ~ cm5.i2cs[0]
+    pd_controller.usb_connector.exclude_from_bom = True
+    usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
+    usb_connector.cc[0] ~ pd_controller.pd_controller.cc1
+    usb_connector.cc[1] ~ pd_controller.pd_controller.cc2
+    usb_connector.usb2 ~ pd_controller.usb2
+    pd_controller.i2c ~ cm5.i2cs[0]
 
     # TOOD: make this work instead
     # pd_controller.usb_connector -> HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # power
-    # pd_controller_top.power_out ~ power_20v
+    pd_controller.power_out ~ power_20v
     regulator_5v.power_in ~ power_20v
     regulator_5v.power_out ~ power_5v
     power_5v ~ cm5.power_5v
-    # power_3v3 ~ pd_controller_top.power_mcu
+    power_3v3 ~ pd_controller.power_mcu
     cm5.power_3v3 ~ power_3v3  # onboard regulator can provide 3v3
 
     # amplifier

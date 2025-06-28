@@ -1,0 +1,154 @@
+(footprint "STMicroelectronics_ESDA25P35_1U1M:DFN1610-2_L1.6-W1.0-P1.05-RD"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "993b0035-ae6c-4c45-8c31-3e6be24c617a")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "DFN1610-2_L1.6-W1.0-P1.05-RD"
+        (at 0 4 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "43592fa8-3270-4dfa-829d-fc03e1f5e3dc")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "e42f02835a55db7d734ccf90a660c1dd55df45a51e88d7b9a2fddedffec73823"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "ceb1aadd-8cdf-42b2-8e4e-268afac8c294")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start 1.15 -0.7)
+        (end 1.15 0.7)
+        (stroke
+            (width 0.18)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "588c1dd1-4d86-46fc-8242-617d7344eb9d")
+    )
+    (fp_line
+        (start -1.4 -0.7)
+        (end 1.15 -0.7)
+        (stroke
+            (width 0.18)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "b7850902-37d6-4d13-a0f9-194b4087c8cc")
+    )
+    (fp_line
+        (start -1.4 0.7)
+        (end 1.15 0.7)
+        (stroke
+            (width 0.18)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "1ff51387-e486-4e72-be8c-2ec7297a15e0")
+    )
+    (fp_line
+        (start -1.15 -0.7)
+        (end -1.15 0.7)
+        (stroke
+            (width 0.18)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "9c40009d-1db3-4408-95eb-01e9f0870261")
+    )
+    (fp_line
+        (start -1.4 -0.7)
+        (end -1.4 0.7)
+        (stroke
+            (width 0.18)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "afbe6e17-f50a-4d6a-8d3a-117b1a6f3e70")
+    )
+    (fp_circle
+        (center -0.8 0.5)
+        (end -0.77 0.5)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "db0c78a6-bffa-4db6-b1b4-3a848f7d99af")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "00336d7f-4dd8-4b78-b350-07eab2ddf752")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (uuid "993b0035-ae6c-4c45-8c31-3e6be24c617a")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "2" smd rect
+        (at 0.52 0 90)
+        (size 0.9 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "83ae4b9b-b44b-42c8-9a8e-8d4ac3206c56")
+    )
+    (pad "1" smd rect
+        (at -0.52 0 90)
+        (size 0.9 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "9fee579c-0589-4d43-a7fb-f90ecba51bfb")
+    )
+    (model "${KIPRJMOD}/../../src/parts/STMicroelectronics_ESDA25P35_1U1M/DFN1610-2_L1.6-W1.0-P1.05-RD.STEP"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

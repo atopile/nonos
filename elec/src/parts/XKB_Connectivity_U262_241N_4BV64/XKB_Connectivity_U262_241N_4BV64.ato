@@ -1,0 +1,44 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component XKB_Connectivity_U262_241N_4BV64_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C388660", date="2025-06-28T03:38:32.482869+00:00", checksum="a102d827292e53f1dbadec8890a4248307d35c8a68e2fbdd7a3d10a0c0dd89c5">
+
+    trait is_atomic_part<manufacturer="XKB Connectivity", partnumber="U262-241N-4BV64", footprint="USB-C-SMD_TYC-324G.kicad_mod", symbol="U262-241N-4BV64.kicad_sym", model="USB-C-SMD_TYC-324G.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C388660", manufacturer="XKB Connectivity", partno="U262-241N-4BV64">
+    trait has_designator_prefix<prefix="USB">
+
+    # pins
+    pin 1
+    pin 2
+    pin 3
+    pin 4
+    signal CC1 ~ pin A5
+    signal CC2 ~ pin B5
+    signal DN1 ~ pin A7
+    signal DN2 ~ pin B7
+    signal DP1 ~ pin A6
+    signal DP2 ~ pin B6
+    signal GND ~ pin B12
+    GND ~ pin B1
+    GND ~ pin A12
+    GND ~ pin A1
+    signal SBU1 ~ pin A8
+    signal SBU2 ~ pin B8
+    signal SSRXN1 ~ pin B10
+    signal SSRXN2 ~ pin A10
+    signal SSRXP1 ~ pin B11
+    signal SSRXP2 ~ pin A11
+    signal SSTXN1 ~ pin A3
+    signal SSTXN2 ~ pin B3
+    signal SSTXP1 ~ pin A2
+    signal SSTXP2 ~ pin B2
+    signal VBUS ~ pin B9
+    VBUS ~ pin B4
+    VBUS ~ pin A9
+    VBUS ~ pin A4

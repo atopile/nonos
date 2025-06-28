@@ -10,9 +10,9 @@ from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
 from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
 
 from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
+from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
 
 # from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
-# from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN
 
 
 module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04:
@@ -21,7 +21,6 @@ module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04:
     USB Connectors ROHS
 
     Datasheet: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2301120930_HCTL-HC-TYPE-C-24P-VS9-3-5A-F1-1-04_C5342428.pdf
-
     """
 
     power_vbus = new ElectricPower
@@ -52,8 +51,8 @@ module NONOS:
     usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # board_to_board_connector = new BoardToBoardConnectorInverted
-    # full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
-    # tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
+    full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
+    tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
 
     power_20v = new ElectricPower
     power_5v = new ElectricPower
@@ -100,19 +99,21 @@ module NONOS:
     cm5_i2s.sd ~ cm5.cm5.gpio[21]
     cm5_i2s ~ amplifier.i2s
 
+    # speaker outputs
+    amplifier.output_a.p.line ~ full_range_speaker_connector.1
+    amplifier.output_a.n.line ~ full_range_speaker_connector.2
+    amplifier.output_b.p.line ~ tweeter_speaker_connector.1
+    amplifier.output_b.n.line ~ tweeter_speaker_connector.2
 
-
-    # # infix operators with list literals don't work super nicely
-    # [amplifier.output_a.p.signal, amplifier.output_a.n.signal] ~ [full_range_speaker_connector.unnamed[0], full_range_speaker_connector.unnamed[1]]
-    # [amplifier.output_b.p.signal, amplifier.output_b.n.signal] ~ [tweeter_speaker_connector.unnamed[0], tweeter_speaker_connector.unnamed[1]]
-
-    # # hat board
+    # hat board
     # board_to_board_connector.i2c ~ cm5.i2c
     # board_to_board_connector.power_3v3 ~ power_3v3
     # board_to_board_connector.power_5v ~ power_5v
 
-    # # address selectors? e.g. with list of attrs
-    # cm5.gpio[4:8] ~ board_to_board_connector.[hat_reset, hat_nfc_irq, hat_touch_irq, hat_led_data]
+    # cm5.cm5.gpio[4] ~ board_to_board_connector.hat_reset
+    # cm5.cm5.gpio[5] ~ board_to_board_connector.hat_nfc_irq
+    # cm5.cm5.gpio[6] ~ board_to_board_connector.hat_touch_irq
+    # cm5.cm5.gpio[7] ~ board_to_board_connector.hat_led_data
 
     # # debug headers
     # [cm5.uart_tx, cm5.uart_rx] ~ debug_headers[0].pins[0, 1]

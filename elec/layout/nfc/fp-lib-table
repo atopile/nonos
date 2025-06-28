@@ -287,4 +287,11 @@
         (options "")
         (descr "atopile: part lib: HCTL_PZ254_2_04_S")
     )
+    (lib
+        (name "JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (options "")
+        (descr "atopile: part lib: JST_Sales_America_B02B_XASK_1_A_LF__SN")
+    )
 )

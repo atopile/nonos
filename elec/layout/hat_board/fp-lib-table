@@ -7,4 +7,11 @@
         (options "")
         (descr "atopile: atopile footprints")
     )
+    (lib
+        (name "TE_Connectivity_1_2328702_0")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/TE_Connectivity_1_2328702_0")
+        (options "")
+        (descr "atopile: part lib: TE_Connectivity_1_2328702_0")
+    )
 )

@@ -1,0 +1,28 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component TE_Connectivity_1_2328702_0_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C3167956", date="2025-06-28T01:47:24.306281+00:00", checksum="e2673b502e0afabcae164ee06b6943590b229d6e5ecde7c87e9e87c900d4c4b3">
+
+    trait is_atomic_part<manufacturer="TE Connectivity", partnumber="1-2328702-0", footprint="FPC-SMD_10P-P0.50_HDGC_0.5K-HX-10PWB.kicad_mod", symbol="1-2328702-0.kicad_sym", model="FPC-SMD_10P-P0.50_HDGC_0.5K-HX-10PWB.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C3167956", manufacturer="TE Connectivity", partno="1-2328702-0">
+    trait has_designator_prefix<prefix="FPC">
+
+    # pins
+    pin 1
+    pin 2
+    pin 3
+    pin 4
+    pin 5
+    pin 6
+    pin 7
+    pin 8
+    pin 9
+    pin 10
+    pin 11
+    pin 12

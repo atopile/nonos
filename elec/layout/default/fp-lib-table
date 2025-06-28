@@ -1,14 +1,24 @@
-(fp_lib_table 
+(fp_lib_table
     (version 7)
     (lib
         (name "lib")
         (type "KiCad")
         (uri "${KIPRJMOD}/../../../build/footprints/footprints.pretty")
         (options "")
-        (descr ""))
+        (descr "")
+    )
     (lib
         (name "lcsc")
         (type "KiCad")
         (uri "${KIPRJMOD}/../../../build/kicad/libs/footprints/lcsc.pretty")
         (options "")
-        (descr "atopile: project LCSC footprints")))
+        (descr "atopile: project LCSC footprints")
+    )
+    (lib
+        (name "TE_Connectivity_1_2328702_0")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/TE_Connectivity_1_2328702_0")
+        (options "")
+        (descr "atopile: part lib: TE_Connectivity_1_2328702_0")
+    )
+)

@@ -47,6 +47,9 @@ module Diodes_Incorporated_74LVC1T45DW_7_driver:
         cap.capacitance = 100nF +/- 10%
         cap.package = "C0402"
 
+    caps[0].power ~ power_a
+    caps[1].power ~ power_b
+
     signal_a = new ElectricLogic
     signal_b = new ElectricLogic
     dir = new ElectricLogic

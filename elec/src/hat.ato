@@ -1,7 +1,27 @@
+import ElectricPower
+import I2C
 
+from "atopile/nxp-pn5321/nxp-pn5321.ato" import NXP_PN5321_driver
+from "atopile/addressable-leds/sk6805-side.ato" import SK6805Side_driver
+from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
+from "parts/hat-button-antenna/button-antenna.ato" import ButtonAntenna
 
-module HatBoard:
+module Hat:
     power_3v3 = new ElectricPower
     power_5v = new ElectricPower
+
+    i2c = new I2C
     
-    nfc
+    nfc = new NXP_PN5321_driver
+    # touch = new CAP1188
+    board_to_board_connector = new TE_Connectivity_1_2328702_0_package
+    leds = new SK6805Side_driver[23]
+    hat_button_antenna = new ButtonAntenna
+
+    # Power
+    power_3v3 ~ nfc.power_3v3
+    i2c ~ nfc.i2c
+
+    # Antenna
+    nfc.antenna_output ~ hat_button_antenna.antenna
+    

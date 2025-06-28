@@ -7,7 +7,7 @@ import DifferentialPair
 component ButtonAntenna:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_atomic_part<manufacturer="", partnumber="", symbol="", footprint="hat-button-antenna.kicad_mod">
+    trait is_atomic_part<manufacturer="atopile", partnumber="nonos-hat-button-antenna", symbol="placeholder.kicad_sym", footprint="hat-button-antenna.kicad_mod">
     trait has_designator_prefix<prefix="ANT">
 
     # pins

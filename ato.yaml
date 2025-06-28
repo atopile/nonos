@@ -2,8 +2,8 @@ requires-atopile: ^0.10.3
 builds:
   default:
     entry: elec/src/nonos.ato:NONOS
-  hat_board:
-    entry: elec/src/hat_board/hat_board.py:HatBoard
+  hat:
+    entry: elec/src/hat.ato:Hat
 
 dependencies:
   - type: registry

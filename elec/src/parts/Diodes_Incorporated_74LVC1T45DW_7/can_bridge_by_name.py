@@ -7,7 +7,7 @@ from faebryk.libs.library import L
 
 
 class can_bridge_by_name(F.can_bridge.impl()):
-    def __init__(self, input_name: str = "output", output_name: str = "output"):
+    def __init__(self, input_name: str = "input", output_name: str = "output"):
         super().__init__()
         self._input_name = input_name
         self._output_name = output_name

@@ -1,0 +1,40 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component STMicroelectronics_STUSB4500QTR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C2678061", date="2025-06-28T03:04:16.815099+00:00", checksum="8c9e28d4442d04a789a744c0c1bc608ca4519e2e6347f30e1ba3f0dfb4e068ef">
+
+    trait is_atomic_part<manufacturer="STMicroelectronics", partnumber="STUSB4500QTR", footprint="QFN-24_L4.0-W4.0-P0.50-BL-EP2.8.kicad_mod", symbol="STUSB4500QTR.kicad_sym", model="57.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C2678061", manufacturer="STMicroelectronics", partno="STUSB4500QTR">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal ADDR0 ~ pin 12
+    signal ADDR1 ~ pin 13
+    signal ALERT ~ pin 19
+    signal ATTACH ~ pin 11
+    signal A_B_SIDE ~ pin 17
+    signal CC1 ~ pin 2
+    signal CC1DB ~ pin 1
+    signal CC2 ~ pin 4
+    signal CC2DB ~ pin 5
+    signal DISCH ~ pin 9
+    signal EP ~ pin 25
+    signal GND ~ pin 10
+    signal GPIO ~ pin 15
+    signal POWER_OK2 ~ pin 20
+    signal POWER_OK3 ~ pin 14
+    signal RESET ~ pin 6
+    signal SCL ~ pin 7
+    signal SDA ~ pin 8
+    signal VBUS_EN_SNK ~ pin 16
+    signal VBUS_VS_DISCH ~ pin 18
+    signal VDD ~ pin 24
+    signal VREG_1V2 ~ pin 21
+    signal VREG_2V7 ~ pin 23
+    signal VSYS ~ pin 22

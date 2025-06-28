@@ -1,0 +1,248 @@
+(footprint "ALLPOWER_AP30P30Q:PDFN3333-8_L3.1-W3.2-P0.65-LS3.4-BL"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -5.53 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "cb19eed4-2b25-461b-9c9a-5deb3a482f58")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "PDFN3333-8_L3.1-W3.2-P0.65-LS3.4-BL"
+        (at 0 5.53 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "af74902d-c0c3-4939-85cd-edbe0988547e")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "646d17cbd9b941cb7291e8655feb4f5200ffe213b015e93307a01f0c31b79ad9"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "aa4b3c53-5365-4a17-833a-85ed51957b44")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start 1.56 -1.61)
+        (end 1.56 -0.42)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "b865e4b4-47bd-4659-8297-d5e0af3f456a")
+    )
+    (fp_line
+        (start 1.36 1.48)
+        (end 1.56 1.49)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "06f27c48-7c57-4e2c-ac2b-f2153acef661")
+    )
+    (fp_line
+        (start -1.59 -1.61)
+        (end -1.44 -1.61)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "e89e3721-d9d8-4e67-97c9-a745c78e959a")
+    )
+    (fp_line
+        (start 1.42 -1.61)
+        (end 1.56 -1.61)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "7a7552b7-1a14-4b80-9fd3-74e2721a8104")
+    )
+    (fp_line
+        (start -1.59 1.48)
+        (end -1.4 1.48)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "b2577996-9002-4501-be09-fd2d2d3dfe17")
+    )
+    (fp_line
+        (start 1.56 0.29)
+        (end 1.56 1.49)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "d9b0b974-9215-419f-8959-376cc26a8d5f")
+    )
+    (fp_line
+        (start -1.59 1.48)
+        (end -1.59 0.29)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "f0659682-3932-4fde-b43c-183251146da7")
+    )
+    (fp_line
+        (start -1.59 -0.42)
+        (end -1.59 -1.61)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "9480359e-e223-473e-9543-a9ebdd8d1e59")
+    )
+    (fp_circle
+        (center -1.6 1.61)
+        (end -1.57 1.61)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "20b67fdf-f730-44e4-b903-9ccc115525f4")
+    )
+    (fp_circle
+        (center -1 2.19)
+        (end -0.9 2.19)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.SilkS")
+        (uuid "701354f9-2887-4d74-bbcb-bc7bb89f44e9")
+    )
+    (fp_circle
+        (center -1.02 1.9)
+        (end -0.92 1.9)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (fill no)
+        (layer "Cmts.User")
+        (uuid "e041daac-92e1-427a-bc1c-3c2bf1691a1d")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "3f934996-3602-4d1f-adbc-b415659da796")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -5.53 0)
+        (layer "F.SilkS")
+        (uuid "cb19eed4-2b25-461b-9c9a-5deb3a482f58")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "1" smd rect
+        (at -0.98 1.53 180)
+        (size 0.4 0.75)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "e3ff5e55-23f4-4af8-9cc9-6de07426e62c")
+    )
+    (pad "2" smd rect
+        (at -0.32 1.53 180)
+        (size 0.4 0.75)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "15f356d0-e466-4705-8440-b1ff61e29b77")
+    )
+    (pad "3" smd rect
+        (at 0.33 1.53 180)
+        (size 0.4 0.75)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "ab97fb14-6835-412a-a409-6ca969b56551")
+    )
+    (pad "4" smd rect
+        (at 0.98 1.53 180)
+        (size 0.4 0.75)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "8e814747-a0ee-4f17-a962-c42437426e28")
+    )
+    (pad "8" smd rect
+        (at -0.98 -1.53 180)
+        (size 0.4 0.8)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "f8ed0f5e-cca0-4d19-9789-3879cfd29ba3")
+    )
+    (pad "7" smd rect
+        (at -0.32 -1.53 180)
+        (size 0.4 0.8)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "c3870b41-9528-4d91-9a4b-3f6d1871acd1")
+    )
+    (pad "6" smd rect
+        (at 0.33 -1.53 180)
+        (size 0.4 0.8)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "33a3cd2e-b396-447b-9844-c665fd44f247")
+    )
+    (pad "5" smd rect
+        (at 0.98 -1.53 180)
+        (size 0.4 0.8)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "5d063c00-1f2d-4aa4-a34c-12b3c3cf0995")
+    )
+    (pad "9" smd rect
+        (at 0 -0.33 0)
+        (size 2.6 2)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "acd8dcc8-37ea-4b9b-b0ae-e51fb987c7ad")
+    )
+    (model "${KIPRJMOD}/../../src/parts/ALLPOWER_AP30P30Q/PDFN3333-8_L3.1-W3.2-H0.8-P0.65.step"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

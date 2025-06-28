@@ -1,25 +1,26 @@
 import ElectricPower
+import I2S
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
-from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
+# from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
-from "atopile/ti-tas5825mrhbr/ti-tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
+from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
 
-from "components/hctl_hc_type_c24p_vs935a_f1104.py" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
-from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
-from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN
+# from "components/hctl_hc_type_c24p_vs935a_f1104.py" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+# from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
+# from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN
 
 module NONOS:
     cm5 = new CM5
-    regulator_5v = new TPS54560x
+    # regulator_5v = new TPS54560x
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
     pd_controller = new STUSB4500
-    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+    # usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
-    board_to_board_connector = new BoardToBoardConnectorInverted
-    full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
-    tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
+    # board_to_board_connector = new BoardToBoardConnectorInverted
+    # full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
+    # tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
 
     power_20v = new ElectricPower
     power_5v = new ElectricPower
@@ -32,19 +33,19 @@ module NONOS:
 
     # substitute default pd_controller.usb_connector
     pd_controller.usb_connector.exclude_from_bom = True
-    usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
-    usb_connector.cc[0] ~ pd_controller.pd_controller.cc1.line
-    usb_connector.cc[1] ~ pd_controller.pd_controller.cc2.line
-    usb_connector.usb2 ~ pd_controller.usb2
-    pd_controller.i2c ~ cm5.i2c0
+    # usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
+    # usb_connector.cc[0] ~ pd_controller.pd_controller.cc1.line
+    # usb_connector.cc[1] ~ pd_controller.pd_controller.cc2.line
+    # usb_connector.usb2 ~ pd_controller.usb2
+    pd_controller.i2c ~ cm5.i2cs[0]
 
     # TOOD: make this work instead
     # pd_controller.usb_connector -> HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
     # power
     pd_controller.power_out ~ power_20v
-    regulator_5v.power_in ~ power_20v
-    regulator_5v.power_out ~ power_5v
+    # regulator_5v.power_in ~ power_20v
+    # regulator_5v.power_out ~ power_5v
     power_5v ~ cm5.power_5v
     power_3v3 ~ pd_controller.power_mcu
     cm5.power_3v3 ~ power_3v3  # onboard regulator can provide 3v3
@@ -52,7 +53,7 @@ module NONOS:
     # amplifier
     amplifier.power_pvdd ~ power_20v
     amplifier.power_dvdd ~ power_3v3
-    cm5.i2c0 ~ amplifier.i2c
+    cm5.i2cs[0] ~ amplifier.i2c
     cm5.cm5.gpio[3] ~ amplifier.mute
     cm5.cm5.gpio[4] ~ amplifier.warn
     cm5.cm5.gpio[5] ~ amplifier.fault
@@ -60,9 +61,11 @@ module NONOS:
 
     # TODO: review
     # TODO: cm5 I2S interface
-    cm5.cm5.gpio[18] ~ amplifier.i2s.sck
-    cm5.cm5.gpio[19] ~ amplifier.i2s.ws
-    cm5.cm5.gpio[21] ~ amplifier.i2s.sd
+    cm5_i2s = new I2S
+    cm5_i2s.sck ~ cm5.cm5.gpio[18]
+    cm5_i2s.ws ~ cm5.cm5.gpio[19]
+    cm5_i2s.sd ~ cm5.cm5.gpio[21]
+    cm5_i2s ~ amplifier.i2s
 
 
 

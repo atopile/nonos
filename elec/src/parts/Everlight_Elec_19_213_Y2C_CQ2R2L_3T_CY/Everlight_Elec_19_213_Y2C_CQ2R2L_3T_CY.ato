@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Everlight_Elec_19_213_Y2C_CQ2R2L_3T_CY_package:
+    """0603"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C72038", date="2025-06-28T03:04:13.651488+00:00", checksum="244ac7300a55da2a827bef659bf354a0f0cfb4addcf8b1bd6f964f49bacd2712">
+
+    trait is_atomic_part<manufacturer="Everlight Elec", partnumber="19-213/Y2C-CQ2R2L/3T(CY)", footprint="LED0603-RD-YELLOW.kicad_mod", symbol="19-213_Y2C-CQ2R2L_3T(CY).kicad_sym", model="LED0603-RD-YELLOW.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C72038", manufacturer="Everlight Elec", partno="19-213/Y2C-CQ2R2L/3T(CY)">
+    trait has_designator_prefix<prefix="LED">
+
+    # pins
+    signal A ~ pin 2
+    signal C ~ pin 1

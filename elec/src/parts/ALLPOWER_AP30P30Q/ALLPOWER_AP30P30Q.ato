@@ -1,0 +1,25 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component ALLPOWER_AP30P30Q_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C471913", date="2025-06-28T03:04:17.870708+00:00", checksum="49eaedbd662f968648ad548676e50a2c00f9a761307619bc97acddf80943e66e">
+
+    trait is_atomic_part<manufacturer="ALLPOWER", partnumber="AP30P30Q", footprint="PDFN3333-8_L3.1-W3.2-P0.65-LS3.4-BL.kicad_mod", symbol="AP30P30Q.kicad_sym", model="PDFN3333-8_L3.1-W3.2-H0.8-P0.65.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C471913", manufacturer="ALLPOWER", partno="AP30P30Q">
+    trait has_designator_prefix<prefix="Q">
+
+    # pins
+    signal D ~ pin 5
+    D ~ pin 6
+    D ~ pin 7
+    D ~ pin 8
+    D ~ pin 9
+    signal G ~ pin 4
+    signal S ~ pin 1
+    S ~ pin 2
+    S ~ pin 3

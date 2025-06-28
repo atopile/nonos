@@ -7,7 +7,7 @@ import is_auto_generated
 component STMicroelectronics_STUSB4500QTR_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C2678061", date="2025-06-28T03:38:32.306693+00:00", checksum="7630bf2be970b3311125bdfe35ef57b5bf01b8914700bc5cd8c3c5373512cb25">
+    trait is_auto_generated<system="ato_part", source="easyeda:C2678061", date="2025-06-28T22:42:47.370488+00:00", checksum="ebebaf0f07c48d837c884811bb52c7b7b954b9a9ba3838073d8e1a7477646adf">
 
     trait is_atomic_part<manufacturer="STMicroelectronics", partnumber="STUSB4500QTR", footprint="QFN-24_L4.0-W4.0-P0.50-BL-EP2.8.kicad_mod", symbol="STUSB4500QTR.kicad_sym", model="57.STEP">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C2678061", manufacturer="STMicroelectronics", partno="STUSB4500QTR">

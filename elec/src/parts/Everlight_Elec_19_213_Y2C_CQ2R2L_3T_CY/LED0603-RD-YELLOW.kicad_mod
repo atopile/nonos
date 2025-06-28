@@ -9,7 +9,7 @@
         (at 0 -4 0)
         (layer "F.SilkS")
         (hide no)
-        (uuid "6bc3ca17-2acc-4442-aae6-c8dbb3fa846c")
+        (uuid "0b44e687-1c5f-455d-a7bb-9d7c45f50156")
         (effects
             (font
                 (size 1 1)
@@ -21,7 +21,7 @@
         (at 0 4 0)
         (layer "F.Fab")
         (hide no)
-        (uuid "9a060227-e758-4b19-98ae-a39ffe9217a2")
+        (uuid "c7b5b474-af2e-470f-a606-b1b4c8308135")
         (effects
             (font
                 (size 1 1)
@@ -29,11 +29,11 @@
             )
         )
     )
-    (property "checksum" "ff1571ca4189c195bdcb407733c50366243f058778f031abc7a13d50886e4b3c"
+    (property "checksum" "3bbb46f261282bee5047beb84a1d959dde5f48e425813be4d22f1780de72dd41"
         (at 0 0 0)
         (layer "User.9")
         (hide no)
-        (uuid "925179bd-222c-4042-b194-88c1008e25f1")
+        (uuid "0a316b42-af1c-45cd-ab1b-c4db0416f0f3")
         (effects
             (font
                 (size 0.125 0.125)
@@ -51,7 +51,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "8b247905-6ea9-414d-80d0-cc75d3292681")
+        (uuid "b4f79860-5e95-402e-ae34-e84862483a44")
     )
     (fp_line
         (start 0.21 0.33)
@@ -61,7 +61,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "fd93515c-ae6f-45a0-8919-e9a26fff5645")
+        (uuid "fca87c05-05b7-4353-a094-d7646f447b4a")
     )
     (fp_line
         (start 0.22 -0.35)
@@ -71,7 +71,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "8eb3d8d2-462b-4594-b35e-317adefab0fc")
+        (uuid "857e65a0-c431-4589-addf-9f5a3014cda9")
     )
     (fp_line
         (start 0.22 -0.34)
@@ -81,7 +81,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "2785bd9e-5076-455f-a15e-9994decca33a")
+        (uuid "ffd45509-6b8e-4dea-8b0e-bc5b19c64518")
     )
     (fp_line
         (start 0.22 -0.35)
@@ -91,7 +91,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "ff6e8c8c-c7d5-48d2-8e17-110bc3ef1741")
+        (uuid "16b4ed10-7642-4fe0-b335-a69da6c2b9b3")
     )
     (fp_line
         (start 0.24 -0.75)
@@ -101,7 +101,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "c018f3da-59bd-4e96-9326-fdf5936f1343")
+        (uuid "d64de8be-3e87-4108-8ec9-8a8a59a1d036")
     )
     (fp_line
         (start 0.24 0.75)
@@ -111,7 +111,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "df785171-2bea-486a-8ead-34e21dc007ac")
+        (uuid "4959d1a9-5820-49ed-ba74-f49199890e34")
     )
     (fp_line
         (start 1.39 -0.75)
@@ -121,7 +121,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "e9ea9410-e4bf-4578-a945-9ffe43a7f57d")
+        (uuid "7925608a-52d9-4acf-8c3f-cb29e1e9a5aa")
     )
     (fp_line
         (start -0.14 0.75)
@@ -131,7 +131,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "7a6ba3e5-3d33-4f75-8b53-ca300b407841")
+        (uuid "a02666f5-8e35-4686-8352-e3621055ef44")
     )
     (fp_line
         (start -1.49 0.35)
@@ -141,7 +141,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "46888239-b10d-42a8-9c6c-14e82f022c86")
+        (uuid "bc1f1047-baa1-42fa-9bf4-676cc331a133")
     )
     (fp_line
         (start -1.49 0.45)
@@ -151,7 +151,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "96471d5e-0976-4b5c-bebd-d55a5060b93e")
+        (uuid "8674587a-48d9-40fd-b3a8-f8d21b8179ad")
     )
     (fp_line
         (start -1.49 -0.35)
@@ -161,7 +161,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "46172d1d-fb8e-49e5-94be-0cbe545308a5")
+        (uuid "f3314432-7ebd-4e97-93b6-1bd358b5512c")
     )
     (fp_line
         (start -1.49 -0.35)
@@ -171,7 +171,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "0330b5c4-7ae0-4346-a1d1-aa8654f559c6")
+        (uuid "643e1b18-8c80-4200-85ba-01594a8fb7b9")
     )
     (fp_line
         (start -1.49 -0.45)
@@ -181,7 +181,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "78c60596-6fd1-4aad-bad6-80c8626d6ce4")
+        (uuid "26ea85e2-44c5-49bf-a410-83043c18f894")
     )
     (fp_line
         (start -0.14 -0.75)
@@ -191,7 +191,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "7ba23396-5564-4570-aec0-c4ded7873825")
+        (uuid "80b013f0-cb88-4494-8d07-23654b98f3a5")
     )
     (fp_line
         (start 0.22 0)
@@ -201,7 +201,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "9759bc30-0270-402d-90d1-c646a0436952")
+        (uuid "fc336522-81be-42cb-acc8-5cc859d3996f")
     )
     (fp_circle
         (center -0.8 0.4)
@@ -212,12 +212,12 @@
         )
         (fill no)
         (layer "F.Fab")
-        (uuid "5808acff-eda2-4c29-b20f-a8119254d642")
+        (uuid "9fdb6424-65a3-4ecc-bdc2-28953d630951")
     )
     (fp_text user "%R"
         (at 0 0 0)
         (layer "F.Fab")
-        (uuid "e5095ccc-d6ef-4e7d-9d1a-beb5a89c61cb")
+        (uuid "ce4d6bad-cc48-4e45-b1b7-76035f7e7b8a")
         (effects
             (font
                 (size 1 1)
@@ -229,7 +229,7 @@
     (fp_text user "${REFERENCE}"
         (at 0 -4 0)
         (layer "F.SilkS")
-        (uuid "6bc3ca17-2acc-4442-aae6-c8dbb3fa846c")
+        (uuid "0b44e687-1c5f-455d-a7bb-9d7c45f50156")
         (effects
             (font
                 (size 1 1)
@@ -242,13 +242,13 @@
         (at -0.8 0 90)
         (size 0.8 0.8)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "06367d68-b074-4a01-bc87-ca7cea4224d5")
+        (uuid "5df13f92-ecf9-449b-a5b5-f813488eb2fb")
     )
     (pad "2" smd rect
         (at 0.8 0 90)
         (size 0.8 0.8)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "95645c3d-0201-4c2a-b75a-1aa3e257a89b")
+        (uuid "40cc18ad-5a27-42ac-932f-b9743610c9e9")
     )
     (model "${KIPRJMOD}/../../src/parts/Everlight_Elec_19_213_Y2C_CQ2R2L_3T_CY/LED0603-RD-YELLOW.step"
         (offset

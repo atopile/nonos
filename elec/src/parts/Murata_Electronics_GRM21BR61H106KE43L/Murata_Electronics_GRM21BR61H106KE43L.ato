@@ -7,7 +7,7 @@ import is_auto_generated
 component Murata_Electronics_GRM21BR61H106KE43L_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C440198", date="2025-06-28T03:33:53.238892+00:00", checksum="abf61b41e6b39537f9656d0c7777c1f6077a129d7a92e16f947e245e21fc380e">
+    trait is_auto_generated<system="ato_part", source="easyeda:C440198", date="2025-06-28T22:43:39.065119+00:00", checksum="78162a43504be15287a114ba56e4bb45ba8ee4226e0568af17513ff6ca3beab0">
 
     trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM21BR61H106KE43L", footprint="C0805.kicad_mod", symbol="GRM21BR61H106KE43L.kicad_sym", model="C0805_L2.0-W1.3-H1.3.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C440198", manufacturer="Murata Electronics", partno="GRM21BR61H106KE43L">

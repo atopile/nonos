@@ -7,7 +7,7 @@ import is_auto_generated
 component YAGEO_CC0805KKX7R9BB684_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C107133", date="2025-06-28T03:33:52.798024+00:00", checksum="0ead731ff7eb39e6c918ae8133ae73c39e5c762a2860cac3458d66ff09a655e1">
+    trait is_auto_generated<system="ato_part", source="easyeda:C107133", date="2025-06-28T22:43:30.533963+00:00", checksum="049026f3b7f35aa9a84bb1965c8ae5e11f96c83facad0a406634bce5891e7b91">
 
     trait is_atomic_part<manufacturer="YAGEO", partnumber="CC0805KKX7R9BB684", footprint="C0805.kicad_mod", symbol="CC0805KKX7R9BB684.kicad_sym", model="C0805_L2.0-W1.3-H1.3.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C107133", manufacturer="YAGEO", partno="CC0805KKX7R9BB684">

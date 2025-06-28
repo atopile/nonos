@@ -7,7 +7,7 @@ import is_auto_generated
 component Murata_Electronics_GRM1555C1H472JE01D_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C1518204", date="2025-06-28T03:33:53.127752+00:00", checksum="884c62ebba72b3aab8eb5f8b2e4c99b5eff1cdb12bf5a483c521452602341ceb">
+    trait is_auto_generated<system="ato_part", source="easyeda:C1518204", date="2025-06-28T22:43:37.663287+00:00", checksum="442dcbccd928b4ba00654003a0205507d6cd58ded29dddc5324833456a1702ba">
 
     trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM1555C1H472JE01D", footprint="C0402.kicad_mod", symbol="GRM1555C1H472JE01D.kicad_sym", model="C0402_L1.0-W0.5-H0.5.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C1518204", manufacturer="Murata Electronics", partno="GRM1555C1H472JE01D">

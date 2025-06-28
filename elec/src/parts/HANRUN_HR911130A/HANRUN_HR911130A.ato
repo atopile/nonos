@@ -7,7 +7,7 @@ import is_auto_generated
 component HANRUN_HR911130A_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C54408", date="2025-06-28T03:33:37.754396+00:00", checksum="d4b99678f204e04336aceca4dbf5ac834586cfa91a035cf98872e0d7a4b71845">
+    trait is_auto_generated<system="ato_part", source="easyeda:C54408", date="2025-06-28T22:42:44.711816+00:00", checksum="67efcae6b3dd872deeb256bb0d93cd09fc609771fe7bb156f57da9992355ff35">
 
     trait is_atomic_part<manufacturer="HANRUN", partnumber="HR911130A", footprint="RJ45-TH_HR911130A.kicad_mod", symbol="HR911130A.kicad_sym", model="RJ45-TH_HR911130A.STEP">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C54408", manufacturer="HANRUN", partno="HR911130A">

@@ -7,7 +7,7 @@ import is_auto_generated
 component STMicroelectronics_ESDA25P35_1U1M_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C1974707", date="2025-06-28T03:38:32.354288+00:00", checksum="5c48824af3f1306ec5314fdb62f37a94b19452d6757c230ed69f92d137f0682f">
+    trait is_auto_generated<system="ato_part", source="easyeda:C1974707", date="2025-06-28T22:42:47.884537+00:00", checksum="b08c692a409ca2ba0f12b25dd1403da04c83005d4d808a1a0db60328f459264b">
 
     trait is_atomic_part<manufacturer="STMicroelectronics", partnumber="ESDA25P35-1U1M", footprint="DFN1610-2_L1.6-W1.0-P1.05-RD.kicad_mod", symbol="ESDA25P35-1U1M.kicad_sym", model="DFN1610-2_L1.6-W1.0-P1.05-RD.STEP">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C1974707", manufacturer="STMicroelectronics", partno="ESDA25P35-1U1M">

@@ -9,7 +9,7 @@ component UNI_ROYAL_0402WGF2202TCE_package:
 
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C25768", date="2025-06-28T03:38:54.567064+00:00", checksum="2165210dfa534347d1f2b28ab18300807c42bf49cc3a11f9c7cd1e19a9fc30e8">
+    trait is_auto_generated<system="ato_part", source="easyeda:C25768", date="2025-06-28T22:43:36.719694+00:00", checksum="f40b32b917b0988751673dfc29fcd870de302ac98ed26988056fd294875ef574">
 
     trait is_atomic_part<manufacturer="UNI-ROYAL", partnumber="0402WGF2202TCE", footprint="R0402.kicad_mod", symbol="0402WGF2202TCE.kicad_sym", model="R0402_L1.0-W0.5-H0.4.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C25768", manufacturer="UNI-ROYAL", partno="0402WGF2202TCE">

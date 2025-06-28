@@ -9,7 +9,7 @@
         (at 0 -6.1 0)
         (layer "F.SilkS")
         (hide no)
-        (uuid "a8425de3-a1d7-4357-95a9-8cc7bda42d6d")
+        (uuid "89497cd7-d22a-4f75-8ba7-1edc59f65729")
         (effects
             (font
                 (size 1 1)
@@ -21,7 +21,7 @@
         (at 0 6.1 0)
         (layer "F.Fab")
         (hide no)
-        (uuid "5429ace9-ad71-42f9-ae0d-496f3b1be652")
+        (uuid "12d2cd87-b9c3-4137-a7ec-4cafacb1a0ff")
         (effects
             (font
                 (size 1 1)
@@ -29,11 +29,11 @@
             )
         )
     )
-    (property "checksum" "eed5d576f36d460694b01bd565ec6c2ffd9da59ddc1883cb3e4a4187f73d6855"
+    (property "checksum" "f6a965bd950f33cd2aa82383f5b4123d5ab56301c2ee1483f00f8f62da7e889a"
         (at 0 0 0)
         (layer "User.9")
         (hide no)
-        (uuid "522503d1-0e6e-4a7a-9689-8de455275375")
+        (uuid "a292fda2-2ef2-4c15-bd4e-937690762637")
         (effects
             (font
                 (size 0.125 0.125)
@@ -52,7 +52,7 @@
         )
         (fill no)
         (layer "F.Fab")
-        (uuid "d81d423f-0278-491e-9a1d-a138d610d008")
+        (uuid "2f86667c-e618-4096-9e1f-5e89ac1dfdb7")
     )
     (fp_circle
         (center 0 0)
@@ -63,7 +63,7 @@
         )
         (fill no)
         (layer "F.SilkS")
-        (uuid "6f118337-2077-4fb8-8474-3c11ca7bdab6")
+        (uuid "dcefda38-8a74-42bb-b06b-25fbf846f821")
     )
     (fp_circle
         (center 0 0)
@@ -74,12 +74,12 @@
         )
         (fill no)
         (layer "Cmts.User")
-        (uuid "a140fb69-3518-48bb-ac8f-e20c0d3f6ede")
+        (uuid "77948b94-aa95-4401-b910-786b61ec21e7")
     )
     (fp_text user "%R"
         (at 0 0 0)
         (layer "F.Fab")
-        (uuid "3d0969b9-123d-4519-8fc9-f52571455bcd")
+        (uuid "4acf4444-f77f-42d7-8d9d-c923507793e7")
         (effects
             (font
                 (size 1 1)
@@ -91,7 +91,7 @@
     (fp_text user "${REFERENCE}"
         (at 0 -6.1 0)
         (layer "F.SilkS")
-        (uuid "a8425de3-a1d7-4357-95a9-8cc7bda42d6d")
+        (uuid "89497cd7-d22a-4f75-8ba7-1edc59f65729")
         (effects
             (font
                 (size 1 1)
@@ -221,7 +221,7 @@
                 (width 0.1)
             )
         )
-        (uuid "67091be3-6fde-408b-aca9-5f2fba9db69e")
+        (uuid "5028a6e3-bbce-4fce-a9a5-045feb018999")
     )
     (pad "1" smd custom
         (at -2.1 -1.65 0)
@@ -344,7 +344,7 @@
                 (width 0.1)
             )
         )
-        (uuid "7a932b22-cfe0-4e39-a46b-90a5bf1984d5")
+        (uuid "558e9192-9a94-4a6b-a92a-c7ab62084b45")
     )
     (pad "4" smd custom
         (at -1.65 2.1 0)
@@ -467,7 +467,7 @@
                 (width 0.1)
             )
         )
-        (uuid "195b5ef4-07b7-4636-972d-50b9fd940dc7")
+        (uuid "9a418e43-d73d-4681-9eef-4eb6cb1d1611")
     )
     (pad "3" smd custom
         (at 2.1 1.65 0)
@@ -590,14 +590,14 @@
                 (width 0.1)
             )
         )
-        (uuid "6b0ec765-0401-4098-9000-830ed4f57a5b")
+        (uuid "d9147179-da0e-4bd1-8aa9-76d32817c610")
     )
     (pad "" thru_hole circle
         (at 0 0 0)
         (size 4.3 4.3)
         (drill 4.3)
         (layers "*.Cu" "*.Mask")
-        (uuid "1927a857-0714-4a0f-9650-aaea3075bd00")
+        (uuid "fbc0f456-5ec5-406b-9466-07af072cfe00")
     )
     (model "${KIPRJMOD}/../../src/parts/Sinhoo_SMTSO2515CTJ/SMD_BD5.6-D4.1.STEP"
         (offset

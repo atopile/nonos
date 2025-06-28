@@ -1,27 +1,83 @@
+#pragma experiment("FOR_LOOP")
+#pragma experiment("BRIDGE_CONNECT")
 import ElectricPower
 import I2C
+import ElectricLogic
+import Resistor
 
 from "atopile/nxp-pn5321/nxp-pn5321.ato" import NXP_PN5321_driver
 from "atopile/addressable-leds/sk6805-side.ato" import SK6805Side_driver
+from "atopile/microchip-cap1188/microchip_cap1188.ato" import Microchip_Tech_CAP1188_1_CP_TR_driver
+
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
 from "parts/hat-button-antenna/button-antenna.ato" import ButtonAntenna
+from "parts/Diodes_Incorporated_74LVC1T45DW_7/Diodes_Incorporated_74LVC1T45DW_7.ato" import Diodes_Incorporated_74LVC1T45DW_7_driver
 
 module Hat:
     power_3v3 = new ElectricPower
     power_5v = new ElectricPower
 
     i2c = new I2C
+
+    led_data = new ElectricLogic
     
     nfc = new NXP_PN5321_driver
-    # touch = new CAP1188
+    touch = new Microchip_Tech_CAP1188_1_CP_TR_driver
     board_to_board_connector = new TE_Connectivity_1_2328702_0_package
     leds = new SK6805Side_driver[23]
     hat_button_antenna = new ButtonAntenna
+    level_shifter = new Diodes_Incorporated_74LVC1T45DW_7_driver
 
     # Power
     power_3v3 ~ nfc.power_3v3
+    power_5v ~ level_shifter.power_b
+    power_3v3 ~ level_shifter.power_a
+
+    # I2C
     i2c ~ nfc.i2c
+    i2c ~ touch.i2c
 
     # Antenna
     nfc.antenna_output ~ hat_button_antenna.antenna
+
+    # LEDs
+    for led in leds:
+        led.power ~ power_5v
+    
+    led_data ~> level_shifter ~> leds[0] ~> leds[1] ~> leds[2] ~> leds[3] ~> leds[4]
+    leds[4].data_out ~> leds[5] ~> leds[6] ~> leds[7] ~> leds[8] ~> leds[9]
+    leds[9].data_out ~> leds[10] ~> leds[11] ~> leds[12] ~> leds[13] ~> leds[14]
+    leds[14].data_out ~> leds[15] ~> leds[16] ~> leds[17] ~> leds[18] ~> leds[19]
+    leds[19].data_out ~> leds[20] ~> leds[21] ~> leds[22]
+
+    # I2C pullups
+    pullups = new Resistor[2]
+    i2c.sda.line ~> pullups[0] ~> power_3v3.vcc
+    i2c.scl.line ~> pullups[1] ~> power_3v3.vcc
+
+    for pullup in pullups:
+        pullup.value = 2kohm +/- 10%
+        pullup.package = "R0402"
+
+    # Touch Sensor
+    touch.pads[0].line ~ hat_button_antenna.play_button
+    touch.pads[1].line ~ hat_button_antenna.prev_button
+    touch.pads[2].line ~ hat_button_antenna.next_button
+    touch.pads[3].line ~ hat_button_antenna.slider[0]
+    touch.pads[4].line ~ hat_button_antenna.slider[1]
+    touch.pads[5].line ~ hat_button_antenna.slider[2]
+    touch.pads[6].line ~ hat_button_antenna.slider[3]
+    touch.pads[7].line ~ hat_button_antenna.slider[4]
+    
+    # Connector
+    board_to_board_connector.1 ~ i2c.sda.line
+    board_to_board_connector.2 ~ i2c.scl.line
+    board_to_board_connector.3 ~ power_5v.vcc
+    board_to_board_connector.4 ~ power_5v.gnd
+    board_to_board_connector.5 ~ power_3v3.vcc
+    board_to_board_connector.6 ~ power_3v3.gnd
+    board_to_board_connector.7 ~ nfc.reset.line
+    board_to_board_connector.8 ~ nfc.interrupt.line
+    board_to_board_connector.9 ~ touch.interrupt.line
+    board_to_board_connector.10 ~ led_data.line
     

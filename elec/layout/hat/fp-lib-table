@@ -126,4 +126,11 @@
         (options "")
         (descr "atopile: part lib: Diodes_Incorporated_74LVC1T45DW_7")
     )
+    (lib
+        (name "UNI_ROYAL_0402WGF1003TCE")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/UNI_ROYAL_0402WGF1003TCE")
+        (options "")
+        (descr "atopile: part lib: UNI_ROYAL_0402WGF1003TCE")
+    )
 )

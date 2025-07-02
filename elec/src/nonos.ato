@@ -119,15 +119,15 @@ module NONOS:
 
     # debug headers
     debug_uart = new UART
-    cm5.uart0 ~ debug_uart
-    debug_uart.base_uart.tx ~ debug_headers[0].ch0
-    debug_uart.base_uart.rx ~ debug_headers[0].ch1
+    # cm5.uart0 ~ debug_uart
+    cm5.uart0.base_uart.tx ~ debug_headers[0].ch0
+    cm5.uart0.base_uart.rx ~ debug_headers[0].ch1
     power_3v3.lv ~ debug_headers[0].gnd
 
     debug_i2c = new I2C
     cm5.i2cs[0] ~ debug_i2c
-    debug_i2c.scl ~ debug_headers[1].ch0
-    debug_i2c.sda ~ debug_headers[1].ch1
+    cm5.i2cs[0].scl ~ debug_headers[1].ch0
+    cm5.i2cs[0].sda ~ debug_headers[1].ch1
     power_3v3.lv ~ debug_headers[1].gnd
 
     debug_i2s = new I2S
@@ -136,3 +136,13 @@ module NONOS:
     debug_i2s.ws ~ debug_headers[2].ch1
     power_5v.hv ~ debug_headers[2].ch3.line
     power_3v3.lv ~ debug_headers[2].gnd
+
+    # Name ethernet diff pairs
+    cm5.cm5.ethernet.pairs[0].n.line.override_net_name = "eth0_N"
+    cm5.cm5.ethernet.pairs[0].p.line.override_net_name = "eth0_P"
+    cm5.cm5.ethernet.pairs[1].n.line.override_net_name = "eth1_N"
+    cm5.cm5.ethernet.pairs[1].p.line.override_net_name = "eth1_P"
+    cm5.cm5.ethernet.pairs[2].p.line.override_net_name = "eth2_P"
+    cm5.cm5.ethernet.pairs[2].n.line.override_net_name = "eth2_N"
+    cm5.cm5.ethernet.pairs[3].p.line.override_net_name = "eth3_P"
+    cm5.cm5.ethernet.pairs[3].n.line.override_net_name = "eth3_N"

@@ -1,0 +1,33 @@
+import USB2_0
+import ElectricPower
+import ElectricLogic
+
+from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
+
+
+module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver:
+    """
+    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
+    USB Connectors ROHS
+
+    Datasheet: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2301120930_HCTL-HC-TYPE-C-24P-VS9-3-5A-F1-1-04_C5342428.pdf
+    """
+
+    power_vbus = new ElectricPower
+    usb2 = new USB2_0
+    sbu = new ElectricLogic[2]
+    cc = new ElectricLogic[2]
+
+    connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
+
+    power_vbus.hv ~ connector.VBUS
+    power_vbus.lv ~ connector.GND
+    power_vbus.lv ~ connector.EH
+    usb2.usb_if.d.p.line ~ connector.DP1
+    usb2.usb_if.d.p.line ~ connector.DP2
+    usb2.usb_if.d.n.line ~ connector.DN1
+    usb2.usb_if.d.n.line ~ connector.DN2
+    sbu[0].line ~ connector.SBU2
+    sbu[1].line ~ connector.SBU1
+    cc[0].line ~ connector.CC1
+    cc[1].line ~ connector.CC2

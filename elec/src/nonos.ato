@@ -15,37 +15,9 @@ from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5
 from "atopile/adi-adau145x/adau145x.ato" import Analog_Devices_ADAU145x_driver
 from "atopile/ti-tlv75901/ti-tlv75901.ato" import TLV75901_driver
 
-from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
 from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
-
-
-module HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04:
-    """
-    5A USB 3.1 1 260℃ Standing paste 24P Female -30℃~+80℃ Gold Copper Alloy Type-C SMD
-    USB Connectors ROHS
-
-    Datasheet: https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2301120930_HCTL-HC-TYPE-C-24P-VS9-3-5A-F1-1-04_C5342428.pdf
-    """
-
-    power_vbus = new ElectricPower
-    usb2 = new USB2_0
-    sbu = new ElectricLogic[2]
-    cc = new ElectricLogic[2]
-
-    connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package
-
-    power_vbus.hv ~ connector.VBUS
-    power_vbus.lv ~ connector.GND
-    power_vbus.lv ~ connector.EH
-    usb2.usb_if.d.p.line ~ connector.DP1
-    usb2.usb_if.d.p.line ~ connector.DP2
-    usb2.usb_if.d.n.line ~ connector.DN1
-    usb2.usb_if.d.n.line ~ connector.DN2
-    sbu[0].line ~ connector.SBU2
-    sbu[1].line ~ connector.SBU1
-    cc[0].line ~ connector.CC1
-    cc[1].line ~ connector.CC2
+from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_Driver.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver
 
 
 module NONOS:
@@ -59,7 +31,7 @@ module NONOS:
     regulator_3v3 = new TLV75901_driver
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
     pd_controller = new STUSB4500
-    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver
     dsp = new Analog_Devices_ADAU145x_driver
 
     # Connectors
@@ -72,6 +44,10 @@ module NONOS:
     power_20v = new ElectricPower
     power_5v = new ElectricPower
     power_3v3 = new ElectricPower
+
+    # Specify voltages on power rails
+    power_5v.voltage = 5V +/- 5%
+    power_3v3.voltage = 3.3V +/- 5%
 
     # addressing
     pd_controller.i2c.address = 0x28 # Why is this here? Should be in package
@@ -121,8 +97,8 @@ module NONOS:
     board_to_board_connector.5 ~ power_3v3.gnd
     board_to_board_connector.4 ~ cm5.cm5.gpio[16].line # nfc.reset.line
     board_to_board_connector.3 ~ cm5.cm5.gpio[17].line # nfc.interrupt.line
-    board_to_board_connector.2 ~ cm5.cm5.gpio[18].line # touch.interrupt.line
-    board_to_board_connector.1 ~ cm5.cm5.gpio[19].line # led_data.line
+    board_to_board_connector.2 ~ cm5.cm5.gpio[22].line # touch.interrupt.line
+    board_to_board_connector.1 ~ cm5.cm5.gpio[23].line # led_data.line
 
     # dsp
     dsp.reset_disable ~ cm5.cm5.gpio[20]  # TODO: which pin?

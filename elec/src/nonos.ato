@@ -1,4 +1,5 @@
 #pragma experiment("BRIDGE_CONNECT")
+#pragma experiment("FOR_LOOP")
 
 import ElectricPower
 import ElectricLogic
@@ -6,6 +7,7 @@ import I2S
 import UART
 import I2C
 import USB2_0
+import Capacitor
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
@@ -18,6 +20,7 @@ from "atopile/ti-tlv75901/ti-tlv75901.ato" import TLV75901_driver
 from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
 from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_Driver.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver
+from "parts/Honor_Elec_RVT1H470M0607/Honor_Elec_RVT1H470M0607.ato" import Honor_Elec_RVT1H470M0607_package
 
 
 module NONOS:
@@ -45,6 +48,12 @@ module NONOS:
     power_5v = new ElectricPower
     power_3v3 = new ElectricPower
 
+    # Bulk capacitors for 20V rail
+    bulk_cap_20v = new Honor_Elec_RVT1H470M0607_package[4]
+    for bulk_cap in bulk_cap_20v:
+        power_20v.vcc ~ bulk_cap.1
+        power_20v.gnd ~ bulk_cap.2
+
     # Specify voltages on power rails
     power_5v.voltage = 5V +/- 5%
     power_3v3.voltage = 3.3V +/- 5%
@@ -53,11 +62,11 @@ module NONOS:
     pd_controller.i2c.address = 0x28 # Why is this here? Should be in package
 
     # substitute default pd_controller.usb_connector
-    pd_controller.usb_connector.exclude_from_bom = True
+    # pd_controller.usb_connector.exclude_from_bom = True # maybe useful for debugging
     usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
     usb_connector.cc[0] ~ pd_controller.pd_controller.cc1
     usb_connector.cc[1] ~ pd_controller.pd_controller.cc2
-    usb_connector.usb2 ~ pd_controller.usb2
+    # usb_connector.usb2 ~ pd_controller.usb2
     pd_controller.i2c ~ cm5.i2cs[0]
 
     # TOOD: make this work instead
@@ -77,8 +86,8 @@ module NONOS:
 
     # amplifier
     cm5.i2cs[0] ~ amplifier.i2c
-    cm5.cm5.gpio[3] ~ amplifier.mute
-    cm5.cm5.gpio[4] ~ amplifier.warn
+    cm5.cm5.gpio[24] ~ amplifier.mute
+    cm5.cm5.gpio[25] ~ amplifier.warn
     cm5.cm5.gpio[5] ~ amplifier.fault
     cm5.cm5.gpio[6] ~ amplifier.pdn
 
@@ -120,21 +129,21 @@ module NONOS:
     # debug headers
     debug_uart = new UART
     # cm5.uart0 ~ debug_uart
-    cm5.uart0.base_uart.tx ~ debug_headers[0].ch0
-    cm5.uart0.base_uart.rx ~ debug_headers[0].ch1
+    cm5.uart0.base_uart.tx ~ debug_headers[0].channels[0]
+    cm5.uart0.base_uart.rx ~ debug_headers[0].channels[1]
     power_3v3.lv ~ debug_headers[0].gnd
 
     debug_i2c = new I2C
-    cm5.i2cs[0] ~ debug_i2c
-    cm5.i2cs[0].scl ~ debug_headers[1].ch0
-    cm5.i2cs[0].sda ~ debug_headers[1].ch1
+    # cm5.i2cs[0] ~ debug_i2c
+    cm5.i2cs[0].scl ~ debug_headers[1].channels[0]
+    cm5.i2cs[0].sda ~ debug_headers[1].channels[1]
     power_3v3.lv ~ debug_headers[1].gnd
 
     debug_i2s = new I2S
     cm5_i2s ~ debug_i2s
-    debug_i2s.sck ~ debug_headers[2].ch0
-    debug_i2s.ws ~ debug_headers[2].ch1
-    power_5v.hv ~ debug_headers[2].ch3.line
+    debug_i2s.sck ~ debug_headers[2].channels[0]
+    debug_i2s.ws ~ debug_headers[2].channels[1]
+    power_5v.hv ~ debug_headers[2].channels[2].line
     power_3v3.lv ~ debug_headers[2].gnd
 
     # Name ethernet diff pairs
@@ -146,3 +155,38 @@ module NONOS:
     cm5.cm5.ethernet.pairs[2].n.line.override_net_name = "eth2_N"
     cm5.cm5.ethernet.pairs[3].p.line.override_net_name = "eth3_P"
     cm5.cm5.ethernet.pairs[3].n.line.override_net_name = "eth3_N"
+
+    # Net names
+    usb_connector.cc[0].line.override_net_name = "cc0"
+    usb_connector.cc[1].line.override_net_name = "cc1"
+    cm5.i2cs[0].scl.line.override_net_name = "i2c0_scl"
+    cm5.i2cs[0].sda.line.override_net_name = "i2c0_sda"
+    cm5.i2cs[1].scl.line.override_net_name = "i2c1_scl"
+    cm5.i2cs[1].sda.line.override_net_name = "i2c1_sda"
+    cm5_i2s.sck.line.override_net_name = "i2s_sck"
+    cm5_i2s.ws.line.override_net_name = "i2s_ws"
+    cm5_i2s.sd.line.override_net_name = "i2s_sd"
+    cm5.uart0.base_uart.tx.line.override_net_name = "uart0_tx"
+    cm5.uart0.base_uart.rx.line.override_net_name = "uart0_rx"
+    cm5.cm5.gpio[16].line.override_net_name = "nfc_reset"
+    cm5.cm5.gpio[17].line.override_net_name = "nfc_interrupt"
+    cm5.cm5.gpio[22].line.override_net_name = "touch_interrupt"
+    cm5.cm5.gpio[23].line.override_net_name = "led_data"
+    amplifier.mute.line.override_net_name = "amp_mute"
+    amplifier.warn.line.override_net_name = "amp_warn"
+    amplifier.fault.line.override_net_name = "amp_fault"
+    amplifier.pdn.line.override_net_name = "amp_pdn"
+    amplifier.i2s.sck.line.override_net_name = "amp_i2s_sck"
+    amplifier.i2s.ws.line.override_net_name = "amp_i2s_ws"
+    amplifier.i2s.sd.line.override_net_name = "amp_i2s_sd"
+    power_20v.vcc.override_net_name = "20v_vcc"
+    power_5v.vcc.override_net_name = "5v_vcc"
+    power_3v3.vcc.override_net_name = "3v3_vcc"
+    power_3v3.gnd.override_net_name = "gnd"
+    amplifier.output_a.p.line.override_net_name = "spkr_full_p"
+    amplifier.output_a.n.line.override_net_name = "spkr_full_n"
+    amplifier.output_b.p.line.override_net_name = "spkr_tweet_p"
+    amplifier.output_b.n.line.override_net_name = "spkr_tweet_n"
+    cm5.boot_mode_switch.input.line.override_net_name = "boot_mode"
+    cm5.power_button_switch.input.line.override_net_name = "power_button"
+    dsp.reset_disable.line.override_net_name = "dsp_reset_disable"

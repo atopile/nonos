@@ -14,7 +14,7 @@ dependencies:
     release: 0.1.3
   - type: registry
     identifier: atopile/saleae-header
-    release: 0.1.2
+    release: 0.1.3
   - type: registry
     identifier: atopile/st-stusb4500
     release: 0.1.3
@@ -23,7 +23,7 @@ dependencies:
     release: 0.1.4
   - type: registry
     identifier: atopile/adi-adau145x
-    release: 0.1.1
+    release: 0.1.2
   - type: registry
     identifier: atopile/ti-tlv75901
     release: 0.1.2

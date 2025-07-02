@@ -441,4 +441,18 @@
         (options "")
         (descr "atopile: part lib: FH_0603B151K500NT")
     )
+    (lib
+        (name "Honor_Elec_RVT1H101M0810")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/Honor_Elec_RVT1H101M0810")
+        (options "")
+        (descr "atopile: part lib: Honor_Elec_RVT1H101M0810")
+    )
+    (lib
+        (name "Honor_Elec_RVT1H470M0607")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/Honor_Elec_RVT1H470M0607")
+        (options "")
+        (descr "atopile: part lib: Honor_Elec_RVT1H470M0607")
+    )
 )

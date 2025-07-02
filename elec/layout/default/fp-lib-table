@@ -448,4 +448,11 @@
         (options "")
         (descr "atopile: part lib: Honor_Elec_RVT1H470M0607")
     )
+    (lib
+        (name "UNI_ROYAL_0603WAF1002T5E")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/UNI_ROYAL_0603WAF1002T5E")
+        (options "")
+        (descr "atopile: part lib: UNI_ROYAL_0603WAF1002T5E")
+    )
 )

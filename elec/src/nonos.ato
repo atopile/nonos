@@ -8,6 +8,7 @@ import UART
 import I2C
 import USB2_0
 import Capacitor
+import Resistor
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
@@ -131,6 +132,8 @@ module NONOS:
     # cm5.uart0 ~ debug_uart
     cm5.uart0.base_uart.tx ~ debug_headers[0].channels[0]
     cm5.uart0.base_uart.rx ~ debug_headers[0].channels[1]
+    power_5v.hv ~ debug_headers[0].channels[2].line
+    power_3v3.hv ~ debug_headers[0].channels[3].line
     power_3v3.lv ~ debug_headers[0].gnd
 
     debug_i2c = new I2C
@@ -143,8 +146,18 @@ module NONOS:
     cm5_i2s ~ debug_i2s
     debug_i2s.sck ~ debug_headers[2].channels[0]
     debug_i2s.ws ~ debug_headers[2].channels[1]
-    power_5v.hv ~ debug_headers[2].channels[2].line
+    debug_i2s.sd ~ debug_headers[2].channels[2]
     power_3v3.lv ~ debug_headers[2].gnd
+
+    # ADAU Addressing
+    addr_resistors = new Resistor[2]
+    dsp.model.i2c_address_bits[0].line ~> addr_resistors[0] ~> power_3v3.vcc
+    dsp.model.i2c_address_bits[1].line ~> addr_resistors[1] ~> power_3v3.vcc
+    # dsp.model.i2c.address = 0x3B
+    for resistor in addr_resistors:
+        resistor.value = 10kohm +/- 1%
+        resistor.package = "0402"
+
 
     # Name ethernet diff pairs
     cm5.cm5.ethernet.pairs[0].n.line.override_net_name = "eth0_N"

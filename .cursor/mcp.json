@@ -4,7 +4,8 @@
             "command": "/Users/narayanpowderly/projects/atopile/.venv/bin/ato",
             "args": [
                 "mcp",
-                "start"
+                "start",
+                "--no-http"
             ],
             "env": {}
         }

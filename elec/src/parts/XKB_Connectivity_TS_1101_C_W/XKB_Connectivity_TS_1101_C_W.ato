@@ -7,7 +7,7 @@ import is_auto_generated
 component XKB_Connectivity_TS_1101_C_W_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C318938", date="2025-06-28T22:42:40.740538+00:00", checksum="9db3a989d833432351b4a15c7ead2cc4bea83e83466254df2e6002a8cd2f99a2">
+    # trait is_auto_generated<system="ato_part", source="easyeda:C318938", date="2025-06-28T22:42:40.740538+00:00", checksum="9db3a989d833432351b4a15c7ead2cc4bea83e83466254df2e6002a8cd2f99a2">
 
     trait is_atomic_part<manufacturer="XKB Connectivity", partnumber="TS-1101-C-W", footprint="SW-SMD_L6.0-W3.3-LS8.0.kicad_mod", symbol="TS-1101-C-W.kicad_sym", model="SW-SMD_L6.0-W3.3-H5-LS8.0.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C318938", manufacturer="XKB Connectivity", partno="TS-1101-C-W">

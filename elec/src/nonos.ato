@@ -140,6 +140,7 @@ module NONOS:
     # cm5.i2cs[0] ~ debug_i2c
     cm5.i2cs[0].scl ~ debug_headers[1].channels[0]
     cm5.i2cs[0].sda ~ debug_headers[1].channels[1]
+    cm5.cm5.hdi_a.pins[17] ~ debug_headers[1].channels[2] # Ethernet sync_out
     power_3v3.lv ~ debug_headers[1].gnd
 
     debug_i2s = new I2S
@@ -153,7 +154,7 @@ module NONOS:
     addr_resistors = new Resistor[2]
     dsp.model.i2c_address_bits[0].line ~> addr_resistors[0] ~> power_3v3.vcc
     dsp.model.i2c_address_bits[1].line ~> addr_resistors[1] ~> power_3v3.vcc
-    # dsp.model.i2c.address = 0x3B
+    # dsp.model.i2c.address = 0x3B # seems to be broken :(
     for resistor in addr_resistors:
         resistor.value = 10kohm +/- 1%
         resistor.package = "0402"
@@ -203,3 +204,4 @@ module NONOS:
     cm5.boot_mode_switch.input.line.override_net_name = "boot_mode"
     cm5.power_button_switch.input.line.override_net_name = "power_button"
     dsp.reset_disable.line.override_net_name = "dsp_reset_disable"
+    cm5.cm5.hdi_a.pins[17].override_net_name = "eth_sync_out"

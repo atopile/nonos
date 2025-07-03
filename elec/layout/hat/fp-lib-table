@@ -413,4 +413,18 @@
         (options "")
         (descr "atopile: part lib: STMicroelectronics_STUSB4500QTR")
     )
+    (lib
+        (name "Samsung_Electro_Mechanics_CL21A226MQQNNNE")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/Samsung_Electro_Mechanics_CL21A226MQQNNNE")
+        (options "")
+        (descr "atopile: part lib: Samsung_Electro_Mechanics_CL21A226MQQNNNE")
+    )
+    (lib
+        (name "UNI_ROYAL_0402WGF5102TCE")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/UNI_ROYAL_0402WGF5102TCE")
+        (options "")
+        (descr "atopile: part lib: UNI_ROYAL_0402WGF5102TCE")
+    )
 )

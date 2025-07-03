@@ -140,7 +140,7 @@ module NONOS:
     # cm5.i2cs[0] ~ debug_i2c
     cm5.i2cs[0].scl ~ debug_headers[1].channels[0]
     cm5.i2cs[0].sda ~ debug_headers[1].channels[1]
-    cm5.cm5.hdi_a.pins[17] ~ debug_headers[1].channels[2] # Ethernet sync_out
+    cm5.cm5.hdi_a.pins[17] ~ debug_headers[1].channels[2].line # Ethernet sync_out
     power_3v3.lv ~ debug_headers[1].gnd
 
     debug_i2s = new I2S

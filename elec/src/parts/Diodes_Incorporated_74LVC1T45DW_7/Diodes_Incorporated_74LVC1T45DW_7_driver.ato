@@ -1,0 +1,51 @@
+#pragma experiment("TRAITS")
+#pragma experiment("FOR_LOOP")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+import ElectricPower
+import ElectricLogic
+import Capacitor
+
+from "can_bridge_by_name.py" import can_bridge_by_name
+from "Diodes_Incorporated_74LVC1T45DW_7.ato" import Diodes_Incorporated_74LVC1T45DW_7_package
+
+module Diodes_Incorporated_74LVC1T45DW_7_driver:
+    """Level shifter"""
+
+    package = new Diodes_Incorporated_74LVC1T45DW_7_package
+
+    power_a = new ElectricPower
+    power_b = new ElectricPower
+    for power in [power_a, power_b]:
+        power.voltage = 1.65V to 5.5V
+
+    power_a.vcc ~ package.VCCA
+    power_b.vcc ~ package.VCCB
+    power_a.gnd ~ package.GND
+    power_b.gnd ~ package.GND
+
+    caps = new Capacitor[2]
+    for cap in caps:
+        cap.capacitance = 100nF +/- 10%
+        cap.package = "C0402"
+
+    caps[0].power ~ power_a
+    caps[1].power ~ power_b
+
+    signal_a = new ElectricLogic
+    signal_b = new ElectricLogic
+    dir = new ElectricLogic
+
+    signal_a.line ~ package.A
+    signal_b.line ~ package.B
+    dir.line ~ package.DIR
+
+    signal_a.reference ~ power_a
+    signal_b.reference ~ power_b
+
+    dir.line ~ power_a.vcc # A -> B
+    # dir.line ~ power_b.gnd # B -> A
+
+    trait can_bridge_by_name<input_name="signal_a", output_name="signal_b">

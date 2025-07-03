@@ -1,0 +1,133 @@
+(kicad_symbol_lib
+    (version 1)
+    (generator "faebryk")
+    (symbol "B02B-XASK-1-A(LF)(SN)"
+        (property "Reference" "U"
+            (id 0)
+            (at 0 5.08 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide no)
+            )
+        )
+        (property "Value" "B02B-XASK-1-A(LF)(SN)"
+            (id 1)
+            (at 0 -7.62 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide no)
+            )
+        )
+        (property "Footprint" "C265077:CONN-TH_B02B-XASK-1-A-LF-SN"
+            (id 2)
+            (at 0 -10.16 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "Datasheet" "https://lcsc.com/product-detail/Others_JST-Sales-America_B02B-XASK-1-A-LF-SN_JST-Sales-America-B02B-XASK-1-A-LF-SN_C265077.html"
+            (id 3)
+            (at 0 -12.7 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "LCSC Part" "C265077"
+            (id 5)
+            (at 0 -15.24 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "checksum" "f39a6517f42639bb7c64ae0ea8cbff71a06937767c9b1f19d81d0c0f4f2ca546"
+            (at 0 0 0)
+            (effects
+                (font
+                    (size 0 0)
+                )
+                (hide yes)
+            )
+        )
+        (in_bom yes)
+        (on_board yes)
+        (symbol "B02B-XASK-1-A(LF)(SN)_0_1"
+            (circle
+                (center -1.27 1.27)
+                (end -0.89 1.27)
+                (stroke
+                    (width 0)
+                    (type default)
+                    (color 0 0 0 0)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (rectangle
+                (start -2.54 2.54)
+                (end 7.62 -5.08)
+                (stroke
+                    (width 0)
+                    (type default)
+                    (color 0 0 0 0)
+                )
+                (fill
+                    (type background)
+                )
+            )
+            (pin unspecified line
+                (at -5.08 0 0)
+                (length 2.54)
+                (name "1"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "1"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -2.54 0)
+                (length 2.54)
+                (name "2"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "2"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+        )
+    )
+)

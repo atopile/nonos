@@ -1,0 +1,323 @@
+(kicad_symbol_lib
+    (version 1)
+    (generator "faebryk")
+    (symbol "1-2328702-0"
+        (property "Reference" "FPC"
+            (id 0)
+            (at 0 21.59 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide no)
+            )
+        )
+        (property "Value" "1-2328702-0"
+            (id 1)
+            (at 0 -21.59 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide no)
+            )
+        )
+        (property "Footprint" "C3167956:FPC-SMD_10P-P0.50_HDGC_0.5K-HX-10PWB"
+            (id 2)
+            (at 0 -24.13 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "LCSC Part" "C3167956"
+            (id 5)
+            (at 0 -26.67 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "checksum" "74ef3feeb326e5c243c4e5801b859f353df4f78baa73ab14d0ff6963dd25449f"
+            (at 0 0 0)
+            (effects
+                (font
+                    (size 0 0)
+                )
+                (hide yes)
+            )
+        )
+        (in_bom yes)
+        (on_board yes)
+        (symbol "1-2328702-0_0_1"
+            (circle
+                (center -1.27 12.7)
+                (end -0.89 12.7)
+                (stroke
+                    (width 0)
+                    (type default)
+                    (color 0 0 0 0)
+                )
+                (fill
+                    (type none)
+                )
+            )
+            (rectangle
+                (start -2.54 13.97)
+                (end 3.81 -13.97)
+                (stroke
+                    (width 0)
+                    (type default)
+                    (color 0 0 0 0)
+                )
+                (fill
+                    (type background)
+                )
+            )
+            (pin unspecified line
+                (at -5.08 11.43 0)
+                (length 2.54)
+                (name "1"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "1"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 8.89 0)
+                (length 2.54)
+                (name "2"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "2"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 6.35 0)
+                (length 2.54)
+                (name "3"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "3"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 3.81 0)
+                (length 2.54)
+                (name "4"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "4"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 1.27 0)
+                (length 2.54)
+                (name "5"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "5"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -1.27 0)
+                (length 2.54)
+                (name "6"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "6"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -3.81 0)
+                (length 2.54)
+                (name "7"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "7"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -6.35 0)
+                (length 2.54)
+                (name "8"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "8"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -8.89 0)
+                (length 2.54)
+                (name "9"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "9"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at -5.08 -11.43 0)
+                (length 2.54)
+                (name "10"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "10"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at 2.54 -16.51 90)
+                (length 2.54)
+                (name "11"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "11"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin unspecified line
+                (at 2.54 16.51 270)
+                (length 2.54)
+                (name "12"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "12"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+        )
+    )
+)

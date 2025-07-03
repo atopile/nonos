@@ -1,18 +1,11 @@
 (fp_lib_table
     (version 7)
     (lib
-        (name "lib")
+        (name "JST_Sales_America_B02B_XASK_1_A_LF__SN")
         (type "KiCad")
-        (uri "${KIPRJMOD}/../../../build/footprints/footprints.pretty")
+        (uri "${KIPRJMOD}/../../src/parts/JST_Sales_America_B02B_XASK_1_A_LF__SN")
         (options "")
-        (descr "")
-    )
-    (lib
-        (name "lcsc")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../../build/kicad/libs/footprints/lcsc.pretty")
-        (options "")
-        (descr "atopile: project LCSC footprints")
+        (descr "atopile: part lib: JST_Sales_America_B02B_XASK_1_A_LF__SN")
     )
     (lib
         (name "TE_Connectivity_1_2328702_0")
@@ -22,11 +15,11 @@
         (descr "atopile: part lib: TE_Connectivity_1_2328702_0")
     )
     (lib
-        (name "JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (name "Samsung_Electro_Mechanics_CL05B104KO5NNNC")
         (type "KiCad")
-        (uri "${KIPRJMOD}/../../src/parts/JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (uri "${KIPRJMOD}/../../src/parts/Samsung_Electro_Mechanics_CL05B104KO5NNNC")
         (options "")
-        (descr "atopile: part lib: JST_Sales_America_B02B_XASK_1_A_LF__SN")
+        (descr "atopile: part lib: Samsung_Electro_Mechanics_CL05B104KO5NNNC")
     )
     (lib
         (name "HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
@@ -34,13 +27,6 @@
         (uri "${KIPRJMOD}/../../src/parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
         (options "")
         (descr "atopile: part lib: HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04")
-    )
-    (lib
-        (name "Samsung_Electro_Mechanics_CL05B104KO5NNNC")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../src/parts/Samsung_Electro_Mechanics_CL05B104KO5NNNC")
-        (options "")
-        (descr "atopile: part lib: Samsung_Electro_Mechanics_CL05B104KO5NNNC")
     )
     (lib
         (name "YAGEO_CC0402JRNPO9BN200")
@@ -139,5 +125,12 @@
         (uri "${KIPRJMOD}/../../src/parts/Diodes_Incorporated_74LVC1T45DW_7")
         (options "")
         (descr "atopile: part lib: Diodes_Incorporated_74LVC1T45DW_7")
+    )
+    (lib
+        (name "UNI_ROYAL_0402WGF1003TCE")
+        (type "KiCad")
+        (uri "${KIPRJMOD}/../../src/parts/UNI_ROYAL_0402WGF1003TCE")
+        (options "")
+        (descr "atopile: part lib: UNI_ROYAL_0402WGF1003TCE")
     )
 )

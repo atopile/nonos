@@ -1,32 +1,32 @@
-requires-atopile: ^0.6.0
+requires-atopile: ^0.10.3
 builds:
-  default:
-    entry: elec/src/nonos.ato:NONOS
-  #pd_controller:
-  #  entry: elec/src/pd_controller/pd_controller.py:PDController
-  amplifier:
-    entry:
-      elec/src/amplifier/Texas_Instruments_TAS5825MRHBR.py:Texas_Instruments_TAS5825MRHBR
-  #regulator:
-  #  entry: elec/src/power_supply/Texas_Instruments_TPS56637RPAR.py:Texas_Instruments_TPS56637RPAR
-  nfc:
-    entry:
-      elec/src/hat_board/nfc/NXP_Semicon_PN5321A3HN_C106_51.py:NXP_Semicon_PN5321A3HN_C106_51
-  capacitive-sensor:
-    entry:
-      elec/src/hat_board/capacitive_sensor/microchip_tech_cap11881cptr.py:Microchip_Tech_CAP1188_1_CP_TR
-  hat_board:
-    entry: elec/src/hat_board/hat_board.py:HatBoard
+  # default:
+  #   entry: elec/src/nonos.ato:NONOS
+  hat:
+    entry: elec/src/hat.ato:Hat
+
 dependencies:
-- type: registry
-  identifier: atopile/rpi-cm5
-  release: 0.1.0
-- type: registry
-  identifier: atopile/ti-tps54560x
-  release: 0.1.1
-- type: registry
-  identifier: atopile/saleae-header
-  release: 0.1.0
-- type: registry
-  identifier: atopile/st-stusb4500
-  release: 0.1.0
+  - type: registry
+    identifier: atopile/nxp-pn5321
+    release: 0.1.0
+  - type: registry
+    identifier: atopile/ti-tas5825mrhbr
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/addressable-leds
+    release: 0.2.3
+  - type: registry
+    identifier: atopile/st-stusb4500
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/saleae-header
+    release: 0.1.2
+  - type: registry
+    identifier: atopile/ti-tps54560x
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/rpi-cm5
+    release: 0.1.3
+  - type: registry
+    identifier: atopile/microchip-cap1188
+    release: 0.1.1

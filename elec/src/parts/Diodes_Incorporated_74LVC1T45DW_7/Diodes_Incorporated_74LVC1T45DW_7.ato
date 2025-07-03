@@ -1,0 +1,23 @@
+#pragma experiment("TRAITS")
+#pragma experiment("FOR_LOOP")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Diodes_Incorporated_74LVC1T45DW_7_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C168855", date="2025-06-28T03:14:37.957076+00:00", checksum="1c69b89785474a0de379148e5314146963369937918322b99d9d0b35f7b6a179">
+
+    trait is_atomic_part<manufacturer="Diodes Incorporated", partnumber="74LVC1T45DW-7", footprint="SC-70-6_L2.2-W1.3-P0.65-LS2.1-BR.kicad_mod", symbol="74LVC1T45DW-7.kicad_sym", model="SC-70-6_L2.0-W1.3-H1.0-P0.65.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C168855", manufacturer="Diodes Incorporated", partno="74LVC1T45DW-7">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal A ~ pin 3
+    signal B ~ pin 4
+    signal DIR ~ pin 5
+    signal GND ~ pin 2
+    signal VCCA ~ pin 1
+    signal VCCB ~ pin 6

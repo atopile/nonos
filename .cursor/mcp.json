@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "atopile": {
+            "command": "/Users/narayanpowderly/projects/atopile/.venv/bin/ato",
+            "args": [
+                "mcp",
+                "start"
+            ],
+            "env": {}
+        }
+    }
+}

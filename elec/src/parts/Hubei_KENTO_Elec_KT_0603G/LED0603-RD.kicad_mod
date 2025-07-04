@@ -9,7 +9,7 @@
         (at 0 -4 0)
         (layer "F.SilkS")
         (hide no)
-        (uuid "1c88cf38-241f-40bc-a752-0cea8be7fa71")
+        (uuid "e3c8b680-d4bc-486f-a8d7-a43c4ad38ddb")
         (effects
             (font
                 (size 1 1)
@@ -21,7 +21,7 @@
         (at 0 4 0)
         (layer "F.Fab")
         (hide no)
-        (uuid "5bf93d3b-e2dd-4ea7-b2e1-16b020347315")
+        (uuid "b77c86c0-d928-4741-8f38-63ce8d72af67")
         (effects
             (font
                 (size 1 1)
@@ -29,11 +29,11 @@
             )
         )
     )
-    (property "checksum" "9c83e02e5e6fe87ad17706d8c4e58b7ad8a11d1a12d64adae48920b306da042d"
+    (property "checksum" "0877f0cf90d7c0c26542c2fc8527127a9faee933f8c8d862c7008b77725b037b"
         (at 0 0 0)
         (layer "User.9")
         (hide no)
-        (uuid "cf38cc36-90c1-44fb-8cb9-9ef9e446dc73")
+        (uuid "3d2f951c-f9ac-423a-98d5-d1ef821929e3")
         (effects
             (font
                 (size 0.125 0.125)
@@ -51,7 +51,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "f6015974-bcea-45dd-a951-c20bd70f527c")
+        (uuid "818fe253-6e29-495e-b2df-908e4219d14f")
     )
     (fp_line
         (start 0.21 0.33)
@@ -61,7 +61,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "00a54ef5-150c-45c5-abb2-7c7d023e5d9f")
+        (uuid "65856d6e-6663-49ce-aa66-2bb84bcbae31")
     )
     (fp_line
         (start 0.22 -0.35)
@@ -71,7 +71,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "fa7b0ec0-5252-4091-a732-36f3594ef381")
+        (uuid "b6ec9a97-893a-4c38-a197-6fc35bc3d0d1")
     )
     (fp_line
         (start 0.22 -0.34)
@@ -81,7 +81,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "a457e0e1-69e4-4e68-8283-0809ccddf8d2")
+        (uuid "ee449b4e-bb5b-48ae-8252-25c88e1f575c")
     )
     (fp_line
         (start 0.22 -0.35)
@@ -91,7 +91,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "d3ae9662-2d17-46dd-bd8e-3be0a7c3a95e")
+        (uuid "eebd3c2d-591f-46b2-9cbe-ba6c7a16e454")
     )
     (fp_line
         (start 0.24 -0.75)
@@ -101,7 +101,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "5d8daa3d-4e00-4873-9071-e5d10a093278")
+        (uuid "2289267d-74d7-4a79-8d7e-be36df87435f")
     )
     (fp_line
         (start 0.24 0.75)
@@ -111,7 +111,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "e690e8d0-d56d-428b-bfc7-3e3b076a4918")
+        (uuid "fb14ce3d-80f7-4059-bb20-f40848f99988")
     )
     (fp_line
         (start 1.39 -0.75)
@@ -121,7 +121,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "4058a0ca-cb83-4b83-88fa-9f79428b9aaa")
+        (uuid "62c963a9-0f04-419e-b7a4-ff4eaa150d50")
     )
     (fp_line
         (start -0.14 0.75)
@@ -131,7 +131,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "b78909ce-231b-48b4-8288-59614a864a03")
+        (uuid "fb1a67e7-e862-45a3-a28e-c119fd4d526b")
     )
     (fp_line
         (start -1.49 0.35)
@@ -141,7 +141,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "998e1fa0-613f-4776-949b-3e68bdcd5efa")
+        (uuid "4370f14c-f21b-4bc1-9561-abaf99d1f890")
     )
     (fp_line
         (start -1.49 0.45)
@@ -151,7 +151,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "43aa65b7-c751-43bf-b2c8-fc36b1849e08")
+        (uuid "fb21d7d3-275b-4958-9ae4-b834e9205fb5")
     )
     (fp_line
         (start -1.49 -0.35)
@@ -161,7 +161,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "dadc079b-e278-43f1-aa3c-13ac09192fe0")
+        (uuid "af5e898a-5d6e-4f7b-9a46-b53d8f40a1c6")
     )
     (fp_line
         (start -1.49 -0.35)
@@ -171,7 +171,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "193a3928-0a4d-470e-9f1c-8026b54f046b")
+        (uuid "fa28b58e-fd44-442c-a0e0-08a986b75611")
     )
     (fp_line
         (start -1.49 -0.45)
@@ -181,7 +181,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "973187e6-e572-4ed4-82a8-3b9b21ae60a5")
+        (uuid "fe765e60-7a53-45ab-ab85-3b5ac7e7a348")
     )
     (fp_line
         (start -0.14 -0.75)
@@ -191,7 +191,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "02dac75f-e031-48c9-9f30-c21914022a31")
+        (uuid "d2aea062-73b6-47ed-a21d-63c8cb2e7b54")
     )
     (fp_line
         (start 0.22 0)
@@ -201,7 +201,7 @@
             (type solid)
         )
         (layer "F.SilkS")
-        (uuid "cf67ac85-3e6d-4242-8dc2-ffb31e4941c4")
+        (uuid "fc52993e-6551-4399-9d9e-71cfb9a2e854")
     )
     (fp_circle
         (center -0.8 0.4)
@@ -212,12 +212,12 @@
         )
         (fill no)
         (layer "F.Fab")
-        (uuid "681dbe25-57b9-4e07-bedc-1d5991117d9e")
+        (uuid "4e74ecea-5489-4143-a044-3fd864215c73")
     )
     (fp_text user "%R"
         (at 0 0 0)
         (layer "F.Fab")
-        (uuid "b55ed991-d812-42fb-b48d-719a929ec0c4")
+        (uuid "0344844b-383b-4c61-b668-1f050692b5ee")
         (effects
             (font
                 (size 1 1)
@@ -229,7 +229,7 @@
     (fp_text user "${REFERENCE}"
         (at 0 -4 0)
         (layer "F.SilkS")
-        (uuid "1c88cf38-241f-40bc-a752-0cea8be7fa71")
+        (uuid "e3c8b680-d4bc-486f-a8d7-a43c4ad38ddb")
         (effects
             (font
                 (size 1 1)
@@ -242,13 +242,13 @@
         (at 0.8 0 90)
         (size 0.8 0.8)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "7ab3ad93-6af0-456a-899c-44dde15a2706")
+        (uuid "67d4f0d0-f1a9-4d75-8b82-d33f8acf0bcb")
     )
     (pad "1" smd rect
         (at -0.8 0 90)
         (size 0.8 0.8)
         (layers "F.Cu" "F.Paste" "F.Mask")
-        (uuid "393a4baf-a1e4-4b7b-9d57-5c024f70a44c")
+        (uuid "47318ecc-8170-4efc-aebb-77f88200dacf")
     )
     (model "${KIPRJMOD}/../../src/parts/Hubei_KENTO_Elec_KT_0603G/LED0603-RD-YELLOW.STEP"
         (offset

@@ -1,5 +1,4 @@
 #pragma experiment("TRAITS")
-import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -10,12 +9,11 @@ component Samsung_Electro_Mechanics_CL05A105KA5NQNC_package:
 
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C52923", date="2025-07-04T19:15:51.673204+00:00", checksum="89af30f96aba843f300da094923702997e8508ae3bad19c0e86121ebd72167b9">
+    trait is_auto_generated<system="ato_part", source="easyeda:C52923", date="2025-07-04T19:30:22.324153+00:00", checksum="7e08d35e6d1918b4e41000f763d3944612f461bafe11a718373e03845fb661b7">
 
     trait is_atomic_part<manufacturer="Samsung Electro-Mechanics", partnumber="CL05A105KA5NQNC", footprint="C0402.kicad_mod", symbol="CL05A105KA5NQNC.kicad_sym", model="C0402_L1.0-W0.5-H0.5.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C52923", manufacturer="Samsung Electro-Mechanics", partno="CL05A105KA5NQNC">
     trait has_designator_prefix<prefix="C">
-    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL05A105KA5NQNC_C52923.pdf">
 
     # pins
     pin 1

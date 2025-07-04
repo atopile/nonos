@@ -1,5 +1,4 @@
 #pragma experiment("TRAITS")
-import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -8,12 +7,11 @@ import is_auto_generated
 component HANRUN_HR911130A_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C54408", date="2025-07-04T19:16:38.343384+00:00", checksum="fdc6cc3f598f25f51a54ded2f6cf4e5614a7241675ac5d56c69a144371f348cb">
+    trait is_auto_generated<system="ato_part", source="easyeda:C54408", date="2025-07-04T19:30:34.393666+00:00", checksum="a2a4e9f1bff5c180ed3eadbb4308d87cb3f6dbe180f125f96ae9de6ad9ebfa85">
 
     trait is_atomic_part<manufacturer="HANRUN", partnumber="HR911130A", footprint="RJ45-TH_HR911130A.kicad_mod", symbol="HR911130A.kicad_sym", model="RJ45-TH_HR911130A.STEP">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C54408", manufacturer="HANRUN", partno="HR911130A">
     trait has_designator_prefix<prefix="RJ">
-    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2411121131_HANRUN-Zhongshan-HanRun-Elec-HR911130A_C54408.pdf">
 
     # pins
     pin 14

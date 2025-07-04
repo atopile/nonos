@@ -1,5 +1,4 @@
 #pragma experiment("TRAITS")
-import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -8,12 +7,11 @@ import is_auto_generated
 component Murata_Electronics_GRM21BR61H106KE43L_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C440198", date="2025-07-04T19:15:52.471498+00:00", checksum="834d5fa9a7d1d8ee62e94507b7defcec045b141d44e0aa277668b43eabcb9653">
+    trait is_auto_generated<system="ato_part", source="easyeda:C440198", date="2025-07-04T19:30:27.173442+00:00", checksum="da550d964082ae1d4d46ea2b562d8ea59ae16243b1e62831bf32838380d5e692">
 
     trait is_atomic_part<manufacturer="Murata Electronics", partnumber="GRM21BR61H106KE43L", footprint="C0805.kicad_mod", symbol="GRM21BR61H106KE43L.kicad_sym", model="C0805_L2.0-W1.3-H1.3.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C440198", manufacturer="Murata Electronics", partno="GRM21BR61H106KE43L">
     trait has_designator_prefix<prefix="C">
-    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2411041759_Murata-Electronics-GRM21BR61H106KE43L_C440198.pdf">
 
     # pins
     pin 1

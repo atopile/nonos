@@ -1,5 +1,4 @@
 #pragma experiment("TRAITS")
-import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -8,12 +7,11 @@ import is_auto_generated
 component cjiang_FXL0630_100_M_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C167223", date="2025-07-04T19:15:55.144994+00:00", checksum="8431ee530bc2f62d88bc1fabc948892cf138881cb48db429ef0c9c1541ec5abd">
+    trait is_auto_generated<system="ato_part", source="easyeda:C167223", date="2025-07-04T19:30:31.257332+00:00", checksum="18b9ee3e92f29531386cb26ce73d7ff6812ab96c609d1bf9b667b96510906f87">
 
     trait is_atomic_part<manufacturer="cjiang", partnumber="FXL0630-100-M", footprint="IND-SMD_L7.3-W6.8.kicad_mod", symbol="FXL0630-100-M.kicad_sym", model="IND-SMD_L7.3-W6.8-H3.0.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C167223", manufacturer="cjiang", partno="FXL0630-100-M">
     trait has_designator_prefix<prefix="L">
-    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2504210940_cjiang--Changjiang-Microelectronics-Tech-FXL0630-100-M_C167223.pdf">
 
     # pins
     pin 2

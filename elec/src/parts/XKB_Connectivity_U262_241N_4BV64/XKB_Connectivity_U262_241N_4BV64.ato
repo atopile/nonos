@@ -1,4 +1,5 @@
 #pragma experiment("TRAITS")
+import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -7,11 +8,12 @@ import is_auto_generated
 component XKB_Connectivity_U262_241N_4BV64_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C388660", date="2025-06-28T22:42:49.017845+00:00", checksum="fae7ce2b18a01aa5b0a677300cdc573239e41f56def5d641bddce43e45921f60">
+    trait is_auto_generated<system="ato_part", source="easyeda:C388660", date="2025-07-04T19:16:18.362173+00:00", checksum="d2a018683bdb3eeba1ebd84df86ee86c2fcb7bb5ae2e3e96d98e4b8281ee5c9a">
 
     trait is_atomic_part<manufacturer="XKB Connectivity", partnumber="U262-241N-4BV64", footprint="USB-C-SMD_TYC-324G.kicad_mod", symbol="U262-241N-4BV64.kicad_sym", model="USB-C-SMD_TYC-324G.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C388660", manufacturer="XKB Connectivity", partno="U262-241N-4BV64">
     trait has_designator_prefix<prefix="USB">
+    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2410010130_XKB-Connection-U262-241N-4BV64_C388660.pdf">
 
     # pins
     pin 1

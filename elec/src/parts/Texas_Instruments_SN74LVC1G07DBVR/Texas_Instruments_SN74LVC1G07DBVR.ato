@@ -1,4 +1,5 @@
 #pragma experiment("TRAITS")
+import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -7,11 +8,12 @@ import is_auto_generated
 component Texas_Instruments_SN74LVC1G07DBVR_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C7829", date="2025-06-28T22:42:43.697755+00:00", checksum="6ca631c39a3094987ffc29baf126aed6baced3d9a667cba3abdb2cf5ddd24e3c">
+    trait is_auto_generated<system="ato_part", source="easyeda:C7829", date="2025-07-04T19:16:23.290833+00:00", checksum="94f3a3f705a021962e6d56351847e537b1e18680145afbabd9a9e4054a2e7dd8">
 
     trait is_atomic_part<manufacturer="Texas Instruments", partnumber="SN74LVC1G07DBVR", footprint="SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR.kicad_mod", symbol="SN74LVC1G07DBVR.kicad_sym", model="SOT-23-5_L2.9-W1.6-H1.1-LS2.8-P0.95.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C7829", manufacturer="Texas Instruments", partno="SN74LVC1G07DBVR">
     trait has_designator_prefix<prefix="U">
+    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2410121952_Texas-Instruments-SN74LVC1G07DBVR_C7829.pdf">
 
     # pins
     signal A ~ pin 2

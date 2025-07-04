@@ -1,4 +1,5 @@
 #pragma experiment("TRAITS")
+import has_datasheet_defined
 import has_designator_prefix
 import has_part_picked
 import is_atomic_part
@@ -7,11 +8,12 @@ import is_auto_generated
 component YAGEO_CC0805KKX7R9BB684_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C107133", date="2025-06-28T22:43:30.533963+00:00", checksum="049026f3b7f35aa9a84bb1965c8ae5e11f96c83facad0a406634bce5891e7b91">
+    trait is_auto_generated<system="ato_part", source="easyeda:C107133", date="2025-07-04T19:15:58.099192+00:00", checksum="5775da88acbc1296d3d033542e49ac84b342465f162343d5668f381a5e6a5315">
 
     trait is_atomic_part<manufacturer="YAGEO", partnumber="CC0805KKX7R9BB684", footprint="C0805.kicad_mod", symbol="CC0805KKX7R9BB684.kicad_sym", model="C0805_L2.0-W1.3-H1.3.step">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C107133", manufacturer="YAGEO", partno="CC0805KKX7R9BB684">
     trait has_designator_prefix<prefix="C">
+    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2506131735_YAGEO-CC0805KKX7R9BB684_C107133.pdf">
 
     # pins
     pin 1

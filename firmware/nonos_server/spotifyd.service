@@ -1,0 +1,20 @@
+[Unit]
+Description=Spotifyd
+After=network.target vncserver.service
+Wants=network.target
+Requires=vncserver.service
+
+[Service]
+Type=simple
+User=atopile
+WorkingDirectory=/home/atopile/
+ExecStart=/home/atopile/spotifyd --no-daemon
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+Environment="DISPLAY=:0"
+
+[Install]
+WantedBy=multi-user.target

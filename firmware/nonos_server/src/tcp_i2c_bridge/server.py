@@ -2,6 +2,7 @@
 
 import asyncio
 import socket
+import time
 import traceback
 from pathlib import Path
 
@@ -54,14 +55,23 @@ class TCPClientHandler:
             while True:
                 # Read more data from client
                 data = await self.reader.read(4096)
+                now = time.perf_counter_ns()
                 if not data:
                     break
 
                 self.buffer += data
 
+                data_len = len(self.buffer)
+
                 # Process all complete packets in buffer
                 while await self._process_packet():
                     pass
+
+                logger.info(
+                    "Processed packet: took %0.2f ms, %d bytes",
+                    (time.perf_counter_ns() - now) / 1000000,
+                    data_len,
+                )
 
         except Exception as e:
             logger.error("Client handler error", client=self.client_id, error=str(e))
@@ -151,7 +161,7 @@ class TCPClientHandler:
 
         # Remove processed data from buffer
         self.buffer = remaining_buffer
-        return True
+        return bool(self.buffer)
 
     async def _handle_read_request(self, request: NetworkRead.Request) -> None:
         """Handle I2C read request."""
@@ -183,7 +193,7 @@ class TCPClientHandler:
             self.writer.write(response_data)
             await self.writer.drain()
 
-            logger.info(
+            logger.debug(
                 "Read request completed",
                 client=self.client_id,
                 addr=f"0x{request.Address:04X}",
@@ -238,7 +248,7 @@ class TCPClientHandler:
                 request.Data,
             )
 
-            logger.info(
+            logger.debug(
                 "Write request completed",
                 client=self.client_id,
                 addr=f"0x{request.Address:04X}",

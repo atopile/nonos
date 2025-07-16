@@ -8,6 +8,46 @@ from rich.console import Console
 from rich.logging import RichHandler
 
 
+class CustomConsoleRenderer:
+    """
+    Renders log entries to the console with a custom format.
+    - Timestamp
+    - Single-letter log level
+    - Padded event message
+    - Key-value pairs
+    """
+
+    def __init__(self, pad_event: int = 30):
+        self._pad_event = pad_event
+
+    def __call__(self, _, __, event_dict: dict) -> str:
+        # ts = event_dict.pop("timestamp", "")
+        level = event_dict.pop("level", "")
+        if level:
+            level = level[0].upper()
+        event = str(event_dict.pop("event", ""))
+
+        exception = event_dict.pop("exception", None)
+        stack = event_dict.pop("stack", None)
+
+        # Event padding
+        event = event.ljust(self._pad_event)
+
+        # Key-value pairs
+        kv_str = " ".join(f"{k}={v}" for k, v in sorted(event_dict.items()))
+
+        log_line = f"{level} {event}"
+        if kv_str:
+            log_line += f" {kv_str}"
+
+        if stack:
+            log_line += f"\n{stack}"
+        if exception:
+            log_line += f"\n{exception}"
+
+        return log_line
+
+
 def setup_logging(
     log_level: str = "INFO", log_file: Path | None = None, json_logs: bool = False
 ) -> None:
@@ -45,11 +85,7 @@ def setup_logging(
     if json_logs:
         processors.append(structlog.processors.JSONRenderer())
     else:
-        processors.append(
-            structlog.dev.ConsoleRenderer(
-                colors=True, exception_formatter=structlog.dev.rich_traceback
-            )
-        )
+        processors.append(CustomConsoleRenderer())
 
     structlog.configure(
         processors=processors,

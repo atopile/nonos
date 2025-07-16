@@ -8,9 +8,11 @@ dtoverlay=googlevoicehat-soundcard
 dtparam=i2s=on
 
 #dtparam=audio=on
+dtoverlay=vc4-kms-v3d,noaudio
 ```
 
 /etc/asound.conf
+only needed if no pipewire
 
 ```
 options snd_rpi_googlemihat_soundcard index=0
@@ -106,3 +108,5 @@ sudo systemctl start i2c_bridge.service
 # write nvm and reboot (done by next line)
 python nonos_server/src/audio_server/stusb4500.py
 ```
+
+TO change PD settings use STSW-STUSB002. See https://github.com/usb-c/STUSB4500.

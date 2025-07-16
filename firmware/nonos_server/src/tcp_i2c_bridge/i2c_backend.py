@@ -31,7 +31,7 @@ class I2CBackend(ABC):
 class SMBusI2CBackend(I2CBackend):
     """I2C backend using SMBus/I2C-dev interface."""
 
-    def __init__(self, i2c_bus: int, device_addr: int):
+    def __init__(self, i2c_bus: int | smbus2.SMBus, device_addr: int):
         """Initialize SMBus I2C backend.
 
         Args:
@@ -46,21 +46,26 @@ class SMBusI2CBackend(I2CBackend):
         if not (0 <= device_addr <= 0x7F):
             raise ValueError(f"Invalid I2C device address: 0x{device_addr:02X}")
 
-        # Check if I2C device exists
-        i2c_dev_path = Path(f"/dev/i2c-{i2c_bus}")
-        if not i2c_dev_path.exists():
-            raise FileNotFoundError(f"I2C device not found: {i2c_dev_path}")
+        if isinstance(i2c_bus, int):
+            # Check if I2C device exists
+            i2c_dev_path = Path(f"/dev/i2c-{i2c_bus}")
+            if not i2c_dev_path.exists():
+                raise FileNotFoundError(f"I2C device not found: {i2c_dev_path}")
 
-        self._connect()
+            self._connect()
+        else:
+            self.bus = i2c_bus
+
         logger.info(
             "I2C backend initialized",
             bus=i2c_bus,
             device_addr=f"0x{device_addr:02X}",
-            device_path=str(i2c_dev_path),
+            device_path=str(i2c_dev_path) if isinstance(i2c_bus, int) else None,
         )
 
     def _connect(self) -> None:
         """Connect to I2C bus."""
+        assert isinstance(self.i2c_bus, int)
         try:
             self.bus = smbus2.SMBus(self.i2c_bus)
         except Exception as e:

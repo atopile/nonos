@@ -1,85 +1,207 @@
+#pragma experiment("BRIDGE_CONNECT")
+#pragma experiment("FOR_LOOP")
+
 import ElectricPower
+import ElectricLogic
+import I2S
+import UART
+import I2C
+import USB2_0
+import Capacitor
+import Resistor
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
 from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
 from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
+from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
+from "atopile/adi-adau145x/adau145x.ato" import Analog_Devices_ADAU145x_driver
+from "atopile/ti-tlv75901/ti-tlv75901.ato" import TLV75901_driver
 
-from "amplifier/Texas_Instruments_TAS5825MRHBR.py" import Texas_Instruments_TAS5825MRHBR
-from "components/hctl_hc_type_c24p_vs935a_f1104.py" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
-from "hat_board/TE_Connectivity_1_2328702_0.py" import BoardToBoardConnectorInverted
-from "components/js_tsales_america_b02b_xa_sk1al_fsn.py" import JST_Sales_America_B02B_XASK_1_ALFSN
+from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
+from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
+from "parts/HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04/HCTL_HC_TYPE_C_24P_Driver.ato" import HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver
+from "parts/Honor_Elec_RVT1H470M0607/Honor_Elec_RVT1H470M0607.ato" import Honor_Elec_RVT1H470M0607_package
+
 
 module NONOS:
+    """
+    An opensource sonos era 100 clone
+    """
+
+    # Components
     cm5 = new CM5
     regulator_5v = new TPS54560x
-    amplifier = new Texas_Instruments_TAS5825MRHBR
+    regulator_3v3 = new TLV75901_driver
+    amplifier = new Texas_Instruments_TAS5825MRHBR_driver
     pd_controller = new STUSB4500
-    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
+    usb_connector = new HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_driver
+    dsp = new Analog_Devices_ADAU145x_driver
 
-    board_to_board_connector = new BoardToBoardConnectorInverted
-    full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
-    tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_ALFSN
+    # Connectors
+    board_to_board_connector = new TE_Connectivity_1_2328702_0_package
+    full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
+    tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
+    debug_headers = new SaleaeHeader[3]
 
+    # Power rails
     power_20v = new ElectricPower
     power_5v = new ElectricPower
     power_3v3 = new ElectricPower
 
-    debug_headers = new SaleaeHeader[3]
+    # Bulk capacitors for 20V rail
+    bulk_cap_20v = new Honor_Elec_RVT1H470M0607_package[4]
+    for bulk_cap in bulk_cap_20v:
+        power_20v.vcc ~ bulk_cap.1
+        power_20v.gnd ~ bulk_cap.2
+
+    # Specify voltages on power rails
+    power_5v.voltage = 5V +/- 5%
+    power_3v3.voltage = 3.3V +/- 5%
 
     # addressing
-    pd_controller.i2c.address = 0x28
+    pd_controller.i2c.address = 0x28 # Why is this here? Should be in package
 
     # substitute default pd_controller.usb_connector
-    pd_controller.usb_connector.exclude_from_bom = True
+    # pd_controller.usb_connector.exclude_from_bom = True # maybe useful for debugging
     usb_connector.power_vbus ~ pd_controller.pd_controller.power_vbus
-    usb_connector.cc[0] ~ pd_controller.pd_controller.cc1.line
-    usb_connector.cc[1] ~ pd_controller.pd_controller.cc2.line
-    usb_connector.usb2 ~ pd_controller.usb2
-    pd_controller.i2c ~ cm5.i2c0
+    usb_connector.cc[0] ~ pd_controller.pd_controller.cc1
+    usb_connector.cc[1] ~ pd_controller.pd_controller.cc2
+    # usb_connector.usb2 ~ pd_controller.usb2
+    pd_controller.i2c ~ cm5.i2cs[0]
 
     # TOOD: make this work instead
     # pd_controller.usb_connector -> HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04
 
-    # power
+    # Power supply connections
     pd_controller.power_out ~ power_20v
-    regulator_5v.power_in ~ power_20v
-    regulator_5v.power_out ~ power_5v
+    power_20v ~> regulator_5v ~> power_5v
+    power_5v ~> regulator_3v3 ~> power_3v3
+
+    # Power for devices
     power_5v ~ cm5.power_5v
+    power_3v3 ~ dsp.power
     power_3v3 ~ pd_controller.power_mcu
-    cm5.power_3v3 ~ power_3v3  # onboard regulator can provide 3v3
+    power_20v ~ amplifier.power_pvdd
+    power_3v3 ~ amplifier.power_dvdd
 
     # amplifier
-    amplifier.power_pvdd ~ power_20v
-    amplifier.power_dvdd ~ power_3v3
-    cm5.i2c0 ~ amplifier.i2c
-    cm5.cm5.gpio[3] ~ amplifier.mute
-    cm5.cm5.gpio[4] ~ amplifier.warn
+    cm5.i2cs[0] ~ amplifier.i2c
+    cm5.cm5.gpio[24] ~ amplifier.mute
+    cm5.cm5.gpio[25] ~ amplifier.warn
     cm5.cm5.gpio[5] ~ amplifier.fault
     cm5.cm5.gpio[6] ~ amplifier.pdn
 
+    # speaker outputs
+    amplifier.output_a.p.line ~ full_range_speaker_connector.1
+    amplifier.output_a.n.line ~ full_range_speaker_connector.2
+    amplifier.output_b.p.line ~ tweeter_speaker_connector.2
+    amplifier.output_b.n.line ~ tweeter_speaker_connector.1
+
+    # Hat Connector - Inverted pinout (relative to hat)
+    board_to_board_connector.10 ~ cm5.i2cs[1].sda.line
+    board_to_board_connector.9 ~ cm5.i2cs[1].scl.line
+    board_to_board_connector.8 ~ power_5v.vcc
+    board_to_board_connector.7 ~ power_5v.gnd
+    board_to_board_connector.6 ~ power_3v3.vcc
+    board_to_board_connector.5 ~ power_3v3.gnd
+    board_to_board_connector.4 ~ cm5.cm5.gpio[16].line # nfc.reset.line
+    board_to_board_connector.3 ~ cm5.cm5.gpio[17].line # nfc.interrupt.line
+    board_to_board_connector.2 ~ cm5.cm5.gpio[22].line # touch.interrupt.line
+    board_to_board_connector.1 ~ cm5.cm5.gpio[23].line # led_data.line
+
+    # dsp
+    dsp.reset_disable ~ cm5.cm5.gpio[20]  # TODO: which pin?
+    dsp.model.i2c ~ cm5.i2cs[0]
+
+    # workaround for incorrect .required in dsp package
+    _pll_mclk = new ElectricLogic
+    dsp.pll_mclk ~ _pll_mclk
+
     # TODO: review
     # TODO: cm5 I2S interface
-    cm5.cm5.gpio[18] ~ amplifier.i2s.sck
-    cm5.cm5.gpio[19] ~ amplifier.i2s.ws
-    cm5.cm5.gpio[21] ~ amplifier.i2s.sd
+    cm5_i2s = new I2S
+    cm5_i2s.sck ~ cm5.cm5.gpio[18]
+    cm5_i2s.ws ~ cm5.cm5.gpio[19]
+    cm5_i2s.sd ~ cm5.cm5.gpio[21]
+    cm5_i2s ~ dsp.model.i2s_ins[0]
+    dsp.model.i2s_outs[0] ~ amplifier.i2s
+
+    # debug headers
+    debug_uart = new UART
+    # cm5.uart0 ~ debug_uart
+    cm5.uart0.base_uart.tx ~ debug_headers[0].channels[0]
+    cm5.uart0.base_uart.rx ~ debug_headers[0].channels[1]
+    power_5v.hv ~ debug_headers[0].channels[2].line
+    power_3v3.hv ~ debug_headers[0].channels[3].line
+    power_3v3.lv ~ debug_headers[0].gnd
+
+    debug_i2c = new I2C
+    # cm5.i2cs[0] ~ debug_i2c
+    cm5.i2cs[0].scl ~ debug_headers[1].channels[0]
+    cm5.i2cs[0].sda ~ debug_headers[1].channels[1]
+    cm5.cm5.hdi_a.pins[17] ~ debug_headers[1].channels[2].line # Ethernet sync_out
+    power_3v3.lv ~ debug_headers[1].gnd
+
+    debug_i2s = new I2S
+    cm5_i2s ~ debug_i2s
+    debug_i2s.sck ~ debug_headers[2].channels[0]
+    debug_i2s.ws ~ debug_headers[2].channels[1]
+    debug_i2s.sd ~ debug_headers[2].channels[2]
+    power_3v3.lv ~ debug_headers[2].gnd
+
+    # ADAU Addressing
+    addr_resistors = new Resistor[2]
+    dsp.model.i2c_address_bits[0].line ~> addr_resistors[0] ~> power_3v3.vcc
+    dsp.model.i2c_address_bits[1].line ~> addr_resistors[1] ~> power_3v3.vcc
+    # dsp.model.i2c.address = 0x3B # seems to be broken :(
+    for resistor in addr_resistors:
+        resistor.value = 10kohm +/- 1%
+        resistor.package = "0402"
 
 
+    # Name ethernet diff pairs
+    cm5.cm5.ethernet.pairs[0].n.line.override_net_name = "eth0_N"
+    cm5.cm5.ethernet.pairs[0].p.line.override_net_name = "eth0_P"
+    cm5.cm5.ethernet.pairs[1].n.line.override_net_name = "eth1_N"
+    cm5.cm5.ethernet.pairs[1].p.line.override_net_name = "eth1_P"
+    cm5.cm5.ethernet.pairs[2].p.line.override_net_name = "eth2_P"
+    cm5.cm5.ethernet.pairs[2].n.line.override_net_name = "eth2_N"
+    cm5.cm5.ethernet.pairs[3].p.line.override_net_name = "eth3_P"
+    cm5.cm5.ethernet.pairs[3].n.line.override_net_name = "eth3_N"
 
-    # # infix operators with list literals don't work super nicely
-    # [amplifier.output_a.p.signal, amplifier.output_a.n.signal] ~ [full_range_speaker_connector.unnamed[0], full_range_speaker_connector.unnamed[1]]
-    # [amplifier.output_b.p.signal, amplifier.output_b.n.signal] ~ [tweeter_speaker_connector.unnamed[0], tweeter_speaker_connector.unnamed[1]]
-
-    # # hat board
-    # board_to_board_connector.i2c ~ cm5.i2c
-    # board_to_board_connector.power_3v3 ~ power_3v3
-    # board_to_board_connector.power_5v ~ power_5v
-
-    # # address selectors? e.g. with list of attrs
-    # cm5.gpio[4:8] ~ board_to_board_connector.[hat_reset, hat_nfc_irq, hat_touch_irq, hat_led_data]
-
-    # # debug headers
-    # [cm5.uart_tx, cm5.uart_rx] ~ debug_headers[0].pins[0, 1]
-    # [cm5.i2c.scl, cm5.i2c.sda] ~ debug_headers[0].pins[2, 3]
-    # [cm5.i2s.sck, cm5.i2s.ws, cm5.i2s.sd] ~ debug_headers[1].pins[0, 1, 2]
-    # power_5v.hv ~ debug_headers[1].pins[3].signal
+    # Net names
+    usb_connector.cc[0].line.override_net_name = "cc0"
+    usb_connector.cc[1].line.override_net_name = "cc1"
+    cm5.i2cs[0].scl.line.override_net_name = "i2c0_scl"
+    cm5.i2cs[0].sda.line.override_net_name = "i2c0_sda"
+    cm5.i2cs[1].scl.line.override_net_name = "i2c1_scl"
+    cm5.i2cs[1].sda.line.override_net_name = "i2c1_sda"
+    cm5_i2s.sck.line.override_net_name = "i2s_sck"
+    cm5_i2s.ws.line.override_net_name = "i2s_ws"
+    cm5_i2s.sd.line.override_net_name = "i2s_sd"
+    cm5.uart0.base_uart.tx.line.override_net_name = "uart0_tx"
+    cm5.uart0.base_uart.rx.line.override_net_name = "uart0_rx"
+    cm5.cm5.gpio[16].line.override_net_name = "nfc_reset"
+    cm5.cm5.gpio[17].line.override_net_name = "nfc_interrupt"
+    cm5.cm5.gpio[22].line.override_net_name = "touch_interrupt"
+    cm5.cm5.gpio[23].line.override_net_name = "led_data"
+    amplifier.mute.line.override_net_name = "amp_mute"
+    amplifier.warn.line.override_net_name = "amp_warn"
+    amplifier.fault.line.override_net_name = "amp_fault"
+    amplifier.pdn.line.override_net_name = "amp_pdn"
+    amplifier.i2s.sck.line.override_net_name = "amp_i2s_sck"
+    amplifier.i2s.ws.line.override_net_name = "amp_i2s_ws"
+    amplifier.i2s.sd.line.override_net_name = "amp_i2s_sd"
+    power_20v.vcc.override_net_name = "20v_vcc"
+    power_5v.vcc.override_net_name = "5v_vcc"
+    power_3v3.vcc.override_net_name = "3v3_vcc"
+    power_3v3.gnd.override_net_name = "gnd"
+    amplifier.output_a.p.line.override_net_name = "spkr_full_p"
+    amplifier.output_a.n.line.override_net_name = "spkr_full_n"
+    amplifier.output_b.p.line.override_net_name = "spkr_tweet_p"
+    amplifier.output_b.n.line.override_net_name = "spkr_tweet_n"
+    cm5.boot_mode_switch.input.line.override_net_name = "boot_mode"
+    cm5.power_button_switch.input.line.override_net_name = "power_button"
+    dsp.reset_disable.line.override_net_name = "dsp_reset_disable"
+    cm5.cm5.hdi_a.pins[17].override_net_name = "eth_sync_out"

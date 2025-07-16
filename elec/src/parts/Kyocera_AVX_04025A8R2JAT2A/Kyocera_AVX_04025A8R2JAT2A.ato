@@ -1,0 +1,18 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Kyocera_AVX_04025A8R2JAT2A_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C2180688", date="2025-06-28T22:43:38.137621+00:00", checksum="de26a3de4aaba7e9dc3b455710d53e74b0b59136456772d830765db7294437cc">
+
+    trait is_atomic_part<manufacturer="Kyocera AVX", partnumber="04025A8R2JAT2A", footprint="C0402.kicad_mod", symbol="04025A8R2JAT2A.kicad_sym", model="C0402_L1.0-W0.5-H0.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C2180688", manufacturer="Kyocera AVX", partno="04025A8R2JAT2A">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    pin 1
+    pin 2

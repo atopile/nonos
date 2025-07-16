@@ -1,0 +1,208 @@
+(footprint "Murata_Electronics_GRM188R6YA475KE15D:C0603"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "77a9cd36-c909-4762-b17b-b62b875e132e")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "C0603"
+        (at 0 4 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "ac48db8a-f29e-44ab-a2cf-cf55cc657183")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "6707c31bef9d3eb4c9af472bab43f58f17620edf2ec32830966915d2fc4a38c2"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "b0caf6ba-1f2a-495f-9269-a97129372483")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start -0.28 0.71)
+        (end -1.08 0.71)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "52204de8-8768-4713-bada-790b9620bf42")
+    )
+    (fp_line
+        (start 0.28 0.71)
+        (end 1.08 0.71)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "c8c279c9-0371-4da2-9016-dff6e0c2a4f7")
+    )
+    (fp_line
+        (start -0.28 -0.71)
+        (end -1.08 -0.71)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "7d94495b-4c9f-478c-866f-833aedc56255")
+    )
+    (fp_line
+        (start 0.28 -0.71)
+        (end 1.08 -0.71)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "60608aab-b20b-44b5-93ce-832738c2500f")
+    )
+    (fp_line
+        (start -1.39 0.4)
+        (end -1.39 -0.4)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "97acc39d-f8a2-426a-a197-e4d823db3e71")
+    )
+    (fp_line
+        (start 1.39 -0.4)
+        (end 1.39 0.4)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "f0c9ea53-7da4-41f1-9aa9-46c84ac8bb35")
+    )
+    (fp_arc
+        (start 1.39 -0.4)
+        (mid 1.2992031021678296 -0.6192031021678296)
+        (end 1.08 -0.7099999999999999)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "ac23f150-d110-4d76-bce8-3fcca2a85def")
+    )
+    (fp_arc
+        (start 1.08 0.71)
+        (mid 1.2992031021678296 0.6192031021678297)
+        (end 1.3900000000000001 0.4)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "11f65bbb-4d49-463b-bfab-dd83305f5d5a")
+    )
+    (fp_arc
+        (start -1.39 0.4)
+        (mid -1.2992031021678296 0.6192031021678296)
+        (end -1.08 0.7099999999999999)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "8cff59a8-28b3-419e-80e8-2b18f5a7ccea")
+    )
+    (fp_arc
+        (start -1.08 -0.71)
+        (mid -1.2992031021678296 -0.6192031021678297)
+        (end -1.3900000000000001 -0.4)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "883f5370-697f-4d4d-a303-4a0aa7e50456")
+    )
+    (fp_circle
+        (center -0.8 0.4)
+        (end -0.77 0.4)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "7eecafdd-381c-4393-9169-d87d64b16b40")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "0ba037e1-b6af-489b-82d9-8cc116bf3a23")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (uuid "77a9cd36-c909-4762-b17b-b62b875e132e")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "2" smd rect
+        (at 0.7 0 0)
+        (size 0.8 0.9)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "d5cea452-2daf-42b8-8332-915f7aa55bf8")
+    )
+    (pad "1" smd rect
+        (at -0.7 0 0)
+        (size 0.8 0.9)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "b0e70a1d-8587-4a20-ae95-8d54c91d206d")
+    )
+    (model "${KIPRJMOD}/../../src/parts/Murata_Electronics_GRM188R6YA475KE15D/C0603_L1.6-W0.8-H0.8.step"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 0)
+        )
+    )
+)

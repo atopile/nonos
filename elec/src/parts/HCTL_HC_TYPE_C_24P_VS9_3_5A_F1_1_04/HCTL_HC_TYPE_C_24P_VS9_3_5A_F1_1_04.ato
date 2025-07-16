@@ -7,7 +7,7 @@ import is_auto_generated
 component HCTL_HC_TYPE_C_24P_VS9_3_5A_F1_1_04_package:
     # This trait marks this file as auto-generated
     # If you want to manually change it, remove the trait
-    trait is_auto_generated<system="ato_part", source="easyeda:C5342428", date="2025-06-28T01:48:50.354469+00:00", checksum="4121cedbd108eb5f6353baa16eb852ce8a89bb67f251f12c9373c33e5eae44e9">
+    trait is_auto_generated<system="ato_part", source="easyeda:C5342428", date="2025-06-28T03:58:31.136623+00:00", checksum="b5ed04dcdee31a9439c3062de022c1d646930a5d1de086da8d5180679fa800b1">
 
     trait is_atomic_part<manufacturer="HCTL", partnumber="HC-TYPE-C-24P-VS9.3-5A-F1.1-04", footprint="USB-C-SMD_HC-TYPE-C-24P-VS9.3-5A-F1.1-04.kicad_mod", symbol="HC-TYPE-C-24P-VS9.3-5A-F1.1-04.kicad_sym">
     trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C5342428", manufacturer="HCTL", partno="HC-TYPE-C-24P-VS9.3-5A-F1.1-04">

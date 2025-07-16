@@ -1,0 +1,23 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_TLV75901PDRVR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C544759", date="2025-06-28T22:42:49.511227+00:00", checksum="f2b53e4fc8fa2372841f46b2391afecb48907286f9d4366d73d964658faa64ee">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TLV75901PDRVR", footprint="WSON-6_L2.0-W2.0-P0.65-TL-EP.kicad_mod", symbol="TLV75901PDRVR.kicad_sym", model="WSON-6_L2.0-W2.0-H0.8-P0.65.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C544759", manufacturer="Texas Instruments", partno="TLV75901PDRVR">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal DNC ~ pin 5
+    signal EN ~ pin 4
+    signal EP ~ pin 7
+    signal FB ~ pin 2
+    signal GND ~ pin 3
+    signal IN ~ pin 6
+    signal OUT ~ pin 1

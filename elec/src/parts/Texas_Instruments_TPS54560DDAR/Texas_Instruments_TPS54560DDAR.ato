@@ -1,0 +1,25 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Texas_Instruments_TPS54560DDAR_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    # trait is_auto_generated<system="ato_part", source="easyeda:C31966", date="2025-06-28T22:42:50.513750+00:00", checksum="00f6a0d8e681b882f250d8d86dd4cf72617c574cc3bc952fc5edd408e8d96148">
+
+    trait is_atomic_part<manufacturer="Texas Instruments", partnumber="TPS54560DDAR", footprint="SOIC-8_L5.0-W4.0-P1.27-LS6.0-BL-EP2.0.kicad_mod", symbol="TPS54560DDAR.kicad_sym", model="SOIC-8_L4.9-W3.9-H1.7-LS6.0-P1.27.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C31966", manufacturer="Texas Instruments", partno="TPS54560DDAR">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal BOOT ~ pin 1
+    signal COMP ~ pin 6
+    signal EN ~ pin 3
+    signal EP ~ pin 9
+    signal FB ~ pin 5
+    signal GND ~ pin 7
+    signal RT_CLK ~ pin 4
+    signal SW ~ pin 8
+    signal VIN ~ pin 2

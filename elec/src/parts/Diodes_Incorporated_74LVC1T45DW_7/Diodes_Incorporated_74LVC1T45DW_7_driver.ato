@@ -7,8 +7,8 @@ import is_auto_generated
 import ElectricPower
 import ElectricLogic
 import Capacitor
+import can_bridge_by_name
 
-from "can_bridge_by_name.py" import can_bridge_by_name
 from "Diodes_Incorporated_74LVC1T45DW_7.ato" import Diodes_Incorporated_74LVC1T45DW_7_package
 
 module Diodes_Incorporated_74LVC1T45DW_7_driver:

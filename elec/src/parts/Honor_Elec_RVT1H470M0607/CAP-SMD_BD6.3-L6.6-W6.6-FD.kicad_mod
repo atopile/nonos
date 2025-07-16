@@ -1,0 +1,184 @@
+(footprint "Honor_Elec_RVT1H470M0607:CAP-SMD_BD6.3-L6.6-W6.6-FD"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "3b136fd2-be35-4761-b90a-5817dd57b055")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "CAP-SMD_BD6.3-L6.6-W6.6-FD"
+        (at 0 4 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "c0928213-8004-4aca-a170-cb5acba87d80")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "405320b210acc44eecbe0907b938a7ea08c49965394bd1ff70c3b519dbf7bece"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "feb481d9-6b2c-4402-ae13-c1b2929c3835")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start 3.36 0.74)
+        (end 3.38 3.38)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "e0a099f8-02e8-45d3-8d63-7248aaaa303b")
+    )
+    (fp_line
+        (start 3.38 3.38)
+        (end -1.98 3.38)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "56568f1a-5e85-4ab2-8c8c-44b3e45eae0b")
+    )
+    (fp_line
+        (start -1.98 3.38)
+        (end -3.38 1.98)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "f2e5473a-c32d-4c68-a907-39ad5354e6c0")
+    )
+    (fp_line
+        (start -3.38 1.98)
+        (end -3.36 0.69)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "fade23ba-f7cf-45db-9821-1eda56d00c96")
+    )
+    (fp_line
+        (start 3.37 -0.71)
+        (end 3.38 -3.38)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "73f011c8-6d6b-4378-b5b5-02dc83be6c09")
+    )
+    (fp_line
+        (start 3.38 -3.38)
+        (end -1.98 -3.38)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "22e9bf6d-a003-43a2-be55-e4714f877302")
+    )
+    (fp_line
+        (start -1.98 -3.38)
+        (end -3.38 -1.98)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "0f41819f-116b-48ee-ae97-8720ae686798")
+    )
+    (fp_line
+        (start -3.38 -1.98)
+        (end -3.38 -0.69)
+        (stroke
+            (width 0.15)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "b5d2cd41-60cf-4f3b-84bc-d6835a004e83")
+    )
+    (fp_circle
+        (center -3.63 3.3)
+        (end -3.6 3.3)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "c0b3b5fb-838a-4deb-a651-add67b1bac7f")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "3b14ba0e-35b7-4206-ad62-20b6e45059bd")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4 0)
+        (layer "F.SilkS")
+        (uuid "3b136fd2-be35-4761-b90a-5817dd57b055")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "1" smd rect
+        (at -2.67 0 0)
+        (size 3.5 1.2)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "04213db0-f4a1-4c2d-a92e-b8cbd27f2669")
+    )
+    (pad "2" smd rect
+        (at 2.67 0 0)
+        (size 3.5 1.2)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "3a55d454-3ce8-4844-b403-83c41053a0a4")
+    )
+    (model "${KIPRJMOD}/../../src/parts/Honor_Elec_RVT1H470M0607/CAP-SMD_BD6.3-L6.6-W6.6-FD.step"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 180)
+        )
+    )
+)

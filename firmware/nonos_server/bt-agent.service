@@ -1,0 +1,17 @@
+[Unit]
+Description=Bluetooth Agent
+Requires=bluetooth.service
+After=bluetooth.service
+
+[Service]
+ExecStartPre=/usr/bin/bluetoothctl discoverable on
+ExecStartPre=/usr/bin/bluetoothctl pairable on
+ExecStartPre=/bin/hciconfig hci0 piscan
+ExecStartPre=/bin/hciconfig hci0 sspmode 1
+ExecStart=/usr/bin/python /home/atopile/nonos_server/src/audio_server/bt-agent.py
+RestartSec=5
+Restart=always
+KillSignal=SIGUSR1
+
+[Install]
+WantedBy=multi-user.target

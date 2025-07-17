@@ -1,7 +1,7 @@
 [Unit]
 Description=Spotifyd
-After=network.target vncserver.service
-Wants=network.target
+After=network.target vncserver.service pipewire.service
+Wants=network.target pipewire.socket
 Requires=vncserver.service
 
 [Service]
@@ -13,8 +13,8 @@ Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
-
 Environment="DISPLAY=:0"
+Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
 WantedBy=multi-user.target

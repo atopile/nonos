@@ -1,7 +1,7 @@
 [Unit]
 Description=Shairplay
-After=network.target
-Wants=network.target
+After=network.target pipewire.service
+Wants=network.target pipewire.socket
 
 [Service]
 Type=simple
@@ -12,6 +12,7 @@ Restart=always
 RestartSec=10
 StandardOutput=journal
 StandardError=journal
+Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
 WantedBy=multi-user.target

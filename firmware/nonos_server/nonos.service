@@ -1,7 +1,7 @@
 [Unit]
 Description=Nonos Service
-After=network.target
-Wants=network.target
+After=network.target pipewire.service
+Wants=network.target pipewire.socket
 
 [Service]
 Type=oneshot
@@ -12,6 +12,7 @@ ExecStart=/home/atopile/nonos_server/.venv_pi/bin/python src/audio_server/main.p
 #RestartSec=10
 StandardOutput=journal
 StandardError=journal
+Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
 WantedBy=multi-user.target

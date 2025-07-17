@@ -2,7 +2,7 @@
 set -e
 
 DIR=$(dirname $0)
-ENABLE="y"
+ENABLE="n"
 RESTART="n"
 
 for i in $DIR/*.service; do

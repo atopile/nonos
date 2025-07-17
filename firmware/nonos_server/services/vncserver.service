@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=forking
-User=atopile
+#User=atopile
 ExecStart=/usr/bin/vncserver :0 -localhost no
 ExecStop=/usr/bin/vncserver -kill :0
 Restart=always

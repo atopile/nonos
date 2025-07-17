@@ -5,7 +5,7 @@ Wants=network.target
 
 [Service]
 Type=simple
-User=atopile
+#User=atopile
 WorkingDirectory=/home/atopile/nonos_server
 ExecStart=/home/atopile/nonos_server/.venv_pi/bin/python src/tcp_i2c_bridge/main.py i2c 0 0x3b
 Restart=always
@@ -14,4 +14,4 @@ StandardOutput=journal
 StandardError=journal
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

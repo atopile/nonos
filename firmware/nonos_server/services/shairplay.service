@@ -5,7 +5,7 @@ Wants=network.target pipewire.socket
 
 [Service]
 Type=simple
-User=atopile
+#User=atopile
 WorkingDirectory=/home/atopile/shairplay
 ExecStart=/usr/local/bin/shairplay
 Restart=always
@@ -15,4 +15,4 @@ StandardError=journal
 Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

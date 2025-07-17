@@ -6,7 +6,7 @@ Requires=vncserver.service
 
 [Service]
 Type=simple
-User=atopile
+#User=atopile
 WorkingDirectory=/home/atopile/
 ExecStart=/home/atopile/spotifyd --no-daemon
 Restart=always
@@ -17,4 +17,4 @@ Environment="DISPLAY=:0"
 Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

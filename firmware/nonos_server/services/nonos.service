@@ -5,7 +5,7 @@ Wants=network.target pipewire.socket
 
 [Service]
 Type=oneshot
-User=atopile
+#User=atopile
 WorkingDirectory=/home/atopile/nonos_server
 ExecStart=/home/atopile/nonos_server/.venv_pi/bin/python src/audio_server/main.py
 #Restart=always
@@ -15,5 +15,5 @@ StandardError=journal
 Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 

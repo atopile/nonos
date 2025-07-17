@@ -69,6 +69,10 @@ TODO
 speaker-test -Dasymed -c2 -t sine -f 1000 -F S32_LE
 ```
 
+# Broken
+
+- bluetooth only works after login with ssh
+
 # NOTES
 
 - want usb bt dongle

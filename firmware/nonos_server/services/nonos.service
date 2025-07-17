@@ -10,6 +10,7 @@ WorkingDirectory=/home/atopile/nonos_server
 ExecStart=/home/atopile/nonos_server/.venv_pi/bin/python src/audio_server/main.py
 #Restart=always
 #RestartSec=10
+Restart=no
 StandardOutput=journal
 StandardError=journal
 Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"

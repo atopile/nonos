@@ -1,15 +1,14 @@
 import subprocess
+import time
 from pathlib import Path
 
 from audio_server.processing.model import (
-    EQ,
     Graph,
     Highpass,
     Limiter,
     Lowpass,
     MidSide,
     MultibandEQ,
-    Valve,
     make_chain,
 )
 
@@ -17,8 +16,6 @@ from audio_server.processing.model import (
 
 
 def setup_filter_chain():
-    CROSSOVER_FREQ = 1500
-
     SOLO = [
         True,
         True,
@@ -27,58 +24,91 @@ def setup_filter_chain():
     eqs = [
         MultibandEQ(
             name=f"masterEQ_{c}",
-            gain_50hz=10.0,
-            gain_100hz=3.0,
-            gain_156hz=-6.0,
-            gain_220hz=-6.0,
-            gain_311hz=-6.0,
-            gain_440hz=-6.0,
-            gain_622hz=-6.0,
-            gain_880hz=-6.0,
-            gain_1250hz=-6.0,
-            gain_1750hz=-3.0,
-            gain_2500hz=-3.0,
-            gain_3500hz=0.0,
-            gain_5000hz=0.0,
-            gain_10000hz=1.0,
-            gain_20000hz=2.0,
+            gain____50hz=3.0,
+            gain___100hz=9.0,
+            gain___156hz=6.0,
+            gain___220hz=1.0,
+            gain___311hz=-5.0,
+            gain___440hz=-10.0,
+            gain___622hz=-7.0,
+            gain___880hz=-10.0,
+            gain__1250hz=-9.0,
+            gain__1750hz=-10.0,
+            gain__2500hz=-8.0,
+            gain__3500hz=-6.0,
+            gain__5000hz=-7.0,
+            gain_10000hz=-2.0,
+            gain_20000hz=-3.0,
         )
         for c in ["L", "R"]
     ]
     ms = MidSide(name="downmix")
-    lp = Lowpass(name="lowpass", cutoff_frequency=CROSSOVER_FREQ)
-    hp = Highpass(name="highpass", cutoff_frequency=CROSSOVER_FREQ)
-    low_eq = EQ(name="lowEQ")
-    high_eq = EQ(name="highEQ")
+    lp = Lowpass(name="lowpass", cutoff_frequency=2500, stages=4)
+    hp = Highpass(name="highpass", cutoff_frequency=2500, stages=4)
+    pre_hp_low = Highpass(name="pre_hp_low", cutoff_frequency=38, stages=4)
+    pre_lp_high = Lowpass(name="pre_lp_high", cutoff_frequency=20000, stages=4)
+    input_limiter = Limiter(
+        name="inputLim", input_gain=-11.0, limit=-1.0, release_time=0.05
+    )
+
+    low_eq = MultibandEQ(
+        name="lowEQ",
+        gain____50hz=10.0,
+        gain___880hz=12.0,
+        gain__1250hz=15.0,
+    )
+    high_eq = MultibandEQ(
+        name="highEQ",
+        gain__2500hz=-7.0,
+        gain__3500hz=-5.0,
+        gain__5000hz=2.0,
+        gain_10000hz=10.0,
+        gain_20000hz=15.0,
+    )
     lim_high = Limiter(
         name="highLim",
-        input_gain=0.0 if SOLO[1] else -100.0,
-        limit=-1.0,
+        input_gain=-7.0 if SOLO[1] else -100.0,
+        limit=0.0,
         release_time=0.05,
     )
     lim_low = Limiter(
         name="lowLim",
         input_gain=0.0 if SOLO[0] else -100.0,
-        limit=-1.0,
+        limit=0.0,
         release_time=0.05,
     )
 
-    valve = Valve(name="valve", distortion_level=0.5, distortion_character=0.5)
+    # valve = Valve(name="valve", distortion_level=0.1, distortion_character=0.2)
 
     G = Graph()
-    G.connect(eqs[0], ms.left, root_input=[0])
-    G.connect(eqs[1], ms.right, root_input=[1])
     G.connect(
-        ms.mid,
+        input_limiter.input1,
+        input_limiter.output1,
+        eqs[0],
+        ms.left,
+        root_input=[0],
+    )
+    G.connect(
+        input_limiter.input2,
+        input_limiter.output2,
+        eqs[1],
+        ms.right,
+        root_input=[1],
+    )
+    common_chain = ms.mid
+    G.connect(
+        common_chain,
+        pre_hp_low,
         lp,
         low_eq,
-        valve,
+        # valve,
         lim_low.input1,
         lim_low.output1,
         root_output=[0],
     )
     G.connect(
-        ms.mid,
+        common_chain,
+        pre_lp_high,
         hp,
         high_eq,
         lim_high.input1,
@@ -91,9 +121,14 @@ def setup_filter_chain():
 
 
 def enable_filter_chain():
+    print("Setting up filter chain")
     setup_filter_chain()
 
+    subprocess.check_output(["systemctl", "--user", "restart", "filter-chain.service"])
+    time.sleep(2)
+
     try:
+        print("Setting default audio chain")
         subprocess.check_output(
             Path(__file__).parent / "set_default.sh", stderr=subprocess.STDOUT
         )

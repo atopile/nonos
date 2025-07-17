@@ -30,7 +30,7 @@ def main():
     pd_controller.ensure_nvm_custom()
 
     # set to 0 dB
-    amp.set_volume(-12.0)
+    amp.set_volume(0)
 
     enable_filter_chain()
 

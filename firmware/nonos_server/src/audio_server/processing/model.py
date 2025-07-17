@@ -218,19 +218,19 @@ class MultibandEQ(Node):
     plugin: str = "mbeq_1197"
     label: str = "mbeq"
 
-    gain_50hz: float = f("50Hz gain (low shelving)")
-    gain_100hz: float = f("100Hz gain")
-    gain_156hz: float = f("156Hz gain")
-    gain_220hz: float = f("220Hz gain")
-    gain_311hz: float = f("311Hz gain")
-    gain_440hz: float = f("440Hz gain")
-    gain_622hz: float = f("622Hz gain")
-    gain_880hz: float = f("880Hz gain")
-    gain_1250hz: float = f("1250Hz gain")
-    gain_1750hz: float = f("1750Hz gain")
-    gain_2500hz: float = f("2500Hz gain")
-    gain_3500hz: float = f("3500Hz gain")
-    gain_5000hz: float = f("5000Hz gain")
+    gain____50hz: float = f("50Hz gain (low shelving)")
+    gain___100hz: float = f("100Hz gain")
+    gain___156hz: float = f("156Hz gain")
+    gain___220hz: float = f("220Hz gain")
+    gain___311hz: float = f("311Hz gain")
+    gain___440hz: float = f("440Hz gain")
+    gain___622hz: float = f("622Hz gain")
+    gain___880hz: float = f("880Hz gain")
+    gain__1250hz: float = f("1250Hz gain")
+    gain__1750hz: float = f("1750Hz gain")
+    gain__2500hz: float = f("2500Hz gain")
+    gain__3500hz: float = f("3500Hz gain")
+    gain__5000hz: float = f("5000Hz gain")
     gain_10000hz: float = f("10000Hz gain")
     gain_20000hz: float = f("20000Hz gain")
 
@@ -259,7 +259,7 @@ class Lowpass(Node):
     label: str = "lowpass_iir"
 
     cutoff_frequency: float = f("Cutoff Frequency", 20000)
-    # stages: int = f("Stages(2 poles per stage)", 1)
+    stages: int = f("Stages(2 poles per stage)", 1)
 
     input: Channel = c_in("Input")
     output: Channel = c_out("Output")
@@ -271,7 +271,7 @@ class Highpass(Node):
     label: str = "highpass_iir"
 
     cutoff_frequency: float = f("Cutoff Frequency")
-    # stages: int = f("Stages(2 poles per stage)", 1)
+    stages: int = f("Stages(2 poles per stage)", 1)
 
     input: Channel = c_in("Input")
     output: Channel = c_out("Output")

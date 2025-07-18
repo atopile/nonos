@@ -31,7 +31,8 @@ sudo cp $CONFIGS/config.txt /boot/firmware/config.txt
 sudo cp $CONFIGS/bluetooth_main.conf /etc/bluetooth/main.conf
 
 # TODO VNC seems not to take pasword
-cp -r $CONFIGS/vnc /home/atopile/.vnc
+#cp -r $CONFIGS/vnc /home/atopile/.vnc
+vncpasswd
 
 
 # setup autologin with linger

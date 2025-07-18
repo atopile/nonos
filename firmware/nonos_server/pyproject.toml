@@ -1,0 +1,77 @@
+[project]
+name = "nonos-server"
+version = "0.1.0"
+description = "Complete audio system with TCP-I2C bridge, TAS5825 DSP controller, and audio server"
+authors = [{ name = "Sigma Audio System", email = "dev@example.com" }]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "structlog>=24.0.0",
+    "pydantic>=2.0.0",
+    "asyncio-mqtt>=0.16.0",
+    "smbus2>=0.4.0",
+    "more-itertools>=10.0.0",
+    "gpiod>=2.3.0",
+    "dbus-next>=0.2.0",
+]
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.12.0",
+    "black>=24.0.0",
+    "ruff>=0.6.0",
+    "mypy>=1.11.0",
+]
+
+[project.scripts]
+tcp-i2c-bridge = "tcp_i2c_bridge.cli:main"
+audio-server = "audio_server.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --tb=short"
+asyncio_mode = "auto"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tcp_i2c_bridge", "src/audio_server"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[dependency-groups]
+dev = ["pytest-asyncio>=1.0.0"]

@@ -1,0 +1,16 @@
+[Unit]
+Description=Start TigerVNC server at startup for display :0
+After=network.target
+
+[Service]
+Type=forking
+#User=atopile
+ExecStart=/usr/bin/vncserver :0 -localhost no
+ExecStop=/usr/bin/vncserver -kill :0
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

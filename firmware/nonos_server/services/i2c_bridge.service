@@ -1,0 +1,17 @@
+[Unit]
+Description=TCP I2C Bridge Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+#User=atopile
+WorkingDirectory=/home/atopile/nonos_server
+ExecStart=/home/atopile/nonos_server/.venv_pi/bin/python src/tcp_i2c_bridge/main.py i2c 0 0x3b
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

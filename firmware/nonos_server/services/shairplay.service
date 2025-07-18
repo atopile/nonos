@@ -1,0 +1,18 @@
+[Unit]
+Description=Shairplay
+After=network.target pipewire.service
+Wants=network.target pipewire.socket
+
+[Service]
+Type=simple
+#User=atopile
+WorkingDirectory=/home/atopile/shairplay
+ExecStart=/usr/local/bin/shairplay
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment="PIPEWIRE_REMOTE=/run/user/1000/pipewire-0"
+
+[Install]
+WantedBy=default.target

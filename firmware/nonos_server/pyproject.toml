@@ -11,6 +11,7 @@ dependencies = [
     "asyncio-mqtt>=0.16.0",
     "smbus2>=0.4.0",
     "more-itertools>=10.0.0",
+    "gpiod>=2.3.0",
 ]
 requires-python = ">=3.11"
 license = { text = "MIT" }

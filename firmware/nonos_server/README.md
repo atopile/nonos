@@ -69,6 +69,12 @@ TODO
 speaker-test -Dasymed -c2 -t sine -f 1000 -F S32_LE
 ```
 
+## Touch
+
+- builtin driver (hat.dts) does not register key presses
+- seems to be related to calibration not working
+- multitouch does not work
+
 # Broken
 
 - bluetooth only works after login with ssh

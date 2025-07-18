@@ -336,20 +336,11 @@ class TAS5825:
         DigitalVolume(device=self).db = db
 
 
-def main() -> None:
+def main(volume: float) -> None:
     bus = smbus2.SMBus("/dev/i2c-0")
     tas5825 = TAS5825(bus, 0x4E)
 
-    d = tas5825
-    print("Resetting")
-    d.enable_shortcut()
-
-    sap_ctrl2 = SAP_CTRL2(device=d)
-    print(SAP_CTRL1.DATA_FORMAT(sap_ctrl2).value)
-    print(SAP_CTRL1.WORD_LENGTH(sap_ctrl2).value)
-
-    # d.set_volume(0xFF)
-    print("Done")
+    tas5825.set_volume(volume)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,44 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+    
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            status = "disabled";
+            #address-cells = <1>;
+            #size-cells = <0>;
+            
+            cap1188@2b {
+                compatible = "microchip,cap1188";
+                reg = <0x2b>;
+                interrupt-parent = <&gpio>;
+                interrupts = <22 2>; // GPIO22, falling edge
+                microchip,sensitivity-delta-sense = <64>;
+                status = "okay";
+            };
+
+            //pn5321@24 {
+            //    compatible = "nxp,pn532";
+            //    reg = <0x24>;
+            //    interrupt-parent = <&gpio>;
+            //    interrupts = <17 2>; // GPIO17, falling edge
+            //    reset-gpios = <&gpio 16 1>; // GPIO16, active low
+            //    status = "okay";
+            //};
+        };
+    };
+
+    fragment@1 {
+        target = <&gpio>;
+        __overlay__ {
+            speaker_hat_pins: speaker_hat_pins {
+                brcm,pins = <16 17 22>;
+                brcm,function = <1 0 0>; // out, in, in
+                brcm,pull = <0 2 2>; // none, pull-up, pull-up
+            };
+        };
+    };
+};

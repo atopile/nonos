@@ -3,6 +3,7 @@
 set -e
 
 ROOT=$(realpath $(dirname $0))
+CONFIGS=$ROOT/configs
 cd /home/atopile
 
 # APT SETUP ----------------------------------------------------------------
@@ -25,18 +26,7 @@ uv pip install -e .
 cd /home/atopile
 
 
-# CONFIG -------------------------------------------------------------------
-CONFIGS=$ROOT/configs
-sudo cp $CONFIGS/config.txt /boot/firmware/config.txt
-sudo cp $CONFIGS/bluetooth_main.conf /etc/bluetooth/main.conf
 
-# TODO VNC seems not to take pasword
-#cp -r $CONFIGS/vnc /home/atopile/.vnc
-vncpasswd
-
-
-# setup autologin with linger
-sudo loginctl enable-linger atopile
 
 # PACKAGES -----------------------------------------------------------------
 sudo apt update
@@ -60,6 +50,16 @@ which shairplay || {
     sudo make install
 }
 
+# CONFIG -------------------------------------------------------------------
+sudo cp $CONFIGS/config.txt /boot/firmware/config.txt
+sudo cp $CONFIGS/bluetooth_main.conf /etc/bluetooth/main.conf
+
+mkdir -p /home/atopile/.vnc
+cp $CONFIGS/vnc/passwd /home/atopile/.vnc/passwd
+
+
+# setup autologin with linger
+sudo loginctl enable-linger atopile
 
 # SERVICES -----------------------------------------------------------------
 

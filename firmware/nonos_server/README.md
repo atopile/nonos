@@ -2,7 +2,7 @@
 
 ```bash
 # rsync nonos_server to nonos
-rsync -a nonos_server/ nonos:
+rsync -a nonos_server nonos:
 ssh nonos "cd nonos_server && ./setup.sh"
 ```
 

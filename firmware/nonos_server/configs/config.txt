@@ -63,4 +63,4 @@ dtoverlay=vc4-kms-v3d,noaudio
 
 
 #dtoverlay=hat
-dtparam=ant2
+#dtparam=ant2

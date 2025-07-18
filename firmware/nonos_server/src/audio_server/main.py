@@ -43,17 +43,26 @@ def slider_handler(amp: TAS5825, button: Button):
 
 def play_pause_handler(_: Button):
     print("Play/Pause")
-    play_pause_track()
+    try:
+        play_pause_track()
+    except Exception as e:
+        print(f"Error playing/pausing: {e}")
 
 
 def prev_handler(_: Button):
     print("Previous")
-    previous_track()
+    try:
+        previous_track()
+    except Exception as e:
+        print(f"Error playing/pausing: {e}")
 
 
 def next_handler(_: Button):
     print("Next")
-    next_track()
+    try:
+        next_track()
+    except Exception as e:
+        print(f"Error playing/pausing: {e}")
 
 
 def signal_handler(instances: list, signum, frame):
@@ -64,7 +73,7 @@ def signal_handler(instances: list, signum, frame):
         instance.running = False
 
 
-def main(init: bool = True, reload_filter: bool = True):
+def main(init: bool = True, reload_filter: bool = True, mpv: bool = True):
     i2c = smbus2.SMBus(I2C_BUS)
     dsp = ADAU1452(i2c, DSP_I2C_ADDRESS, DSP_GPIO_ENABLE)
     amp = TAS5825(i2c, AMP_I2C_ADDRESS)
@@ -81,9 +90,8 @@ def main(init: bool = True, reload_filter: bool = True):
     # This is quite dangerous
     if init:
         pd_controller.ensure_nvm_custom()
-
-    # set to 0 dB
-    amp.set_volume(-12)
+        # set to 0 dB
+        amp.set_volume(-12)
 
     if reload_filter:
         enable_filter_chain()
@@ -108,7 +116,8 @@ def main(init: bool = True, reload_filter: bool = True):
         lambda signum, frame: signal_handler([buttons], signum, frame),
     )
 
-    play_mpv()
+    if mpv:
+        play_mpv()
     buttons.run()
     # buttons_thread.start()
     # print("Buttons thread started")

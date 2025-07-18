@@ -333,6 +333,7 @@ class TAS5825:
         FaultClear(device=self).clear()
 
     def set_volume(self, db: float) -> None:
+        AnalogGain(device=self).db = 0.0
         DigitalVolume(device=self).db = db
 
 

@@ -14,6 +14,8 @@ from audio_server.processing.model import (
 
 # -------------------------- Example ------------------------
 
+CHAIN_CONF = (Path(__file__).parent / "chain.conf").resolve().absolute()
+
 
 def setup_filter_chain():
     SOLO = [
@@ -117,12 +119,29 @@ def setup_filter_chain():
     )
 
     chain = make_chain(G, "Speaker-Master")
-    (Path(__file__).parent / "chain.conf").write_text(chain, encoding="utf-8")
+    CHAIN_CONF.write_text(chain, encoding="utf-8")
 
 
 def enable_filter_chain():
     print("Setting up filter chain")
     setup_filter_chain()
+
+    subprocess.check_output(
+        ["sudo", "mkdir", "-p", "/etc/pipewire/filter-chain.conf.d"],
+        stderr=subprocess.STDOUT,
+    )
+
+    target = "/etc/pipewire/filter-chain.conf.d/chain.conf"
+    if not Path(target).exists():
+        subprocess.check_output(
+            [
+                "sudo",
+                "ln",
+                "-s",
+                CHAIN_CONF,
+                target,
+            ],
+        )
 
     subprocess.check_output(["systemctl", "--user", "restart", "filter-chain.service"])
     time.sleep(2)

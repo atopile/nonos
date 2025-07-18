@@ -3,33 +3,7 @@
 ```bash
 # rsync nonos_server to nonos
 rsync -a nonos_server/ nonos:
-```
-
-```bash
-# update mirrors
-sudo apt update
-# install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-# install nonos_server
-cd nonos_server
-uv venv .venv_pi
-source .venv_pi/bin/activate
-uv pip install -e .
-```
-
-/boot/firmware/config.txt
-
-```
-dtoverlay=i2s-mmap
-dtoverlay=googlevoicehat-soundcard
-dtparam=i2s=on
-
-#dtparam=audio=on
-dtoverlay=vc4-kms-v3d,noaudio
-
-# enable DSP
-dtparam=i2s_vc=on
-gpio=20=op,dh
+ssh nonos "cd nonos_server && ./setup.sh"
 ```
 
 ## Bluetooth
@@ -57,12 +31,6 @@ TODO
 - shairplay
 - ...
 
-## Services
-
-```bash
-./nonos_server/make_symlinks.sh
-```
-
 # Test
 
 ```bash
@@ -78,6 +46,7 @@ speaker-test -Dasymed -c2 -t sine -f 1000 -F S32_LE
 # Broken
 
 - bluetooth only works after login with ssh
+- vnc stuff, see setup.sh (needs manual vncpasswd set)
 
 # NOTES
 

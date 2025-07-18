@@ -1,4 +1,5 @@
 import signal
+import socket
 import threading
 
 import smbus2
@@ -26,17 +27,34 @@ CAP1188_I2C_ADDRESS = 0x2B
 
 DSP_GPIO_ENABLE = 20
 
+g_last_slider: Button | None = None
+
 
 def slider_handler(amp: TAS5825, button: Button):
+    global g_last_slider
+
     volume_map_db = {
-        Buttons.SLIDER_0: -100,
-        Buttons.SLIDER_1: -24,
-        Buttons.SLIDER_2: -18,
-        Buttons.SLIDER_3: -12,
-        Buttons.SLIDER_4: -3,
+        Buttons.SLIDER_0: -24,
+        Buttons.SLIDER_1: -18,
+        Buttons.SLIDER_2: -12,
+        Buttons.SLIDER_3: -6,
+        Buttons.SLIDER_4: 0,
     }
 
     volume = volume_map_db[button.id]
+
+    # Mute
+    if g_last_slider is not None:
+        if button.id == Buttons.SLIDER_0 and g_last_slider.id == Buttons.SLIDER_0:
+            print("Mute")
+            volume = -100
+        # Boost
+        if button.id == Buttons.SLIDER_4 and g_last_slider.id == Buttons.SLIDER_4:
+            print("Boost")
+            volume = 6
+
+    g_last_slider = button
+
     print(f"Setting volume to {volume} dB")
     amp.set_volume(volume)
 
@@ -73,7 +91,23 @@ def signal_handler(instances: list, signum, frame):
         instance.running = False
 
 
-def main(init: bool = True, reload_filter: bool = True, mpv: bool = True):
+PER_HOST_DEFAULTS = {
+    "nonos-2": {
+        "mpv": True,
+    },
+    "nonos-3": {
+        "mpv": True,
+    },
+}
+hostname = socket.gethostname()
+HOST_CONFIG = PER_HOST_DEFAULTS.get(hostname, {})
+
+
+def main(
+    init: bool = True,
+    reload_filter: bool = True,
+    mpv: bool = HOST_CONFIG.get("mpv", True),
+):
     i2c = smbus2.SMBus(I2C_BUS)
     dsp = ADAU1452(i2c, DSP_I2C_ADDRESS, DSP_GPIO_ENABLE)
     amp = TAS5825(i2c, AMP_I2C_ADDRESS)
@@ -103,11 +137,13 @@ def main(init: bool = True, reload_filter: bool = True, mpv: bool = True):
         Buttons.SLIDER_3,
         Buttons.SLIDER_4,
     ]:
-        buttons.subscribe(slider, lambda button: slider_handler(amp, button))
+        buttons.subscribe(
+            slider, lambda button: slider_handler(amp, button)
+        ).debounce_ms = 250
 
-    buttons.subscribe(Buttons.BOT_MIDDLE, play_pause_handler).debounce_ms = 1000
-    buttons.subscribe(Buttons.BOT_LEFT, prev_handler).debounce_ms = 1000
-    buttons.subscribe(Buttons.BOT_RIGHT, next_handler).debounce_ms = 1000
+    buttons.subscribe(Buttons.BOT_MIDDLE, play_pause_handler).debounce_ms = 500
+    buttons.subscribe(Buttons.BOT_LEFT, prev_handler).debounce_ms = 250
+    buttons.subscribe(Buttons.BOT_RIGHT, next_handler).debounce_ms = 250
 
     buttons_thread = threading.Thread(target=buttons.run)  # noqa: F841
 

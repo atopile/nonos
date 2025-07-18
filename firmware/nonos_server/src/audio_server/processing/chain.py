@@ -16,6 +16,8 @@ from audio_server.processing.model import (
 
 CHAIN_CONF = (Path(__file__).parent / "chain.conf").resolve().absolute()
 
+OUT_GAIN = -6.0
+
 
 def setup_filter_chain():
     SOLO = [
@@ -69,15 +71,15 @@ def setup_filter_chain():
     )
     lim_high = Limiter(
         name="highLim",
-        input_gain=-7.0 if SOLO[1] else -100.0,
+        input_gain=-7.0 + OUT_GAIN if SOLO[1] else -100.0,
         limit=0.0,
-        release_time=0.05,
+        release_time=5,
     )
     lim_low = Limiter(
         name="lowLim",
-        input_gain=0.0 if SOLO[0] else -100.0,
+        input_gain=0.0 + OUT_GAIN if SOLO[0] else -100.0,
         limit=0.0,
-        release_time=0.05,
+        release_time=5,
     )
 
     # valve = Valve(name="valve", distortion_level=0.1, distortion_character=0.2)

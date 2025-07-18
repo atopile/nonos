@@ -163,7 +163,7 @@ class CAP1188:
         # Initialize registers
         self.clear_interrupt()
         self.write_reg(_Registers.SENSOR_INPUT_ENABLE, 0xFF)  # Enable all sensors
-        self.set_sensitivity(6)  # Set sensitivity
+        self.set_sensitivity(7)  # Set sensitivity
         self.write_reg(_Registers.INTERRUPT_ENABLE, 0xFF)  # Enable interrupts
 
         print("CAP1188 initialized successfully")

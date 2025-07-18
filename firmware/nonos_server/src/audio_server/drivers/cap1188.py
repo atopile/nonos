@@ -3,6 +3,7 @@ CAP1188 Touch Monitor - Python version
 Monitors touch events from CAP1188 capacitive touch controller
 """
 
+import time
 from collections.abc import Callable
 from datetime import datetime
 from enum import IntEnum
@@ -25,8 +26,8 @@ class _Registers(IntEnum):
 
 
 class Buttons(IntEnum):
-    BOT_LEFT = 0
-    BOT_MIDDLE = 1
+    BOT_MIDDLE = 0
+    BOT_LEFT = 1
     BOT_RIGHT = 2
     SLIDER_0 = 3
     SLIDER_1 = 4
@@ -35,14 +36,27 @@ class Buttons(IntEnum):
     SLIDER_4 = 7
 
 
+DEBOUNCE_MS = 100
+
+
 class Button:
-    def __init__(self, id: Buttons):
+    def __init__(self, id: Buttons, debounce_ms: int = DEBOUNCE_MS):
         self.id = id
         self.callbacks: list[Callable[[Button], None]] = []
+        self.last_pressed = None
+        self.debounce_ms = debounce_ms
 
     def feed(self, pressed: bool):
         if pressed:
-            print(f"Button {self.id.name} pressed")
+            now = time.monotonic()
+            if self.last_pressed is not None and (now - self.last_pressed) < (
+                self.debounce_ms / 1000
+            ):
+                print(f"Button {self.id.name} pressed but debounced")
+                return
+            print(now)
+            self.last_pressed = now
+            print(f"Button {self.id.name} pressed (delta {now - self.last_pressed})")
             for callback in self.callbacks:
                 callback(self)
 
@@ -80,7 +94,9 @@ class CAP1188:
         self.buttons = [Button(id) for id in Buttons]
 
     def subscribe(self, button: Buttons, callback: "Callable[[Button], None]"):
-        self.buttons[button].subscribe(callback)
+        b = self.buttons[button]
+        b.subscribe(callback)
+        return b
 
     def write_reg(self, reg: int, data: int):
         self.bus.write_byte_data(self.i2c_address, reg, data)

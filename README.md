@@ -212,7 +212,7 @@ Using a calibrated reference microphone we swept each driver, loaded the recordi
 
 ### Prerequisites
 
-- **[atopile](https://atopile.io/getting-started)** compiler installed
+- **[atopile](https://docs.atopile.io/atopile/quickstart)** compiler installed
 - KiCad 8.0 or later (for PCB viewing/editing)
 - Basic SMD soldering equipment
 

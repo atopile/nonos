@@ -1,10 +1,10 @@
 # NONOS
 
-### The Open Source Smart Speaker Built with [atopile](https://atopile.io) ⚡
+### The Open Source Smart Speaker
 
 <div align="center">
   
-  ![NONOS Smart Speaker](photo.jpg)
+  ![NONOS Smart Speaker](media/photo.jpg)
   
   **Premium Sound • Privacy First • Fully Hackable**
   
@@ -18,7 +18,7 @@
 
 ## 🎵 Experience Audio Freedom
 
-NONOS is a premium smart speaker that puts you in control. Built entirely with open-source hardware and powered by **[atopile](https://atopile.io)**, it delivers exceptional sound quality while respecting your privacy.
+NONOS is a premium smart speaker that puts you in control. It delivers exceptional sound quality while respecting your privacy, and its hardware is described declaratively in lightweight `.ato` files.
 
 ### ✨ Key Features
 
@@ -127,11 +127,38 @@ Three Saleae-compatible headers for easy development:
 - I2C bus monitoring
 - I2S audio stream analysis
 
+### Printed Circuit Boards
+
+#### Mainboard
+
+![NONOS Mainboard Render](media/main-board.png)
+
+- **atopile module:** `NONOS` (`elec/src/nonos.ato`)
+- USB-C Power Delivery input via **STUSB4500** (up to 20 V)
+- Power tree: **TPS54560x** 5 V buck ➜ **TLV75901** 3 .3 V LDO
+- **Raspberry Pi CM5** compute module
+- **ADAU145x** audio DSP ➜ **TAS5825M** 2-channel Class-D amplifier
+- 10-pin mezzanine connector to the Hat
+- Connectors for full-range & tweeter speakers
+- Three Saleae-compatible debug headers (UART, I2C, I2S)
+
+#### Control Hat
+
+![Interactive Hat PCB](media/hat.png)
+
+- **atopile module:** `Hat` (`elec/src/hat.ato`)
+- **PN5321** NFC transceiver with custom button-antenna
+- **CAP1188** capacitive touch sensor (3 buttons + 5-point slider)
+- 23× **SK6805** side-emitting RGB LEDs arranged in a ring
+- **74LVC1T45** level-shifter for reliable 5 V LED data
+- Powered from 3 .3 V (logic) & 5 V (LEDs) supplied by the mainboard
+- 10-pin mezzanine connector mates directly with the mainboard
+
 ---
 
-## 🛠️ Built with atopile
+## 🛠️ Hardware Design
 
-NONOS showcases the power of **[atopile](https://atopile.io)** - the language that makes hardware design as easy as software. Every component, connection, and power rail is defined in clean, readable `.ato` files.
+The hardware is captured in concise `.ato` design files (powered by [atopile](https://atopile.io)).
 
 ```ato
 module NONOS:
@@ -167,6 +194,20 @@ nonos/
 
 ---
 
+## 🎚️ Audio Tuning
+
+<table>
+<tr>
+<td width="33%"><img src="media/calibration-setup.png" alt="Calibration setup"/></td>
+<td width="33%"><img src="media/dsp.png" alt="DSP tuning"/></td>
+<td width="33%"><img src="media/tuning.png" alt="Frequency response"/></td>
+</tr>
+</table>
+
+Using a calibrated reference microphone we swept each driver, loaded the recordings into **Audacity** to eyeball the bumps and dips, then built FIR/biquad filters in SigmaStudio and dialed-in a 2-way crossover with gentle EQ to flatten the combined response. The whole process took about **20 heroic minutes**—roughly _twice_ the time it looks like Sonos spends on some of their launch-day tunings 😉.
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -193,11 +234,11 @@ nonos/
 3. **Generate manufacturing files**
 
    ```bash
-   ato build -t mfg
+   ato build -t all
    ```
 
 4. **Order PCBs and components**
-   - Upload gerbers to your preferred PCB manufacturer
+   - Upload gerbers from `/build` to your preferred PCB manufacturer
    - Use the generated BOM for component ordering
 
 ---

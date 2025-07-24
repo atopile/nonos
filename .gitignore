@@ -40,7 +40,7 @@ venv/
 .ato/
 
 # IDEs
-.vscode/
+.vscode/**
 *.code-workspace
 
 __pycache__/

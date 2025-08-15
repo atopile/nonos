@@ -1,10 +1,10 @@
 (kicad_symbol_lib
     (version 1)
     (generator "faebryk")
-    (symbol "0402B151K500NT"
+    (symbol "CL10A475KL8NRNC"
         (property "Reference" "C"
             (id 0)
-            (at 0 5.08 0)
+            (at 0 10.16 0)
             (effects
                 (font
                     (size 1.27 1.27)
@@ -12,38 +12,18 @@
                 (hide no)
             )
         )
-        (property "Value" "0402B151K500NT"
+        (property "Value" "CL10A475KL8NRNC"
             (id 1)
-            (at 0 -5.08 0)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (hide no)
-            )
-        )
-        (property "Footprint" "C1527:C0402"
-            (id 2)
-            (at 0 -7.62 0)
-            (effects
-                (font
-                    (size 1.27 1.27)
-                )
-                (hide yes)
-            )
-        )
-        (property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_150pF-151-10-50V_C1527.html"
-            (id 3)
             (at 0 -10.16 0)
             (effects
                 (font
                     (size 1.27 1.27)
                 )
-                (hide yes)
+                (hide no)
             )
         )
-        (property "LCSC Part" "C1527"
-            (id 5)
+        (property "Footprint" "C307467:C0603"
+            (id 2)
             (at 0 -12.7 0)
             (effects
                 (font
@@ -52,7 +32,27 @@
                 (hide yes)
             )
         )
-        (property "checksum" "3561ec675638f4f204b6f60656b12b0882e9a5031e7c78e7173e483e7dffb11a"
+        (property "Datasheet" "https://lcsc.com/product-detail/Others_Samsung-Electro-Mechanics_CL10A475KL8NRNC_Samsung-Electro-Mechanics-CL10A475KL8NRNC_C307467.html"
+            (id 3)
+            (at 0 -15.24 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "LCSC Part" "C307467"
+            (id 5)
+            (at 0 -17.78 0)
+            (effects
+                (font
+                    (size 1.27 1.27)
+                )
+                (hide yes)
+            )
+        )
+        (property "checksum" "14a85a425a8839122303d0a2fc1f0fd43835b1352ed2e64d296ded4872e39284"
             (at 0 0 0)
             (effects
                 (font
@@ -63,7 +63,7 @@
         )
         (in_bom yes)
         (on_board yes)
-        (symbol "0402B151K500NT_0_1"
+        (symbol "CL10A475KL8NRNC_0_1"
             (polyline
                 (stroke
                     (width 0)
@@ -74,8 +74,8 @@
                     (type none)
                 )
                 (pts
-                    (xy -0.51 2.03)
-                    (xy -0.51 -2.03)
+                    (xy -2.03 0.51)
+                    (xy 2.03 0.51)
                 )
             )
             (polyline
@@ -88,8 +88,8 @@
                     (type none)
                 )
                 (pts
-                    (xy 0.51 2.03)
-                    (xy 0.51 -2.03)
+                    (xy 0 -2.54)
+                    (xy 0 -0.51)
                 )
             )
             (polyline
@@ -102,8 +102,8 @@
                     (type none)
                 )
                 (pts
-                    (xy -1.27 0)
-                    (xy -0.51 0)
+                    (xy 2.03 -0.51)
+                    (xy -2.03 -0.51)
                 )
             )
             (polyline
@@ -116,12 +116,12 @@
                     (type none)
                 )
                 (pts
-                    (xy 0.51 0)
-                    (xy 1.27 0)
+                    (xy 0 0.51)
+                    (xy 0 2.54)
                 )
             )
-            (pin input line
-                (at -3.81 0 0)
+            (pin unspecified line
+                (at 0 5.08 270)
                 (length 2.54)
                 (name "1"
                     (effects
@@ -140,8 +140,8 @@
                     )
                 )
             )
-            (pin input line
-                (at 3.81 0 180)
+            (pin unspecified line
+                (at 0 -5.08 90)
                 (length 2.54)
                 (name "2"
                     (effects

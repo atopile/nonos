@@ -1,8 +1,8 @@
 (kicad_symbol_lib
     (version 1)
     (generator "faebryk")
-    (symbol "CC0603KRX7R9BB104"
-        (property "Reference" "C"
+    (symbol "0402WGF4702TCE"
+        (property "Reference" "R"
             (id 0)
             (at 0 5.08 0)
             (effects
@@ -12,7 +12,7 @@
                 (hide no)
             )
         )
-        (property "Value" "CC0603KRX7R9BB104"
+        (property "Value" "0402WGF4702TCE"
             (id 1)
             (at 0 -5.08 0)
             (effects
@@ -22,7 +22,7 @@
                 (hide no)
             )
         )
-        (property "Footprint" "C14663:C0603"
+        (property "Footprint" "C25792:R0402"
             (id 2)
             (at 0 -7.62 0)
             (effects
@@ -32,7 +32,7 @@
                 (hide yes)
             )
         )
-        (property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_100nF-104-10-50V_C14663.html"
+        (property "Datasheet" "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount-UniOhm_47KR-4702-1_C25792.html"
             (id 3)
             (at 0 -10.16 0)
             (effects
@@ -42,7 +42,7 @@
                 (hide yes)
             )
         )
-        (property "LCSC Part" "C14663"
+        (property "LCSC Part" "C25792"
             (id 5)
             (at 0 -12.7 0)
             (effects
@@ -52,7 +52,7 @@
                 (hide yes)
             )
         )
-        (property "checksum" "7d70f3969c11086cce23deb186ec74b2d337eeda49a6a2a1f4f291aa2c3bd190"
+        (property "checksum" "6399e9dd9bd769aeb8c9a6b8d09715ecd01b59e184ef7275c2658137684d6d2c"
             (at 0 0 0)
             (effects
                 (font
@@ -63,84 +63,20 @@
         )
         (in_bom yes)
         (on_board yes)
-        (symbol "CC0603KRX7R9BB104_0_1"
-            (polyline
+        (symbol "0402WGF4702TCE_0_1"
+            (rectangle
+                (start -2.54 1.02)
+                (end 2.54 -1.02)
                 (stroke
                     (width 0)
                     (type default)
                     (color 0 0 0 0)
                 )
                 (fill
-                    (type none)
-                )
-                (pts
-                    (xy -0.51 -2.03)
-                    (xy -0.51 2.03)
+                    (type background)
                 )
             )
-            (polyline
-                (stroke
-                    (width 0)
-                    (type default)
-                    (color 0 0 0 0)
-                )
-                (fill
-                    (type none)
-                )
-                (pts
-                    (xy 2.54 0)
-                    (xy 0.51 0)
-                )
-            )
-            (polyline
-                (stroke
-                    (width 0)
-                    (type default)
-                    (color 0 0 0 0)
-                )
-                (fill
-                    (type none)
-                )
-                (pts
-                    (xy 0.51 2.03)
-                    (xy 0.51 -2.03)
-                )
-            )
-            (polyline
-                (stroke
-                    (width 0)
-                    (type default)
-                    (color 0 0 0 0)
-                )
-                (fill
-                    (type none)
-                )
-                (pts
-                    (xy -0.51 0)
-                    (xy -2.54 0)
-                )
-            )
-            (pin unspecified line
-                (at -5.08 0 0)
-                (length 2.54)
-                (name "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                        (hide no)
-                    )
-                )
-                (number "1"
-                    (effects
-                        (font
-                            (size 1.27 1.27)
-                        )
-                        (hide no)
-                    )
-                )
-            )
-            (pin unspecified line
+            (pin input line
                 (at 5.08 0 180)
                 (length 2.54)
                 (name "2"
@@ -152,6 +88,26 @@
                     )
                 )
                 (number "2"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+            )
+            (pin input line
+                (at -5.08 0 0)
+                (length 2.54)
+                (name "1"
+                    (effects
+                        (font
+                            (size 1.27 1.27)
+                        )
+                        (hide no)
+                    )
+                )
+                (number "1"
                     (effects
                         (font
                             (size 1.27 1.27)

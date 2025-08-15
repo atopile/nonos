@@ -1,7 +1,7 @@
 (kicad_symbol_lib
     (version 1)
     (generator "faebryk")
-    (symbol "0402WGF5102TCE"
+    (symbol "RC0402FR-071K8L"
         (property "Reference" "R"
             (id 0)
             (at 0 5.08 0)
@@ -12,7 +12,7 @@
                 (hide no)
             )
         )
-        (property "Value" "0402WGF5102TCE"
+        (property "Value" "RC0402FR-071K8L"
             (id 1)
             (at 0 -5.08 0)
             (effects
@@ -22,7 +22,7 @@
                 (hide no)
             )
         )
-        (property "Footprint" "C25794:R0402"
+        (property "Footprint" "C163481:R0402"
             (id 2)
             (at 0 -7.62 0)
             (effects
@@ -32,7 +32,7 @@
                 (hide yes)
             )
         )
-        (property "Datasheet" "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount-UniOhm_51KR-5102-1_C25794.html"
+        (property "Datasheet" "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_RC0402FR-071K8L_C163481.html"
             (id 3)
             (at 0 -10.16 0)
             (effects
@@ -42,7 +42,7 @@
                 (hide yes)
             )
         )
-        (property "LCSC Part" "C25794"
+        (property "LCSC Part" "C163481"
             (id 5)
             (at 0 -12.7 0)
             (effects
@@ -52,7 +52,7 @@
                 (hide yes)
             )
         )
-        (property "checksum" "b8f9b4ff27dbdc2cea6e4a1a34f9281a138e23553bdf47c3781df79548a0b59e"
+        (property "checksum" "1c3d72a680bc8c4e949ad541bd43c3ea7e300f52bac18fe7044ddcaba18f0dba"
             (at 0 0 0)
             (effects
                 (font
@@ -63,7 +63,7 @@
         )
         (in_bom yes)
         (on_board yes)
-        (symbol "0402WGF5102TCE_0_1"
+        (symbol "RC0402FR-071K8L_0_1"
             (rectangle
                 (start -2.54 1.02)
                 (end 2.54 -1.02)
@@ -76,7 +76,7 @@
                     (type background)
                 )
             )
-            (pin input line
+            (pin unspecified line
                 (at 5.08 0 180)
                 (length 2.54)
                 (name "2"
@@ -96,7 +96,7 @@
                     )
                 )
             )
-            (pin input line
+            (pin unspecified line
                 (at -5.08 0 0)
                 (length 2.54)
                 (name "1"

@@ -1,0 +1,22 @@
+#pragma experiment("TRAITS")
+import has_datasheet_defined
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component FH_0603B562K500NT_package:
+    """5.6nF (562) ±10% 50V"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C1628", date="2025-07-21T20:17:22.779118+00:00", checksum="2d35a09443afba22c0cd52df5f6252f9b136723336f0114fb8f6a8f1c26134f1">
+
+    trait is_atomic_part<manufacturer="FH", partnumber="0603B562K500NT", footprint="C0603.kicad_mod", symbol="0603B562K500NT.kicad_sym", model="C0603_L1.6-W0.8-H0.8.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C1628", manufacturer="FH", partno="0603B562K500NT">
+    trait has_designator_prefix<prefix="C">
+    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2411220213_FH-0603B562K500NT_C1628.pdf">
+
+    # pins
+    pin 1
+    pin 2

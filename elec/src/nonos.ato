@@ -12,11 +12,12 @@ import Resistor
 
 from "atopile/st-stusb4500/st-stusb4500.ato" import STUSB4500
 from "atopile/rpi-cm5/cm5.ato" import CM5
-from "atopile/ti-tps54560x/ti-tps54560x.ato" import TPS54560x
-from "atopile/saleae-header/saleae-header.ato" import SaleaeHeader
+from "atopile/ti-tps54560x/ti-tps54560x.ato" import TI_TPS54560
+from "atopile/saleae-header/saleae-header.ato" import SaleaeHeaderVertical
 from "atopile/ti-tas5825mrhbr/ti_tas5825mrhbr.ato" import Texas_Instruments_TAS5825MRHBR_driver
 from "atopile/adi-adau145x/adau145x.ato" import Analog_Devices_ADAU145x_driver
 from "atopile/ti-tlv75901/ti-tlv75901.ato" import TLV75901_driver
+from "parts/Kyocera_AVX_04025A8R2JAT2A/Kyocera_AVX_04025A8R2JAT2A.ato" import Kyocera_AVX_04025A8R2JAT2A_package
 
 from "parts/JST_Sales_America_B02B_XASK_1_A_LF__SN/JST_Sales_America_B02B_XASK_1_A_LF__SN.ato" import JST_Sales_America_B02B_XASK_1_A_LF__SN_package
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
@@ -31,7 +32,7 @@ module NONOS:
 
     # Components
     cm5 = new CM5
-    regulator_5v = new TPS54560x
+    regulator_5v = new TI_TPS54560
     regulator_3v3 = new TLV75901_driver
     amplifier = new Texas_Instruments_TAS5825MRHBR_driver
     pd_controller = new STUSB4500
@@ -42,7 +43,7 @@ module NONOS:
     board_to_board_connector = new TE_Connectivity_1_2328702_0_package
     full_range_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
     tweeter_speaker_connector = new JST_Sales_America_B02B_XASK_1_A_LF__SN_package
-    debug_headers = new SaleaeHeader[3]
+    debug_headers = new SaleaeHeaderVertical[3]
 
     # Power rails
     power_20v = new ElectricPower
@@ -56,7 +57,7 @@ module NONOS:
         power_20v.gnd ~ bulk_cap.2
 
     # Specify voltages on power rails
-    power_5v.voltage = 5V +/- 5%
+    power_5v.voltage = 5.1V +/- 3%
     power_3v3.voltage = 3.3V +/- 5%
 
     # addressing
@@ -84,6 +85,10 @@ module NONOS:
     power_3v3 ~ pd_controller.power_mcu
     power_20v ~ amplifier.power_pvdd
     power_3v3 ~ amplifier.power_dvdd
+
+    # Regulator compensation tweak for part availability
+    regulator_5v.compensation_capacitors[1].capacitance = 20pF +/- 10%
+    regulator_5v.compensation_capacitors[1].package = "0402"
 
     # amplifier
     cm5.i2cs[0] ~ amplifier.i2c
@@ -134,54 +139,32 @@ module NONOS:
     cm5.uart0.base_uart.rx ~ debug_headers[0].channels[1]
     power_5v.hv ~ debug_headers[0].channels[2].line
     power_3v3.hv ~ debug_headers[0].channels[3].line
-    power_3v3.lv ~ debug_headers[0].gnd
+    power_3v3.lv ~ debug_headers[0].channels[0].reference_shim.lv
 
     debug_i2c = new I2C
     # cm5.i2cs[0] ~ debug_i2c
     cm5.i2cs[0].scl ~ debug_headers[1].channels[0]
     cm5.i2cs[0].sda ~ debug_headers[1].channels[1]
     cm5.cm5.hdi_a.pins[17] ~ debug_headers[1].channels[2].line # Ethernet sync_out
-    power_3v3.lv ~ debug_headers[1].gnd
+    power_3v3.lv ~ debug_headers[1].channels[0].reference_shim.lv
 
     debug_i2s = new I2S
     cm5_i2s ~ debug_i2s
     debug_i2s.sck ~ debug_headers[2].channels[0]
     debug_i2s.ws ~ debug_headers[2].channels[1]
     debug_i2s.sd ~ debug_headers[2].channels[2]
-    power_3v3.lv ~ debug_headers[2].gnd
+    power_3v3.lv ~ debug_headers[2].channels[0].reference_shim.lv
 
     # ADAU Addressing
     addr_resistors = new Resistor[2]
-    dsp.model.i2c_address_bits[0].line ~> addr_resistors[0] ~> power_3v3.vcc
-    dsp.model.i2c_address_bits[1].line ~> addr_resistors[1] ~> power_3v3.vcc
+    dsp.model.addressor.address_lines[0].line ~> addr_resistors[0] ~> power_3v3.vcc
+    dsp.model.addressor.address_lines[1].line ~> addr_resistors[1] ~> power_3v3.vcc
     # dsp.model.i2c.address = 0x3B # seems to be broken :(
     for resistor in addr_resistors:
         resistor.value = 10kohm +/- 1%
         resistor.package = "0402"
 
-
-    # Name ethernet diff pairs
-    cm5.cm5.ethernet.pairs[0].n.line.override_net_name = "eth0_N"
-    cm5.cm5.ethernet.pairs[0].p.line.override_net_name = "eth0_P"
-    cm5.cm5.ethernet.pairs[1].n.line.override_net_name = "eth1_N"
-    cm5.cm5.ethernet.pairs[1].p.line.override_net_name = "eth1_P"
-    cm5.cm5.ethernet.pairs[2].p.line.override_net_name = "eth2_P"
-    cm5.cm5.ethernet.pairs[2].n.line.override_net_name = "eth2_N"
-    cm5.cm5.ethernet.pairs[3].p.line.override_net_name = "eth3_P"
-    cm5.cm5.ethernet.pairs[3].n.line.override_net_name = "eth3_N"
-
     # Net names
-    usb_connector.cc[0].line.override_net_name = "cc0"
-    usb_connector.cc[1].line.override_net_name = "cc1"
-    cm5.i2cs[0].scl.line.override_net_name = "i2c0_scl"
-    cm5.i2cs[0].sda.line.override_net_name = "i2c0_sda"
-    cm5.i2cs[1].scl.line.override_net_name = "i2c1_scl"
-    cm5.i2cs[1].sda.line.override_net_name = "i2c1_sda"
-    cm5_i2s.sck.line.override_net_name = "i2s_sck"
-    cm5_i2s.ws.line.override_net_name = "i2s_ws"
-    cm5_i2s.sd.line.override_net_name = "i2s_sd"
-    cm5.uart0.base_uart.tx.line.override_net_name = "uart0_tx"
-    cm5.uart0.base_uart.rx.line.override_net_name = "uart0_rx"
     cm5.cm5.gpio[16].line.override_net_name = "nfc_reset"
     cm5.cm5.gpio[17].line.override_net_name = "nfc_interrupt"
     cm5.cm5.gpio[22].line.override_net_name = "touch_interrupt"

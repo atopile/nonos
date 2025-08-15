@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_datasheet_defined
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component TDK_NLV32T_R56J_EF_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    #trait is_auto_generated<system="ato_part", source="easyeda:C295112", date="2025-07-21T20:05:00.047731+00:00", checksum="e0f22a7f9740e89b707e578678ad4972f73b34e85c08d400e02326de223067c4">
+
+    trait is_atomic_part<manufacturer="TDK", partnumber="NLV32T-R56J-EF", footprint="IND-SMD_L3.2-W2.5.kicad_mod", symbol="NLV32T-R56J-EF.kicad_sym", model="IND-SMD_L3.2-W2.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C295112", manufacturer="TDK", partno="NLV32T-R56J-EF">
+    trait has_designator_prefix<prefix="L">
+    trait has_datasheet_defined<datasheet="https://lcsc.com/datasheet/lcsc_datasheet_2412201105_TDK-NLV32T-R56J-EF_C295112.pdf">
+
+    # pins
+    pin 2
+    pin 1

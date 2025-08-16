@@ -7,7 +7,7 @@ import Resistor
 
 from "atopile/nxp-pn5321/nxp-pn5321.ato" import NXP_PN5321_driver
 from "atopile/addressable-leds/sk6805-side.ato" import SK6805Side_driver
-from "atopile/microchip-cap1188/microchip_cap1188.ato" import Microchip_Tech_CAP1188_1_CP_TR_driver
+from "atopile/microchip-cap1188/microchip-cap1188.ato" import Microchip_CAP1188
 
 from "parts/TE_Connectivity_1_2328702_0/TE_Connectivity_1_2328702_0.ato" import TE_Connectivity_1_2328702_0_package
 from "parts/hat-button-antenna/button-antenna.ato" import ButtonAntenna
@@ -22,7 +22,7 @@ module Hat:
     led_data = new ElectricLogic
     
     nfc = new NXP_PN5321_driver
-    touch = new Microchip_Tech_CAP1188_1_CP_TR_driver
+    touch = new Microchip_CAP1188
     board_to_board_connector = new TE_Connectivity_1_2328702_0_package
     leds = new SK6805Side_driver[23]
     hat_button_antenna = new ButtonAntenna
@@ -61,14 +61,14 @@ module Hat:
         pullup.package = "R0402"
 
     # Touch Sensor
-    touch.pads[0].line ~ hat_button_antenna.play_button
-    touch.pads[1].line ~ hat_button_antenna.prev_button
-    touch.pads[2].line ~ hat_button_antenna.next_button
-    touch.pads[3].line ~ hat_button_antenna.slider[0]
-    touch.pads[4].line ~ hat_button_antenna.slider[1]
-    touch.pads[5].line ~ hat_button_antenna.slider[2]
-    touch.pads[6].line ~ hat_button_antenna.slider[3]
-    touch.pads[7].line ~ hat_button_antenna.slider[4]
+    touch.touch_pads[0].line ~ hat_button_antenna.play_button
+    touch.touch_pads[1].line ~ hat_button_antenna.prev_button
+    touch.touch_pads[2].line ~ hat_button_antenna.next_button
+    touch.touch_pads[3].line ~ hat_button_antenna.slider[0]
+    touch.touch_pads[4].line ~ hat_button_antenna.slider[1]
+    touch.touch_pads[5].line ~ hat_button_antenna.slider[2]
+    touch.touch_pads[6].line ~ hat_button_antenna.slider[3]
+    touch.touch_pads[7].line ~ hat_button_antenna.slider[4]
     
     # Connector
     board_to_board_connector.1 ~ i2c.sda.line

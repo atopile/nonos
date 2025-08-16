@@ -1,8 +1,15 @@
 {
     "mcpServers": {
         "atopile": {
-            "command": "/Users/narayanpowderly/projects/atopile/.venv/bin/ato",
+            "command": "/Users/narayanpowderly/Library/Application Support/Cursor/User/globalStorage/atopile.atopile/uv-bin/uv",
             "args": [
+                "tool",
+                "run",
+                "-p",
+                "3.13",
+                "--from",
+                "atopile",
+                "ato",
                 "mcp",
                 "start",
                 "--no-http"

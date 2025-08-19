@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component UNI_ROYAL_0402WGF4700TCE_package:
+    """470Ω (4700) ±1%"""
+
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C25117", date="2025-08-19T01:58:20.179999+00:00", checksum="5e8a2a707c7f20b8b8d0628f724f5bce942df50ebdece09baec3e22017f5d82c">
+
+    trait is_atomic_part<manufacturer="UNI-ROYAL", partnumber="0402WGF4700TCE", footprint="R0402.kicad_mod", symbol="0402WGF4700TCE.kicad_sym", model="R0402_L1.0-W0.5-H0.4.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C25117", manufacturer="UNI-ROYAL", partno="0402WGF4700TCE">
+    trait has_designator_prefix<prefix="R">
+
+    # pins
+    pin 2
+    pin 1

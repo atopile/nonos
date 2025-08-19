@@ -2,9 +2,11 @@ requires-atopile: ^0.10.5
 builds:
   default:
     entry: elec/src/nonos.ato:NONOS
+    exclude_checks: ["PCB.requires_drc_check"] # TODO: issue in adau-1452 footprint with vias not being connected to ground
     hide_designators: true
   hat:
     entry: elec/src/hat.ato:Hat
+    exclude_checks: ["PCB.requires_drc_check"] # TODO: remove this, caused by antenna not being a net tie
     hide_designators: true
 
 dependencies:

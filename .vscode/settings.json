@@ -1,8 +1,0 @@
-{
-    "python.defaultInterpreterPath": "/Users/napowderly/Projects/space-bms/.venv/bin/python3.12",
-    "editor.rulers": [
-        89
-    ],
-    "python.analysis.typeCheckingMode": "basic",
-    "editor.formatOnSave": true
-}

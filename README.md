@@ -272,6 +272,6 @@ Special thanks to the atopile community for making hardware development accessib
   
 **Ready to build your own NONOS?**
 
-[📖 Read the Docs](https://github.com/atopile/nonos) • [💬 Join Discord](https://discord.gg/C9kZgkGS) • [⭐ Star on GitHub](https://github.com/atopile/nonos)
+[📖 Read the Docs](https://github.com/atopile/nonos) • [💬 Join Discord](https://discord.gg/7XSb5zTyfr) • [⭐ Star on GitHub](https://github.com/atopile/nonos)
 
 </div>

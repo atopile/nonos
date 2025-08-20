@@ -2,37 +2,41 @@ requires-atopile: ^0.10.5
 builds:
   default:
     entry: elec/src/nonos.ato:NONOS
+    exclude_checks: ["PCB.requires_drc_check"] # TODO: issue in adau-1452 footprint with vias not being connected to ground
+    hide_designators: true
   hat:
     entry: elec/src/hat.ato:Hat
+    exclude_checks: ["PCB.requires_drc_check"] # TODO: remove this, caused by antenna not being a net tie
+    hide_designators: true
 
 dependencies:
-- type: registry
-  identifier: atopile/nxp-pn5321
-  release: 0.1.3
-- type: registry
-  identifier: atopile/addressable-leds
-  release: 0.2.6
-- type: registry
-  identifier: atopile/st-stusb4500
-  release: 0.1.5
-- type: registry
-  identifier: atopile/ti-tas5825mrhbr
-  release: 0.1.6
-- type: registry
-  identifier: atopile/adi-adau145x
-  release: 0.1.5
-- type: registry
-  identifier: atopile/ti-tlv75901
-  release: 0.3.0
-- type: registry
-  identifier: atopile/ti-tps54560x
-  release: 0.1.6
-- type: registry
-  identifier: atopile/rpi-cm5
-  release: 0.1.5
-- type: registry
-  identifier: atopile/microchip-cap1188
-  release: 0.2.0
-- type: registry
-  identifier: atopile/saleae-header
-  release: 0.2.1
+  - type: registry
+    identifier: atopile/nxp-pn5321
+    release: 0.1.4
+  - type: registry
+    identifier: atopile/addressable-leds
+    release: 0.2.6
+  - type: registry
+    identifier: atopile/st-stusb4500
+    release: 0.1.5
+  - type: registry
+    identifier: atopile/ti-tas5825mrhbr
+    release: 0.1.6
+  - type: registry
+    identifier: atopile/adi-adau145x
+    release: 0.1.5
+  - type: registry
+    identifier: atopile/ti-tlv75901
+    release: 0.3.0
+  - type: registry
+    identifier: atopile/ti-tps54560x
+    release: 0.1.6
+  - type: registry
+    identifier: atopile/rpi-cm5
+    release: 0.1.5
+  - type: registry
+    identifier: atopile/microchip-cap1188
+    release: 0.2.0
+  - type: registry
+    identifier: atopile/saleae-header
+    release: 0.2.1
